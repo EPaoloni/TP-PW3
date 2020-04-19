@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -24,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,31 +103,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\lib\materialize\css\materialize.css" />
-    <Content Include="Content\lib\materialize\css\materialize.min.css" />
+    <Content Include="Content\lib\bootstrap\bootstrap.css" />
+    <Content Include="Content\lib\bootstrap\bootstrap.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\lib\angulajs\angular-animate.js" />
-    <Content Include="Scripts\lib\angulajs\angular-animate.min.js" />
-    <Content Include="Scripts\lib\angulajs\angular-mocks.js" />
-    <Content Include="Scripts\lib\angulajs\angular.js" />
-    <Content Include="Scripts\lib\angulajs\angular.min.js" />
-    <Content Include="Scripts\app\app.module.js" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Thin.woff2" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Thin.woff" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Regular.woff2" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Regular.woff" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Medium.woff2" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Medium.woff" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Light.woff2" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Light.woff" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Bold.woff2" />
-    <Content Include="Content\lib\materialize\fonts\roboto\Roboto-Bold.woff" />
-    <None Include="Scripts\lib\jquery\jquery-2.1.1.intellisense.js" />
-    <Content Include="Scripts\lib\jquery\jquery-2.1.1.js" />
-    <Content Include="Scripts\lib\jquery\jquery-2.1.1.min.js" />
-    <Content Include="Scripts\lib\materialize\materialize.js" />
-    <Content Include="Scripts\lib\materialize\materialize.min.js" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\Inicio\Info.png" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -149,9 +133,6 @@
     <Content Include="Views\Home\Inicio.cshtml" />
     <Content Include="Views\Home\Ingresar.cshtml" />
     <Content Include="Views\Home\Registrarse.cshtml" />
-    <Content Include="Scripts\lib\angulajs\angular.min.js.map" />
-    <Content Include="Scripts\lib\angulajs\angular-animate.min.js.map" />
-    <Content Include="Scripts\lib\jquery\jquery-2.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,12 +143,17 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\app\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

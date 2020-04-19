@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
+using System.Web.Hosting;
 
 namespace WebApp
 {
@@ -10,6 +11,7 @@ namespace WebApp
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+
             //usa Include() para agregar el archivo css
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                                                     "~/Content/lib/materialize/css/materialize.css",
@@ -27,8 +29,6 @@ namespace WebApp
                                         "~/Scripts/lib/jquery/jquery-2.1.1.js",
                                         "~/Scripts/lib/materialize/materialize.js"
                                     ));
-
-
         }
     }
 }
