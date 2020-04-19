@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "_UsuarioLayout";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+@Html.Partial("pv_NavbarUsuario");
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@Html.Partial("../Shared/pv_Footer");
