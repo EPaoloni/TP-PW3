@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 
-namespace WebApp.App_Start
+namespace WebApp
 {
     public class BundleConfig
     {
@@ -29,7 +29,6 @@ namespace WebApp.App_Start
                                     ));
 
 
-            BundleTable.EnableOptimizations = true;
         }
     }
 }
