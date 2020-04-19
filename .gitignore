@@ -31,7 +31,6 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 
@@ -42,7 +41,6 @@ bld/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
-WebApp/bin/*
 WebApp/obj/*
 
 # MSTest test Results
