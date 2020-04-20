@@ -103,13 +103,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
+    <Content Include="Content\lib\bootstrap-vue\bootstrap-vue.css" />
     <Content Include="Content\lib\bootstrap\bootstrap.css" />
-    <Content Include="Content\lib\bootstrap\bootstrap.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.js" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\lib\jquery\jquery.js" />
+    <Content Include="Scripts\lib\popper\popper.js" />
+    <Content Include="Scripts\lib\popper\popper.min.js" />
+    <Content Include="Scripts\lib\portal-vue\portal-vue.umd.js" />
+    <Content Include="Scripts\lib\toast\toast.js" />
+    <Content Include="Scripts\lib\vue\vue.js" />
+    <Content Include="Scripts\src\app.module.js" />
+    <Content Include="Scripts\src\components\ngb-navbar\ngbNavbar.component.js" />
+    <Content Include="Scripts\src\components\ngb-navbar\ngbNavbar.template.html" />
+    <Content Include="Scripts\src\components\ngb-navbar\ngbNavbar.module.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +155,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
