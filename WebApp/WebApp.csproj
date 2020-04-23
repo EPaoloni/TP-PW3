@@ -147,6 +147,7 @@
     <Content Include="Views\Home\Inicio.cshtml" />
     <Content Include="Views\Home\Ingresar.cshtml" />
     <Content Include="Views\Home\Registrarse.cshtml" />
+    <Content Include="Views\Shared\pv_Info.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
