@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\lib\materialize\materialize.css" />
     <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
     <Content Include="Content\lib\bootstrap-vue\bootstrap-vue.css" />
     <Content Include="Content\lib\bootstrap\bootstrap.css" />
@@ -113,6 +114,7 @@
     <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.js" />
     <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
     <Content Include="Scripts\lib\jquery\jquery.js" />
+    <Content Include="Scripts\lib\materialize\materialize.js" />
     <Content Include="Scripts\lib\popper\popper.js" />
     <Content Include="Scripts\lib\popper\popper.min.js" />
     <Content Include="Scripts\lib\portal-vue\portal-vue.umd.js" />

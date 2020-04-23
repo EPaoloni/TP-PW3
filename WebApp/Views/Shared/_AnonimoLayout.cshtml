@@ -3,12 +3,18 @@
     ViewBag.Title = "Ayudando en la Pandemia";
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
-
-@Html.Partial("pv_NavbarAnonimo");
-
-<div class="container">
-    @RenderBody()
+<div class="row">
+    <div class="col l12">
+        @Html.Partial("pv_NavbarAnonimo")
+    </div>
 </div>
+<div class="container">
 
-@Html.Partial("../Shared/pv_Footer");
+    @RenderBody()
 
+</div>
+<div class="row">
+    <div class="col l12">
+        @Html.Partial("pv_Footer")
+    </div>
+</div>
