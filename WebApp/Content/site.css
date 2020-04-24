@@ -1,7 +1,21 @@
 ﻿body {
-    
+    color: white;
 }
 
 .brand-logo{
     margin-left: 1%;
+}
+
+.card-image{
+    padding: 0px 20px 20px 20px;
+}
+
+.material-icons{
+    color: black;
+}
+
+hr {
+    color: #82b1ff;
+    margin-left: 12px;
+    margin-right: 12px;
 }
