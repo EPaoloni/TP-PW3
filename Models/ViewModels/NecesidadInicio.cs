@@ -5,11 +5,11 @@ using System.Web;
 
 namespace WebApp.ViewModels
 {
-    public class Necesidad
+    public class NecesidadInicio
     {
-        public string Titulo { get; set; }
+        public string Nombre { get; set; }
         public string PathFoto { get; set; }
-        public string NombreUsuario { get; set; }
+        public string UserName { get; set; }
         public int Valoracion { get; set; }
         public DateTime FechaCreacion { get; set; }
         public string LinkDetalle { get; set; }

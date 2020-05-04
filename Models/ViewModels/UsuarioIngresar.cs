@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.ViewModels
 {
-    class Ingresar
+    class UsuarioIngresar
     {
         public string  Email { get; set; }
         public string  Password { get; set; }

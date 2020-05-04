@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models.ViewModels
 {
-    class Registrar
+    class UsuarioRegistrar
     {
         public string Email { get; set; }
         public string Password { get; set; }
