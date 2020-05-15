@@ -28,7 +28,8 @@ namespace WebApp
                                         "~/Scripts/lib/jquery/jquery.js",
                                         "~/Scripts/lib/popper/popper.min.js",
                                         "~/Scripts/lib/toast/toast.js",
-                                        "~/Scripts/src/app.module.js"
+                                        "~/Scripts/src/components/*.js"
+
                                     ));
         }
     }

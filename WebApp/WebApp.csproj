@@ -120,10 +120,7 @@
     <Content Include="Scripts\lib\portal-vue\portal-vue.umd.js" />
     <Content Include="Scripts\lib\toast\toast.js" />
     <Content Include="Scripts\lib\vue\vue.js" />
-    <Content Include="Scripts\src\app.module.js" />
-    <Content Include="Scripts\src\components\ngb-navbar\ngbNavbar.component.js" />
-    <Content Include="Scripts\src\components\ngb-navbar\ngbNavbar.template.html" />
-    <Content Include="Scripts\src\components\ngb-navbar\ngbNavbar.module.js" />
+    <Content Include="Scripts\src\components\datepicker.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
