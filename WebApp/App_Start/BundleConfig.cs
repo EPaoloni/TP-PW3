@@ -14,7 +14,8 @@ namespace WebApp
             //usa Include() para agregar el archivo css
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                                                     "~/Content/lib/materialize/materialize.css",
-                                                    "~/Content/site.css"
+                                                    "~/Content/site.css",
+                                                    "~/Content/src/*.css"
                                                 ));
 
             //usa Include() para agregar el script js
@@ -28,7 +29,7 @@ namespace WebApp
                                         "~/Scripts/lib/jquery/jquery.js",
                                         "~/Scripts/lib/popper/popper.min.js",
                                         "~/Scripts/lib/toast/toast.js",
-                                        "~/Scripts/src/components/*.js"
+                                        "~/Scripts/src/*.js"
 
                                     ));
         }
