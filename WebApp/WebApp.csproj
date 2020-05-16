@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\lib\materialize\materialize.css" />
+    <Content Include="Content\src\progress_bar.css" />
     <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
     <Content Include="Content\lib\bootstrap-vue\bootstrap-vue.css" />
     <Content Include="Content\lib\bootstrap\bootstrap.css" />
@@ -120,7 +121,8 @@
     <Content Include="Scripts\lib\portal-vue\portal-vue.umd.js" />
     <Content Include="Scripts\lib\toast\toast.js" />
     <Content Include="Scripts\lib\vue\vue.js" />
-    <Content Include="Scripts\src\components\datepicker.js" />
+    <Content Include="Scripts\src\datepicker.js" />
+    <Content Include="Scripts\src\progressbar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +151,7 @@
     <Content Include="Views\Shared\pv_ProgressBar.cshtml" />
     <Content Include="Views\Home\pv_PublicacionMasValorada.cshtml" />
     <Content Include="Views\Home\pv_Publicacion.cshtml" />
+    <Content Include="Views\Home\pv_CardMasValorada.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

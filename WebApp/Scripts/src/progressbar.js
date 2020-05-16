@@ -10,9 +10,7 @@
         $({ counter: 1 }).animate({ counter: percentageCompleted }, {
             duration: 3000,
             step: function () {
-
                 $('#progressbar-inner').text(Math.ceil(this.counter) + ' %')
-
             }
         })
     }   
