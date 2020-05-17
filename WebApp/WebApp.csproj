@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="Content\lib\materialize\materialize.css" />
     <Content Include="Content\src\card.css" />
+    <Content Include="Content\src\info.css" />
     <Content Include="Content\src\progressbar.css" />
     <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
     <Content Include="Content\site.css" />

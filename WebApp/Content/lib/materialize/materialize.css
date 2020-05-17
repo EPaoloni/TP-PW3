@@ -4819,7 +4819,7 @@ small {
 }
 
 .card.horizontal.small .card-image img, .card.horizontal.medium .card-image img, .card.horizontal.large .card-image img {
-  height: 100%;
+  height: 90%;
 }
 
 .card.horizontal .card-image {
@@ -4853,7 +4853,7 @@ small {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
-          flex-grow: 1;
+          flex-grow: 0;
 }
 
 .card.sticky-action .card-action {
@@ -4877,7 +4877,7 @@ small {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 90%;
 }
 
 .card .card-image .card-title {
@@ -4890,7 +4890,7 @@ small {
 }
 
 .card .card-content {
-  padding: 24px;
+  padding: 10px 10px 0px 10px;
   border-radius: 0 0 2px 2px;
 }
 
@@ -4912,7 +4912,7 @@ small {
   background-color: inherit;
   border-top: 1px solid rgba(160, 160, 160, 0.2);
   position: relative;
-  padding: 16px 24px;
+  padding: 5px 10px 5px 10px;
 }
 
 .card .card-action:last-child {

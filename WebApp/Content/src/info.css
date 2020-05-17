@@ -1,0 +1,19 @@
+﻿#info {
+    height: 650px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.info-img {
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 2%;
+    right: 0;
+    top: 12%;
+    bottom: 0;
+}
+
+.info-img img {
+    width: 95%;
+}

@@ -8,13 +8,17 @@
     position: relative;
     float: left;
     color: #fff;
-    padding: 4px;
+    padding: 2px;
     z-index: 99999;
 }
 
-.progress .determinate {
-    position: relative;
-    padding: 4px;
-    text-align: right;
-    color: white;
-}
+    .progress .determinate {
+        width: 162px;
+        transition: width 1s ease-in-out;
+        position: relative;
+        padding: 2px;
+        text-align: right;
+        color: white;
+        white-space: nowrap;
+        text-align: center;
+    }

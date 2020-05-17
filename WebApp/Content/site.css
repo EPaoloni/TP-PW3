@@ -1,9 +1,9 @@
-﻿.brand-logo{
-    margin-left: 1%;
+﻿html{
+    font-size: 14px;
 }
 
-.card-image{
-    padding: 0px 20px 20px 20px;
+.brand-logo{
+    margin-left: 1%;
 }
 
 .material-icons{
@@ -14,4 +14,8 @@ hr {
     color: #82b1ff;
     margin-left: 12px;
     margin-right: 12px;
+}
+
+h5{
+    font-weight: 600;
 }
