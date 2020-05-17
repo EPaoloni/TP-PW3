@@ -9,6 +9,10 @@ namespace WebApp.Controllers
     public class PerfilController : Controller
     {
         // GET: Perfil
+        public ActionResult Inicio()
+        {
+            return RedirectToAction("Datos");
+        }
         public ActionResult Datos()
         {
             return View();
