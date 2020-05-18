@@ -20,7 +20,7 @@ namespace WebApp
 
             //usa Include() para agregar el script js
             bundles.Add(new ScriptBundle("~/bundles/script").Include(
-                                         "~/Scripts/app/app.module.js"
+                                         
                                     ));
 
             //usa Include() para agregar el script js en el footer
@@ -28,6 +28,7 @@ namespace WebApp
                                         "~/Scripts/lib/materialize/materialize.js",
                                         "~/Scripts/lib/jquery/jquery.js",
                                         "~/Scripts/lib/popper/popper.min.js",
+                                        "~/Scripts/lib/popper/popper.min.js.map",
                                         "~/Scripts/lib/toast/toast.js",
                                         "~/Scripts/src/*.js"
                                     ));
