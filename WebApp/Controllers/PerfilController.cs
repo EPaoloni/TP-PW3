@@ -17,5 +17,10 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult MisDonaciones()
+        {
+            return View();
+        }
     }
 }

@@ -155,6 +155,7 @@
     <Content Include="Views\Home\pv_Publicacion.cshtml" />
     <Content Include="Views\Home\pv_CardMasValorada.cshtml" />
     <Content Include="Views\Perfil\Datos.cshtml" />
+    <Content Include="Views\Perfil\MisDonaciones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
