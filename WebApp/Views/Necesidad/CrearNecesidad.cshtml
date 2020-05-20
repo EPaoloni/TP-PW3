@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "CrearNecesidad";
+    Layout = "~/Views/Shared/_AnonimoLayout.cshtml";
+}
+
+<script src="~/Scripts/src/CrearNecesidad.js"></script>
+
+<div>
+    <h2>Crear Necesidad</h2>
+
+    <div class="row" id="crear-necesidad-container">
+        <form class="">
+            <div class="col s10">
+                <div class="input-field">
+                    <input id="nombre" name="nombre" type="text" class="form-control col s5" placeholder="Nombre" />
+                </div>
+                <div class="input-field">
+                    <input type="number" class="form-control push-s1 col s5" placeholder="Telefono de contacto" />
+                </div>
+                <div class="input-field">
+                    <textarea class="materialize-textarea col s11" placeholder="Descripcion"></textarea>
+                </div>
+                <div class="input-field inline">
+                    <input id="fechaFin" type="date" class="form-control" />
+                    <label for="fechaFin">Fecha fin</label>
+                </div>
+                <div class="input-field">
+                    <select class="browser-default col s5">
+                        <option value="" selected>Tipo de donacion</option>
+                        <option value="Monetaria">Monetaria</option>
+                        <option value="Insumos">Insumos</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <input type="number" class="form-control col s5" placeholder="Telefono de referencia" />
+                </div>
+            </div>
+
+            <div class="col s2">
+                <button class="btn btn-primary">Agregar Foto</button>
+                <img width="135" height="135" src="~/Images/Inicio/Info.png" />
+            </div>
+
+            <button class="btn btn-primary col s2 offset-s9">Agregar</button>
+        </form>
+    </div>
+</div>
