@@ -20,11 +20,6 @@ namespace WebApp
 
             //usa Include() para agregar el script js
             bundles.Add(new ScriptBundle("~/bundles/script").Include(
-                                         
-                                    ));
-
-            //usa Include() para agregar el script js en el footer
-            bundles.Add(new ScriptBundle("~/bundles/footer").Include(
                                         "~/Scripts/lib/materialize/materialize.js",
                                         "~/Scripts/lib/jquery/jquery.js",
                                         "~/Scripts/lib/popper/popper.min.js",
@@ -32,6 +27,10 @@ namespace WebApp
                                         "~/Scripts/lib/toast/toast.js",
                                         "~/Scripts/src/*.js",
                                         "~/Scripts/src/inicio/*.js"
+                                    ));
+
+            //usa Include() para agregar el script js en el footer
+            bundles.Add(new ScriptBundle("~/bundles/footer").Include(
                                     ));
         }
     }
