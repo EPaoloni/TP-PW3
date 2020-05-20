@@ -30,7 +30,8 @@ namespace WebApp
                                         "~/Scripts/lib/popper/popper.min.js",
                                         "~/Scripts/lib/popper/popper.min.js.map",
                                         "~/Scripts/lib/toast/toast.js",
-                                        "~/Scripts/src/*.js"
+                                        "~/Scripts/src/*.js",
+                                        "~/Scripts/src/inicio/*.js"
                                     ));
         }
     }

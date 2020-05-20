@@ -106,6 +106,7 @@
     <Content Include="Content\lib\materialize\materialize.css" />
     <Content Include="Content\src\card.css" />
     <Content Include="Content\src\info.css" />
+    <Content Include="Content\src\ingresar.css" />
     <Content Include="Content\src\progressbar.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
@@ -116,6 +117,8 @@
     <Content Include="Scripts\lib\popper\popper.js" />
     <Content Include="Scripts\lib\popper\popper.min.js" />
     <Content Include="Scripts\lib\toast\toast.js" />
+    <Content Include="Scripts\src\ajax_action.js" />
+    <Content Include="Scripts\src\inicio\load_action.js" />
     <Content Include="Scripts\src\datepicker.js" />
     <Content Include="Scripts\src\progressbar.js" />
     <Content Include="Web.config" />

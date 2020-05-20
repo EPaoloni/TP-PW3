@@ -9,9 +9,9 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public ActionResult Inicio(string id)
+        public ActionResult Inicio()
         {
-            switch (id)
+            /*switch (id)
             {
                 case "Ingresar":
                     ViewBag.Action = id;
@@ -22,11 +22,11 @@ namespace WebApp.Controllers
                 default:
                     ViewBag.Action = "PublicacionMasValorada";
                     break;
-            } 
+            }*/ 
 
             return View();
         }
-        
+
         [HttpGet]
         public ActionResult Ingresar()
         {
@@ -38,7 +38,5 @@ namespace WebApp.Controllers
         {
             return PartialView("pv_Registrarse");
         }
-
-
     }
 }
