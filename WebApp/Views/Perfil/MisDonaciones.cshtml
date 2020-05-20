@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "MisDonaciones";
+    Layout = "~/Views/Shared/_AnonimoLayout.cshtml";
+}
+
+<link href="~/Content/src/perfil.css" />
+
+<div>
+    <h2>Mis Donaciones</h2>
+
+    <div class="row">
+        <button class="btn btn-primary col s2 push-s10">Volver</button>
+    </div>
+
+    <div class="row" id="datos-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Recaudado</th>
+                    <th>Mi Donación</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20/06/2011</td>
+                    <td>Belgrano</td>
+                    <td>Monetaria</td>
+                    <td>Activa</td>
+                    <td>$123</td>
+                    <td>$21</td>
+                    <td><button class="btn btn-success">Ir a la Publicación</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
