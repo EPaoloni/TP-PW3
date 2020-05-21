@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Models.ViewModels;
+using Services.Home;
 
 namespace WebApp.Controllers
 {
@@ -37,6 +39,16 @@ namespace WebApp.Controllers
         public PartialViewResult Registrarse()
         {
             return PartialView("pv_Registrarse");
+        }
+
+        [HttpPost]
+        public ActionResult Autorizacion(UsuarioIngresar usuario)
+        {
+
+            IngresarService srvIngresar = new IngresarService();
+            srvIngresar.ValidarUsuario(usuario);
+
+            return View();
         }
     }
 }

@@ -106,22 +106,15 @@
     <Content Include="Content\lib\materialize\materialize.css" />
     <Content Include="Content\src\perfil.css" />
     <Content Include="Content\src\progress_bar.css" />
-    <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
-    <Content Include="Content\lib\bootstrap-vue\bootstrap-vue.css" />
-    <Content Include="Content\lib\bootstrap\bootstrap.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />
-    <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
     <Content Include="Scripts\lib\jquery\jquery.js" />
     <Content Include="Scripts\lib\materialize\materialize.js" />
     <Content Include="Scripts\lib\popper\popper.js" />
     <Content Include="Scripts\lib\popper\popper.min.js" />
-    <Content Include="Scripts\lib\portal-vue\portal-vue.umd.js" />
     <Content Include="Scripts\lib\toast\toast.js" />
-    <Content Include="Scripts\lib\vue\vue.js" />
     <Content Include="Scripts\src\CrearNecesidad.js" />
     <Content Include="Scripts\src\datepicker.js" />
     <Content Include="Scripts\src\progressbar.js" />
@@ -171,6 +164,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{dd8eed8e-5e14-4a1d-b1d0-b94a059fe509}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{cd2c6d8d-9dc2-4f88-9cd6-bf9aa170cd40}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
