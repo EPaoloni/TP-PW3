@@ -3,11 +3,22 @@
     ViewBag.Title = "_UsuarioLayout";
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
-
-@Html.Partial("pv_NavbarUsuario");
-
-<div class="container">
-    @RenderBody()
+<div class="row">
+    <div class="col l12">
+        @Html.Partial("pv_NavbarUsuario")
+    </div>
+</div>
+<div class="row">
+    <div class="col s2">
+        @Html.Partial("pv_SideNavUsuario")
+    </div>
+    <div class="col s10">
+        @RenderBody()
+    </div>
 </div>
 
-@Html.Partial("../Shared/pv_Footer");
+<div class="row">
+    <div class="col l12">
+        @Html.Partial("pv_Footer")
+    </div>
+</div>
