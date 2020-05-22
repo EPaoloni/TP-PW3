@@ -6,7 +6,7 @@ using System.Web.SessionState;
 
 namespace WebApp.Helpers
 {
-    public class SessionHelper
+    public class SesionHelper
     {
         public static string UsuarioId
         {
@@ -20,7 +20,7 @@ namespace WebApp.Helpers
             }
         }
 
-        public string GeneradoID()
+        public string GenerarID()
         {
             SessionIDManager manager = new SessionIDManager();
             string newSessionId = manager.CreateSessionID(HttpContext.Current);

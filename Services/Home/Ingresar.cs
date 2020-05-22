@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models.ViewModels;
+using Models.ORM;
+using Models.Repository;
 
 namespace Services.Home
 {
     public class IngresarService
     {
-        public bool ValidarUsuario(UsuarioIngresar usuario)
+        public bool ValidarLogin(UsuariosMetadata usuario)
         {
+            UsuarioRepository usuarioRepo = new UsuarioRepository();
 
-            //BuscarUsuario();
+            bool respuesta = usuarioRepo.BuscarUsuarioLogin(usuario.Email, usuario.Password);
 
-            return true;
+            return respuesta;
         }
     }
 }

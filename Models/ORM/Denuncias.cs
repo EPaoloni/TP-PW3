@@ -24,6 +24,6 @@ namespace Models.ORM
     
         public virtual MotivoDenuncia MotivoDenuncia { get; set; }
         public virtual Necesidades Necesidades { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
+        public virtual UsuariosMetadata Usuarios { get; set; }
     }
 }

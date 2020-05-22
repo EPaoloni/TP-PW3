@@ -109,9 +109,16 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Foto" Type="nvarchar" MaxLength="100" />
           <Property Name="TipoUsuario" Type="int" Nullable="false" />
-          <Property Name="FechaCracion" Type="datetime" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Token" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuariosTipo">
+          <Key>
+            <PropertyRef Name="idUsuarioTipo" />
+          </Key>
+          <Property Name="idUsuarioTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_Denuncia_MotivoDenuncia">
           <End Role="MotivoDenuncia" Type="Self.MotivoDenuncia" Multiplicity="1" />
@@ -280,6 +287,7 @@
           <EntitySet Name="NecesidadesReferencias" EntityType="Self.NecesidadesReferencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NecesidadesValoraciones" EntityType="Self.NecesidadesValoraciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuariosTipo" EntityType="Self.UsuariosTipo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Denuncia_MotivoDenuncia" Association="Self.FK_Denuncia_MotivoDenuncia">
             <End Role="MotivoDenuncia" EntitySet="MotivoDenuncia" />
             <End Role="Denuncias" EntitySet="Denuncias" />
@@ -463,7 +471,7 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Foto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TipoUsuario" Type="Int32" Nullable="false" />
-          <Property Name="FechaCracion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Denuncias" Relationship="Self.FK_Denuncias_Usuarios" FromRole="Usuarios" ToRole="Denuncias" />
@@ -471,6 +479,13 @@
           <NavigationProperty Name="DonacionesMonetarias" Relationship="Self.FK_DonacionesMonetarias_Usuarios" FromRole="Usuarios" ToRole="DonacionesMonetarias" />
           <NavigationProperty Name="Necesidades" Relationship="Self.FK_Necesidades_Usuarios" FromRole="Usuarios" ToRole="Necesidades" />
           <NavigationProperty Name="NecesidadesValoraciones" Relationship="Self.FK_NecesidadesValoraciones_Usuarios" FromRole="Usuarios" ToRole="NecesidadesValoraciones" />
+        </EntityType>
+        <EntityType Name="UsuariosTipo">
+          <Key>
+            <PropertyRef Name="idUsuarioTipo" />
+          </Key>
+          <Property Name="idUsuarioTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_Denuncia_MotivoDenuncia">
           <End Role="MotivoDenuncia" Type="Self.MotivoDenuncia" Multiplicity="1" />
@@ -628,7 +643,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EntitiesTP" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Pandemia" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Denuncias" EntityType="Self.Denuncias" />
           <EntitySet Name="DonacionesInsumos" EntityType="Self.DonacionesInsumos" />
           <EntitySet Name="DonacionesMonetarias" EntityType="Self.DonacionesMonetarias" />
@@ -639,6 +654,7 @@
           <EntitySet Name="NecesidadesReferencias" EntityType="Self.NecesidadesReferencias" />
           <EntitySet Name="NecesidadesValoraciones" EntityType="Self.NecesidadesValoraciones" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="UsuariosTipo" EntityType="Self.UsuariosTipo" />
           <AssociationSet Name="FK_Denuncia_MotivoDenuncia" Association="Self.FK_Denuncia_MotivoDenuncia">
             <End Role="MotivoDenuncia" EntitySet="MotivoDenuncia" />
             <End Role="Denuncias" EntitySet="Denuncias" />
@@ -697,7 +713,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EntitiesTP">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Pandemia">
           <EntitySetMapping Name="Denuncias">
             <EntityTypeMapping TypeName="Model.Denuncias">
               <MappingFragment StoreEntitySet="Denuncias">
@@ -810,9 +826,17 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
                 <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
-                <ScalarProperty Name="FechaCracion" ColumnName="FechaCracion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="Token" ColumnName="Token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuariosTipo">
+            <EntityTypeMapping TypeName="Model.UsuariosTipo">
+              <MappingFragment StoreEntitySet="UsuariosTipo">
+                <ScalarProperty Name="idUsuarioTipo" ColumnName="idUsuarioTipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

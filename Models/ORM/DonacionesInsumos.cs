@@ -20,6 +20,6 @@ namespace Models.ORM
         public int Cantidad { get; set; }
     
         public virtual NecesidadesDonacionesInsumos NecesidadesDonacionesInsumos { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
+        public virtual UsuariosMetadata Usuarios { get; set; }
     }
 }

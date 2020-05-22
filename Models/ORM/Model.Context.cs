@@ -13,10 +13,10 @@ namespace Models.ORM
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EntitiesTP : DbContext
+    public partial class Pandemia : DbContext
     {
-        public EntitiesTP()
-            : base("name=EntitiesTP")
+        public Pandemia()
+            : base("name=Pandemia")
         {
         }
     
@@ -34,6 +34,7 @@ namespace Models.ORM
         public virtual DbSet<NecesidadesDonacionesMonetarias> NecesidadesDonacionesMonetarias { get; set; }
         public virtual DbSet<NecesidadesReferencias> NecesidadesReferencias { get; set; }
         public virtual DbSet<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<UsuariosMetadata> Usuarios { get; set; }
+        public virtual DbSet<UsuariosTipo> UsuariosTipo { get; set; }
     }
 }

@@ -12,10 +12,10 @@ namespace Models.ORM
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class UsuariosMetadata
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
+        public UsuariosMetadata()
         {
             this.Denuncias = new HashSet<Denuncias>();
             this.DonacionesInsumos = new HashSet<DonacionesInsumos>();
@@ -33,7 +33,7 @@ namespace Models.ORM
         public string Password { get; set; }
         public string Foto { get; set; }
         public int TipoUsuario { get; set; }
-        public System.DateTime FechaCracion { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
         public bool Activo { get; set; }
         public string Token { get; set; }
     

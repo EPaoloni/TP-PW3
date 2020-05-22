@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Models.ViewModels;
 using Services.Home;
+using Models.ORM;
+using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
@@ -42,11 +43,16 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Autorizacion(UsuarioIngresar usuario)
+        public ActionResult Autorizacion(UsuariosMetadata usuario)
         {
-
             IngresarService srvIngresar = new IngresarService();
-            srvIngresar.ValidarUsuario(usuario);
+            SesionHelper sesionHelp = new SesionHelper();
+            bool respuesta = srvIngresar.ValidarLogin(usuario);
+
+            if (respuesta == true)
+            {
+                SesionHelper.UsuarioId = sesionHelp.GenerarID();
+            }
 
             return View();
         }

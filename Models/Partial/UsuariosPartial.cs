@@ -8,7 +8,7 @@ using Models.Metadata;
 
 namespace Models.Partial
 {
-    [MetadataType(typeof(UsuariosMetadata)]
+    [MetadataType(typeof(UsuariosMetadata))]
     public partial class Usuarios
     {
 
