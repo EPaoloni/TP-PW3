@@ -2,31 +2,39 @@
 @{
     ViewBag.Title = "pv_SideNavUsuario";
 }
+<link href="~/Content/src/sideNavUsuario.css" rel="stylesheet"/>
 
-<div class="row center-align">
+<div class="row center-align grey lighten-2" id="sideNavSuperior">
     <div class="col"></div>
     <div class="col s10">
             <div class="row center-align">
-                <img class="circle responsive-img" src="~/Images/Perfil/Bulbasaur.png"/>
+                <img src="~/Images/Perfil/Bulbasaur.png" width="40%"/>
             </div>
             <div class="row center-align">
-                <p>NOMBRE_USUARIO</p>
+                <p class="blue-text">NOMBRE_USUARIO</p>
             </div>
             <div class="row center-align">
-                <p>E-MAIL</p>
+                <p class="blue-text">E-MAIL</p>
             </div>
-            <div class="row center-align">
-                <p>USUARIO</p>
-                <hr />
-                <a href="#" class="btn blue accent-3">PERFIL</a>
-            </div>
-            <div class="row center-align">
-                <p>NECESIDADES</p>
-                <hr />
-                <a href="#" class="btn blue accent-3">PROPIAS</a>
-            </div>
-            <div class="row center-align"><a href="#" class="btn blue accent-3">OTROS USUARIOS</a></div>
-            <div class="row center-align"><a href="#" class="btn blue accent-3">CREAR</a></div>
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row center-align blue" id="sideNavInferior">
+    <div class="col"></div>
+    <div class="col s10">
+        <div class="row center-align">
+            <p class="white-text">USUARIO</p>
+            <hr />
+            <a href="#" class="btn blue accent-3">PERFIL</a>
+        </div>
+        <div class="row center-align">
+            <p class="white-text">NECESIDADES</p>
+            <hr />
+            <a href="#" class="btn blue accent-3">PROPIAS</a>
+        </div>
+        <div class="row center-align"><a href="#" class="btn blue accent-3 white-text">OTROS USUARIOS</a></div>
+        <div class="row center-align"><a href="#" class="btn blue accent-3 white-text">CREAR</a></div>
     </div>
     <div class="col"></div>
 </div>
