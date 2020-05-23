@@ -13,7 +13,7 @@ namespace Models.Repository
     public class UsuarioRepository : IUsuario
     {
         Pandemia db = new Pandemia();
-        public bool Agregar(ORM.UsuariosMetadata entidad)
+        public bool Agregar(UsuariosMetadata entidad)
         {
             throw new NotImplementedException();
         }
@@ -23,12 +23,12 @@ namespace Models.Repository
             throw new NotImplementedException();
         }
 
-        public bool Modificar(ORM.UsuariosMetadata entidad)
+        public bool Modificar(UsuariosMetadata entidad)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ORM.UsuariosMetadata> ObtenerTodo()
+        public IEnumerable<UsuariosMetadata> ObtenerTodo()
         {
             throw new NotImplementedException();
         }

@@ -11,6 +11,6 @@ namespace Models.Partial
     [MetadataType(typeof(UsuariosMetadata))]
     public partial class Usuarios
     {
-
+        public string MensajeErrorGeneralLogin { get; set; }
     }
 }

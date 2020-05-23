@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Services.Home;
-using Models.ORM;
 using WebApp.Helpers;
+using Models.Partial;
+using Models.Metadata;
 
 namespace WebApp.Controllers
 {
@@ -43,18 +44,24 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Autorizacion(UsuariosMetadata usuario)
+        public ActionResult Ingresar(UsuariosMetadata usuario)
         {
             IngresarService srvIngresar = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();
+
             bool respuesta = srvIngresar.ValidarLogin(usuario);
 
-            if (respuesta == true)
+            if (ModelState.IsValid)
             {
-                SesionHelper.UsuarioId = sesionHelp.GenerarID();
+                if (respuesta == true)
+                {
+                    SesionHelper.UsuarioId = sesionHelp.GenerarID();
+                    return RedirectToAction("Bienvenido");
+                }                
             }
 
-            return View();
+            return RedirectToAction("Ingresar");
+
         }
     }
 }

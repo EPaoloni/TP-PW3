@@ -50,6 +50,12 @@
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -104,13 +110,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\lib\materialize\materialize.css" />
+    <Content Include="Content\src\alert.css" />
+    <Content Include="Content\src\card.css" />
+    <Content Include="Content\src\info.css" />
+    <Content Include="Content\src\ingresar.css" />
     <Content Include="Content\src\perfil.css" />
-    <Content Include="Content\src\progress_bar.css" />
+    <Content Include="Content\src\progressbar.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />
     <Content Include="Scripts\lib\jquery\jquery.js" />
+    <Content Include="Scripts\lib\jquery\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\lib\materialize\materialize.js" />
     <Content Include="Scripts\lib\popper\popper.js" />
     <Content Include="Scripts\lib\popper\popper.min.js" />
@@ -153,6 +165,9 @@
     <Content Include="Views\Perfil\Datos.cshtml" />
     <Content Include="Views\Perfil\MisDonaciones.cshtml" />
     <Content Include="Views\Necesidad\CrearNecesidad.cshtml" />
+    <Content Include="Views\Home\pv_Registrarse.cshtml" />
+    <Content Include="Views\Home\pv_Ingresar.cshtml" />
+    <Content Include="Views\Home\Bienvenido.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

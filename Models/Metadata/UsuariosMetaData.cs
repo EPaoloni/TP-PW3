@@ -7,15 +7,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models.Metadata
 {
-    class UsuariosMetadata
+    public class UsuariosMetadata
     {
+        public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public System.DateTime FechaNacimiento { get; set; }
         public string UserName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo requerido")]
+        [EmailAddress(ErrorMessage = "Formato de email incorrecto")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo requerido")]
         public string Password { get; set; }
         public string Foto { get; set; }
         public int TipoUsuario { get; set; }
