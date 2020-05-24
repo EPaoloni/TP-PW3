@@ -19,3 +19,7 @@ hr {
 h5{
     font-weight: 600;
 }
+
+.btn-primary {
+    background-color: #0277bd;
+}
