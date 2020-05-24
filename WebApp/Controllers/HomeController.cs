@@ -5,46 +5,35 @@ using System.Web;
 using System.Web.Mvc;
 using Services.Home;
 using WebApp.Helpers;
-using Models.Partial;
-using Models.Metadata;
+using Models.ORM;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
         [HttpGet]
-        public ActionResult Inicio()
+        public ActionResult Inicio(string id)
         {
-            /*switch (id)
+            
+
+            switch (id)
             {
                 case "Ingresar":
-                    ViewBag.Action = id;
+                    ViewBag.Action = "pv_Ingresar";
                     break;
                 case "Registrarse":
-                    ViewBag.Action = id;
+                    ViewBag.Action = "pv_Registrarse";
                     break;
                 default:
-                    ViewBag.Action = "PublicacionMasValorada";
+                    ViewBag.Action = "pv_PublicacionMasValorada";
                     break;
-            }*/ 
+            } 
 
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Ingresar()
-        {
-            return PartialView("pv_Ingresar");
-        }
-
-        [HttpGet]
-        public PartialViewResult Registrarse()
-        {
-            return PartialView("pv_Registrarse");
-        }
-
         [HttpPost]
-        public ActionResult Ingresar(UsuariosMetadata usuario)
+        public ActionResult Ingresar(UsuariosPartial usuario)
         {
             IngresarService srvIngresar = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();

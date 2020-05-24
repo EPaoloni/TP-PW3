@@ -13,7 +13,7 @@ namespace Models.Repository
     public class UsuarioRepository : IUsuario
     {
         Pandemia db = new Pandemia();
-        public bool Agregar(UsuariosMetadata entidad)
+        public bool Agregar(UsuariosPartial entidad)
         {
             throw new NotImplementedException();
         }
@@ -23,21 +23,21 @@ namespace Models.Repository
             throw new NotImplementedException();
         }
 
-        public bool Modificar(UsuariosMetadata entidad)
+        public bool Modificar(UsuariosPartial entidad)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UsuariosMetadata> ObtenerTodo()
+        public IEnumerable<UsuariosPartial> ObtenerTodo()
         {
             throw new NotImplementedException();
         }
 
         public bool Registrar(string email, string password, DateTime fechaNacimiento)
         {
-            
 
-            UsuariosMetadata usuario = new UsuariosMetadata();
+
+            UsuariosPartial usuario = new UsuariosPartial();
             usuario.Email = email;
             usuario.Password = password;
             usuario.FechaNacimiento = fechaNacimiento;

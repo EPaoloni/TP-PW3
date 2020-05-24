@@ -34,7 +34,7 @@ namespace Models.ORM
         public virtual DbSet<NecesidadesDonacionesMonetarias> NecesidadesDonacionesMonetarias { get; set; }
         public virtual DbSet<NecesidadesReferencias> NecesidadesReferencias { get; set; }
         public virtual DbSet<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
-        public virtual DbSet<UsuariosMetadata> Usuarios { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<UsuariosTipo> UsuariosTipo { get; set; }
     }
 }

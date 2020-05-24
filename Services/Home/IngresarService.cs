@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models.Metadata;
+using Models.ORM;
 using Models.Repository;
 
 namespace Services.Home
 {
     public class IngresarService
     {
-        public bool ValidarLogin(UsuariosMetadata usuario)
+        public bool ValidarLogin(UsuariosPartial usuario)
         {
             UsuarioRepository usuarioRepo = new UsuarioRepository();
 

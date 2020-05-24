@@ -12,10 +12,10 @@ namespace Models.ORM
     using System;
     using System.Collections.Generic;
     
-    public partial class UsuariosMetadata
+    public partial class Usuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UsuariosMetadata()
+        public Usuarios()
         {
             this.Denuncias = new HashSet<Denuncias>();
             this.DonacionesInsumos = new HashSet<DonacionesInsumos>();
@@ -47,5 +47,6 @@ namespace Models.ORM
         public virtual ICollection<Necesidades> Necesidades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
+        public virtual UsuariosTipo UsuariosTipo { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models.Repository
 {
-    interface IUsuario:IGenericoRepository<UsuariosMetadata>
+    interface IUsuario:IGenericoRepository<UsuariosPartial>
     {
         // Otros metodos
         bool Registrar(string email, string password, DateTime fechaNacimiento);

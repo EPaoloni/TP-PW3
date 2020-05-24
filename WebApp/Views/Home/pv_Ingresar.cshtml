@@ -1,4 +1,4 @@
-﻿@model Models.Metadata.UsuariosMetadata
+﻿@model Models.ORM.UsuariosPartial
 
 <div class="col s12 m11 l11">
     <div class="row titulo-action">
@@ -8,26 +8,25 @@
         <hr />
     </div>
     <div class="row">
-        @using (Html.BeginForm()) {
+        <form id="formIngresar">
             <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
-                <input id="icon_email" type="text" class="validate">
+                @Html.TextBoxFor(m => m.Email, new { @class = "validate", name = "email", id = "icon_email" })
                 <label for="icon_email">Email</label>
-                <span class="helper-text" data-error="wrong" data-success="right" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-                @Html.ValidationMessage("Email")
+                <span class="helper-text" data-error="wrong" data-success="correcto" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">vpn_key</i>
-                <input id="icon_vpn_key" type="password" class="validate">
+                @Html.PasswordFor(m => m.Password, new { @class = "validate", name = "password", id = "icon_vpn_key" })
                 <label for="icon_vpn_key">Password</label>
-                <span class="helper-text" data-error="wrong" data-success="right" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                <span class="helper-text" data-error="wrong" data-success="correcto" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12">
-                <div class="msg msg-alert z-depth-3" id="ErrorLogin"></div>
-                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" type="submit" name="action">
+                <span class="msg msg-alert z-depth-3" id="ErrorLogin">Error</span>
+                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">
                     INGRESAR
                 </button>
             </div>
-        }
+        </form>
     </div>
 </div>
