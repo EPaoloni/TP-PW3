@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\lib\materialize\materialize.css" />
+    <Content Include="Content\src\Necesidad.css" />
     <Content Include="Content\src\perfil.css" />
     <Content Include="Content\src\progress_bar.css" />
     <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
