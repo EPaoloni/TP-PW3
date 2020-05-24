@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_AnonimoLayout.cshtml";
 }
 
-<script src="~/Scripts/src/CrearNecesidad.js"></script>
+@*<script src="~/Scripts/src/CrearNecesidad.js"></script>*@
+<link type="text/css" href="~/Content/src/Necesidad.css" />
 
 <div>
     <h2>Crear Necesidad</h2>
@@ -26,11 +27,43 @@
                     <label for="fechaFin">Fecha fin</label>
                 </div>
                 <div class="input-field">
-                    <select class="browser-default col s5">
+                    <select id="select-tipo-donacion" class="browser-default col s5">
                         <option value="" selected>Tipo de donacion</option>
                         <option value="Monetaria">Monetaria</option>
                         <option value="Insumos">Insumos</option>
                     </select>
+                </div>
+                <div id="campos-monetaria-container" style="display:none;">
+                    <div class="input-field col s12">
+                        <input type="number" class="form-control col s5" placeholder="Monto" />
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="number" class="form-control col s5" placeholder="CBU" />
+                    </div>
+                </div>
+                <div id="campos-insumos-container" style="display:none;" class="col s12">
+                    <div class="input-field col s12" id="insumos-cargados-container">
+                        <div class="insumo-container" style="display:none;">
+                            <div class="input-field col s5">
+                                <input type="text" class="nombre-insumo-cargado form-control col s11" readonly/>
+                            </div>
+                            <div class="input-field col s5">
+                                <input type="number" class="cantidad-insumo-cargado form-control col s11" readonly/>
+                            </div>
+                            <div class="input-field col s1">
+                                <img class="button-delete-insumo" src="~/Images/Necesidad/Basura.png" width="20" height="20" alt="Borrar Necesidad"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" class="nombre-insumo-agregar form-control col s11" placeholder="Nombre Insumo" />
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="number" class="cantidad-insumo-agregar form-control col s11" placeholder="Cantidad" />
+                    </div>
+                    <div class="input-field col s6 push-s6">
+                        <button type="button" id="button-agregar-insumo" class="btn btn-primary col s6 push-s5">Agregar Insumo</button>
+                    </div>
                 </div>
                 <div class="input-field col s12">
                     <input type="number" class="form-control col s5" placeholder="Telefono de referencia" />
@@ -38,11 +71,11 @@
             </div>
 
             <div class="col s2">
-                <button class="btn btn-primary">Agregar Foto</button>
+                <button type="button" class="btn btn-primary col s12">Agregar Foto</button>
                 <img width="135" height="135" src="~/Images/Inicio/Info.png" />
             </div>
 
-            <button class="btn btn-primary col s2 offset-s9">Agregar</button>
+            <button type="button" class="btn btn-primary col s2 offset-s10">Agregar Necesidad</button>
         </form>
     </div>
 </div>
