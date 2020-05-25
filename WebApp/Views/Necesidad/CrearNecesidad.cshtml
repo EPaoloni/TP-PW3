@@ -1,48 +1,110 @@
 ﻿
 @{
     ViewBag.Title = "CrearNecesidad";
-    Layout = "~/Views/Shared/_AnonimoLayout.cshtml";
+    Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-<script src="~/Scripts/src/CrearNecesidad.js"></script>
+@*<script src="~/Scripts/src/CrearNecesidad.js"></script>*@
+<link type="text/css" href="~/Content/src/Necesidad.css" />
 
 <div>
-    <h2>Crear Necesidad</h2>
 
     <div class="row" id="crear-necesidad-container">
         <form class="">
-            <div class="col s10">
-                <div class="input-field">
-                    <input id="nombre" name="nombre" type="text" class="form-control col s5" placeholder="Nombre" />
+            <div class="col s12 l8 push-l2">
+
+                <h2>Crear Necesidad</h2>
+
+                <div class="input-field col s5">
+                    <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre" />
                 </div>
-                <div class="input-field">
-                    <input type="number" class="form-control push-s1 col s5" placeholder="Telefono de contacto" />
+
+                <div class="input-field push-s1 col s5">
+                    <input id="TelefonoContacto" name="TelefonoContacto" type="number" class="form-control" placeholder="Telefono de contacto" />
                 </div>
-                <div class="input-field">
-                    <textarea class="materialize-textarea col s11" placeholder="Descripcion"></textarea>
+
+                <div class="input-field col s12">
+                    <textarea id="Descripcion" name="Descripcion" class="materialize-textarea col s11" placeholder="Descripcion"></textarea>
                 </div>
-                <div class="input-field inline">
-                    <input id="fechaFin" type="date" class="form-control" />
+
+                <div class="input-field col s12">
+                    <input id="FechaFin" name="FechaFin" type="text" class="datepicker form-control col s2" />
                     <label for="fechaFin">Fecha fin</label>
                 </div>
-                <div class="input-field">
-                    <select class="browser-default col s5">
-                        <option value="" selected>Tipo de donacion</option>
+
+                <div class="input-field col s5">
+                    <select id="select-tipo-donacion" name="TipoDonacion" class="browser-default">
+                        <option value="" disabled selected>Tipo de donacion</option>
                         <option value="Monetaria">Monetaria</option>
                         <option value="Insumos">Insumos</option>
                     </select>
                 </div>
+
+                <div id="campos-monetaria-container" style="display:none;">
+                    <div class="input-field col s12">
+                        <input id="CantDinero" name="CantDinero" type="number" class="form-control col s5" placeholder="Monto" />
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="CBUAlias" name="CBUAlias" type="number" class="form-control col s5" placeholder="CBU" />
+                    </div>
+                </div>
+
+                <div id="campos-insumos-container" style="display:none;" class="col s12">
+
+                    <div class="input-field col s12" id="insumos-cargados-container">
+                        <div class="insumo-container-template" style="display:none;">
+                            <div class="input-field col s5">
+                                <input type="text" class="nombre-insumo-cargado form-control col s11" readonly />
+                            </div>
+                            <div class="input-field col s5">
+                                <input type="number" class="cantidad-insumo-cargado form-control col s11" readonly />
+                            </div>
+                            <div class="input-field col s1">
+                                <img class="button-delete-insumo" src="~/Images/Necesidad/Basura.png" alt="Borrar Necesidad" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input type="text" class="nombre-insumo-agregar form-control col s5" placeholder="Nombre Insumo" />
+                        <input type="number" class="cantidad-insumo-agregar form-control col s5 push-s1" placeholder="Cantidad" />
+                    </div>
+
+                    <div class="input-field col s6 push-s6">
+                        <button type="button" id="button-agregar-insumo" class="btn btn-primary col s7 l5 push-s3 push-l5">Agregar Insumo</button>
+                    </div>
+
+                </div>
+
+                <div id="datos-referencias-container">
+                    <div class="input-field col s12">
+                        <input id="NombreReferencia1" name="NombreReferencia1" type="text" class="form-control col s5" placeholder="Nombre referencia" />
+                        <input id="TelefonoReferencia1" name="TelefonoReferencia1" type="number" class="form-control col s5 push-s1" placeholder="Telefono de referencia" />
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="NombreReferencia2" name="NombreReferencia2" type="text" class="form-control col s5" placeholder="Nombre referencia" />
+                        <input id="TelefonoReferencia2" name="TelefonoReferencia2" type="number" class="form-control col s5 push-s1" placeholder="Telefono de referencia" />
+                    </div>
+                </div>
+
+                <div class="input-field col s6 l4">
+                    <label>Asdasda</label>
+                    <div class="file-field input-field">
+                        <div class="btn btn-primary">
+                            <span>Buscar</span>
+                            <input id="Foto" name="Foto" accept="image/*" type="file" />
+                        </div>
+
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="input-field col s12">
-                    <input type="number" class="form-control col s5" placeholder="Telefono de referencia" />
+                    <button type="button" class="btn btn-primary col s3 push-s8 push-l8">Agregar Necesidad</button>
                 </div>
             </div>
-
-            <div class="col s2">
-                <button class="btn btn-primary">Agregar Foto</button>
-                <img width="135" height="135" src="~/Images/Inicio/Info.png" />
-            </div>
-
-            <button class="btn btn-primary col s2 offset-s9">Agregar</button>
         </form>
     </div>
 </div>
