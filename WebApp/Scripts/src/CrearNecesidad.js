@@ -15,10 +15,6 @@
         }
     });
 
-    $('.button-delete-insumo').on('click', function () {
-        removeInsumo(this);
-    });
-
     $('#button-agregar-insumo').on('click', function () {
         addInsumo();
     });
@@ -68,7 +64,12 @@ function addInsumo() {
 
     $(newInsumo).show();
 
+    $(newInsumo).find('.button-delete-insumo').on('click', function () {
+        removeInsumo(this);
+    });
+
     $('#insumos-cargados-container').append(newInsumo);
+
 
     $('.nombre-insumo-agregar').val("");
     $('.cantidad-insumo-agregar').val("");
