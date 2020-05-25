@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $('select').formSelect();
+    $('.datepicker').datepicker();
 
     $('#select-tipo-donacion').on('change', function () {
         switch ($(this).val()) {
@@ -43,18 +44,24 @@ function enableFieldsMonetaria() {
     });
 
     // Limpio los insumos cargados
-    $('insumos-cargados-container').children().remove();
+    $('.insumo-container').remove();
 }
 
 function addInsumo() {
 
-    //TODO: Validar que no esten vacios los campos
-
-    let insumoTemplate = $('.insumo-container').get(0);
-    let newInsumo = $(insumoTemplate).clone();
-
     let nombreInsumoAgregar = $('.nombre-insumo-agregar').val();
     let cantidadInsumoAgregar = $('.cantidad-insumo-agregar').val();
+
+    // Valido que los campos no esten vacios
+    if (nombreInsumoAgregar.trim() == "" || cantidadInsumoAgregar.trim() == "") {
+        return false;
+    }
+
+    let insumoTemplate = $('.insumo-container-template').get(0);
+    let newInsumo = $(insumoTemplate).clone();
+
+    $(newInsumo).removeClass('insumo-container-template');
+    $(newInsumo).addClass('insumo-container');
 
     $(newInsumo).find('.nombre-insumo-cargado').val(nombreInsumoAgregar);
     $(newInsumo).find('.cantidad-insumo-cargado').val(cantidadInsumoAgregar);
@@ -62,6 +69,9 @@ function addInsumo() {
     $(newInsumo).show();
 
     $('#insumos-cargados-container').append(newInsumo);
+
+    $('.nombre-insumo-agregar').val("");
+    $('.cantidad-insumo-agregar').val("");
 }
 
 function removeInsumo(campoInsumo) {
