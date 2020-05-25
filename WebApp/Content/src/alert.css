@@ -1,9 +1,8 @@
 ﻿.msg {
-    width: 100%;
     border: 1px solid;
     padding: 10px;
-    margin: 20px;
-    color: grey;
+    margin: 0 20% 0 20%;
+    color: white;
 }
 
 .msg-error {
@@ -13,7 +12,7 @@
 }
 
 .msg-alert {
-    /*orange border-color: #ef6c00;*/
+    border-color: gray;
     background-color: #ff9800;
     color: white;
 }

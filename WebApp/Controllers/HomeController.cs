@@ -13,22 +13,7 @@ namespace WebApp.Controllers
     {
         [HttpGet]
         public ActionResult Inicio()
-        {
-            
-            /*
-            switch (id)
-            {
-                case "Ingresar":
-                    ViewBag.Action = "pv_Ingresar";
-                    break;
-                case "Registrarse":
-                    ViewBag.Action = "pv_Registrarse";
-                    break;
-                default:
-                    ViewBag.Action = "pv_PublicacionMasValorada";
-                    break;
-            } 
-            */
+        {            
             return View("PublicacionMasValorada");
         }
 
@@ -44,7 +29,6 @@ namespace WebApp.Controllers
             IngresarService srvIngresar = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();
 
-            ViewBag.Respuesta = true;
             srvIngresar.ValidarLogin(usuario);
 
             if (ModelState.IsValid)
@@ -57,12 +41,24 @@ namespace WebApp.Controllers
    
             }
 
-            return RedirectToAction("/Inicio/Ingresar", usuario);
+            return View(usuario);
 
         }
 
         [HttpGet]
         public ActionResult Registrarse()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registrarse(UsuariosPartial usuario)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Bienvenido()
         {
             return View();
         }

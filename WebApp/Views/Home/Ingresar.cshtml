@@ -26,10 +26,11 @@
                 <label for="icon_vpn_key">Password</label>
                 <span class="helper-text" data-error="wrong" data-success="correcto" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             </div>
-            <div class="input-field col s12">
-
-                <span id="ErrorLogin"></span>
-
+            <div class="input-field col s12 m12 l12">
+                @if (Model != null && Model.RespuestaLogin == false)
+                {
+                    <div id="ErrorLogin" class="msg z-depth-3 center-align msg-alert">Email y/o Contraseña inválidos</div>
+                }
                 <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">
                     INGRESAR
                 </button>
