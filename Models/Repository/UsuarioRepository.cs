@@ -58,6 +58,8 @@ namespace Models.Repository
         public bool BuscarUsuarioLogin(string email, string password)
         {
             var consulta = (from u in db.Usuarios
+                            where u.Email == email &&
+                                  u.Password == password
                            select u).FirstOrDefault();
 
             if (consulta != null)

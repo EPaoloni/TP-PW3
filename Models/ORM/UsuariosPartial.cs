@@ -24,5 +24,6 @@ namespace Models.ORM
         public System.DateTime FechaCracion { get; set; }
         public bool Activo { get; set; }
         public string Token { get; set; }
+        public bool RespuestaLogin { get; set; } = false;
     }
 }

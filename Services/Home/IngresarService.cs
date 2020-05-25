@@ -10,13 +10,13 @@ namespace Services.Home
 {
     public class IngresarService
     {
-        public bool ValidarLogin(UsuariosPartial usuario)
+        public void ValidarLogin(UsuariosPartial usuario)
         {
             UsuarioRepository usuarioRepo = new UsuarioRepository();
 
             bool respuesta = usuarioRepo.BuscarUsuarioLogin(usuario.Email, usuario.Password);
+            usuario.RespuestaLogin = respuesta;
             
-            return respuesta;
         }
     }
 }

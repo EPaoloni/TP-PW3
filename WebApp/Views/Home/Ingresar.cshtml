@@ -1,5 +1,10 @@
 ﻿@model Models.ORM.UsuariosPartial
 
+@{
+    ViewBag.Title = "Ingresar";
+    Layout = "~/Views/Home/_InicioLayout.cshtml";
+}
+
 <div class="col s12 m11 l11">
     <div class="row titulo-action">
         <div class="titulo-inicio blue-text accent-3 center">
@@ -8,7 +13,7 @@
         <hr />
     </div>
     <div class="row">
-        <form id="formIngresar">
+        <form id="formIngresar" action="/Home/Ingresar" method="post">
             <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
                 @Html.TextBoxFor(m => m.Email, new { @class = "validate", name = "email", id = "icon_email" })
@@ -22,7 +27,9 @@
                 <span class="helper-text" data-error="wrong" data-success="correcto" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12">
-                <span class="msg msg-alert z-depth-3" id="ErrorLogin">Error</span>
+
+                <span id="ErrorLogin"></span>
+
                 <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">
                     INGRESAR
                 </button>

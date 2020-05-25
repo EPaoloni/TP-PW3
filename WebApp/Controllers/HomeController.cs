@@ -12,10 +12,10 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public ActionResult Inicio(string id)
+        public ActionResult Inicio()
         {
             
-
+            /*
             switch (id)
             {
                 case "Ingresar":
@@ -28,7 +28,13 @@ namespace WebApp.Controllers
                     ViewBag.Action = "pv_PublicacionMasValorada";
                     break;
             } 
+            */
+            return View("PublicacionMasValorada");
+        }
 
+        [HttpGet]
+        public ActionResult Ingresar()
+        {
             return View();
         }
 
@@ -38,19 +44,27 @@ namespace WebApp.Controllers
             IngresarService srvIngresar = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();
 
-            bool respuesta = srvIngresar.ValidarLogin(usuario);
+            ViewBag.Respuesta = true;
+            srvIngresar.ValidarLogin(usuario);
 
             if (ModelState.IsValid)
             {
-                if (respuesta == true)
+                if (usuario.RespuestaLogin == true)
                 {
                     SesionHelper.UsuarioId = sesionHelp.GenerarID();
-                    return RedirectToAction("Bienvenido");
-                }                
+                    return RedirectToAction("Bienvenido");                  
+                }
+   
             }
 
-            return RedirectToAction("Ingresar");
+            return RedirectToAction("/Inicio/Ingresar", usuario);
 
+        }
+
+        [HttpGet]
+        public ActionResult Registrarse()
+        {
+            return View();
         }
     }
 }
