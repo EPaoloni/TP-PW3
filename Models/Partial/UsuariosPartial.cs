@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Models.ORM
+namespace Models.Partial
 {
     public partial class UsuariosPartial
     {

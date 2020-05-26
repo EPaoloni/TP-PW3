@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Services.Home;
 using WebApp.Helpers;
-using Models.ORM;
+using Models.Partial;
 
 namespace WebApp.Controllers
 {
