@@ -42,4 +42,31 @@ namespace Models.Partial
             return listaEmail.Contains(value);
         }
     }
+
+    public class MayorEdadAttribute : ValidationAttribute
+    {
+        private int CalcularEdad(DateTime fechaNacimiento)
+        {
+            DateTime fechaActual = DateTime.Now;
+            TimeSpan tiempo = fechaActual - fechaNacimiento;
+
+            int edad = tiempo.Days / 365;
+
+            return edad;
+        }
+
+        public override bool IsValid(object value)
+        {
+            int edad = CalcularEdad((DateTime)value);
+
+            if (edad >= 18)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }
