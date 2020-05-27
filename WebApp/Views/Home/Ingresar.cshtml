@@ -1,0 +1,40 @@
+﻿@model Models.Partial.UsuariosPartial
+
+@{
+    ViewBag.Title = "Ingresar";
+    Layout = "~/Views/Home/_InicioLayout.cshtml";
+}
+
+<div class="col s12 m11 l11">
+    <div class="row titulo-action">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>INICIAR SESION</h5>
+        </div>
+        <hr />
+    </div>
+    <div class="row">
+        <form id="formIngresar" action="/Home/Ingresar" method="post">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                @Html.TextBoxFor(m => m.Email, new { @class = "validate", name = "email", id = "icon_email" })
+                <label for="icon_email">Email</label>
+                <span class="helper-text" data-error="wrong" data-success="correcto" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">vpn_key</i>
+                @Html.PasswordFor(m => m.Password, new { @class = "validate", name = "password", id = "icon_vpn_key" })
+                <label for="icon_vpn_key">Password</label>
+                <span class="helper-text" data-error="wrong" data-success="correcto" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                @if (Model != null && Model.RespuestaLogin == false)
+                {
+                    <div id="ErrorLogin" class="msg z-depth-3 center-align msg-alert">Email y/o Contraseña inválidos</div>
+                }
+                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">
+                    INGRESAR
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

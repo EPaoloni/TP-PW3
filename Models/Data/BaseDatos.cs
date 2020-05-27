@@ -3,26 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Partial;
 
 namespace Models.Data
 {
-    class BaseDatos
+    public class BaseDatos
     {
-        static private Usuario usuario { get; set; }
+        public static List<UsuariosPartial> usuarioStatic = new List<UsuariosPartial>
+        {
+            new UsuariosPartial {
+                IdUsuario = 1,
+                Email = "jpabmai@gmail.com",
+                Password = "Pablo2020",
+                TipoUsuario = 1,
+                Token = "0A0WhCnC7YKkb9r3qeX6"
+            }
+        };
     }
 
-    class Usuario
-    {
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string TipoUsuario { get; set; }
-
-        public DateTime FechaNacicmiento { get; set; }
-        public DateTime FechaCreacion { get; set; }
-
-        public bool Activo { get; set; }
-    }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Services.Home;
+using WebApp.Helpers;
+using Models.Partial;
 
 namespace WebApp.Controllers
 {
@@ -10,33 +13,54 @@ namespace WebApp.Controllers
     {
         [HttpGet]
         public ActionResult Inicio()
-        {
-            /*switch (id)
-            {
-                case "Ingresar":
-                    ViewBag.Action = id;
-                    break;
-                case "Registrarse":
-                    ViewBag.Action = id;
-                    break;
-                default:
-                    ViewBag.Action = "PublicacionMasValorada";
-                    break;
-            }*/ 
-
-            return View();
+        {            
+            return View("PublicacionMasValorada");
         }
 
         [HttpGet]
         public ActionResult Ingresar()
         {
-            return PartialView("pv_Ingresar");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ingresar(UsuariosPartial usuario)
+        {
+            IngresarService srvIngresar = new IngresarService();
+            SesionHelper sesionHelp = new SesionHelper();
+
+            srvIngresar.ValidarLogin(usuario);
+
+            if (ModelState.IsValid)
+            {
+                if (usuario.RespuestaLogin == true)
+                {
+                    SesionHelper.UsuarioId = sesionHelp.GenerarID();
+                    return RedirectToAction("Bienvenido");                  
+                }
+   
+            }
+
+            return View(usuario);
+
         }
 
         [HttpGet]
-        public PartialViewResult Registrarse()
+        public ActionResult Registrarse()
         {
-            return PartialView("pv_Registrarse");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registrarse(UsuariosPartial usuario)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Bienvenido()
+        {
+            return View();
         }
     }
 }

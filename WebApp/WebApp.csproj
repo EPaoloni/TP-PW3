@@ -50,6 +50,12 @@
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -105,24 +111,23 @@
   <ItemGroup>
     <Content Include="Content\lib\materialize\materialize.css" />
     <Content Include="Content\src\Necesidad.css" />
+    <Content Include="Content\src\alert.css" />
+    <Content Include="Content\src\card.css" />
+    <Content Include="Content\src\info.css" />
+    <Content Include="Content\src\ingresar.css" />
     <Content Include="Content\src\perfil.css" />
-    <Content Include="Content\src\progress_bar.css" />
-    <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.common.js" />
-    <Content Include="Content\lib\bootstrap-vue\bootstrap-vue.css" />
-    <Content Include="Content\lib\bootstrap\bootstrap.css" />
+    <Content Include="Content\src\progressbar.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />
-    <Content Include="Scripts\lib\bootstrap-vue\bootstrap-vue.js" />
-    <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
     <Content Include="Scripts\lib\jquery\jquery.js" />
+    <Content Include="Scripts\lib\jquery\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\lib\materialize\materialize.js" />
     <Content Include="Scripts\lib\popper\popper.js" />
     <Content Include="Scripts\lib\popper\popper.min.js" />
-    <Content Include="Scripts\lib\portal-vue\portal-vue.umd.js" />
     <Content Include="Scripts\lib\toast\toast.js" />
-    <Content Include="Scripts\lib\vue\vue.js" />
     <Content Include="Scripts\src\CrearNecesidad.js" />
     <Content Include="Scripts\src\datepicker.js" />
     <Content Include="Scripts\src\progressbar.js" />
@@ -137,6 +142,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Necesidad.cs" />
   </ItemGroup>
@@ -150,16 +156,18 @@
     <Content Include="Views\Shared\pv_NavbarAnonimo.cshtml" />
     <Content Include="Views\Shared\pv_NavbarUsuario.cshtml" />
     <Content Include="Views\Home\Inicio.cshtml" />
-    <Content Include="Views\Home\Ingresar.cshtml" />
-    <Content Include="Views\Home\Registrarse.cshtml" />
     <Content Include="Views\Home\pv_Info.cshtml" />
     <Content Include="Views\Shared\pv_ProgressBar.cshtml" />
-    <Content Include="Views\Home\pv_PublicacionMasValorada.cshtml" />
+    <Content Include="Views\Home\PublicacionMasValorada.cshtml" />
     <Content Include="Views\Home\pv_Publicacion.cshtml" />
     <Content Include="Views\Home\pv_CardMasValorada.cshtml" />
     <Content Include="Views\Perfil\Datos.cshtml" />
     <Content Include="Views\Perfil\MisDonaciones.cshtml" />
     <Content Include="Views\Necesidad\CrearNecesidad.cshtml" />
+    <Content Include="Views\Home\Registrarse.cshtml" />
+    <Content Include="Views\Home\Ingresar.cshtml" />
+    <Content Include="Views\Home\Bienvenido.cshtml" />
+    <Content Include="Views\Home\_InicioLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,6 +180,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{dd8eed8e-5e14-4a1d-b1d0-b94a059fe509}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{cd2c6d8d-9dc2-4f88-9cd6-bf9aa170cd40}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -22,11 +22,12 @@ namespace WebApp
             bundles.Add(new ScriptBundle("~/bundles/script").Include(
                                         "~/Scripts/lib/materialize/materialize.js",
                                         "~/Scripts/lib/jquery/jquery.js",
+                                        "~/Scripts/lib/jquery/jquery.validate.js",
+                                        "~/Scripts/lib/jquery/jquery.validate.unobtrusive.js",
+                                        "~/Scripts/lib/popper/popper.js",
                                         "~/Scripts/lib/popper/popper.min.js",
-                                        "~/Scripts/lib/popper/popper.min.js.map",
                                         "~/Scripts/lib/toast/toast.js",
-                                        "~/Scripts/src/*.js",
-                                        "~/Scripts/src/inicio/*.js"
+                                        "~/Scripts/src/*.js"
                                     ));
 
             //usa Include() para agregar el script js en el footer
