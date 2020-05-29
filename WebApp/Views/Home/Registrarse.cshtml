@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Models.Partial.UsuariosPartial
+
+@{
     ViewBag.Title = "Ingresar";
     Layout = "~/Views/Home/_InicioLayout.cshtml";
 }
@@ -14,23 +16,27 @@
         <div class="row">
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">email</i>
-                <input id="icon_email" type="text" class="validate">
+                @Html.TextBoxFor(m => m.Email, new { @class = "validate", name = "email", id = "icon_email" })
                 <label for="icon_email">Email</label>
+                <span class="helper-text" data-error="wrong" data-success="formato correcto" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">vpn_key</i>
-                <input id="icon_vpn_key" type="password" class="validate">
+                @Html.PasswordFor(m => m.Password, new { @class = "validate", name = "password", id = "icon_vpn_key" })
                 <label for="icon_vpn_key">Password</label>
+                <span class="helper-text" data-error="wrong" data-success="formato correcto" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">vpn_key</i>
-                <input id="icon_vpn_key_copy" type="password" class="validate">
+                @Html.PasswordFor(m => m.RepetirPassword, new { @class = "validate", name = "repetirpassword", id = "icon_vpn_key_copy" })
                 <label for="icon_vpn_key_copy">Repita password</label>
+                <span class="helper-text" data-error="wrong" data-success="formato correcto" data-valmsg-for="RepetirPassword" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">date_range</i>
-                <input id="icon_date_range" type="text" class="validate datepicker">
+                @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
                 <label for="icon_date_range">Fecha de nacimiento</label>
+                <span class="helper-text" data-error="wrong" data-success="formato correcto" data-valmsg-for="FechaNacimiento" data-valmsg-replace="true"></span>
             </div>
             <div class="input-field col s12 m12 l12">
                 <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" type="submit" name="action">

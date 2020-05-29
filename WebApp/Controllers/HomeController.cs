@@ -54,7 +54,12 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Registrarse(UsuariosPartial usuario)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                Console.WriteLine("ModelState.IsValid");
+            }
+
+            return View(usuario);
         }
 
         [HttpGet]

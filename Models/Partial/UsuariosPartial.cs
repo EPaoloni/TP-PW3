@@ -14,17 +14,21 @@ namespace Models.Partial
         public string Apellido { get; set; }
         [Required(ErrorMessage = "Campo requerido")]
         [Range(18,99,ErrorMessage = "Debe ser mayor de 18 años")]
-        public System.DateTime FechaNacimiento { get; set; }
+        [MayorEdad(ErrorMessage = "Debe ser mayor de 18 años")]
+        public DateTime FechaNacimiento { get; set; }
         public string UserName { get; set; }
         [Required(ErrorMessage = "Campo requerido")]
         [EmailAddress(ErrorMessage = "Formato de email incorrecto")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Campo requerido")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Formato de password incorrecto")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
+        [Compare("Password", ErrorMessage = "Las contraseñas deben coincidir")]
         public string RepetirPassword { get; set; }
         public string Foto { get; set; }
         public int TipoUsuario { get; set; }
-        public System.DateTime FechaCrecion { get; set; }
+        public DateTime FechaCreacion { get; set; }
         public bool Activo { get; set; }
         public string Token { get; set; }
         public bool RespuestaLogin { get; set; } = false;
