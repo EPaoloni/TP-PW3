@@ -26,10 +26,10 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Ingresar(UsuariosPartial usuario)
         {
-            IngresarService srvIngresar = new IngresarService();
+            IngresarService ingresarSrv = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();
 
-            srvIngresar.ValidarLogin(usuario);
+            ingresarSrv.ValidarLogin(usuario);
 
             if (ModelState.IsValid)
             {
@@ -56,7 +56,7 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine("ModelState.IsValid");
+               
             }
 
             return View(usuario);
@@ -71,7 +71,9 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Activar(string token)
         {
-            userServ.Activar(token);
+            UsuarioService usuarioSrv = new UsuarioService();
+
+            usuarioSrv.Activar(token);
 
             return RedirectToAction("Inicio");
         }
