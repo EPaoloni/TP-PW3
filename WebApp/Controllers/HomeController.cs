@@ -56,7 +56,8 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+                UsuarioService usuarioSrv = new UsuarioService();
+                usuarioSrv.Agregar(usuario);
             }
 
             return View(usuario);
