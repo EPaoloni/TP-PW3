@@ -67,5 +67,13 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Activar(string token)
+        {
+            userServ.Activar(token);
+
+            return RedirectToAction("Inicio");
+        }
     }
 }
