@@ -13,7 +13,7 @@ namespace Models.Partial
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         [Required(ErrorMessage = "Campo requerido")]
-        [Range(18,99,ErrorMessage = "Debe ser mayor de 18 años")]
+        //[Range(18,99,ErrorMessage = "Debe ser mayor de 18 años")]
         [MayorEdad(ErrorMessage = "Debe ser mayor de 18 años")]
         public DateTime FechaNacimiento { get; set; }
         public string UserName { get; set; }
