@@ -107,6 +107,7 @@
     <Compile Include="Repository\IGenericoRepository.cs" />
     <Compile Include="Repository\IngresarRepository.cs" />
     <Compile Include="Repository\RegistrarseRepository.cs" />
+    <Compile Include="Repository\PerfilRepository.cs" />
     <Compile Include="ViewModels\NecesidadCreacion.cs" />
     <Compile Include="ViewModels\Referencia.cs" />
     <Compile Include="ViewModels\UsuarioIngresar.cs" />
