@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Models.Data;
 using Models.ORM;
 using Models.Partial;
 
 namespace Models.Repository
 {
-    public class UsuarioRepository : IUsuario
+    public class RegistrarseRepository
     {
         PandemiaEntities db = new PandemiaEntities();
-        public bool Agregar(UsuariosMetaData entidad)
+        public bool Agregar(RegistrarseMetaData entidad)
         {
             Usuarios usuario = new Usuarios();
             usuario.Email = entidad.Email;
@@ -38,40 +37,7 @@ namespace Models.Repository
 
             return true;
         }
-
-        public bool Eliminar(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Modificar(UsuariosMetaData entidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<UsuariosMetaData> ObtenerTodo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool BuscarUsuarioLogin(string email, string password)
-        {
-            Usuarios consulta = (from u in db.Usuarios
-                            where u.Email == email &&
-                                  u.Password == password
-                            select u).FirstOrDefault();
-
-            if (consulta != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-
+    
         private int BuscarTipoUsuario(string descripcion)
         {
             int idTipoUsuario = (from t in db.UsuariosTipo

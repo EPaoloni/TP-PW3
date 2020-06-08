@@ -12,23 +12,23 @@ namespace Services.Home
     public class UsuarioService
     {
         EmailService emailServ = new EmailService();
-        UsuarioRepository usuarioRepo = new UsuarioRepository();
+        RegistrarseRepository usuarioRepo = new RegistrarseRepository();
         
         public void Activar(string token)
         {
             usuarioRepo.Activar(token);
         }
 
-        public void Agregar(UsuariosMetaData usuarioMetaData)
+        public void Agregar(RegistrarseMetaData usuario)
         {
             // Creacion de token
-            usuarioMetaData.Token = Guid.NewGuid().ToString("N").Substring(0, 16);
+            usuario.Token = Guid.NewGuid().ToString("N").Substring(0, 16);
 
             // Se agrega el usuario en base de datos
-            usuarioRepo.Agregar(usuarioMetaData);
+            usuarioRepo.Agregar(usuario);
 
             // Se envia el email de activacion
-            emailServ.Enviar(usuarioMetaData.Email, usuarioMetaData.Token);
+            emailServ.Enviar(usuario.Email, usuario.Token);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Ingresar(UsuariosMetaData usuario)
+        public ActionResult Ingresar(IngresarMetaData usuario)
         {
             IngresarService ingresarSrv = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();
@@ -52,7 +52,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registrarse(UsuariosMetaData usuario)
+        public ActionResult Registrarse(RegistrarseMetaData usuario)
         {
             if (ModelState.IsValid)
             {

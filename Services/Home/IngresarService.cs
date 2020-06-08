@@ -10,9 +10,9 @@ namespace Services.Home
 {
     public class IngresarService
     {
-        public void ValidarLogin(UsuariosMetaData usuario)
+        public void ValidarLogin(IngresarMetaData usuario)
         {
-            UsuarioRepository usuarioRepo = new UsuarioRepository();
+            IngresarRepository usuarioRepo = new IngresarRepository();
 
             bool respuesta = usuarioRepo.BuscarUsuarioLogin(usuario.Email, usuario.Password);
             usuario.RespuestaLogin = respuesta;
