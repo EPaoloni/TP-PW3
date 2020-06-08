@@ -34,7 +34,7 @@ namespace Services.Home
             emailServ.Enviar(usuario.Email, usuario.Token);
         }
 
-        public void GenerarNombreUsuario(string nombre, string apellido)
+        public string GenerarNombreUsuario(string nombre, string apellido)
         {
             string nombreUsuario = "";
 
@@ -48,6 +48,8 @@ namespace Services.Home
             {
                 nombreUsuario = nombre + "." + apellido;
             }
+
+            return nombreUsuario;
         }
 
     }

@@ -5,5 +5,5 @@ INSERT INTO [dbo].[UsuariosTipo]
            (IdUsuarioTipo, Descripcion)
      VALUES
            (1,'Admin'),
-		   (2,'Usuario')
+		   (2,'Normal')
 GO

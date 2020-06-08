@@ -19,7 +19,7 @@ namespace Models.Repository
             usuario.Password = entidad.Password;
             usuario.FechaNacimiento = entidad.FechaNacimiento;
             usuario.FechaCreacion = DateTime.Today;
-            usuario.TipoUsuario = BuscarTipoUsuario("Usuario");
+            usuario.TipoUsuario = BuscarTipoUsuario("Normal");
             usuario.Token = entidad.Token;
             usuario.Activo = false;
 

@@ -132,6 +132,8 @@
   <ItemGroup>
     <Content Include="Docs\BD.png" />
     <Content Include="Docs\SQL\DDL\db-esquema.sql" />
+    <Content Include="Docs\SQL\DDL\DonacionesTipo.sql" />
+    <Content Include="Docs\SQL\DDL\UsuariosTipo.sql" />
     <Content Include="Docs\SQL\MDL\UsuarioInsert.sql" />
     <Content Include="Docs\SQL\MDL\UsuariosTipoInsert.sql" />
     <Content Include="ORM\Model.Context.tt">
