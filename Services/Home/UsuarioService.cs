@@ -19,16 +19,16 @@ namespace Services.Home
             usuarioRepo.Activar(token);
         }
 
-        public void Agregar(UsuariosPartial usuarioPartial)
+        public void Agregar(UsuariosMetaData usuarioMetaData)
         {
             // Creacion de token
-            usuarioPartial.Token = Guid.NewGuid().ToString("N").Substring(0, 16);
+            usuarioMetaData.Token = Guid.NewGuid().ToString("N").Substring(0, 16);
 
             // Se agrega el usuario en base de datos
-            usuarioRepo.Agregar(usuarioPartial);
+            usuarioRepo.Agregar(usuarioMetaData);
 
             // Se envia el email de activacion
-            emailServ.Enviar(usuarioPartial.Email, usuarioPartial.Token);
+            emailServ.Enviar(usuarioMetaData.Email, usuarioMetaData.Token);
         }
     }
 }

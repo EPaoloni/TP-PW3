@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\BaseDatos.cs" />
     <Compile Include="ORM\Denuncias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -128,7 +127,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MetaData\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\BD.png" />
     <Content Include="Docs\SQL\DDL\db-esquema.sql" />

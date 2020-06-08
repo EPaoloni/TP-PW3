@@ -13,7 +13,7 @@ namespace Models.Repository
     public class UsuarioRepository : IUsuario
     {
         PandemiaEntities db = new PandemiaEntities();
-        public bool Agregar(UsuariosPartial entidad)
+        public bool Agregar(UsuariosMetaData entidad)
         {
             Usuarios usuario = new Usuarios();
             usuario.Email = entidad.Email;
@@ -44,12 +44,12 @@ namespace Models.Repository
             throw new NotImplementedException();
         }
 
-        public bool Modificar(UsuariosPartial entidad)
+        public bool Modificar(UsuariosMetaData entidad)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UsuariosPartial> ObtenerTodo()
+        public IEnumerable<UsuariosMetaData> ObtenerTodo()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,4 @@
-﻿@model Models.Partial.UsuariosPartial
+﻿@model Models.Partial.UsuariosMetaData
 
 @{
     ViewBag.Title = "Ingresar";
@@ -13,7 +13,6 @@
             </div>
             <hr />
         </div>
-        <div class="row">
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">email</i>
                 @Html.TextBoxFor(m => m.Email, new { @class = "validate", name = "email", id = "icon_email" })

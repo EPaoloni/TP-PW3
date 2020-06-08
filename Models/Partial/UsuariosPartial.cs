@@ -7,7 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models.Partial
 {
+    [MetadataType(typeof(UsuariosMetaData))]
     public partial class UsuariosPartial
+    {
+       
+    }
+
+    public class UsuariosMetaData
     {
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
@@ -34,17 +40,49 @@ namespace Models.Partial
         public bool RespuestaLogin { get; set; } = false;
     }
 
+    public class IngresarMetaData
+    {
+        [Required(ErrorMessage = "Campo requerido")]
+        [EmailAddress(ErrorMessage = "Formato de email incorrecto")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Campo requerido")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Formato de password incorrecto")]
+        public string Password { get; set; }
+    }
+
+    public class RegistrarMetaData
+    {
+        [Required(ErrorMessage = "Campo requerido")]
+        [EmailAddress(ErrorMessage = "Formato de email incorrecto")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Campo requerido")]
+        //[Range(18,99,ErrorMessage = "Debe ser mayor de 18 años")]
+        [MayorEdad(ErrorMessage = "Debe ser mayor de 18 años")]
+        public DateTime FechaNacimiento { get; set; }
+
+        [Required(ErrorMessage = "Campo requerido")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Formato de password incorrecto")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Campo requerido")]
+        [Compare("Password", ErrorMessage = "Las contraseñas deben coincidir")]
+        public string RepetirPassword { get; set; }
+
+    }
+
     public class EmailExisteAttribute : ValidationAttribute
     {
-        List<string> listaEmail = new List<string>()
-        {
-            "jpabmai@gmail.com"
-        };
+        //List<string> listaEmail = new List<string>()
+        //{
+        //    "jpabmai@gmail.com"
+        //};
 
-        public override bool IsValid(object value)
-        {
-            return listaEmail.Contains(value);
-        }
+        //public override bool IsValid(object value)
+        //{
+        //    return listaEmail.Contains(value);
+        //}
     }
 
     public class MayorEdadAttribute : ValidationAttribute

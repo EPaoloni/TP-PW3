@@ -7,7 +7,7 @@ using Models.Partial;
 
 namespace Models.Repository
 {
-    interface IUsuario:IGenericoRepository<UsuariosPartial>
+    interface IUsuario:IGenericoRepository<UsuariosMetaData>
     {
         // Otros metodos
         
