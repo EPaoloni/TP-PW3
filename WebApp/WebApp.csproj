@@ -121,6 +121,8 @@
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />
+    <Content Include="Images\Perfil\Bulbasaur.png" />
+    <Content Include="Images\Perfil\user-icon.png" />
     <Content Include="Scripts\lib\jquery\jquery.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.unobtrusive.js" />
@@ -168,6 +170,8 @@
     <Content Include="Views\Home\Ingresar.cshtml" />
     <Content Include="Views\Home\Bienvenido.cshtml" />
     <Content Include="Views\Home\_InicioLayout.cshtml" />
+    <Content Include="Views\Shared\pv_SideNavUsuario.cshtml" />
+    <Content Include="Views\Perfil\Inicio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

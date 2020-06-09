@@ -11,7 +11,7 @@ namespace WebApp.Controllers
         // GET: Perfil
         public ActionResult Inicio()
         {
-            return RedirectToAction("Datos");
+            return View();
         }
         public ActionResult Datos()
         {
