@@ -24,12 +24,12 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Ingresar(UsuariosPartial usuario)
+        public ActionResult Ingresar(IngresarMetaData usuario)
         {
-            IngresarService srvIngresar = new IngresarService();
+            IngresarService ingresarSrv = new IngresarService();
             SesionHelper sesionHelp = new SesionHelper();
 
-            srvIngresar.ValidarLogin(usuario);
+            ingresarSrv.ValidarLogin(usuario);
 
             if (ModelState.IsValid)
             {
@@ -52,15 +52,31 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registrarse(UsuariosPartial usuario)
+        public ActionResult Registrarse(RegistrarseMetaData usuario)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                UsuarioService usuarioSrv = new UsuarioService();
+                usuarioSrv.Agregar(usuario);
+            }
+
+            return View(usuario);
         }
 
         [HttpGet]
         public ActionResult Bienvenido()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Activar(string token)
+        {
+            UsuarioService usuarioSrv = new UsuarioService();
+
+            usuarioSrv.Activar(token);
+
+            return RedirectToAction("Inicio");
         }
     }
 }

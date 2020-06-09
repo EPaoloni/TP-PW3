@@ -187,7 +187,7 @@
       <Name>Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{cd2c6d8d-9dc2-4f88-9cd6-bf9aa170cd40}</Project>
+      <Project>{7628af4a-90b9-4af3-beba-5f798180b383}</Project>
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
