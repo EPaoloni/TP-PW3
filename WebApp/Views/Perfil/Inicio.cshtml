@@ -1,49 +1,48 @@
-﻿
-@{
-    ViewBag.Title = "Inicio";
+﻿@{
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-<h2>Inicio</h2>
-<!--
-<link href="~/Content/src/sideNavUsuario.css" rel="stylesheet" />
-
-<div class="row center-align grey lighten-2" id="sideNavSuperior">
-    <div class="col"></div>
-    <div class="col s10">
-        <br />
-        <div class="row center-align">
-            <img src="~/Images/Perfil/Bulbasaur.png" width="40%" />
+    <div class="col s12 m12 l12">
+        <div class="row titulo-action">
+            <div class="titulo-inicio blue-text accent-3 center">
+                <h5>PERFIL</h5>
+            </div>
+            <hr />
         </div>
-        <div class="row center-align">
-            <p class="blue-text">NOMBRE_USUARIO</p>
+        <div class="col s12 m4 l4 offset-m8 offset-l8">
+            <button class="btn waves-effect waves-light col s12 m12 l12 blue darken-3 btn-action" id="btnMisDonaciones">
+                MIS DONACIONES
+            </button>
         </div>
-        <div class="row center-align">
-            <p class="blue-text">E-MAIL</p>
+        <div class="row">
+            <div id="LadoIzquierdo" class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="~/Images/Perfil/user-icon.png" />
+                    </div>
+                    <div>
+                        <button class="btn waves-effect waves-light col s12 m12 blue darken-3 btn-action" id="btnCambiarFoto">
+                            CAMBIAR FOTO
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="LadoDerecho" class="col s12 m8">
+                <div class="input-field col s12 m12">
+                    <input id="nombre" type="text" class="validate">
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="input-field col s12 m12">
+                    <input id="apellido" type="text" class="validate">
+                    <label for="apellido">Apellido</label>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <input type="text" class="datepicker" id="fecha_nac">
+                    <label for="fecha_nac">Fecha de nacimiento</label>
+                </div>
+                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">
+                    MODIFICAR
+                </button>
+            </div>
         </div>
     </div>
-    <div class="col"></div>
-</div>
-
-<div class="row center-align blue" id="sideNavInferior">
-    <div class="col"></div>
-    <div class="col s10">
-        <div class="row center-align">
-            <p class="white-text">USUARIO</p>
-            <hr />
-            <br />
-            <a href="#" class="btn blue accent-3" id="boton">PERFIL</a>
-        </div>
-        <div class="row center-align">
-            <p class="white-text">NECESIDADES</p>
-            <hr />
-            <br />
-            <a href="#" class="btn blue accent-3" id="boton">PROPIAS</a>
-        </div>
-        <div class="row center-align"><a href="#" class="btn blue accent-3 white-text" id="boton">OTROS USUARIOS</a></div>
-        <div class="row center-align"><a href="#" class="btn blue accent-3 white-text" id="boton">CREAR</a></div>
-    </div>
-    <div class="col"></div>
-</div>
-
-    -->
