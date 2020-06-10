@@ -4,72 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Models.Data;
-//using Models.ORM;
 using Models.Partial;
+using Models.ORM;
 
-//namespace Models.Repository
-//{
-//    public class UsuarioRepository : IUsuario
-//    {
-//        //Pandemia db = new Pandemia();
-//        public bool Agregar(UsuariosPartial entidad)
-//        {
-//            throw new NotImplementedException();
-//        }
+namespace Models.Repository
+{
+    public class NecesidadRepository : BaseRepository<Necesidades>
+    {
+        public NecesidadRepository(PandemiaEntities context) : base(context)
+        {
 
-//        public bool Eliminar(int id)
-//        {
-//            throw new NotImplementedException();
-//        }
+        }
 
-//        public bool Modificar(UsuariosPartial entidad)
-//        {
-//            throw new NotImplementedException();
-//        }
-
-//        public IEnumerable<UsuariosPartial> ObtenerTodo()
-//        {
-//            throw new NotImplementedException();
-//        }
-
-//        public bool Registrar(string email, string password, DateTime fechaNacimiento)
-//        {
-
-//            UsuariosPartial usuario = new UsuariosPartial();
-//            usuario.Email = email;
-//            usuario.Password = password;
-//            usuario.FechaNacimiento = fechaNacimiento;
-
-//            try
-//            {
-//                //db.SaveChanges();
-//            }
-//            catch (Exception ex)
-//            {
-//                Debug.WriteLine(ex);
-//                return false;
-//            }
-
-//            return true;
-//        }
-
-//        //public bool BuscarUsuarioLogin(string email, string password)
-//        //{
-//        //    //var consulta = (from u in db.Usuarios
-//        //    //                where u.Email == email &&
-//        //    //                      u.Password == password
-//        //    //               select u).FirstOrDefault();
-
-//        //    if (consulta != null)
-//        //    {
-//        //        return true;
-//        //    }
-//        //    else
-//        //    {
-//        //        return false;
-//        //    }
-
-//        //}
-//    }
-//}
+        public List<Necesidades> GetAll()
+        {
+            return context.Necesidades.ToList();
+        }
+    }
+}
