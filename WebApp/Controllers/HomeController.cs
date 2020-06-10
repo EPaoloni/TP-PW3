@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Services.Home;
+using Services;
 using WebApp.Helpers;
 using Models.Partial;
 
@@ -36,6 +36,7 @@ namespace WebApp.Controllers
                 if (usuario.RespuestaLogin == true)
                 {
                     SesionHelper.UsuarioId = sesionHelp.GenerarID();
+                    SesionHelper.Email = usuario.Email;
                     return RedirectToAction("Bienvenido");                  
                 }
    

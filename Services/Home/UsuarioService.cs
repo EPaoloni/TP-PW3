@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Services.Home
 {
     public class UsuarioService
@@ -34,28 +33,9 @@ namespace Services.Home
             emailServ.Enviar(usuario.Email, usuario.Token);
         }
 
-        public string GenerarNombreUsuario(string nombre, string apellido)
-        {
-            string nombreUsuario = "";
+       
 
-            int cantUsuario = perfilRepo.ValidarNombreUsuario(nombre, apellido);
-
-            if (cantUsuario > 0)
-            {
-                nombreUsuario = nombre + "." + apellido + cantUsuario;
-            }
-            else
-            {
-                nombreUsuario = nombre + "." + apellido;
-            }
-
-            return nombreUsuario;
-        }
-
-        public string ObtenerNombreUsuario(string token)
-        {
-            return "userTest";
-        }
+      
 
     }
 }

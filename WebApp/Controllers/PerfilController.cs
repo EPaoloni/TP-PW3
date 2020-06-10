@@ -1,17 +1,19 @@
 ﻿using Models.Partial;
-using Services.Home;
+using Services.Usuario;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
     public class PerfilController : Controller
     {
         UsuarioService usuarioSrv = new UsuarioService();
+        ArchivoService archivoSrv = new ArchivoService();
 
         [HttpGet]
         public ActionResult Inicio()
@@ -22,12 +24,10 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Guardar(PerfilMetaData perfil)
         {
-            string rutaSitio = Server.MapPath("~/");
-            string nombreArchivo = usuarioSrv.ObtenerNombreUsuario("asdfghjjkkl");
-            nombreArchivo += Guid.NewGuid().ToString("N").Substring(0, 6);
-            perfil.RutaFoto = Path.Combine(rutaSitio + "Files\\" + nombreArchivo + ".png");
+            string nombreUsuario = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
+            usuarioSrv.Guardar(perfil, nombreUsuario);
 
-            perfil.Archivo.SaveAs(perfil.RutaFoto);
+            //perfil.Archivo.SaveAs(perfil.RutaFoto);
 
             return RedirectToAction("Inicio");
         }
