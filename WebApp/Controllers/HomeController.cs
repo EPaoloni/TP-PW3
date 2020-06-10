@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Services.Home;
 using WebApp.Helpers;
 using Models.Partial;
+using Models.ORM;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -77,6 +79,17 @@ namespace WebApp.Controllers
             usuarioSrv.Activar(token);
 
             return RedirectToAction("Inicio");
+        }
+
+        public string GetAllNecesidades()
+        {
+            PandemiaEntities context = new PandemiaEntities();
+            NecesidadService necesidadService = new NecesidadService();
+
+            List<Necesidades> necesidades = necesidadService.GetNecesidades(context);
+
+            return necesidades[0].Nombre;
+
         }
     }
 }
