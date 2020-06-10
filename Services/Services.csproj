@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Home\EmailService.cs" />
     <Compile Include="Home\IngresarService.cs" />
+    <Compile Include="Home\NecesidadService.cs" />
     <Compile Include="Home\UsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
