@@ -52,5 +52,10 @@ namespace Services.Home
             return nombreUsuario;
         }
 
+        public string ObtenerNombreUsuario(string token)
+        {
+            return "userTest";
+        }
+
     }
 }

@@ -1,29 +1,35 @@
-﻿@{
+﻿@using Models.Partial
+@model PerfilMetaData
+
+@{
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-    <div class="col s12 m12 l12">
-        <div class="row titulo-action">
-            <div class="titulo-inicio blue-text accent-3 center">
-                <h5>PERFIL</h5>
-            </div>
-            <hr />
+<div class="col s12 m12 l12">
+    <div class="row titulo-action">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>PERFIL</h5>
         </div>
-        <div class="col s12 m4 l4 offset-m8 offset-l8">
-            <button class="btn waves-effect waves-light col s12 m12 l12 blue darken-3 btn-action" id="btnMisDonaciones">
-                MIS DONACIONES
-            </button>
-        </div>
-        <div class="row">
+        <hr />
+    </div>
+    <div class="col s12 m4 l4 offset-m8 offset-l8">
+        <button class="btn waves-effect waves-light col s12 m12 l12 blue darken-3 btn-action" id="btnMisDonaciones">
+            MIS DONACIONES
+        </button>
+    </div>
+    <div class="row">
+        <form method="post" action="/Perfil/Guardar" enctype="multipart/form-data">
             <div id="LadoIzquierdo" class="col s12 m4">
                 <div class="card">
                     <div class="card-image">
                         <img src="~/Images/Perfil/user-icon.png" />
                     </div>
-                    <div>
-                        <button class="btn waves-effect waves-light col s12 m12 blue darken-3 btn-action" id="btnCambiarFoto">
-                            CAMBIAR FOTO
-                        </button>
+                    <div class="file-field input-field">
+                        <div class="btn col s12 m12 blue darken-3 waves-effect">
+                            <span>CAMBIAR FOTO</span>
+                            <input type="file">
+                            @Html.TextBoxFor(m => m.Archivo, new { type="file"})
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,9 +46,10 @@
                     <input type="text" class="datepicker" id="fecha_nac">
                     <label for="fecha_nac">Fecha de nacimiento</label>
                 </div>
-                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">
+                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar" type="submit">
                     MODIFICAR
                 </button>
             </div>
-        </div>
+        </form>
     </div>
+</div>
