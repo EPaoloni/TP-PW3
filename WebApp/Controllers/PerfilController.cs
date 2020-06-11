@@ -24,8 +24,9 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Guardar(PerfilMetaData perfil)
         {
-            string nombreUsuario = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
-            usuarioSrv.Guardar(perfil, nombreUsuario);
+            perfil.NombreUsuario = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
+            perfil.Email = SesionHelper.Email;
+            usuarioSrv.Guardar(perfil);
 
             //perfil.Archivo.SaveAs(perfil.RutaFoto);
 

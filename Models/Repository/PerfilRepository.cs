@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.ORM;
+using Models.Partial;
 
 namespace Models.Repository
 {
@@ -19,6 +20,20 @@ namespace Models.Repository
                                             select u;
 
             return consulta.Count();
+        }
+
+        public void Guardar(PerfilMetaData perfil)
+        {
+            Usuarios usuario = db.Usuarios.Where(u => u.Email == perfil.Email).FirstOrDefault();
+
+            if (usuario != null)
+            {
+                usuario.Nombre = perfil.Nombre;
+                usuario.Apellido = perfil.Apellido;
+                usuario.Foto = perfil.RutaFoto;
+                usuario.FechaNacimiento = perfil.FechaNacimiento;
+            }
+            
         }
     }
 }

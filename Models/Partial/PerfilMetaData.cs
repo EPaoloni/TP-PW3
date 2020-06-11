@@ -14,5 +14,7 @@ namespace Models.Partial
         public DateTime FechaNacimiento { get; set; }
         public string RutaFoto { get; set; }
         public HttpPostedFileBase Archivo { get;set; }
+        public string Email { get; set; }
+        public string NombreUsuario { get; set; }
     }
 }

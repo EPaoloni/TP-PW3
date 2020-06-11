@@ -40,10 +40,14 @@ namespace Services.Usuario
             return "d1s24d5674e6";
         }
 
-        public void Guardar(PerfilMetaData perfil, string nombreUsuario)
+        public void Guardar(PerfilMetaData perfil)
         {
             ArchivoService archivoSrv = new ArchivoService();
-            archivoSrv.Guardar(perfil.Archivo, nombreUsuario);
+            PerfilRepository perfilRepo = new PerfilRepository();
+
+            perfil.RutaFoto = archivoSrv.Guardar(perfil.Archivo, perfil.NombreUsuario, "perfil");
+
+            perfilRepo.Guardar(perfil);
         }
     }
 }
