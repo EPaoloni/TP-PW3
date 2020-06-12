@@ -25,10 +25,9 @@ namespace WebApp.Controllers
         public ActionResult Guardar(PerfilMetaData perfil)
         {
             perfil.NombreUsuario = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
-            perfil.Email = SesionHelper.Email;
+            //perfil.Email = SesionHelper.Email;
+            perfil.Email = "test@ayudando.com.ar";
             usuarioSrv.Guardar(perfil);
-
-            //perfil.Archivo.SaveAs(perfil.RutaFoto);
 
             return RedirectToAction("Inicio");
         }

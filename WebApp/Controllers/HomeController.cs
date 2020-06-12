@@ -27,7 +27,6 @@ namespace WebApp.Controllers
         public ActionResult Ingresar(IngresarMetaData usuario)
         {
             IngresarService ingresarSrv = new IngresarService();
-            SesionHelper sesionHelp = new SesionHelper();
 
             ingresarSrv.ValidarLogin(usuario);
 
@@ -35,7 +34,7 @@ namespace WebApp.Controllers
             {
                 if (usuario.RespuestaLogin == true)
                 {
-                    SesionHelper.UsuarioId = sesionHelp.GenerarID();
+                    SesionHelper.UsuarioId = SesionHelper.GenerarID();
                     SesionHelper.Email = usuario.Email;
                     return RedirectToAction("Bienvenido");                  
                 }

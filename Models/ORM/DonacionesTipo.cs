@@ -12,10 +12,10 @@ namespace Models.ORM
     using System;
     using System.Collections.Generic;
     
-    public partial class DonacionTipo
+    public partial class DonacionesTipo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DonacionTipo()
+        public DonacionesTipo()
         {
             this.Necesidades = new HashSet<Necesidades>();
         }

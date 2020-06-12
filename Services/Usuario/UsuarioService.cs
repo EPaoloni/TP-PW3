@@ -45,7 +45,12 @@ namespace Services.Usuario
             ArchivoService archivoSrv = new ArchivoService();
             PerfilRepository perfilRepo = new PerfilRepository();
 
-            perfil.RutaFoto = archivoSrv.Guardar(perfil.Archivo, perfil.NombreUsuario, "perfil");
+            string rutaAux = archivoSrv.Guardar(perfil.Archivo, perfil.NombreUsuario, "perfil"); ;
+
+            if (rutaAux != "")
+            {
+                perfil.RutaFoto = rutaAux;
+            }            
 
             perfilRepo.Guardar(perfil);
         }

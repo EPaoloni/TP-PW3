@@ -28,25 +28,28 @@
                         <div class="btn col s12 m12 blue darken-3 waves-effect">
                             <span>CAMBIAR FOTO</span>
                             <input type="file">
-                            @Html.TextBoxFor(m => m.Archivo, new { type="file"})
+                            @Html.TextBoxFor(m => m.Archivo, new { type= "file", name = "archivo" })
                         </div>
                     </div>
                 </div>
             </div>
             <div id="LadoDerecho" class="col s12 m8">
                 <div class="input-field col s12 m12">
-                    <input id="nombre" type="text" class="validate">
+                    @Html.TextBoxFor(m => m.Nombre, new { @class = "validate", name = "nombre" })
                     <label for="nombre">Nombre</label>
+                    @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "helper-text" })
                 </div>
                 <div class="input-field col s12 m12">
-                    <input id="apellido" type="text" class="validate">
+                    @Html.TextBoxFor(m => m.Apellido, new { @class = "validate", name = "apellido" })
                     <label for="apellido">Apellido</label>
+                    @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "helper-text" })
                 </div>
                 <div class="input-field col s12 m12 l12">
-                    <input type="text" class="datepicker" id="fecha_nac">
+                    @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
                     <label for="fecha_nac">Fecha de nacimiento</label>
+                    @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "helper-text" })
                 </div>
-                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar" type="submit">
+                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar" type="submit" name="action">
                     MODIFICAR
                 </button>
             </div>

@@ -61,7 +61,7 @@
     <Compile Include="ORM\DonacionesMonetarias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\DonacionTipo.cs">
+    <Compile Include="ORM\DonacionesTipo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\Model.Context.cs">
