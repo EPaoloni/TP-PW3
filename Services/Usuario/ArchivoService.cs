@@ -24,13 +24,14 @@ namespace Services.Usuario
 
                 if (Directory.Exists(rutaCarpeta) == false)
                 {
-                    Directory.CreateDirectory(rutaCarpeta);
+                    Directory.CreateDirectory(rutaCarpeta);                    
                 }
 
                 string rutaArchivo = rutaCarpeta + "\\" + nombreArchivo + ".png";
-                rutaRelativa = CARPETA_ARCHIVOS + "\\" + nombreUsuario + "\\" + nombreArchivo + ".png";
 
+                rutaRelativa = CARPETA_ARCHIVOS + "\\" + nombreUsuario + "\\" + nombreArchivo + ".png";
                 archivo.SaveAs(rutaArchivo);
+                
             }
 
             return rutaRelativa;

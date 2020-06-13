@@ -1,4 +1,5 @@
-﻿using Models.Partial;
+﻿using Models.ORM;
+using Models.Partial;
 using Services.Usuario;
 using System;
 using System.Collections.Generic;
@@ -22,12 +23,13 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Guardar(PerfilMetaData perfil)
+        public ActionResult Guardar(Usuarios perfil)
         {
-            perfil.NombreUsuario = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
+            perfil.UserName = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
             //perfil.Email = SesionHelper.Email;
             perfil.Email = "test@ayudando.com.ar";
-            usuarioSrv.Guardar(perfil);
+            //usuarioSrv.Guardar(perfil);
+            usuarioSrv.Modificar(perfil);
 
             return RedirectToAction("Inicio");
         }
