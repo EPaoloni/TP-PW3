@@ -19,7 +19,7 @@
     </div>
     <div class="row contenedor-perfil">
         <form method="post" action="/Perfil/Guardar" enctype="multipart/form-data">
-            <div id="LadoIzquierdo" class="col s12 m3 l3 offset-l1 offset-m1">
+            <div id="LadoIzquierdo" class="col s12 m3 l3">
                 <div class="card">
                     <div class="card-image">
                         @if (Model.RutaFoto != "")
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div id="LadoDerecho" class="col s12 m8">
+            <div id="LadoDerecho" class="col s12 m8 offset-l1 offset-m1">
                 <div class="input-field col s12 m12">
                     @Html.TextBoxFor(m => m.Nombre, new { @class = "validate", name = "nombre" })
                     <label for="nombre">Nombre</label>
@@ -56,9 +56,9 @@
                     <label for="fecha_nac">Fecha de nacimiento</label>
                     @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "helper-text" })
                 </div>
-                <div class="btn waves-effect waves-light col s12 m12 l12 blue darken-3">
-                    <input type="submit" name="action" value="MODIFICAR" id="btnModificar" class="white-text " />
-                </div>
+                <button class="btn waves-effect waves-light col s12 m12 l12 blue darken-3" id="btnIngresar" type="submit" name="action">
+                    MODIFICAR
+                </button>
                 
             </div>
         </form>

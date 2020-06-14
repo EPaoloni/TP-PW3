@@ -6587,7 +6587,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   font-size: 2rem;
   -webkit-transition: color .2s;
   transition: color .2s;
-  top: 0.5rem;
+  top: 0.1rem;
 }
 
 .input-field .prefix.active {
