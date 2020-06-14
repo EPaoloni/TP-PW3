@@ -18,11 +18,11 @@
         </button>
     </div>
     <div class="row contenedor-perfil">
-        <form method="post" action="/Perfil/Guardar" enctype="multipart/form-data">
+        <form method="post" action="/Perfil/Inicio" enctype="multipart/form-data">
             <div id="LadoIzquierdo" class="col s12 m3 l3">
                 <div class="card">
                     <div class="card-image">
-                        @if (Model.RutaFoto != "")
+                        @if (Model.RutaFoto != "" && Model.RutaFoto != null)
                         {
                             <img src="~/@Model.RutaFoto" class="img-perfil"/>
                         }
@@ -52,7 +52,7 @@
                     @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "helper-text" })
                 </div>
                 <div class="input-field col s12 m12 l12">
-                    @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
+                    @Html.TextBoxFor(m => m.FechaNacimiento, "{0:dd/MM/yyyy}", new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
                     <label for="fecha_nac">Fecha de nacimiento</label>
                     @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "helper-text" })
                 </div>

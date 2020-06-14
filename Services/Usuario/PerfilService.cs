@@ -54,7 +54,7 @@ namespace Services.Usuario
             PerfilMetaData perfil = new PerfilMetaData();
             perfil.Nombre = usuario.Nombre != null ? usuario.Nombre : "";
             perfil.Apellido = usuario.Apellido != null ? usuario.Apellido : "";
-            perfil.FechaNacimiento = usuario.FechaNacimiento.ToString("d");
+            perfil.FechaNacimiento = usuario.FechaNacimiento;
             perfil.RutaFoto = usuario.Foto != null ? usuario.Foto : "";
 
             return perfil;

@@ -85,7 +85,7 @@ namespace Models.Repository
             usuario.Nombre = usuarioAux.Nombre;
             usuario.Apellido = usuarioAux.Apellido;
             usuario.Foto = usuarioAux.RutaFoto;
-            usuario.FechaNacimiento = DateTime.Parse(usuarioAux.FechaNacimiento);
+            usuario.FechaNacimiento = usuarioAux.FechaNacimiento;
 
             context.SaveChanges();
         }

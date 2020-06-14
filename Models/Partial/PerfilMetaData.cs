@@ -11,7 +11,8 @@ namespace Models.Partial
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public String FechaNacimiento { get; set; }
+        [MayorEdad(ErrorMessage = "Debe ser mayor de 18 años")]
+        public DateTime FechaNacimiento { get; set; }
         public string RutaFoto { get; set; }
         public HttpPostedFileBase Archivo { get;set; }
         public string Email { get; set; }

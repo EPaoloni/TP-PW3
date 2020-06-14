@@ -34,7 +34,7 @@ namespace Models.Repository
                 usuario.Nombre = perfil.Nombre;
                 usuario.Apellido = perfil.Apellido;
                 usuario.Foto = perfil.RutaFoto;
-                usuario.FechaNacimiento = DateTime.Parse(perfil.FechaNacimiento);
+                usuario.FechaNacimiento = perfil.FechaNacimiento;
 
                 try
                 {

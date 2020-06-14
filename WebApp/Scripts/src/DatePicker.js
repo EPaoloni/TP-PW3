@@ -1,6 +1,5 @@
 ﻿$(document).ready(function () {
     $('#icon_date_range').datepicker({
-        format: 'dd/mm/yyyy',
-        yearRange: 50
+        yearRange: 20
     });
 });

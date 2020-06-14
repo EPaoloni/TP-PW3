@@ -19,20 +19,23 @@ namespace WebApp.Controllers
         public ActionResult Inicio()
         {
             PerfilMetaData perfil = perfilSrv.ObtenerPerfil();
-
             return View(perfil);
+
         }
 
         [HttpPost]
-        public ActionResult Guardar(PerfilMetaData perfil)
+        public ActionResult Inicio(PerfilMetaData perfil)
         {
-            perfil.NombreUsuario = perfilSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
-            //perfil.Email = SesionHelper.Email;
-            perfil.Email = "test@ayudando.com.ar";
-            //usuarioSrv.Guardar(perfil);
-            perfilSrv.Guardar(perfil);
-
-            return RedirectToAction("Inicio");
+            if (ModelState.IsValid)
+            {
+                perfil.NombreUsuario = perfilSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
+                //perfil.Email = SesionHelper.Email;
+                perfil.Email = "test@ayudando.com.ar";
+                //usuarioSrv.Guardar(perfil);
+                perfilSrv.Guardar(perfil);
+            }
+            
+            return View(perfil);
         }
         
         public ActionResult Datos()
