@@ -1,4 +1,5 @@
 ﻿using Models.ORM;
+using Models.Partial;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +16,6 @@ namespace Models.Repository
         {
 
         }
-        #region Ingresar
 
         public Usuarios BuscarUsuario(string email, string password)
         {
@@ -26,10 +26,6 @@ namespace Models.Repository
 
             return consulta;
         }
-
-        #endregion
-
-        #region Registrarse
 
         public void Activar(string token)
         {
@@ -52,10 +48,6 @@ namespace Models.Repository
 
             return idTipoUsuario;
         }
-
-        #endregion
-
-        #region Perfil
 
         public Usuarios ObtenerPorEmail(string email)
         {
@@ -85,17 +77,15 @@ namespace Models.Repository
             return consulta.Count();
         }
 
-        #endregion
-
-        public void GuardarModificacion(Usuarios usuarioAux)
+        public void GuardarModificacion(PerfilMetaData usuarioAux)
         {
             Usuarios usuario = ObtenerPorEmail(usuarioAux.Email);
 
-            usuario.UserName = usuarioAux.UserName;
+            usuario.UserName = usuarioAux.NombreUsuario;
             usuario.Nombre = usuarioAux.Nombre;
             usuario.Apellido = usuarioAux.Apellido;
-            usuario.Foto = usuarioAux.Foto;
-            usuario.FechaNacimiento = usuarioAux.FechaNacimiento;
+            usuario.Foto = usuarioAux.RutaFoto;
+            usuario.FechaNacimiento = DateTime.Parse(usuarioAux.FechaNacimiento);
 
             context.SaveChanges();
         }

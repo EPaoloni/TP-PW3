@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.ORM;
 using Models.Partial;
 using Models.Repository;
 
@@ -10,23 +11,23 @@ namespace Services.Home
 {
     public class IngresarService
     {
-        public void ValidarLogin(IngresarMetaData usuario)
+        UsuarioRepository usuarioRepo;
+
+        public IngresarService()
         {
-            IngresarRepository usuarioRepo = new IngresarRepository();
+            PandemiaEntities context = new PandemiaEntities();
+            usuarioRepo = new UsuarioRepository(context);
+        }
 
-            bool respuesta = usuarioRepo.BuscarUsuarioLogin(usuario.Email, usuario.Password);
-            usuario.RespuestaLogin = respuesta;
+        public void ValidarLogin(IngresarMetaData usuarioMetaData)
+        {
+            Usuarios usuario = usuarioRepo.BuscarUsuario(usuarioMetaData.Email, usuarioMetaData.Password);
 
-            //UsuariosPartial usuarioConsulta = BaseDatos.usuarioStatic.Find(u => u.Email == usuario.Email && u.Password == usuario.Password);
-
-            //if (usuario.RespuestaLogin != null)
-            //{
-            //    usuario.RespuestaLogin = true;
-            //}
-            //else
-            //{
-            //    usuario.RespuestaLogin = false;
-            //}
+            if (usuario != null)
+            {
+                usuarioMetaData.RespuestaLogin = true;
+            }
+            
         }
     }
 }

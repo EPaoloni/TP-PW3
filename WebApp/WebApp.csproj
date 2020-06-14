@@ -118,6 +118,7 @@
     <Content Include="Content\src\perfil.css" />
     <Content Include="Content\src\progressbar.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\src\side-nav.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />

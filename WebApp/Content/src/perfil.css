@@ -2,7 +2,21 @@
     margin-top: 5vh;
 }
 
-img {
-    display: block;
-    margin: auto;
+.img-perfil {
+    width: 284px;
+    height: 230px;
+    margin-top: 7%;
+    margin-bottom: 13%;
+}
+
+.titulo-usuario{
+    margin-top: 3.0%;
+}
+
+.contenedor-perfil{
+    margin-top: 9.5%;
+}
+
+#btnModificar-perfil{
+    padding-top: 10%;
 }

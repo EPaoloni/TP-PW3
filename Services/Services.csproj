@@ -52,9 +52,9 @@
   <ItemGroup>
     <Compile Include="Home\EmailService.cs" />
     <Compile Include="Home\IngresarService.cs" />
-    <Compile Include="Home\UsuarioService.cs" />
+    <Compile Include="Home\RegistrarseService.cs" />
     <Compile Include="Usuario\ArchivoService.cs" />
-    <Compile Include="Usuario\UsuarioService.cs" />
+    <Compile Include="Usuario\PerfilService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

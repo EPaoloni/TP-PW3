@@ -13,23 +13,24 @@ namespace WebApp.Controllers
 {
     public class PerfilController : Controller
     {
-        UsuarioService usuarioSrv = new UsuarioService();
-        ArchivoService archivoSrv = new ArchivoService();
+        PerfilService perfilSrv = new PerfilService();
 
         [HttpGet]
         public ActionResult Inicio()
         {
-            return View();
+            PerfilMetaData perfil = perfilSrv.ObtenerPerfil();
+
+            return View(perfil);
         }
 
         [HttpPost]
-        public ActionResult Guardar(Usuarios perfil)
+        public ActionResult Guardar(PerfilMetaData perfil)
         {
-            perfil.UserName = usuarioSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
+            perfil.NombreUsuario = perfilSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
             //perfil.Email = SesionHelper.Email;
             perfil.Email = "test@ayudando.com.ar";
             //usuarioSrv.Guardar(perfil);
-            usuarioSrv.Modificar(perfil);
+            perfilSrv.Guardar(perfil);
 
             return RedirectToAction("Inicio");
         }

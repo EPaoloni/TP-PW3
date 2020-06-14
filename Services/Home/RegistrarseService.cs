@@ -9,17 +9,15 @@ using System.Threading.Tasks;
 
 namespace Services.Home
 {
-    public class UsuarioService
+    public class RegistrarseService
     {
         UsuarioRepository usuarioRepo;
         
         EmailService emailServ = new EmailService();
-        //RegistrarseRepository regRepo = new RegistrarseRepository();
 
-        public UsuarioService()
+        public RegistrarseService()
         {
             PandemiaEntities context = new PandemiaEntities();
-            UsuarioRepository usuarioRepo = new UsuarioRepository(context);
             usuarioRepo = new UsuarioRepository(context);
         }
  
@@ -48,27 +46,6 @@ namespace Services.Home
             // Se envia el email de activacion
             emailServ.Enviar(usuario.Email, usuario.Token);
         }
-
-        public bool BuscarUsuarioLogin(string email, string password)
-        {
-            Usuarios consulta = usuarioRepo.BuscarUsuario(email, password);
-
-            if (consulta != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-
-        public void Modificar(Usuarios usuarioAux)
-        {
-            usuarioRepo.GuardarModificacion(usuarioAux);
-        }
-
 
     }
 }

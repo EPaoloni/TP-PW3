@@ -42,7 +42,6 @@ namespace WebApp.Controllers
             }
 
             return View(usuario);
-
         }
 
         [HttpGet]
@@ -56,8 +55,9 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                UsuarioService usuarioSrv = new UsuarioService();
+                RegistrarseService usuarioSrv = new RegistrarseService();
                 usuarioSrv.Agregar(usuario);
+                return RedirectToAction("Ingresar");
             }
 
             return View(usuario);
@@ -72,7 +72,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Activar(string token)
         {
-            UsuarioService usuarioSrv = new UsuarioService();
+            RegistrarseService usuarioSrv = new RegistrarseService();
 
             usuarioSrv.Activar(token);
 

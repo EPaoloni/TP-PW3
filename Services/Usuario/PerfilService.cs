@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.ORM;
 using Models.Partial;
 using Models.Repository;
 
 namespace Services.Usuario
 {
-    public class UsuarioService
+    public class PerfilService
     {
-        PerfilRepository perfilRepo = new PerfilRepository();
+        UsuarioRepository usuarioRepo;
+
+        public PerfilService()
+        {
+            PandemiaEntities context = new PandemiaEntities();
+            usuarioRepo = new UsuarioRepository(context);
+        }
 
         public string GenerarNombreUsuario(string nombre, string apellido)
         {
             string nombreUsuario = "";
 
-            int cantUsuario = perfilRepo.ValidarNombreUsuario(nombre, apellido);
+            int cantUsuario = usuarioRepo.ValidarNombreUsuario(nombre, apellido);
 
-            if (cantUsuario > 0)
+            if (cantUsuario > 1)
             {
                 nombreUsuario = nombre + "." + apellido + cantUsuario;
             }
@@ -40,10 +47,22 @@ namespace Services.Usuario
             return "d1s24d5674e6";
         }
 
+        public PerfilMetaData ObtenerPerfil()
+        {
+            Usuarios usuario = usuarioRepo.ObtenerPorEmail("test@ayudando.com.ar");
+
+            PerfilMetaData perfil = new PerfilMetaData();
+            perfil.Nombre = usuario.Nombre != null ? usuario.Nombre : "";
+            perfil.Apellido = usuario.Apellido != null ? usuario.Apellido : "";
+            perfil.FechaNacimiento = usuario.FechaNacimiento.ToString("d");
+            perfil.RutaFoto = usuario.Foto != null ? usuario.Foto : "";
+
+            return perfil;
+        }
+
         public void Guardar(PerfilMetaData perfil)
         {
             ArchivoService archivoSrv = new ArchivoService();
-            PerfilRepository perfilRepo = new PerfilRepository();
 
             string rutaAux = archivoSrv.Guardar(perfil.Archivo, perfil.NombreUsuario, "perfil"); ;
 
@@ -51,8 +70,15 @@ namespace Services.Usuario
             {
                 perfil.RutaFoto = rutaAux;
             }            
-
-            perfilRepo.Guardar(perfil);
+ 
+            usuarioRepo.GuardarModificacion(perfil);
         }
+
+        public void Modificar(PerfilMetaData usuarioAux)
+        {
+            usuarioRepo.GuardarModificacion(usuarioAux);
+        }
+
+        
     }
 }

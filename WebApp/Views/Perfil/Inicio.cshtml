@@ -6,26 +6,33 @@
 }
 
 <div class="col s12 m12 l12">
-    <div class="row titulo-action">
+    <div class="row titulo-usuario">
         <div class="titulo-inicio blue-text accent-3 center">
             <h5>PERFIL</h5>
         </div>
         <hr />
     </div>
     <div class="col s12 m4 l4 offset-m8 offset-l8">
-        <button class="btn waves-effect waves-light col s12 m12 l12 blue darken-3 btn-action" id="btnMisDonaciones">
+        <button class="btn waves-effect waves-light col s12 m12 l12 blue darken-3" id="btnMisDonaciones">
             MIS DONACIONES
         </button>
     </div>
-    <div class="row">
+    <div class="row contenedor-perfil">
         <form method="post" action="/Perfil/Guardar" enctype="multipart/form-data">
-            <div id="LadoIzquierdo" class="col s12 m4">
+            <div id="LadoIzquierdo" class="col s12 m3 l3 offset-l1 offset-m1">
                 <div class="card">
                     <div class="card-image">
-                        <img src="~/Images/Perfil/user-icon.png" />
+                        @if (Model.RutaFoto != "")
+                        {
+                            <img src="~/@Model.RutaFoto" class="img-perfil"/>
+                        }
+                        else
+                        {
+                            <img src="~/Images/Perfil/user-icon.png"/>
+                        }
                     </div>
                     <div class="file-field input-field">
-                        <div class="btn col s12 m12 blue darken-3 waves-effect">
+                        <div class="btn waves-effect waves-light col s12 m12 l12 blue darken-3">
                             <span>CAMBIAR FOTO</span>
                             <input type="file">
                             @Html.TextBoxFor(m => m.Archivo, new { type= "file", name = "archivo" })
@@ -49,9 +56,10 @@
                     <label for="fecha_nac">Fecha de nacimiento</label>
                     @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "helper-text" })
                 </div>
-                <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar" type="submit" name="action">
-                    MODIFICAR
-                </button>
+                <div class="btn waves-effect waves-light col s12 m12 l12 blue darken-3">
+                    <input type="submit" name="action" value="MODIFICAR" id="btnModificar" class="white-text " />
+                </div>
+                
             </div>
         </form>
     </div>
