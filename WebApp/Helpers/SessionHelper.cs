@@ -21,8 +21,6 @@ namespace WebApp.Helpers
             }
         }
 
-        public static string Email { get; set; }
-
         public static string GenerarID()
         {
             SessionIDManager manager = new SessionIDManager();
