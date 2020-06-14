@@ -9,8 +9,7 @@ using System.Web;
 namespace Services.Usuario
 {
     public class ArchivoService 
-    {
-        
+    {       
         readonly string rutaSitio = HttpContext.Current.Server.MapPath("~/");
         const string CARPETA_ARCHIVOS = "Files";
         

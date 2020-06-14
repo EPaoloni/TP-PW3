@@ -14,7 +14,7 @@ namespace Models.Partial
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Campo requerido")]
-        //[Range(18,99,ErrorMessage = "Debe ser mayor de 18 años")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [MayorEdad(ErrorMessage = "Debe ser mayor de 18 años")]
         public DateTime FechaNacimiento { get; set; }
 

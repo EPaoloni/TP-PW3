@@ -42,17 +42,42 @@
             </div>
             <div id="LadoDerecho" class="col s12 m8 offset-l1 offset-m1">
                 <div class="input-field col s12 m12">
-                    @Html.TextBoxFor(m => m.Nombre, new { @class = "validate", name = "nombre" })
+                    @if (Model.Nombre == null)
+                    {
+                        @Html.TextBoxFor(m => m.Nombre, new { @class = "validate", name = "nombre" })
+
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.Nombre, new { @class = "validate", name = "nombre", disabled = "disabled" })
+                    }
+
                     <label for="nombre">Nombre</label>
                     @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "helper-text" })
+
                 </div>
                 <div class="input-field col s12 m12">
-                    @Html.TextBoxFor(m => m.Apellido, new { @class = "validate", name = "apellido" })
+                    @if (Model.Apellido == null)
+                    {
+                        @Html.TextBoxFor(m => m.Apellido, new { @class = "validate", name = "apellido" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.Apellido, new { @class = "validate", name = "apellido", disabled = "disabled" })
+                    }
                     <label for="apellido">Apellido</label>
                     @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "helper-text" })
                 </div>
                 <div class="input-field col s12 m12 l12">
-                    @Html.TextBoxFor(m => m.FechaNacimiento, "{0:dd/MM/yyyy}", new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
+                    @if (Model.Nombre == null & Model.Apellido == null)
+                    {
+                        @Html.TextBoxFor(m => m.FechaNacimiento, "{0:dd/MM/yyyy}", new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.FechaNacimiento, "{0:dd/MM/yyyy}", new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range", disabled = "disabled" })
+                    }
+
                     <label for="fecha_nac">Fecha de nacimiento</label>
                     @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "helper-text" })
                 </div>
