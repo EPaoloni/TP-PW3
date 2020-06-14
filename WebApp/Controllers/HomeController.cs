@@ -29,7 +29,6 @@ namespace WebApp.Controllers
         public ActionResult Ingresar(IngresarMetaData usuario)
         {
             IngresarService ingresarSrv = new IngresarService();
-            SesionHelper sesionHelp = new SesionHelper();
 
             ingresarSrv.ValidarLogin(usuario);
 
@@ -37,14 +36,15 @@ namespace WebApp.Controllers
             {
                 if (usuario.RespuestaLogin == true)
                 {
-                    SesionHelper.UsuarioId = sesionHelp.GenerarID();
-                    return RedirectToAction("Bienvenido");                  
+                    SesionHelper.UsuarioId = SesionHelper.GenerarID();
+                    UsuarioLogeadoHelper.Email = "test@ayudando.com.ar";
+                    UsuarioLogeadoHelper.NombreUsuario = "Nombre.Apellido";
+                    return RedirectToAction("Inicio","Perfil");                  
                 }
    
             }
 
             return View(usuario);
-
         }
 
         [HttpGet]
@@ -58,8 +58,9 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                UsuarioService usuarioSrv = new UsuarioService();
+                RegistrarseService usuarioSrv = new RegistrarseService();
                 usuarioSrv.Agregar(usuario);
+                return RedirectToAction("Ingresar");
             }
 
             return View(usuario);
@@ -74,7 +75,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Activar(string token)
         {
-            UsuarioService usuarioSrv = new UsuarioService();
+            RegistrarseService usuarioSrv = new RegistrarseService();
 
             usuarioSrv.Activar(token);
 

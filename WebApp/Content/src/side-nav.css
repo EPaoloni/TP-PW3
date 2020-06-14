@@ -1,0 +1,12 @@
+﻿div .side-nav{
+    width: 208px;
+    height: 40em;
+}
+
+#sideNavSuperior{
+    font-size: 10px;
+}
+
+#sideNavInferior{
+    height: 100%;
+}

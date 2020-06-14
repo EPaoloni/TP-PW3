@@ -33,10 +33,10 @@ namespace Models.ORM
         public int Estado { get; set; }
         public Nullable<decimal> Valoracion { get; set; }
     
-        public virtual DonacionTipo DonacionTipo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesReferencias> NecesidadesReferencias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
+        public virtual DonacionesTipo DonacionesTipo { get; set; }
     }
 }

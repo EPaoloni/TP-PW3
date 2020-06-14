@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 
-namespace Models
+namespace Models.Repository
 {
     public abstract class BaseRepository<T> where T : class
     {
@@ -31,8 +31,6 @@ namespace Models
                 SaveChanges(context);
             }
         }
-
-        //public abstract void Modificar(T entity);
 
         public T ObtenerPorId(int id)
         {

@@ -4877,7 +4877,7 @@ small {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 90%;
+  width: 100%;
 }
 
 .card .card-image .card-title {
@@ -6587,7 +6587,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   font-size: 2rem;
   -webkit-transition: color .2s;
   transition: color .2s;
-  top: 0.5rem;
+  top: 0.1rem;
 }
 
 .input-field .prefix.active {
@@ -7309,7 +7309,7 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 
 .file-field .btn, .file-field .btn-large, .file-field .btn-small {
   float: left;
-  height: 3rem;
+  height: 2.6rem;
   line-height: 3rem;
 }
 
