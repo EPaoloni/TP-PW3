@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "MisNecesidades";
+    Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
+}
+
+<div class="col s12 m12 l12">
+    <div class="row titulo-usuario">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>NECESIDADES PROPIAS</h5>
+        </div>
+        <hr />
+    </div>
+    <div>
+        <p class="s12 m12 l12">
+            <label>
+                <input type="checkbox" class="filled-in" checked="checked" />
+                <span>Solo visualizar activas</span>
+            </label>
+        </p>
+    </div>
+    <div id="ContenidoMisNecesidades" class="row">
+        @Html.Partial("pv_CardMisNecesidades")
+    </div>
+</div>
+

@@ -17,5 +17,11 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult MisNecesidades()
+        {
+            return View();
+        }
     }
 }

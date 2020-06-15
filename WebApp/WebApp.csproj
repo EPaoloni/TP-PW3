@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\lib\materialize\materialize.css" />
+    <Content Include="Content\src\mis-necesidades.css" />
     <Content Include="Content\src\Necesidad.css" />
     <Content Include="Content\src\alert.css" />
     <Content Include="Content\src\card.css" />
@@ -174,6 +175,8 @@
     <Content Include="Views\Home\_InicioLayout.cshtml" />
     <Content Include="Views\Shared\pv_SideNavUsuario.cshtml" />
     <Content Include="Views\Perfil\Inicio.cshtml" />
+    <Content Include="Views\Necesidad\MisNecesidades.cshtml" />
+    <Content Include="Views\Necesidad\pv_CardMisNecesidades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
