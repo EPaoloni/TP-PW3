@@ -19,7 +19,7 @@ INSERT INTO [dbo].[Necesidades]
            ,2020-06-27
            ,'11-4243-2604'
            ,1
-           ,'/Images/Necesidad/img.png'
+           ,'Images\Necesidad\img.png'
            ,1
            ,1
            ,0.0)
