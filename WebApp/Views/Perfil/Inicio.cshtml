@@ -22,7 +22,7 @@
             <div id="LadoIzquierdo" class="col s12 m3 l3">
                 <div class="card">
                     <div class="card-image">
-                        @if (Model.RutaFoto != "" && Model.RutaFoto != null)
+                        @if (Model.RutaFoto == "" || Model.RutaFoto == null)
                         {
                             <img src="~/@Model.RutaFoto" class="img-perfil"/>
                         }
@@ -42,7 +42,7 @@
             </div>
             <div id="LadoDerecho" class="col s12 m8 offset-l1 offset-m1">
                 <div class="input-field col s12 m12">
-                    @if (Model.Nombre == null)
+                    @if (Model.Nombre == "")
                     {
                         @Html.TextBoxFor(m => m.Nombre, new { @class = "validate", name = "nombre" })
 
@@ -57,7 +57,7 @@
 
                 </div>
                 <div class="input-field col s12 m12">
-                    @if (Model.Apellido == null)
+                    @if (Model.Apellido == "")
                     {
                         @Html.TextBoxFor(m => m.Apellido, new { @class = "validate", name = "apellido" })
                     }
@@ -69,7 +69,7 @@
                     @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "helper-text" })
                 </div>
                 <div class="input-field col s12 m12 l12">
-                    @if (Model.Nombre == null & Model.Apellido == null)
+                    @if (Model.Nombre == "" & Model.Apellido == "")
                     {
                         @Html.TextBoxFor(m => m.FechaNacimiento, "{0:dd/MM/yyyy}", new { @class = "validate datepicker", name = "fechanacimiento", id = "icon_date_range" })
                     }
