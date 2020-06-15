@@ -139,6 +139,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DenunciaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\NecesidadController.cs" />
@@ -176,6 +177,8 @@
     <Content Include="Views\Perfil\Inicio.cshtml" />
     <Content Include="Views\Necesidad\MisNecesidades.cshtml" />
     <Content Include="Views\Necesidad\pv_CardMisNecesidades.cshtml" />
+    <Content Include="Views\Denuncia\Inicio.cshtml" />
+    <Content Include="Views\Denuncia\pv_CardDenuncias.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
