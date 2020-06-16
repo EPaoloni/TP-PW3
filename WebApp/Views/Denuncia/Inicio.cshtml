@@ -1,18 +1,24 @@
-﻿
+﻿@using Models.Partial
+@model List<DenunciaMetaData>
+
 @{
     ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-    <div class="col s12 m12 l12">
-        <div class="row titulo-usuario">
-            <div class="titulo-inicio blue-text accent-3 center">
-                <h5>DENUNCIAS</h5>
-            </div>
-            <hr />
+<div class="col s12 m12 l12">
+    <div class="row titulo-usuario">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>DENUNCIAS</h5>
         </div>
-        <div class="row contenedor-denuncia">
-            @Html.Partial("pv_CardDenuncias")
-        </div>
+        <hr />
     </div>
+    <div class="row contenedor-denuncia">
+
+        @foreach(var item in Model)
+        {
+            @Html.Partial("pv_CardDenuncias", item)
+        }        
+    </div>
+</div>
 

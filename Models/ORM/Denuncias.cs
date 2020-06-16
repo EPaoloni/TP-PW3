@@ -22,9 +22,10 @@ namespace Models.ORM
         public System.DateTime FechaCreacion { get; set; }
         public int Estado { get; set; }
     
+        public virtual Usuarios Usuarios { get; set; }
         public virtual DenunciasComentario DenunciasComentario { get; set; }
         public virtual DenunciasEstado DenunciasEstado { get; set; }
         public virtual MotivoDenuncia MotivoDenuncia { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
+        public virtual Necesidades Necesidades { get; set; }
     }
 }

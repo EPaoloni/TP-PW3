@@ -55,6 +55,7 @@
     <Compile Include="Home\NecesidadService.cs" />
     <Compile Include="Home\RegistrarseService.cs" />
     <Compile Include="Usuario\ArchivoService.cs" />
+    <Compile Include="Usuario\DenunciaService.cs" />
     <Compile Include="Usuario\PerfilService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

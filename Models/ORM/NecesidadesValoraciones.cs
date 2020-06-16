@@ -19,7 +19,7 @@ namespace Models.ORM
         public int IdNecesidad { get; set; }
         public bool Valoracion { get; set; }
     
-        public virtual Necesidades Necesidades { get; set; }
         public virtual Usuarios Usuarios { get; set; }
+        public virtual Necesidades Necesidades { get; set; }
     }
 }

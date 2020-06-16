@@ -10,7 +10,6 @@ namespace Models.Partial
     {
         public int IdMotivoDenuncia { get; set; }
         public string Descripcion { get; set; }
-
         public virtual DenunciaMetaData Denuncias { get; set; }
     }
 }
