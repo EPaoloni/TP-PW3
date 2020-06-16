@@ -20,6 +20,7 @@ namespace Models.ORM
             this.Denuncias = new HashSet<Denuncias>();
             this.DonacionesInsumos = new HashSet<DonacionesInsumos>();
             this.DonacionesMonetarias = new HashSet<DonacionesMonetarias>();
+            this.Necesidades = new HashSet<Necesidades>();
             this.NecesidadesValoraciones = new HashSet<NecesidadesValoraciones>();
         }
     
@@ -42,6 +43,8 @@ namespace Models.ORM
         public virtual ICollection<DonacionesInsumos> DonacionesInsumos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonacionesMonetarias> DonacionesMonetarias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Necesidades> Necesidades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
         public virtual UsuariosTipo UsuariosTipo { get; set; }

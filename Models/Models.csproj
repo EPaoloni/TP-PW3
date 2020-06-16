@@ -55,6 +55,12 @@
     <Compile Include="ORM\Denuncias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\DenunciasComentario.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\DenunciasEstado.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\DonacionesInsumos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="ORM\NecesidadesDonacionesMonetarias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\NecesidadesEstado.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\NecesidadesReferencias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -103,7 +112,9 @@
     <Compile Include="ORM\UsuariosTipo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partial\DenunciaMetaData.cs" />
     <Compile Include="Partial\IngresarMetaData.cs" />
+    <Compile Include="Partial\MotivoDenunciaMetaData.cs" />
     <Compile Include="Partial\PerfilMetaData.cs" />
     <Compile Include="Partial\RegistrarseMetaData.cs" />
     <Compile Include="Partial\UsuariosPartial.cs" />
@@ -134,6 +145,7 @@
     <Content Include="Docs\SQL\DDL\db-esquema-v3.sql" />
     <Content Include="Docs\SQL\DDL\db-esquema-v4.sql" />
     <Content Include="Docs\SQL\DDL\db-esquema-v1.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v5.sql" />
     <Content Include="Docs\SQL\DDL\Denuncias.sql" />
     <Content Include="Docs\SQL\DDL\DenunciasComentario.sql" />
     <Content Include="Docs\SQL\DDL\DenunciasEstado.sql" />
@@ -141,9 +153,13 @@
     <Content Include="Docs\SQL\DDL\NecesidadesEstado.sql" />
     <Content Include="Docs\SQL\DDL\UsuariosTipo.sql" />
     <Content Include="Docs\SQL\MDL\DonacionesTipoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\MotivoDenunciaInsert.sql" />
     <Content Include="Docs\SQL\MDL\NecesidadesEstadoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\NecesidadesInsert.sql" />
     <Content Include="Docs\SQL\MDL\UsuarioInsert.sql" />
     <Content Include="Docs\SQL\MDL\UsuariosTipoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\UsuarioTestConPerfil.sql" />
+    <Content Include="Docs\SQL\MDL\UsuarioTestSinPerfil.sql" />
     <Content Include="ORM\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
