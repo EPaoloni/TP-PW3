@@ -37,5 +37,25 @@ namespace Models.Repository
                 SaveChanges(context);
             }
         }
+
+        /// <summary>
+        /// Devuelve todas las necesidades que contengan el nombre ingresado, de no existir ninguna devuelve null
+        /// </summary>
+        /// <param name="nombreABuscar"></param>
+        /// <returns></returns>
+        public List<Necesidades> BuscarPorNombre(string nombreABuscar)
+        {
+            var necesidadesObtenidas = dbSet.Where(necesidad => necesidad.Nombre.Contains(nombreABuscar));
+
+            if(necesidadesObtenidas != null)
+            {
+                List<Necesidades> necesidades = new List<Necesidades>(necesidadesObtenidas);
+                return necesidades;
+            } else
+            {
+                return null;
+            }
+
+        }
     }
 }

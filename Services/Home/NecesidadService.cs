@@ -29,5 +29,15 @@ namespace Services.Home
         {
             necesidadRepository.Modificar(necesidad);
         }
+
+        /// <summary>
+        /// Devuelve las necesidades que contengan el nombre introducido, si no hay ninguna devuelve null.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
+        public List<Necesidades> GetNecesidadesPorNombre(string nombre)
+        {
+            return necesidadRepository.BuscarPorNombre(nombre);
+        }
     }
 }
