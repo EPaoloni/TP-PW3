@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +24,18 @@ namespace Models.Repository
             List<Necesidades> necesidades = new List<Necesidades>(TopNecesidades);
 
             return necesidades;
+        }
+
+
+        public override void Modificar(Necesidades necesidad)
+        {
+            var necesidadOriginal = dbSet.Find(necesidad.IdNecesidad);
+
+            if(necesidadOriginal != null)
+            {
+                necesidadOriginal = necesidad;
+                SaveChanges(context);
+            }
         }
     }
 }

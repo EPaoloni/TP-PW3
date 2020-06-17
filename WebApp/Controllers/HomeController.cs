@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -84,9 +84,9 @@ namespace WebApp.Controllers
         public string GetAllNecesidades()
         {
             PandemiaEntities context = new PandemiaEntities();
-            NecesidadService necesidadService = new NecesidadService();
+            NecesidadService necesidadService = new NecesidadService(context);
 
-            List<Necesidades> necesidades = necesidadService.GetNecesidades(context);
+            List<Necesidades> necesidades = necesidadService.GetNecesidades();
 
             return necesidades[0].Nombre;
 
