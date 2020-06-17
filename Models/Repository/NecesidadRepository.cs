@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Models.Partial;
 using Models.ORM;
+using System.Collections;
 
 namespace Models.Repository
 {
@@ -16,9 +17,13 @@ namespace Models.Repository
 
         }
 
-        public List<Necesidades> GetAll()
+        public List<Necesidades> ObtenerTopNecesidades()
         {
-            return context.Necesidades.ToList();
+            var TopNecesidades = context.Necesidades.OrderByDescending(necesidad => necesidad.Valoracion).Take(5);
+
+            List<Necesidades> necesidades = new List<Necesidades>(TopNecesidades);
+
+            return necesidades;
         }
     }
 }

@@ -14,7 +14,14 @@ namespace Services.Home
         {
             NecesidadRepository necesidadRepository = new NecesidadRepository(context);
 
-            return necesidadRepository.GetAll();
+            return necesidadRepository.ObtenerTodos();
+        }
+
+        public List<Necesidades> GetTopNecesidades(PandemiaEntities context)
+        {
+            NecesidadRepository necesidadRepository = new NecesidadRepository(context);
+
+            return necesidadRepository.ObtenerTopNecesidades();
         }
     }
 }
