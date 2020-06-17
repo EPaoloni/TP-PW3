@@ -1,4 +1,4 @@
-﻿using Models.ORM;
+using Models.ORM;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -32,7 +32,7 @@ namespace Models
             }
         }
 
-        //public abstract void Modificar(T entity);
+        public abstract void Modificar(T entity);
 
         public T ObtenerPorId(int id)
         {
