@@ -1,25 +1,56 @@
-﻿@using Models.Partial
-@model DenunciaMetaData
+﻿@using Models.ORM
+@model Denuncias
 
 <div class="col s12 m6 l6">
     <div class="card horizontal light-blue darken-3 white-text">
         <div class="card-image col s12 m3 l3">
-            <img src="https://placehold.it/190x223" />
+            <img src="~/@Model.Necesidades.Foto" />
         </div>
         <div class="card-content col s12 m9 l9">
-            <h6>TITULO DE PUBLICACION</h6>
+            <h6>@Model.Necesidades.Nombre</h6>
             <div class="col s12 m8 l8">
-                <p>@Model.MotivoDenuncia</p>
-                <p>@Model.FechaCreacion</p>
+                <p>@Model.MotivoDenuncia.Descripcion</p>
+                <p>@Model.FechaCreacion.ToString("d")</p>
             </div>
             <div class="col s12 m4 l4">
                 <a class="btn blue waves-effect waves-light white-text" href="#">COMENTARIOS</a>
             </div>
             <div class="col s12 m12 l12 btn-action">
-                <a class="btn grey waves-effect waves-light white-text" href="#">DETALLE</a>
+                <a class="btn grey waves-effect waves-light white-text modal-trigger" href="#modalNecesidad">DETALLE</a>
                 <a class="btn red waves-effect waves-light white-text" href="#">DESESTIMAR</a>
                 <a class="btn teal waves-effect waves-light white-text" href="#">ACEPTAR</a>
             </div>
-        </div>      
+        </div>
+    </div>
+</div>
+
+<div id="modalNecesidad" class="modal">
+    <div class="modal-content">
+        <div class="col m12 l12">
+            <h3>DETALLE</h3>
+            <h4>@Model.Necesidades.Nombre</h4>            
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Tipo de donacion: </span>@Model.Necesidades.DonacionesTipo.Descripcion
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Estado: </span>@Model.Necesidades.NecesidadesEstado.Descripcion
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Fecha de creacion: </span>@Model.Necesidades.FechaCreacion.ToString("d")
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Fecha de fin: </span>@Model.Necesidades.FechaFin.ToString("d")
+        </div>
+        <div class="col m12 l12">
+            <p class="bold">Descripcion:</p>
+            <p>@Model.Necesidades.Descripcion</p>
+        </div>
+        <div class="col m12 l12">
+            @Html.Partial("pv_ProgressBar", @Model.Necesidades.Valoracion)
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
 </div>

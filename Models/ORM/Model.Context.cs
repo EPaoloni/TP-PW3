@@ -33,12 +33,12 @@ namespace Models.ORM
         public virtual DbSet<DonacionesTipo> DonacionesTipo { get; set; }
         public virtual DbSet<NecesidadesEstado> NecesidadesEstado { get; set; }
         public virtual DbSet<NecesidadesReferencias> NecesidadesReferencias { get; set; }
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<UsuariosTipo> UsuariosTipo { get; set; }
+        public virtual DbSet<DenunciasEstado> DenunciasEstado { get; set; }
         public virtual DbSet<Denuncias> Denuncias { get; set; }
         public virtual DbSet<DenunciasComentario> DenunciasComentario { get; set; }
-        public virtual DbSet<DenunciasEstado> DenunciasEstado { get; set; }
         public virtual DbSet<MotivoDenuncia> MotivoDenuncia { get; set; }
         public virtual DbSet<Necesidades> Necesidades { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

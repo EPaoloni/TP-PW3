@@ -14,9 +14,16 @@ namespace Models.ORM
     
     public partial class DenunciasEstado
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DenunciasEstado()
+        {
+            this.Denuncias = new HashSet<Denuncias>();
+        }
+    
         public int IdDenunciaEstado { get; set; }
         public string Descripcion { get; set; }
     
-        public virtual Denuncias Denuncias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Denuncias> Denuncias { get; set; }
     }
 }

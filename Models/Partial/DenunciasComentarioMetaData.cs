@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Models.Partial
+{
+    public class DenunciasComentarioMetaData
+    {
+        public int IdComentario { get; set; }
+        public string Descripcion { get; set; }
+    }
+}

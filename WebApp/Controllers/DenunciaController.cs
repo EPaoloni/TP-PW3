@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Services.Usuario;
 using Models.Partial;
+using Models.ORM;
 
 namespace WebApp.Controllers
 {
@@ -15,7 +16,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {
-            List<DenunciaMetaData> denuncia = denunciaSrv.ObtenerTodos();
+            List<Denuncias> denuncia = denunciaSrv.ObtenerTodos();
 
             return View(denuncia);
         }

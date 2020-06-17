@@ -17,11 +17,11 @@ namespace Models.ORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuarios()
         {
+            this.Denuncias = new HashSet<Denuncias>();
             this.DonacionesInsumos = new HashSet<DonacionesInsumos>();
             this.DonacionesMonetarias = new HashSet<DonacionesMonetarias>();
-            this.NecesidadesValoraciones = new HashSet<NecesidadesValoraciones>();
-            this.Denuncias = new HashSet<Denuncias>();
             this.Necesidades = new HashSet<Necesidades>();
+            this.NecesidadesValoraciones = new HashSet<NecesidadesValoraciones>();
         }
     
         public int IdUsuario { get; set; }
@@ -38,15 +38,15 @@ namespace Models.ORM
         public string Token { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Denuncias> Denuncias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonacionesInsumos> DonacionesInsumos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonacionesMonetarias> DonacionesMonetarias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Necesidades> Necesidades { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
         public virtual UsuariosTipo UsuariosTipo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Denuncias> Denuncias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Necesidades> Necesidades { get; set; }
     }
 }

@@ -18,25 +18,11 @@ namespace Services.Usuario
             denunciaRepo = new DenunciaRepository(context);
         }
 
-        public List<DenunciaMetaData> ObtenerTodos()
+        public List<Denuncias> ObtenerTodos()
         {
             List<Denuncias> listaRepo = denunciaRepo.ObtenerTodos();
-
-            List<DenunciaMetaData> listaMetaData = new List<DenunciaMetaData>();
-
-            foreach (Denuncias regRepo in listaRepo)
-            {
-                DenunciaMetaData regMetaData = new DenunciaMetaData();
-
-                regMetaData.FechaCreacion = regRepo.FechaCreacion;
-                regMetaData.MotivoDenuncia = regRepo.MotivoDenuncia.Descripcion;
-                //regMetaData.Estado = regRepo.Estado;
-                regMetaData.DenunciasComentario.Add(regRepo.DenunciasComentario.Descripcion);
-                regMetaData.Necesidad.Nombre = regRepo.Necesidades.Nombre;
-
-            }
-
-            return listaMetaData;
+         
+            return listaRepo;
         }
 
         //public UsuariosMetaData ObtenerDenunciaUsuario()
