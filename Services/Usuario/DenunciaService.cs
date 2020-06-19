@@ -25,9 +25,14 @@ namespace Services.Usuario
             return listaRepo;
         }
 
-        //public UsuariosMetaData ObtenerDenunciaUsuario()
-        //{
-        //    UsuariosMetaData usuario = new UsuariosMetaData();
-        //}
+        public void Desestimar()
+        {
+
+        }
+
+        public void Aceptar() 
+        {
+            
+        }
     }
 }

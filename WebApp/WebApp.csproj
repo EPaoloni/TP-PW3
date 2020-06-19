@@ -134,7 +134,6 @@
     <Content Include="Scripts\src\CrearNecesidad.js" />
     <Content Include="Scripts\src\datepicker.js" />
     <Content Include="Scripts\src\denuncia.js" />
-    <Content Include="Scripts\src\progressbar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

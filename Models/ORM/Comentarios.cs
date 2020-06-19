@@ -12,10 +12,10 @@ namespace Models.ORM
     using System;
     using System.Collections.Generic;
     
-    public partial class DenunciasComentario
+    public partial class Comentarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DenunciasComentario()
+        public Comentarios()
         {
             this.Denuncias = new HashSet<Denuncias>();
         }

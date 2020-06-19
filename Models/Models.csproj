@@ -52,10 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ORM\Denuncias.cs">
+    <Compile Include="ORM\Comentarios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\DenunciasComentario.cs">
+    <Compile Include="ORM\Denuncias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\DenunciasEstado.cs">

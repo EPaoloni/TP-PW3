@@ -17,9 +17,9 @@ namespace Models.ORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Necesidades()
         {
-            this.Denuncias = new HashSet<Denuncias>();
             this.NecesidadesReferencias = new HashSet<NecesidadesReferencias>();
             this.NecesidadesValoraciones = new HashSet<NecesidadesValoraciones>();
+            this.Denuncias = new HashSet<Denuncias>();
         }
     
         public int IdNecesidad { get; set; }
@@ -34,8 +34,6 @@ namespace Models.ORM
         public int Estado { get; set; }
         public Nullable<decimal> Valoracion { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Denuncias> Denuncias { get; set; }
         public virtual DonacionesTipo DonacionesTipo { get; set; }
         public virtual NecesidadesEstado NecesidadesEstado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +41,7 @@ namespace Models.ORM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
         public virtual Usuarios Usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Denuncias> Denuncias { get; set; }
     }
 }
