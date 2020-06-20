@@ -22,6 +22,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
+        // Recibe id denuncia
         public ActionResult Desestimar(int id)
         {
             denunciaSrv.Desestimar(id);
@@ -30,6 +31,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
+        // Recibe id denuncia
         public ActionResult Aceptar(int id)
         {
             denunciaSrv.Aceptar(id);
