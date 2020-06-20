@@ -4875,7 +4875,7 @@ small {
   position: relative;
   left: 0;
   right: 0;
-  top: 0;
+  top: 15%;
   bottom: 0;
   width: 100%;
 }
@@ -5763,7 +5763,6 @@ body.keyboard-focused .dropdown-content li:focus {
   padding: 0;
   max-height: 70%;
   width: 55%;
-  height: 45%;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
@@ -5802,7 +5801,7 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
-  margin: 6px 0;
+  margin: 6px 6px;
 }
 
 .modal-overlay {

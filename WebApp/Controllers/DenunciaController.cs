@@ -20,5 +20,40 @@ namespace WebApp.Controllers
 
             return View(denuncia);
         }
+
+        [HttpGet]
+        public ActionResult Desestimar(int id)
+        {
+            denunciaSrv.Desestimar(id);
+
+            return RedirectToAction("Inicio");
+        }
+
+        [HttpGet]
+        public ActionResult Aceptar(int id)
+        {
+            denunciaSrv.Aceptar(id);
+
+            return RedirectToAction("Inicio");
+        }
+
+        [HttpGet]
+        // Recibe id denuncia
+        public ActionResult VerComentarios(int id)
+        {
+            Denuncias denuncia = denunciaSrv.ObtenerPorId(id);
+
+            return PartialView("pv_DenunciaComentarios", denuncia); 
+        }
+
+        [HttpGet]
+        // Recibe id denuncia
+        public ActionResult VerDetalle(int id)
+        {
+            Denuncias denuncia = denunciaSrv.ObtenerPorId(id);
+
+            return PartialView("pv_DenunciaDetalle", denuncia);
+        }
+
     }
 }

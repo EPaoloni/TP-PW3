@@ -179,6 +179,8 @@
     <Content Include="Views\Necesidad\pv_CardMisNecesidades.cshtml" />
     <Content Include="Views\Denuncia\Inicio.cshtml" />
     <Content Include="Views\Denuncia\pv_CardDenuncias.cshtml" />
+    <Content Include="Views\Denuncia\pv_DenunciaComentarios.cshtml" />
+    <Content Include="Views\Denuncia\pv_DenunciaDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

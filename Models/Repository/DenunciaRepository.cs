@@ -13,5 +13,21 @@ namespace Models.Repository
         {
 
         }
+     
+        public void Desestimar(int idDenuncia, DenunciasEstado estado)
+        {
+            Denuncias reg = ObtenerPorId(idDenuncia);
+            reg.DenunciasEstado = estado;
+
+            context.SaveChanges();
+        }
+
+        public void Aceptar(int idDenuncia, DenunciasEstado estado)
+        {
+            Denuncias reg = ObtenerPorId(idDenuncia);
+            reg.DenunciasEstado = estado;
+
+            context.SaveChanges();
+        }
     }
 }

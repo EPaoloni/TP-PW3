@@ -13,65 +13,17 @@
                 <p>@Model.FechaCreacion.ToString("d")</p>
             </div>
             <div class="col s12 m4 l4">
-                <a class="btn blue waves-effect waves-light white-text modal-trigger" href="#modalComentarios">COMENTARIOS</a>
+                <a id="btnComentarios" class="btn blue waves-effect waves-light white-text modal-trigger"
+                   onclick='VerComentarios("/Denuncia/VerComentarios/@Model.IdDenuncia")'
+                   href="#modalComentarios">COMENTARIOS</a>
             </div>
             <div class="col s12 m12 l12 btn-action">
-                <a class="btn grey waves-effect waves-light white-text modal-trigger" href="#modalNecesidad">DETALLE</a>
-                <a class="btn red waves-effect waves-light white-text" href="/Denuncia/Desestimar">DESESTIMAR</a>
-                <a class="btn teal waves-effect waves-light white-text" href="/Denuncia/Aceptar">ACEPTAR</a>
+                <a class="btn grey waves-effect waves-light white-text modal-trigger" 
+                onclick='VerDetalle("/Denuncia/VerDetalle/@Model.IdDenuncia")'
+                href="#modalDetalle">DETALLE</a>
+                <a class="btn red waves-effect waves-light white-text" href="/Denuncia/Desestimar/@Model.IdDenuncia">DESESTIMAR</a>
+                <a class="btn teal waves-effect waves-light white-text" href="/Denuncia/Aceptar/@Model.IdDenuncia">ACEPTAR</a>
             </div>
         </div>
     </div>
-</div>
-
-<div id="modalNecesidad" class="modal">
-    <div class="modal-content">
-        <div class="col m12 l12">
-            <h3>DETALLE</h3>
-            <h4>@Model.Necesidades.Nombre</h4>            
-        </div>
-        <div class="col m6 l6">
-            <span class="bold">Tipo de donacion: </span>@Model.Necesidades.DonacionesTipo.Descripcion
-        </div>
-        <div class="col m6 l6">
-            <span class="bold">Estado: </span>@Model.Necesidades.NecesidadesEstado.Descripcion
-        </div>
-        <div class="col m6 l6">
-            <span class="bold">Fecha de creacion: </span>@Model.Necesidades.FechaCreacion.ToString("d")
-        </div>
-        <div class="col m6 l6">
-            <span class="bold">Fecha de fin: </span>@Model.Necesidades.FechaFin.ToString("d")
-        </div>
-        <div class="col m12 l12">
-            <p class="bold">Descripcion:</p>
-            <p>@Model.Necesidades.Descripcion</p>
-        </div>
-        <div class="col m12 l12">
-            @Html.Partial("pv_ProgressBar", @Model.Necesidades.Valoracion)
-        </div>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-    </div>
-</div>
-
-<div id="modalComentarios" class="modal">
-    <div class="modal-content">
-        <div class="col m12 l12">
-            <h3>COMETARIOS</h3>
-            <h4>@Model.Necesidades.Nombre</h4>
-        </div>
-        <div class="col S12 m12 l12">
-            <ul class="collection with-header">
-                @foreach (var item in @Model.Comentarios)
-                {
-                    <li class="collection-item">@item.Descripcion</li>
-                }
-            </ul>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-        </div>
-    </div>
-    
 </div>
