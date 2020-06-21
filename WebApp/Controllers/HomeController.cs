@@ -13,9 +13,20 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        PandemiaEntities context;
+        NecesidadService necesidadService;
+
+        public HomeController()
+        {
+            context = new PandemiaEntities();
+            necesidadService = new NecesidadService(context);
+        }
+
         [HttpGet]
         public ActionResult Inicio()
-        {            
+        {
+            List<Necesidades> topNecesidades = necesidadService.GetTopNecesidades();
+            ViewBag.Necesidades = topNecesidades;
             return View("PublicacionMasValorada");
         }
 
@@ -83,9 +94,6 @@ namespace WebApp.Controllers
 
         public string GetAllNecesidades()
         {
-            PandemiaEntities context = new PandemiaEntities();
-            NecesidadService necesidadService = new NecesidadService(context);
-
             List<Necesidades> necesidades = necesidadService.GetNecesidades();
 
             return necesidades[0].Nombre;
