@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace Services.Home
 {
@@ -29,7 +30,9 @@ namespace Services.Home
         public void Agregar(RegistrarseMetaData usuarioMetaData)
         {
             // Creacion de token
-            usuarioMetaData.Token = Guid.NewGuid().ToString("N").Substring(0, 16);
+            Guid g = Guid.NewGuid();
+            string GuidString = Convert.ToBase64String(g.ToByteArray()).Substring(0, 16);
+            usuarioMetaData.Token = GuidString;
 
             // Se agrega el usuario en base de datos
             Usuarios usuario = new Usuarios();
