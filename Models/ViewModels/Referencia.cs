@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.ViewModels
 {
-    class Referencia
+    public class Referencia
     {
         public string Nombre { get; set; }
         public string Telefono { get; set; }
