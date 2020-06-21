@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DenunciaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MisDonacionesController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\NecesidadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,6 +182,7 @@
     <Content Include="Views\Denuncia\pv_CardDenuncias.cshtml" />
     <Content Include="Views\Denuncia\pv_DenunciaComentarios.cshtml" />
     <Content Include="Views\Denuncia\pv_DenunciaDetalle.cshtml" />
+    <Content Include="Views\MisDonaciones\Inicio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
