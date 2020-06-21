@@ -16,7 +16,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {
-            List<Denuncias> denuncia = denunciaSrv.ObtenerTodos();
+            List<Denuncias> denuncia = denunciaSrv.ObtenerTodosPendientes();
 
             return View(denuncia);
         }

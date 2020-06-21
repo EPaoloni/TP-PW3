@@ -29,9 +29,10 @@ namespace Services.Usuario
             estadoRepo = new DenunciaEstadoRepository(context);
         }
 
-        public List<Denuncias> ObtenerTodos()
+        public List<Denuncias> ObtenerTodosPendientes()
         {
-            List<Denuncias> listaRepo = denunciaRepo.ObtenerTodos();
+            List<Denuncias> listaRepo = denunciaRepo.ObtenerTodos().
+                                        Where(d => d.Estado == (int)Estado.Pendiente).ToList(); ;
          
             return listaRepo;
         }

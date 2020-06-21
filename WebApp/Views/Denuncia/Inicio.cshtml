@@ -5,8 +5,6 @@
 @{
     ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
-
-    List<Denuncias> listaPendiente = Model.Where(d => d.Estado == 1).ToList();
 }
 
 <div class="col s12 m12 l12">
@@ -18,7 +16,7 @@
     </div>
     <div class="row contenedor-denuncia">
 
-        @foreach (Denuncias item in listaPendiente)
+        @foreach (Denuncias item in Model)
         {            
             @Html.Partial("pv_CardDenuncias", item)
         }
@@ -26,7 +24,7 @@
         <div id="modalDetalle" class="modal modal-fixed-footer"></div>
         <div id="modalComentarios" class="modal modal-fixed-footer"></div>
 
-        @if(listaPendiente.Count() == 0)
+        @if(Model.Count() == 0)
         {
             <div class="msg z-depth-1 center-align msg-alert light-blue grey">No hay denuncias</div>
         }
