@@ -25,56 +25,55 @@ namespace Models.Repository
 
         public void Crear(NecesidadCreacion necesidadCreacion)
         {
-            int tipoDonacion = necesidadCreacion.TipoDonacion;
-
-            bool tipoDonacionGuardado = false;
-
-            // Uso If porque Switch molestaba al poner los statics de ID en los Case
-            if(tipoDonacion == ID_NECESIDADINSUMO)
-            {
-                CrearNecesidadesDonacionesInsumos(necesidadCreacion.necesidadesDonacionesInsumos);
-                tipoDonacionGuardado = true;
-
-            } else if(tipoDonacion == ID_NECESIDADMONETARIA)
-            {
-                CrearNecesidadesDonacionesMonetarias(necesidadCreacion.necesidadesDonacionesMonetarias);
-                tipoDonacionGuardado = true;
-            }
-
-            if (tipoDonacionGuardado)
-            {
                 DonacionTipo donacionTipo = new DonacionTipo();
                 donacionTipo.IdDonacionTipo = necesidadCreacion.TipoDonacion;
 
                 Necesidades necesidad = new Necesidades();
+            necesidad.Nombre = necesidadCreacion.Nombre;
                 necesidad.Descripcion = necesidadCreacion.Descripcion;
-                necesidad.Estado = ESTADOACTIVA;
                 necesidad.FechaCreacion = DateTime.Now;
                 necesidad.FechaFin = necesidadCreacion.FechaFin;
+            necesidad.TelefonoContacto = necesidadCreacion.TelefonoContacto;
+            necesidad.TipoDonacion = necesidadCreacion.TipoDonacion;
                 necesidad.Foto = necesidadCreacion.PathFoto;
                 necesidad.IdUsuarioCreador = necesidadCreacion.IdUsuarioCreador;
-                necesidad.Nombre = necesidadCreacion.Nombre;
-                necesidad.TipoDonacion = necesidadCreacion.TipoDonacion;
-                necesidad.TelefonoContacto = necesidadCreacion.TelefonoContacto;
+            necesidad.Estado = ESTADOACTIVA;
+            necesidad.Valoracion = 0;
 
                 base.Crear(necesidad);
 
-                context.SaveChanges();
-            }
+            int idNecesidad = necesidad.IdNecesidad;
+            int tipoDonacion = necesidadCreacion.TipoDonacion;
 
-        }
-
-        public void CrearNecesidadesDonacionesInsumos(List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos)
-        {
-            foreach(NecesidadesDonacionesInsumos necesidadDonacionInsumo in necesidadesDonacionesInsumos)
+            // Uso If porque Switch molestaba al poner los statics de ID en los Case
+            if(tipoDonacion == ID_NECESIDADINSUMO)
             {
-                this.context.NecesidadesDonacionesInsumos.Add(necesidadDonacionInsumo);
+                CrearNecesidadesDonacionesInsumos(necesidadCreacion.NecesidadesDonacionesInsumos, idNecesidad);
+
+            } else if(tipoDonacion == ID_NECESIDADMONETARIA)
+            {
+                CrearNecesidadesDonacionesMonetarias(necesidadCreacion.NecesidadDonacionMonetaria, idNecesidad);
+            }
+
+            context.SaveChanges();
+
+        }
+
+        public void CrearNecesidadesDonacionesInsumos(List<NecesidadDonacionInsumo> necesidadesDonacionesInsumos, int idNecesidad)
+        {
+            foreach(NecesidadDonacionInsumo necesidadDonacionInsumo in necesidadesDonacionesInsumos)
+            {
+                NecesidadesDonacionesInsumos necesidadDonacionAGuardar = new NecesidadesDonacionesInsumos();
+                necesidadDonacionAGuardar.IdNecesidad = idNecesidad;
+                this.context.NecesidadesDonacionesInsumos.Add(necesidadDonacionAGuardar);
             }
         }
 
-        public void CrearNecesidadesDonacionesMonetarias(NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias)
+        public void CrearNecesidadesDonacionesMonetarias(NecesidadDonacionMonetaria necesidadesDonacionesMonetarias, int idNecesidad)
         {
-                this.context.NecesidadesDonacionesMonetarias.Add(necesidadesDonacionesMonetarias);
+            NecesidadesDonacionesMonetarias necesidadDonacionAGuardar = new NecesidadesDonacionesMonetarias();
+            necesidadDonacionAGuardar.IdNecesidad = idNecesidad;
+            this.context.NecesidadesDonacionesMonetarias.Add(necesidadDonacionAGuardar);
         }
 
         public List<Necesidades> ObtenerTopNecesidades()
