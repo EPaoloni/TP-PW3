@@ -1,5 +1,6 @@
 using Models.ORM;
 using Models.Repository;
+using Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,20 @@ namespace Services.Home
         public List<Necesidades> GetTopNecesidades()
         {
             return necesidadRepository.ObtenerTopNecesidades();
+        }
+
+        public bool CrearNecesidad(NecesidadCreacion necesidadCreacion)
+        {
+            bool usuarioPuedeCrear = necesidadRepository.UsuarioTieneMenosDelLimite(necesidadCreacion.IdUsuarioCreador);
+
+            if (usuarioPuedeCrear)
+            {
+                necesidadRepository.Crear(necesidadCreacion);
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         public void ModificarNecesidad(Necesidades necesidad)
