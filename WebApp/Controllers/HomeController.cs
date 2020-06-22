@@ -92,12 +92,13 @@ namespace WebApp.Controllers
             return RedirectToAction("Inicio");
         }
 
-        public string GetAllNecesidades()
+        public ActionResult BuscarPorNombre(string nombre)
         {
-            List<Necesidades> necesidades = necesidadService.GetNecesidades();
+            List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
 
-            return necesidades[0].Nombre;
+            ViewBag.Necesidades = necesidades;
 
+            return View("PublicacionMasValorada");
         }
     }
 }
