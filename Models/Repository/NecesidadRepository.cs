@@ -25,22 +25,22 @@ namespace Models.Repository
 
         public void Crear(NecesidadCreacion necesidadCreacion)
         {
-                DonacionTipo donacionTipo = new DonacionTipo();
-                donacionTipo.IdDonacionTipo = necesidadCreacion.TipoDonacion;
+            DonacionTipo donacionTipo = new DonacionTipo();
+            donacionTipo.IdDonacionTipo = necesidadCreacion.TipoDonacion;
 
-                Necesidades necesidad = new Necesidades();
+            Necesidades necesidad = new Necesidades();
             necesidad.Nombre = necesidadCreacion.Nombre;
-                necesidad.Descripcion = necesidadCreacion.Descripcion;
-                necesidad.FechaCreacion = DateTime.Now;
-                necesidad.FechaFin = necesidadCreacion.FechaFin;
+            necesidad.Descripcion = necesidadCreacion.Descripcion;
+            necesidad.FechaCreacion = DateTime.Now;
+            necesidad.FechaFin = necesidadCreacion.FechaFin;
             necesidad.TelefonoContacto = necesidadCreacion.TelefonoContacto;
             necesidad.TipoDonacion = necesidadCreacion.TipoDonacion;
-                necesidad.Foto = necesidadCreacion.PathFoto;
-                necesidad.IdUsuarioCreador = necesidadCreacion.IdUsuarioCreador;
+            necesidad.Foto = necesidadCreacion.PathFoto;
+            necesidad.IdUsuarioCreador = necesidadCreacion.IdUsuarioCreador;
             necesidad.Estado = ESTADOACTIVA;
             necesidad.Valoracion = 0;
 
-                base.Crear(necesidad);
+            base.Crear(necesidad);
 
             int idNecesidad = necesidad.IdNecesidad;
             int tipoDonacion = necesidadCreacion.TipoDonacion;
@@ -114,7 +114,34 @@ namespace Models.Repository
             {
                 return null;
             }
+        }
 
+        public List<Necesidades> BuscarPorCreador(int idUsuarioCreador)
+        {
+            var necesidadesObtenidas = dbSet.Where(necesidad => necesidad.IdUsuarioCreador.Equals(idUsuarioCreador));
+
+            if(necesidadesObtenidas != null)
+            {
+                List<Necesidades> necesidades = new List<Necesidades>(necesidadesObtenidas);
+                return necesidades;
+            } else
+            {
+                return null;
+            }
+        }
+
+        public bool UsuarioTieneMenosDelLimite(int idUsuarioCreador)
+        {
+            // Valido que la necesidad tenga el mismo IdUsuarioCreador y este activa
+            var cantidadDePublicacionesActivasDelUsuario = dbSet.Where((necesidad) => (necesidad.IdUsuarioCreador.Equals(idUsuarioCreador) && necesidad.Estado.Equals(ESTADOACTIVA))).Count();
+
+            if(cantidadDePublicacionesActivasDelUsuario >= 3)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
         }
     }
 }
