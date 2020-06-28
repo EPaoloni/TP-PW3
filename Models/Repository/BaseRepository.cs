@@ -1,4 +1,4 @@
-﻿using Models.ORM;
+using Models.ORM;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;

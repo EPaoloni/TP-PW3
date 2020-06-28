@@ -6,6 +6,7 @@
 
 <div class="row">
     <div class="col m12">
+        @Html.Partial("pv_Buscador")
         <div class="row">
             <div class="titulo-inicio blue-text accent-3 center">
                 <h5>PUBLICACIONES MAS VALORADAS</h5>
@@ -13,11 +14,11 @@
             <hr />
         </div>
         <div class="row">
-            @Html.Partial("pv_CardMasValorada",70.0M)
-            @Html.Partial("pv_CardMasValorada",45.5M)
-            @Html.Partial("pv_CardMasValorada",37.3M)
-            @Html.Partial("pv_CardMasValorada",26.8M)
-            @Html.Partial("pv_CardMasValorada",12.0M)
+            @{ foreach (Models.ORM.Necesidades necesidad in ViewBag.Necesidades)
+                {
+                    @Html.Partial("pv_CardMasValorada", necesidad);
+                }
+            }
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +13,20 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        PandemiaEntities context;
+        NecesidadService necesidadService;
+
+        public HomeController()
+        {
+            context = new PandemiaEntities();
+            necesidadService = new NecesidadService(context);
+        }
+
         [HttpGet]
         public ActionResult Inicio()
-        {            
+        {
+            List<Necesidades> topNecesidades = necesidadService.GetTopNecesidades();
+            ViewBag.Necesidades = topNecesidades;
             return View("PublicacionMasValorada");
         }
 
@@ -82,15 +93,13 @@ namespace WebApp.Controllers
             return RedirectToAction("Inicio");
         }
 
-        public string GetAllNecesidades()
+        public ActionResult BuscarPorNombre(string nombre)
         {
-            PandemiaEntities context = new PandemiaEntities();
-            NecesidadService necesidadService = new NecesidadService();
+            List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
 
-            List<Necesidades> necesidades = necesidadService.GetNecesidades(context);
+            ViewBag.Necesidades = necesidades;
 
-            return necesidades[0].Nombre;
-
+            return View("PublicacionMasValorada");
         }
     }
 }
