@@ -1,14 +1,12 @@
-﻿@{ 
-    Models.ORM.Necesidades necesidad = Model;
-}
+﻿@model decimal
 
 <div class="col s12 m6 l6">
     <div class="card horizontal light-blue darken-3 white-text">
         <div class="card-stacked">
             <div class="card-content">
-                <h6>@necesidad.Nombre</h6>
+                <h6>TITULO DE PUBLICACION</h6>
                 <p>Nombre de usuario</p>
-                <p>@necesidad.FechaCreacion</p>
+                <p>Fecha de creacion</p>
                 <p>
                     @Html.Partial("pv_ProgressBar", Model)
                 </p>
