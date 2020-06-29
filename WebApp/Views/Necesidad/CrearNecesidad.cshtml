@@ -1,30 +1,36 @@
-﻿
+﻿@model Models.ViewModels.NecesidadCreacion
 @{
     ViewBag.Title = "CrearNecesidad";
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-@*<script src="~/Scripts/src/CrearNecesidad.js"></script>*@
+<script src="~/Scripts/src/CrearNecesidad.js"></script>
 <link type="text/css" href="~/Content/src/Necesidad.css" />
 
 <div>
 
     <div class="row" id="crear-necesidad-container">
-        <form class="">
+        <form class="" action="./AltaNecesidad">
             <div class="col s12 l8 push-l2">
 
                 <h2>Crear Necesidad</h2>
 
                 <div class="input-field col s5">
-                    <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre" />
+                    @Html.LabelFor(o => o.Nombre)
+                    @Html.EditorFor(o => o.Nombre)
+                    @Html.ValidationMessageFor(o => o.Nombre)
                 </div>
 
                 <div class="input-field push-s1 col s5">
-                    <input id="TelefonoContacto" name="TelefonoContacto" type="number" class="form-control" placeholder="Telefono de contacto" />
+                    @Html.LabelFor(o => o.TelefonoContacto)
+                    @Html.EditorFor(o => o.TelefonoContacto)
+                    @Html.ValidationMessageFor(o => o.TelefonoContacto)
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea id="Descripcion" name="Descripcion" class="materialize-textarea col s11" placeholder="Descripcion"></textarea>
+                    @Html.LabelFor(o => o.Descripcion)
+                    @Html.EditorFor(o => o.Descripcion)
+                    @Html.ValidationMessageFor(o => o.Descripcion)
                 </div>
 
                 <div class="input-field col s12">
@@ -34,30 +40,35 @@
 
                 <div class="input-field col s5">
                     <select id="select-tipo-donacion" name="TipoDonacion" class="browser-default">
-                        <option value="" disabled selected>Tipo de donacion</option>
-                        <option value="Monetaria">Monetaria</option>
-                        <option value="Insumos">Insumos</option>
+                        <option disabled selected>Tipo de donacion</option>
+                        <option value="@ViewBag.DonacionMonetariaCod">Monetaria</option>
+                        <option value="@ViewBag.DonacionInsumosCod">Insumos</option>
                     </select>
+                    @Html.ValidationMessageFor(o => o.TipoDonacion)
                 </div>
 
                 <div id="campos-monetaria-container" style="display:none;">
                     <div class="input-field col s12">
-                        <input id="CantDinero" name="CantDinero" type="number" class="form-control col s5" placeholder="Monto" />
+                        @Html.Label("Monto")
+                        @Html.EditorFor(o => o.NecesidadDonacionMonetaria.Dinero)
+                        @Html.ValidationMessageFor(o => o.NecesidadDonacionMonetaria.Dinero)
                     </div>
                     <div class="input-field col s12">
-                        <input id="CBUAlias" name="CBUAlias" type="number" class="form-control col s5" placeholder="CBU" />
+                        @Html.LabelFor(o => o.NecesidadDonacionMonetaria.CBU)
+                        @Html.EditorFor(o => o.NecesidadDonacionMonetaria.CBU)
+                        @Html.ValidationMessageFor(o => o.NecesidadDonacionMonetaria.CBU)
                     </div>
                 </div>
 
                 <div id="campos-insumos-container" style="display:none;" class="col s12">
 
                     <div class="input-field col s12" id="insumos-cargados-container">
-                        <div class="insumo-container-template" style="display:none;">
-                            <div class="input-field col s5">
-                                <input type="text" class="nombre-insumo-cargado form-control col s11" readonly />
+                        <div class="insumo-container-template" style="display:block;">
+                            <div class="nombre-insumo-cargado input-field col s5">
+                                @Html.EditorFor(o => o.NecesidadesDonacionesInsumos[0].Nombre)
                             </div>
-                            <div class="input-field col s5">
-                                <input type="number" class="cantidad-insumo-cargado form-control col s11" readonly />
+                            <div class="cantidad-insumo-cargado input-field col s5">
+                                @Html.EditorFor(o => o.NecesidadesDonacionesInsumos[0].Cantidad)
                             </div>
                             <div class="input-field col s1">
                                 <img class="button-delete-insumo" src="~/Images/Necesidad/Basura.png" alt="Borrar Necesidad" />
@@ -76,15 +87,26 @@
 
                 </div>
 
+                <!-- Wrapper -->
+                <div class="col s12"></div>
+                <!-- Wrapper -->
+
                 <div id="datos-referencias-container">
-                    <div class="input-field col s12">
-                        <input id="NombreReferencia1" name="NombreReferencia1" type="text" class="form-control col s5" placeholder="Nombre referencia" />
-                        <input id="TelefonoReferencia1" name="TelefonoReferencia1" type="number" class="form-control col s5 push-s1" placeholder="Telefono de referencia" />
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="NombreReferencia2" name="NombreReferencia2" type="text" class="form-control col s5" placeholder="Nombre referencia" />
-                        <input id="TelefonoReferencia2" name="TelefonoReferencia2" type="number" class="form-control col s5 push-s1" placeholder="Telefono de referencia" />
-                    </div>
+                    @{
+                        for (int i = 0; i < 2; i++)
+                        {
+                            <div class="input-field col s12 m6">
+                                @Html.LabelFor(o => o.Referencia[i].Nombre)
+                                @Html.EditorFor(o => o.Referencia[i].Nombre)
+                                @Html.ValidationMessageFor(o => o.Referencia[i].Nombre)
+                            </div>
+                            <div class="input-field col s12 m6">
+                                @Html.LabelFor(o => o.Referencia[i].Telefono)
+                                @Html.EditorFor(o => o.Referencia[i].Telefono)
+                                @Html.ValidationMessageFor(o => o.Referencia[i].Telefono)
+                            </div>
+                        }
+                    }
                 </div>
 
                 <div class="input-field col s6 l4">
@@ -92,17 +114,18 @@
                     <div class="file-field input-field">
                         <div class="btn btn-primary">
                             <span>Buscar</span>
-                            <input id="Foto" name="Foto" accept="image/*" type="file" />
+                            <input id="Foto" name="Foto" accept="image/*" type="file" required />
                         </div>
 
                         <div class="file-path-wrapper">
                             <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
+                            @Html.ValidationMessageFor(o => o.Foto)
                         </div>
                     </div>
                 </div>
 
                 <div class="input-field col s12">
-                    <button type="button" class="btn btn-primary col s3 push-s8 push-l8">Agregar Necesidad</button>
+                    <button class="btn btn-primary col s3 push-s8 push-l8">Agregar Necesidad</button>
                 </div>
             </div>
         </form>

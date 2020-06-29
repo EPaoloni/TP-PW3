@@ -3,17 +3,22 @@
     $('.datepicker').datepicker();
 
     $('#select-tipo-donacion').on('change', function () {
+        debugger;
         switch ($(this).val()) {
-            case "Monetaria":
+            case "1":
                 enableFieldsMonetaria();
                 break;
-            case "Insumos":
+            case "2":
                 enableFieldsInsumos();
                 break;
             default:
                 break;
         }
     });
+
+    // Desactivo los inputs template
+    $('.insumo-container-template').find('input').attr('disabled', true);
+    $('.insumo-container-template').find('input').addClass("form-control col s11"); 
 
     $('#button-agregar-insumo').on('click', function () {
         addInsumo();
@@ -53,20 +58,39 @@ function addInsumo() {
         return false;
     }
 
+    let cantInsumos = $('#insumos-cargados-container').children().length;
+
     let insumoTemplate = $('.insumo-container-template').get(0);
     let newInsumo = $(insumoTemplate).clone();
 
     $(newInsumo).removeClass('insumo-container-template');
     $(newInsumo).addClass('insumo-container');
 
-    $(newInsumo).find('.nombre-insumo-cargado').val(nombreInsumoAgregar);
-    $(newInsumo).find('.cantidad-insumo-cargado').val(cantidadInsumoAgregar);
+    $(newInsumo).find('.nombre-insumo-cargado').find("input").val(nombreInsumoAgregar);
+    $(newInsumo).find('.cantidad-insumo-cargado').find("input").val(cantidadInsumoAgregar);
 
     $(newInsumo).show();
 
     $(newInsumo).find('.button-delete-insumo').on('click', function () {
         removeInsumo(this);
     });
+
+    let insumosList = $(newInsumo).find("input")
+
+    for (var i = 0; i < insumosList.length; i++) {
+        let idNewInsumo = $(insumosList[i]).prop('id');
+        let nameNewInsumo = $(insumosList[i]).prop('name');
+
+        let newId = idNewInsumo.replace('0', (cantInsumos - 1).toString());
+        let newName = nameNewInsumo.replace('0', (cantInsumos - 1).toString());
+
+        $(insumosList[i]).prop('id', newId);
+        $(insumosList[i]).prop('name', newName);
+
+        $(insumosList[i]).removeAttr('disabled');
+        $(insumosList[i]).attr('readonly', true);
+    }
+
 
     $('#insumos-cargados-container').append(newInsumo);
 

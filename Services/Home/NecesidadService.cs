@@ -28,7 +28,7 @@ namespace Services.Home
 
         public bool CrearNecesidad(NecesidadCreacion necesidadCreacion)
         {
-            bool usuarioPuedeCrear = necesidadRepository.UsuarioTieneMenosDelLimite(necesidadCreacion.IdUsuarioCreador);
+            bool usuarioPuedeCrear = UsuarioPuedeCrearNecesidad(necesidadCreacion.IdUsuarioCreador);
 
             if (usuarioPuedeCrear)
             {
@@ -38,6 +38,11 @@ namespace Services.Home
             {
                 return false;
             }
+        }
+
+        public bool UsuarioPuedeCrearNecesidad(int usuarioId)
+        {
+            return necesidadRepository.UsuarioTieneMenosDelLimite(usuarioId);
         }
 
         public void ModificarNecesidad(Necesidades necesidad)
