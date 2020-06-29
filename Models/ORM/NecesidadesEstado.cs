@@ -12,18 +12,18 @@ namespace Models.ORM
     using System;
     using System.Collections.Generic;
     
-    public partial class MotivoDenuncia
+    public partial class NecesidadesEstado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MotivoDenuncia()
+        public NecesidadesEstado()
         {
-            this.Denuncias = new HashSet<Denuncias>();
+            this.Necesidades = new HashSet<Necesidades>();
         }
     
-        public int IdMotivoDenuncia { get; set; }
+        public int IdNecesidadEstado { get; set; }
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Denuncias> Denuncias { get; set; }
+        public virtual ICollection<Necesidades> Necesidades { get; set; }
     }
 }
