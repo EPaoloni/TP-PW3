@@ -20,5 +20,6 @@ namespace Models.ORM
         public string CBU { get; set; }
     
         public virtual DonacionesMonetarias DonacionesMonetarias { get; set; }
+        public virtual Necesidades Necesidades { get; set; }
     }
 }

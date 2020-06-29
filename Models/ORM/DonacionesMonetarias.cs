@@ -21,7 +21,7 @@ namespace Models.ORM
         public string ArchivoTransferencia { get; set; }
         public System.DateTime FechaCreacion { get; set; }
     
-        public virtual NecesidadesDonacionesMonetarias NecesidadesDonacionesMonetarias { get; set; }
         public virtual Usuarios Usuarios { get; set; }
+        public virtual NecesidadesDonacionesMonetarias NecesidadesDonacionesMonetarias { get; set; }
     }
 }

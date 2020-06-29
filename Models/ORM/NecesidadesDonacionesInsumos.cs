@@ -21,5 +21,6 @@ namespace Models.ORM
         public System.DateTime FechaCreacion { get; set; }
     
         public virtual DonacionesInsumos DonacionesInsumos { get; set; }
+        public virtual Necesidades Necesidades { get; set; }
     }
 }

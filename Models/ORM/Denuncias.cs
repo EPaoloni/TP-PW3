@@ -30,8 +30,8 @@ namespace Models.ORM
         public virtual Usuarios Usuarios { get; set; }
         public virtual DenunciasEstado DenunciasEstado { get; set; }
         public virtual MotivoDenuncia MotivoDenuncia { get; set; }
-        public virtual Necesidades Necesidades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comentarios> Comentarios { get; set; }
+        public virtual Necesidades Necesidades { get; set; }
     }
 }

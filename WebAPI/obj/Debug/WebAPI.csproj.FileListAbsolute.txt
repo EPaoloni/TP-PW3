@@ -1,0 +1,2 @@
+C:\Users\Pablo\source\repos\TP2020C1\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
+C:\Users\Pablo\source\repos\TP2020C1\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
