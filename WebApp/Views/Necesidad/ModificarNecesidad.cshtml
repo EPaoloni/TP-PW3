@@ -1,4 +1,4 @@
-﻿@model Models.ViewModels.NecesidadCreacion
+﻿@model Models.ViewModels.NecesidadModificacion
 @{
     ViewBag.Title = "CrearNecesidad";
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
@@ -13,14 +13,12 @@
         <form class="" action="./AltaNecesidad">
             <div class="col s12 l8 push-l2">
 
-                <h2>Crear Necesidad</h2>
+                <h2>Modificar Necesidad</h2>
 
-                @{ 
-                    if(ViewBag.errorMessage != null)
-                    {
-                        <h3 class="msg-error">@ViewBag.errorMessage</h3>
-                    }
-                }
+                <div class="input-field col s5">
+                    @Html.EditorFor(o => o.IdNecesidad, new { @type = "hidden", @readonly = "readonly", @value = ViewBag.necesidad.IdNecesidad})
+                </div>
+
 
                 <div class="input-field col s5">
                     @Html.LabelFor(o => o.Nombre)
@@ -45,13 +43,9 @@
                     <label for="fechaFin">Fecha fin</label>
                 </div>
 
-                <div class="input-field col s5">
-                    <select id="select-tipo-donacion" name="TipoDonacion" class="browser-default">
-                        <option disabled selected>Tipo de donacion</option>
-                        <option value="@ViewBag.DonacionMonetariaCod">Monetaria</option>
-                        <option value="@ViewBag.DonacionInsumosCod">Insumos</option>
-                    </select>
-                    @Html.ValidationMessageFor(o => o.TipoDonacion)
+                <div class="input-field col s12">
+                    <input type="text" class="nombre-insumo-agregar form-control col s5" placeholder="Nombre Insumo" />
+                    <input type="number" class="cantidad-insumo-agregar form-control col s5 push-s1" placeholder="Cantidad" />
                 </div>
 
                 <div id="campos-monetaria-container" style="display:none;">

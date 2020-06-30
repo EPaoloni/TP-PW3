@@ -72,6 +72,7 @@ namespace Models.Repository
         public void CrearNecesidadesDonacionesMonetarias(NecesidadDonacionMonetaria necesidadesDonacionesMonetarias, int idNecesidad)
         {
             NecesidadesDonacionesMonetarias necesidadDonacionAGuardar = new NecesidadesDonacionesMonetarias();
+            //necesidadDonacionAGuardar.IdNecesidadDonacionMonetaria = null;
             necesidadDonacionAGuardar.IdNecesidad = idNecesidad;
             necesidadDonacionAGuardar.Dinero = necesidadesDonacionesMonetarias.Dinero;
             necesidadDonacionAGuardar.CBU = necesidadesDonacionesMonetarias.CBU;
@@ -143,6 +144,26 @@ namespace Models.Repository
             } else
             {
                 return true;
+            }
+        }
+
+        public Necesidades BuscarPorId(int idNecesidad)
+        {
+            Necesidades necesidad = context.Necesidades.Find(idNecesidad);
+
+            return necesidad;
+        }
+
+        public bool ExisteNombreExacto(string nombre)
+        {
+            bool existeRegistro = context.Necesidades.Any(o => o.Nombre == nombre);
+
+            if ( existeRegistro )
+            {
+                return true;
+            } else
+            {
+                return false;
             }
         }
     }

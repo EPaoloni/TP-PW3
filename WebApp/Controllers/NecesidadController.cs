@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +30,11 @@ namespace WebApp.Controllers
             ViewBag.DonacionMonetariaCod = 1;
             ViewBag.DonacionInsumosCod = 2;
 
+            if(TempData["errorMessage"] != null)
+            {
+                ViewBag.errorMessage = TempData["errorMessage"];
+            }
+
             return View();
         }
 
@@ -38,8 +43,29 @@ namespace WebApp.Controllers
             //necesidad.IdUsuarioCreador = int.Parse(Session["UsuarioId"].ToString());
             //Por el momento hardcodear el id de un usuario
             necesidad.IdUsuarioCreador = 3;
-            necesidadService.CrearNecesidad(necesidad);
-            return RedirectToAction("Inicio");
+            string mensajeError = necesidadService.CrearNecesidad(necesidad);
+
+            if(mensajeError != "")
+            {
+                TempData["errorMessage"] = mensajeError;
+                return RedirectToAction("CrearNecesidad");
+            }
+
+            return RedirectToAction("Inicio", "Home");
+        }
+
+        public ActionResult DetalleNecesidad(int idNecesidad)
+        {
+            Necesidades necesidad = necesidadService.GetNecesidadPorId(idNecesidad);
+            ViewBag.necesidad = necesidad;
+            return View();
+        }
+
+        public ActionResult ModificarNecesidad(int idNecesidad)
+        {
+            Necesidades necesidad = necesidadService.GetNecesidadPorId(idNecesidad);
+            ViewBag.necesidad = necesidad;
+            return View();
         }
     }
 }

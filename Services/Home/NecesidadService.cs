@@ -26,23 +26,36 @@ namespace Services.Home
             return necesidadRepository.ObtenerTopNecesidades();
         }
 
-        public bool CrearNecesidad(NecesidadCreacion necesidadCreacion)
+        public string CrearNecesidad(NecesidadCreacion necesidadCreacion)
         {
             bool usuarioPuedeCrear = UsuarioPuedeCrearNecesidad(necesidadCreacion.IdUsuarioCreador);
 
             if (usuarioPuedeCrear)
             {
-                necesidadRepository.Crear(necesidadCreacion);
-                return true;
+                bool existeMismoNombre = ExisteNecesidadMismoNombre(necesidadCreacion.Nombre);
+
+                if( !existeMismoNombre)
+                {
+                    necesidadRepository.Crear(necesidadCreacion);
+                    return "";
+                } else
+                {
+                    return "Ya existe una necesidad con ese nombre";
+                }
             } else
             {
-                return false;
+                return "El usuario llegó al límite de necesidades";
             }
         }
 
         public bool UsuarioPuedeCrearNecesidad(int usuarioId)
         {
             return necesidadRepository.UsuarioTieneMenosDelLimite(usuarioId);
+        }
+
+        public bool ExisteNecesidadMismoNombre(string nombre)
+        {
+            return necesidadRepository.ExisteNombreExacto(nombre);
         }
 
         public void ModificarNecesidad(Necesidades necesidad)
@@ -58,6 +71,11 @@ namespace Services.Home
         public List<Necesidades> GetNecesidadesPorNombre(string nombre)
         {
             return necesidadRepository.BuscarPorNombre(nombre);
+        }
+
+        public Necesidades GetNecesidadPorId(int idNecesidad)
+        {
+            return necesidadRepository.BuscarPorId(idNecesidad);
         }
     }
 }
