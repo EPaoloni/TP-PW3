@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,7 +36,8 @@ namespace WebApp.Controllers
         public ActionResult AltaNecesidad(NecesidadCreacion necesidad)
         {
             //necesidad.IdUsuarioCreador = int.Parse(Session["UsuarioId"].ToString());
-            necesidad.IdUsuarioCreador = 4;
+            //Por el momento hardcodear el id de un usuario
+            necesidad.IdUsuarioCreador = 3;
             necesidadService.CrearNecesidad(necesidad);
             return RedirectToAction("Inicio");
         }
