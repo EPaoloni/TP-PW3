@@ -172,6 +172,10 @@
     <Content Include="Views\Home\_InicioLayout.cshtml" />
     <Content Include="Views\Home\pv_Buscador.cshtml" />
     <Content Include="Views\Necesidad\_pvReferencia.cshtml" />
+    <Content Include="Views\Necesidad\DetalleNecesidad.cshtml" />
+    <Content Include="Views\Necesidad\ModificarNecesidad.cshtml" />
+    <Content Include="Views\Necesidad\_pvCamposModificacion.cshtml" />
+    <Content Include="Views\Necesidad\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

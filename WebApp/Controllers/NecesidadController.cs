@@ -64,8 +64,25 @@ namespace WebApp.Controllers
         public ActionResult ModificarNecesidad(int idNecesidad)
         {
             Necesidades necesidad = necesidadService.GetNecesidadPorId(idNecesidad);
-            ViewBag.necesidad = necesidad;
+
+
+            if(necesidad == null)
+            {
+                ViewBag.errorMessage = "Ocurrió un error al consultar la necesidad";
+            } else
+            {
+                NecesidadModificacion necesidadModificacion = necesidadService.GenerarNecesidadModificacion(necesidad);
+                return View(necesidadModificacion);
+            }
+
             return View();
+        }
+
+        public ActionResult RealizarModificacion(NecesidadModificacion necesidadModificacion)
+        {
+            necesidadService.ModificarNecesidad(necesidadModificacion);
+
+            return View("DetalleNecesidad", necesidadModificacion.IdNecesidad);
         }
     }
 }

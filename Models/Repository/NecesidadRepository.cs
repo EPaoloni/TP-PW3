@@ -23,40 +23,9 @@ namespace Models.Repository
 
         }
 
-        public void Crear(NecesidadCreacion necesidadCreacion)
+        public void Crear(Necesidades necesidad)
         {
-            DonacionesTipo donacionTipo = new DonacionesTipo();
-            donacionTipo.IdDonacionTipo = necesidadCreacion.TipoDonacion;
-
-            ORM.Necesidades necesidad = new ORM.Necesidades();
-            necesidad.Nombre = necesidadCreacion.Nombre;
-            necesidad.Descripcion = necesidadCreacion.Descripcion;
-            necesidad.FechaCreacion = DateTime.Now;
-            necesidad.FechaFin = necesidadCreacion.FechaFin;
-            necesidad.TelefonoContacto = necesidadCreacion.TelefonoContacto;
-            necesidad.TipoDonacion = necesidadCreacion.TipoDonacion;
-            necesidad.Foto = necesidadCreacion.Foto;
-            necesidad.IdUsuarioCreador = necesidadCreacion.IdUsuarioCreador;
-            necesidad.Estado = ESTADOACTIVA;
-            necesidad.Valoracion = 0;
-
             base.Crear(necesidad);
-
-            int idNecesidad = necesidad.IdNecesidad;
-            int tipoDonacion = necesidadCreacion.TipoDonacion;
-
-            // Uso If porque Switch molestaba al poner los statics de ID en los Case
-            if(tipoDonacion == ID_NECESIDADINSUMO)
-            {
-                CrearNecesidadesDonacionesInsumos(necesidadCreacion.NecesidadesDonacionesInsumos, idNecesidad);
-
-            } else if(tipoDonacion == ID_NECESIDADMONETARIA)
-            {
-                CrearNecesidadesDonacionesMonetarias(necesidadCreacion.NecesidadDonacionMonetaria, idNecesidad);
-            }
-
-            context.SaveChanges();
-
         }
 
         public void CrearNecesidadesDonacionesInsumos(List<NecesidadDonacionInsumo> necesidadesDonacionesInsumos, int idNecesidad)
@@ -67,16 +36,19 @@ namespace Models.Repository
                 necesidadDonacionAGuardar.IdNecesidad = idNecesidad;
                 this.context.NecesidadesDonacionesInsumos.Add(necesidadDonacionAGuardar);
             }
+
+            context.SaveChanges();
         }
 
         public void CrearNecesidadesDonacionesMonetarias(NecesidadDonacionMonetaria necesidadesDonacionesMonetarias, int idNecesidad)
         {
             NecesidadesDonacionesMonetarias necesidadDonacionAGuardar = new NecesidadesDonacionesMonetarias();
-            //necesidadDonacionAGuardar.IdNecesidadDonacionMonetaria = null;
             necesidadDonacionAGuardar.IdNecesidad = idNecesidad;
             necesidadDonacionAGuardar.Dinero = necesidadesDonacionesMonetarias.Dinero;
             necesidadDonacionAGuardar.CBU = necesidadesDonacionesMonetarias.CBU;
             this.context.NecesidadesDonacionesMonetarias.Add(necesidadDonacionAGuardar);
+
+            context.SaveChanges();
         }
 
         public List<ORM.Necesidades> ObtenerTopNecesidades()
@@ -151,6 +123,18 @@ namespace Models.Repository
         {
             Necesidades necesidad = context.Necesidades.Find(idNecesidad);
 
+            if(necesidad != null)
+            {
+                context.Entry(necesidad).Collection(o => o.NecesidadesReferencias).Load();
+            }
+
+            return necesidad;
+        }
+
+        public Necesidades BuscarPorNombreExacto(string nombre)
+        {
+            Necesidades necesidad = context.Necesidades.SingleOrDefault(o => o.Nombre == nombre);
+
             return necesidad;
         }
 
@@ -165,6 +149,22 @@ namespace Models.Repository
             {
                 return false;
             }
+        }
+
+        public NecesidadesDonacionesMonetarias BuscarNecesidadDonacionMonetariaPorIdNecesidad(int idNecesidad)
+        {
+            NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias = context.NecesidadesDonacionesMonetarias.First(o => o.IdNecesidad == idNecesidad);
+
+            return necesidadesDonacionesMonetarias;
+        }
+
+        public List<NecesidadesDonacionesInsumos> BuscarNecesidadesDonacionesInsumosPorIdNecesidad(int idNecesidad)
+        {
+            var resultado = context.NecesidadesDonacionesInsumos.Where(o => o.IdNecesidad == idNecesidad);
+
+            List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos = new List<NecesidadesDonacionesInsumos>(resultado);
+
+            return necesidadesDonacionesInsumos;
         }
     }
 }

@@ -36,7 +36,11 @@ namespace Services.Home
 
                 if( !existeMismoNombre)
                 {
-                    necesidadRepository.Crear(necesidadCreacion);
+                    necesidadRepository.Crear(GenerarNecesidades(necesidadCreacion));
+
+                    Necesidades necesidad = necesidadRepository.BuscarPorNombreExacto(necesidadCreacion.Nombre);
+
+                    CrearNecesidadesDonacion(necesidadCreacion, necesidad.IdNecesidad);
                     return "";
                 } else
                 {
@@ -58,8 +62,10 @@ namespace Services.Home
             return necesidadRepository.ExisteNombreExacto(nombre);
         }
 
-        public void ModificarNecesidad(Necesidades necesidad)
+        public void ModificarNecesidad(NecesidadModificacion necesidadModificacion)
         {
+            Necesidades necesidad = GenerarNecesidades(necesidadModificacion);
+
             necesidadRepository.Modificar(necesidad);
         }
 
@@ -76,6 +82,98 @@ namespace Services.Home
         public Necesidades GetNecesidadPorId(int idNecesidad)
         {
             return necesidadRepository.BuscarPorId(idNecesidad);
+        }
+
+        public NecesidadesDonacionesMonetarias GetNecesidadesDonacionesMonetarias(int idNecesidad)
+        {
+            return necesidadRepository.BuscarNecesidadDonacionMonetariaPorIdNecesidad(idNecesidad);
+        }
+
+        public void CrearNecesidadesDonacion(NecesidadCreacion necesidadCreacion, int idNecesidad)
+        {
+            int tipoDonacion = necesidadCreacion.TipoDonacion;
+
+            // Uso If porque Switch molestaba al poner los statics de ID en los Case
+            if (tipoDonacion == 1)
+            {
+                necesidadRepository.CrearNecesidadesDonacionesMonetarias(necesidadCreacion.NecesidadDonacionMonetaria, idNecesidad);
+            }
+            else if (tipoDonacion == 2)
+            {
+                necesidadRepository.CrearNecesidadesDonacionesInsumos(necesidadCreacion.NecesidadesDonacionesInsumos, idNecesidad);
+            }
+        }
+
+        public NecesidadModificacion GenerarNecesidadModificacion(Necesidades necesidad)
+        {
+            NecesidadModificacion necesidadModificacion = new NecesidadModificacion();
+
+            necesidadModificacion.IdNecesidad = necesidad.IdNecesidad;
+            necesidadModificacion.Nombre = necesidad.Nombre;
+            necesidadModificacion.TelefonoContacto = necesidad.TelefonoContacto;
+            necesidadModificacion.Descripcion = necesidad.Descripcion;
+            necesidadModificacion.FechaFin = necesidad.FechaFin;
+            necesidadModificacion.TipoDonacion = necesidad.TipoDonacion;
+
+            if (necesidadModificacion.TipoDonacion == 1)
+            {
+                NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias = GetNecesidadesDonacionesMonetarias(necesidad.IdNecesidad);
+
+                necesidadModificacion.NecesidadDonacionMonetaria = new NecesidadDonacionMonetaria();
+
+                necesidadModificacion.NecesidadDonacionMonetaria.CBU = necesidadesDonacionesMonetarias.CBU;
+                necesidadModificacion.NecesidadDonacionMonetaria.Dinero = necesidadesDonacionesMonetarias.Dinero;
+            }
+            else
+            {
+                necesidadModificacion.NecesidadesDonacionesInsumos = necesidadModificacion.NecesidadesDonacionesInsumos;
+            }
+
+            necesidadModificacion.Referencia = new List<Referencia>();
+
+            foreach(NecesidadesReferencias necesidadReferencia in necesidad.NecesidadesReferencias)
+            {
+                Referencia referencia = new Referencia() { Nombre = necesidadReferencia.Nombre, Telefono = necesidadReferencia.Telefono };
+                necesidadModificacion.Referencia.Add(referencia);
+            }
+
+            necesidadModificacion.Foto = necesidad.Foto;
+
+            return necesidadModificacion;
+        }
+
+        public Necesidades GenerarNecesidades(NecesidadCreacion necesidadCreacion)
+        {
+
+            DonacionesTipo donacionTipo = new DonacionesTipo();
+            donacionTipo.IdDonacionTipo = necesidadCreacion.TipoDonacion;
+
+            Necesidades necesidad = new Necesidades();
+            necesidad.Nombre = necesidadCreacion.Nombre;
+            necesidad.Descripcion = necesidadCreacion.Descripcion;
+            necesidad.FechaCreacion = DateTime.Now;
+            necesidad.FechaFin = necesidadCreacion.FechaFin;
+            necesidad.TelefonoContacto = necesidadCreacion.TelefonoContacto;
+            necesidad.TipoDonacion = necesidadCreacion.TipoDonacion;
+            necesidad.Foto = necesidadCreacion.Foto;
+            necesidad.IdUsuarioCreador = necesidadCreacion.IdUsuarioCreador;
+            necesidad.Estado = 1;
+            necesidad.Valoracion = 0;
+
+            necesidad.NecesidadesReferencias = new List<NecesidadesReferencias>();
+
+            foreach (Referencia referencia in necesidadCreacion.Referencia)
+            {
+                NecesidadesReferencias necesidadReferencia = new NecesidadesReferencias()
+                {
+                    IdNecesidad = necesidad.IdNecesidad,
+                    Nombre = referencia.Nombre,
+                    Telefono = referencia.Telefono,
+                };
+                necesidad.NecesidadesReferencias.Add(necesidadReferencia);
+            }
+
+            return necesidad;
         }
     }
 }
