@@ -1,10 +1,10 @@
-using Models.ORM;
+﻿using Models.ORM;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 
-namespace Models
+namespace Models.Repository
 {
     public abstract class BaseRepository<T> where T : class
     {
@@ -32,8 +32,6 @@ namespace Models
             }
         }
 
-        public abstract void Modificar(T entity);
-
         public T ObtenerPorId(int id)
         {
             return dbSet.Find(id);
@@ -44,13 +42,28 @@ namespace Models
             return dbSet.ToList();
         }
 
-        public void SaveChanges(PandemiaEntities context)
+        protected void SaveChanges(PandemiaEntities ctx)
         {
             try
             {
-                context.SaveChanges();
-            } catch
+                ctx.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
             {
+                System.Diagnostics.Debug.WriteLine("");
+                System.Diagnostics.Debug.WriteLine("");
+                System.Diagnostics.Debug.WriteLine("**** ENTITY FRAMEWORK DETALLE DE EXCEPCION****");
+
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    System.Diagnostics.Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        System.Diagnostics.Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
                 throw;
             }
         }

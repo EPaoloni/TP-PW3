@@ -1,25 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
-using Models.Partial;
 using Models.ORM;
-using System.Collections;
-using Models.ViewModels;
-using System.CodeDom;
 
 namespace Models.Repository
 {
-    public class DenunciaRepository : BaseRepository<ORM.Denuncias>
+    public class DenunciaRepository : BaseRepository<Denuncias>
     {
-
         public DenunciaRepository(PandemiaEntities context) : base(context)
         {
 
         }
-
         public int GetIdUltimaDenuncia()
         {
             return context.Denuncias.Max(o => o.IdDenuncia);
@@ -43,6 +36,22 @@ namespace Models.Repository
         public override void Modificar(Denuncias entity)
         {
             throw new NotImplementedException();
+        }
+     
+        public void Desestimar(int idDenuncia, DenunciasEstado estado)
+        {
+            Denuncias reg = ObtenerPorId(idDenuncia);
+            reg.DenunciasEstado = estado;
+
+            context.SaveChanges();
+        }
+
+        public void Aceptar(int idDenuncia, DenunciasEstado estado)
+        {
+            Denuncias reg = ObtenerPorId(idDenuncia);
+            reg.DenunciasEstado = estado;
+
+            context.SaveChanges();
         }
     }
 }
