@@ -29,7 +29,8 @@ namespace Services.Home
             denuncia.IdDenuncia = idUltimaDenuncia + 1;
             denuncia.IdNecesidad = idNecesidad;
             denuncia.IdMotivo = motivoDenuncia;
-            denuncia.Comentarios = comentarios;
+            //TODO: Agregar esto cuando cambie el model de EF
+            //denuncia.Comentarios = comentarios;
             denuncia.IdUsuario = idUsuario;
             denuncia.FechaCreacion = DateTime.Now;
             denuncia.Estado = 1;
