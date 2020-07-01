@@ -69,6 +69,19 @@ namespace Services.Home
             necesidadRepository.Modificar(necesidad);
         }
 
+        public void BajaNecesidad(int idNecesidad)
+        {
+            Necesidades necesidad = GetNecesidadPorId(idNecesidad);
+
+            //TODO: Cambiar por el id guardado en Session["idUsuario"]
+            int idUsuarioLogueado = 3;
+
+            if (necesidad.IdUsuarioCreador == idUsuarioLogueado)
+            {
+                necesidadRepository.BajaNecesidad(idNecesidad);
+            }
+        }
+
         /// <summary>
         /// Devuelve las necesidades que contengan el nombre introducido, si no hay ninguna devuelve null.
         /// </summary>

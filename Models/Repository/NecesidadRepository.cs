@@ -17,6 +17,7 @@ namespace Models.Repository
         private static readonly int ID_NECESIDADMONETARIA = 1;
         private static readonly int ID_NECESIDADINSUMO = 2;
         private static readonly int ESTADOACTIVA = 1;
+        private static readonly int ESTADOINACTIVA = 2;
 
         public NecesidadRepository(PandemiaEntities context) : base(context)
         {
@@ -70,6 +71,15 @@ namespace Models.Repository
                 necesidadOriginal = necesidad;
                 SaveChanges(context);
             }
+        }
+
+        public void BajaNecesidad(int idNecesidad)
+        {
+            Necesidades necesidad = context.Necesidades.SingleOrDefault(o => o.IdNecesidad == idNecesidad);
+
+            necesidad.Estado = ESTADOINACTIVA;
+
+            context.SaveChanges();
         }
 
         /// <summary>

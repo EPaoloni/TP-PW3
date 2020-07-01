@@ -84,5 +84,12 @@ namespace WebApp.Controllers
 
             return View("DetalleNecesidad", necesidadModificacion.IdNecesidad);
         }
+
+        public ActionResult BajaNecesidad(int idNecesidad)
+        {
+            necesidadService.BajaNecesidad(idNecesidad);
+
+            return RedirectToAction("Inicio");
+        }
     }
 }

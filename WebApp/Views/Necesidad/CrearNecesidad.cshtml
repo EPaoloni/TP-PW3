@@ -40,8 +40,8 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <input id="FechaFin" name="FechaFin" type="text" class="datepicker form-control col s2" />
-                    <label for="fechaFin">Fecha fin</label>
+                    @Html.EditorFor(o => o.FechaFin)
+                    @Html.ValidationMessageFor(o => o.FechaFin)
                 </div>
 
                 <div class="input-field col s5">
