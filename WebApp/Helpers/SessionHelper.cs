@@ -8,6 +8,7 @@ namespace WebApp.Helpers
 {
     public class SesionHelper
     {
+
         public static string UsuarioId
         {
             get
@@ -20,7 +21,7 @@ namespace WebApp.Helpers
             }
         }
 
-        public string GenerarID()
+        public static string GenerarID()
         {
             SessionIDManager manager = new SessionIDManager();
             string newSessionId = manager.CreateSessionID(HttpContext.Current);
