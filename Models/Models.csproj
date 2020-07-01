@@ -52,9 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ORM\Comentarios.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="ORM\Comentarios.cs" />
     <Compile Include="ORM\Denuncias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -70,6 +68,7 @@
     <Compile Include="ORM\DonacionesTipo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\DonacionTipo.cs" />
     <Compile Include="ORM\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,23 +120,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\DenunciaEstadoRepository.cs" />
-    <Compile Include="Repository\DonacionInsumoRepository.cs" />
+    <Compile Include="Repository\DenunciaRepository.cs" />
     <Compile Include="Repository\DonacionMonetariaRepository.cs" />
+    <Compile Include="Repository\DonacionInsumoRepository.cs" />
     <Compile Include="Repository\IGenericoRepository.cs" />
     <Compile Include="Repository\IngresarRepository.cs" />
-    <Compile Include="Repository\DenunciaRepository.cs" />
     <Compile Include="Repository\NecesidadesValoracionesRepository.cs" />
     <Compile Include="Repository\NecesidadRepository.cs" />
-    <Compile Include="Repository\RegistrarseRepository.cs" />
     <Compile Include="Repository\PerfilRepository.cs" />
+    <Compile Include="Repository\RegistrarseRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
-    <Compile Include="ViewModels\NecesidadModificacion.cs" />
-    <Compile Include="ViewModels\NecesidadDonacionMonetaria.cs" />
-    <Compile Include="ViewModels\NecesidadDonacionInsumo.cs" />
     <Compile Include="ViewModels\NecesidadCreacion.cs" />
+    <Compile Include="ViewModels\NecesidadDonacionInsumo.cs" />
+    <Compile Include="ViewModels\NecesidadDonacionMonetaria.cs" />
+    <Compile Include="ViewModels\NecesidadInicio.cs" />
+    <Compile Include="ViewModels\NecesidadModificacion.cs" />
     <Compile Include="ViewModels\Referencia.cs" />
     <Compile Include="ViewModels\UsuarioIngresar.cs" />
-    <Compile Include="ViewModels\NecesidadInicio.cs" />
     <Compile Include="ViewModels\UsuarioRegistrar.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,11 +156,33 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Docs\BD.png" />
-    <Content Include="Docs\SQL\DDL\db-esquema.sql" />
+    <Content Include="Docs\SQL\DDL\Comentarios.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v2.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v3.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v4.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v1.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v5.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v6.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v7.sql" />
+    <Content Include="Docs\SQL\DDL\db-esquema-v9.sql" />
+    <Content Include="Docs\SQL\DDL\Denuncias-v2.sql" />
+    <Content Include="Docs\SQL\DDL\Denuncias-v1.sql" />
+    <Content Include="Docs\SQL\DDL\DenunciasComentario-v2.sql" />
+    <Content Include="Docs\SQL\DDL\DenunciasComentario-v1.sql" />
+    <Content Include="Docs\SQL\DDL\DenunciasEstado.sql" />
     <Content Include="Docs\SQL\DDL\DonacionesTipo.sql" />
+    <Content Include="Docs\SQL\DDL\NecesidadesEstado.sql" />
     <Content Include="Docs\SQL\DDL\UsuariosTipo.sql" />
+    <Content Include="Docs\SQL\MDL\DatosPruebaInsert.sql" />
+    <Content Include="Docs\SQL\MDL\DenunciaEstadoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\DonacionesTipoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\MotivoDenunciaInsert.sql" />
+    <Content Include="Docs\SQL\MDL\NecesidadesEstadoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\NecesidadesInsert.sql" />
     <Content Include="Docs\SQL\MDL\UsuarioInsert.sql" />
     <Content Include="Docs\SQL\MDL\UsuariosTipoInsert.sql" />
+    <Content Include="Docs\SQL\MDL\UsuarioTestConPerfil.sql" />
+    <Content Include="Docs\SQL\MDL\UsuarioTestSinPerfil.sql" />
     <Content Include="ORM\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>

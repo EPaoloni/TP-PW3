@@ -4,39 +4,37 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="43bc3458f49d44d48cda4fa370d2f112" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Comentarios" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Denuncias" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DenunciasEstado" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DonacionesInsumos" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DonacionesMonetarias" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DonacionesTipo" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.MotivoDenuncia" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Necesidades" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.NecesidadesDonacionesInsumos" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.NecesidadesDonacionesMonetarias" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.NecesidadesEstado" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.NecesidadesReferencias" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.NecesidadesValoraciones" Width="1.5" PointX="10.5" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Usuarios" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.UsuariosTipo" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK_Denuncias_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_DenunciasEstado_Denuncias" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_MotivoDenuncia_Denuncias" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Necesidad_Denuncias" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_DonacionesInsumos_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_NecesidadesDonacionesInsumos_DonacionesInsumos" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_DonacionesMonetarias_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_NecesidadesDonacionesMonetarias_DonacionesInsumos" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_DonacionTipo_Necesidades" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_NecesidadesEstado_Necesidades" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_NecesidadesReferencias_Necesidades" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_NecesidadesValoraciones_Necesidades" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Usuarios_Necesidades" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_NecesidadesValoraciones_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Usuarios_UsuariosTipo" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.DenunciasCometarios" ManuallyRouted="false" />
-      </Diagram>
+      <Diagram DiagramId="33c5ef293ced460cb26e717769b19772" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="Model.DonacionesTipo" Width="1.5" PointX="11.875" PointY="4.625" />
+        <EntityTypeShape EntityType="Model.NecesidadesEstado" Width="2.5" PointX="13.5" PointY="12.5" />
+        <EntityTypeShape EntityType="Model.NecesidadesReferencias" Width="2.375" PointX="16.375" PointY="9.375" />
+        <EntityTypeShape EntityType="Model.UsuariosTipo" Width="1.5" PointX="0.5" PointY="6.375" />
+        <EntityTypeShape EntityType="Model.Usuarios" Width="1.5" PointX="2.75" PointY="3.875" />
+        <AssociationConnector Association="Model.FK_Usuarios_UsuariosTipo" />
+        <EntityTypeShape EntityType="Model.MotivoDenuncia" Width="2.25" PointX="5.5" PointY="10.125" />
+        <EntityTypeShape EntityType="Model.Necesidades" Width="1.5" PointX="14.125" PointY="6.75" />
+        <AssociationConnector Association="Model.FK_DonacionTipo_Necesidades" />
+        <AssociationConnector Association="Model.FK_NecesidadesEstado_Necesidades" ></AssociationConnector>
+        <AssociationConnector Association="Model.FK_NecesidadesReferencias_Necesidades" />
+        <AssociationConnector Association="Model.FK_Usuarios_Necesidades" />
+        <EntityTypeShape EntityType="Model.Denuncias" Width="1.5" PointX="8.875" PointY="6.875" />
+        <EntityTypeShape EntityType="Model.NecesidadesValoraciones" Width="3" PointX="16.375" PointY="3.5" />
+        <AssociationConnector Association="Model.FK_Denuncia_MotivoDenuncia" />
+        <AssociationConnector Association="Model.FK_Denuncias_Usuarios" />
+        <AssociationConnector Association="Model.FK_Necesidad_Denuncias" />
+        <AssociationConnector Association="Model.FK_NecesidadesValoraciones_Necesidades" />
+        <AssociationConnector Association="Model.FK_NecesidadesValoraciones_Usuarios" />
+        <EntityTypeShape EntityType="Model.DonacionesInsumos" Width="1.5" PointX="19.625" PointY="10.625" />
+        <EntityTypeShape EntityType="Model.DonacionesMonetarias" Width="1.5" PointX="19.625" PointY="7" />
+        <EntityTypeShape EntityType="Model.NecesidadesDonacionesInsumos" Width="1.5" PointX="16.375" PointY="15.375" />
+        <EntityTypeShape EntityType="Model.NecesidadesDonacionesMonetarias" Width="1.5" PointX="16.375" PointY="6.5" />
+        <AssociationConnector Association="Model.FK_DonacionesInsumos_NecesidadesDonacionesInsumos" />
+        <AssociationConnector Association="Model.FK_DonacionesInsumos_Usuarios" />
+        <AssociationConnector Association="Model.FK_DonacionesMonetarias_NecesidadesDonacionesMonetarias" />
+        <AssociationConnector Association="Model.FK_DonacionesMonetarias_Usuarios" />
+        <AssociationConnector Association="Model.FK_NecesidadesDonacionesInsumos_Necesidades" />
+        <AssociationConnector Association="Model.FK_NecesidadesDonacionesMonetarias_Necesidades" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

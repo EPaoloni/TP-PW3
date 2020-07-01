@@ -12,21 +12,18 @@ namespace Models.ORM
     using System;
     using System.Collections.Generic;
     
-    public partial class NecesidadesDonacionesMonetarias
+    public partial class DonacionTipo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NecesidadesDonacionesMonetarias()
+        public DonacionTipo()
         {
-            this.DonacionesMonetarias = new HashSet<DonacionesMonetarias>();
+            this.Necesidades = new HashSet<Necesidades>();
         }
     
-        public int IdNecesidadDonacionMonetaria { get; set; }
-        public int IdNecesidad { get; set; }
-        public decimal Dinero { get; set; }
-        public string CBU { get; set; }
+        public int IdDonacionTipo { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonacionesMonetarias> DonacionesMonetarias { get; set; }
-        public virtual Necesidades Necesidades { get; set; }
+        public virtual ICollection<Necesidades> Necesidades { get; set; }
     }
 }

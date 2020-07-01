@@ -16,7 +16,6 @@ namespace Models.Repository
             this.context = context;
             dbSet = this.context.Set<T>();
         }
-
         public void Crear(T entity)
         {
             dbSet.Add(entity);
