@@ -119,9 +119,32 @@
     <Content Include="Content\src\perfil.css" />
     <Content Include="Content\src\progressbar.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Files\Brenda.Sosa\perfil.png" />
+    <Content Include="Files\Daniel.Gonzalez.1\perfil.png" />
+    <Content Include="Files\Daniel.Gonzalez.2\perfil.png" />
+    <Content Include="Files\Daniel.Gonzalez\perfil.png" />
+    <Content Include="Files\Emilia.Gomez\perfil.png" />
+    <Content Include="Files\Esteban.Romero\perfil.png" />
+    <Content Include="Files\Javier.Garcia.1\perfil.png" />
+    <Content Include="Files\Javier.Garcia\perfil.png" />
+    <Content Include="Files\Julia.Hernandez\perfil.png" />
+    <Content Include="Files\Maria.Perez.1\perfil.png" />
+    <Content Include="Files\Maria.Perez.2\perfil.png" />
+    <Content Include="Files\Maria.Perez\perfil.png" />
+    <Content Include="Files\Mario.Flores\perfil.png" />
+    <Content Include="Files\Matias.Diaz\perfil.png" />
+    <Content Include="Files\NombreTest.ApellidoTest\perfil.png" />
+    <Content Include="Files\Paula.Garcia\perfil.png" />
+    <Content Include="Files\Sofia.Sanchez\perfil.png" />
+    <Content Include="Files\TestNombre.TestApellido\perfil.png" />
     <Content Include="Global.asax" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\Inicio\Info.png" />
+    <Content Include="Images\Necesidad\basura.png" />
+    <Content Include="Images\Necesidad\constancia.png" />
+    <Content Include="Images\Necesidad\img.png" />
+    <Content Include="Images\Perfil\Bulbasaur.png" />
+    <Content Include="Images\Perfil\user-icon.png" />
     <Content Include="Scripts\lib\jquery\jquery.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.unobtrusive.js" />
@@ -145,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Helpers\UsuarioLogeadoHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Necesidad.cs" />
   </ItemGroup>
@@ -178,6 +202,11 @@
     <Content Include="Views\Necesidad\View.cshtml" />
     <Content Include="Views\Necesidad\_pvCamposCreacion.cshtml" />
     <Content Include="Views\Necesidad\_pvCamposDetalle.cshtml" />
+    <Content Include="Views\Denuncia\Inicio.cshtml" />
+    <Content Include="Views\Denuncia\pv_CardDenuncias.cshtml" />
+    <Content Include="Views\Denuncia\pv_DenunciaComentarios.cshtml" />
+    <Content Include="Views\Denuncia\pv_DenunciaDetalle.cshtml" />
+    <Content Include="Views\MisDonaciones\Inicio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

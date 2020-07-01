@@ -22,11 +22,6 @@ namespace Models.Repository
 
         }
 
-        public void Crear(Necesidades necesidad)
-        {
-            base.Crear(necesidad);
-        }
-
         public void CrearNecesidadesDonacionesInsumos(List<NecesidadDonacionInsumo> necesidadesDonacionesInsumos, int idNecesidad)
         {
             foreach(NecesidadDonacionInsumo necesidadDonacionInsumo in necesidadesDonacionesInsumos)
@@ -60,7 +55,7 @@ namespace Models.Repository
         }
 
 
-        public override void Modificar(ORM.Necesidades necesidad)
+        public void Modificar(ORM.Necesidades necesidad)
         {
             var necesidadOriginal = dbSet.Find(necesidad.IdNecesidad);
 

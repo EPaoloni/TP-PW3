@@ -38,16 +38,17 @@ namespace Services.Usuario
 
             foreach (DonacionesMonetarias donacionMonetaria in queryMonetaria)
             {
-                DonacionHistorialMetaData donacionHistoria = new DonacionHistorialMetaData();
-                donacionHistoria.IdNecesidad = donacionMonetaria.IdNecesidadDonacionMonetaria;
-                donacionHistoria.Nombre = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.Nombre;
-                donacionHistoria.Fecha = donacionMonetaria.FechaCreacion;
-                donacionHistoria.Tipo = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.DonacionesTipo.Descripcion;
-                donacionHistoria.Estado = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.NecesidadesEstado.Descripcion;
-                donacionHistoria.TotalRecaudado = donacionMonetaria.NecesidadesDonacionesMonetarias.Dinero.ToString();
-                donacionHistoria.MiDonacion = donacionMonetaria.Dinero.ToString();                
+                //TODO: Ver esto que tira error
+                //DonacionHistorialMetaData donacionHistoria = new DonacionHistorialMetaData();
+                //donacionHistoria.IdNecesidad = donacionMonetaria.IdNecesidadDonacionMonetaria;
+                //donacionHistoria.Nombre = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.Nombre;
+                //donacionHistoria.Fecha = donacionMonetaria.FechaCreacion;
+                //donacionHistoria.Tipo = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.DonacionesTipo.Descripcion;
+                //donacionHistoria.Estado = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.NecesidadesEstado.Descripcion;
+                //donacionHistoria.TotalRecaudado = donacionMonetaria.NecesidadesDonacionesMonetarias.Dinero.ToString();
+                //donacionHistoria.MiDonacion = donacionMonetaria.Dinero.ToString();                
 
-                listaHistorial.Add(donacionHistoria);
+                //listaHistorial.Add(donacionHistoria);
             }
 
             // Obtener Necesidad Insumo
@@ -59,16 +60,17 @@ namespace Services.Usuario
 
             foreach (DonacionesInsumos donacionInsumo in queryInsumo)
             {
-                DonacionHistorialMetaData donacionHistoria = new DonacionHistorialMetaData();
-                donacionHistoria.IdNecesidad = donacionInsumo.IdNecesidadDonacionInsumo;
-                donacionHistoria.Nombre = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.Nombre;
-                donacionHistoria.Fecha = donacionInsumo.FechaCreacion;
-                donacionHistoria.Tipo = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.DonacionesTipo.Descripcion;
-                donacionHistoria.Estado = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.NecesidadesEstado.Descripcion;
-                donacionHistoria.TotalRecaudado = donacionInsumo.NecesidadesDonacionesInsumos.Cantidad.ToString();
-                donacionHistoria.MiDonacion = donacionInsumo.Cantidad.ToString();
+                //TODO: Ver esto que tambien tira error
+                //DonacionHistorialMetaData donacionHistoria = new DonacionHistorialMetaData();
+                //donacionHistoria.IdNecesidad = donacionInsumo.IdNecesidadDonacionInsumo;
+                //donacionHistoria.Nombre = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.Nombre;
+                //donacionHistoria.Fecha = donacionInsumo.FechaCreacion;
+                //donacionHistoria.Tipo = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.DonacionesTipo.Descripcion;
+                //donacionHistoria.Estado = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.NecesidadesEstado.Descripcion;
+                //donacionHistoria.TotalRecaudado = donacionInsumo.NecesidadesDonacionesInsumos.Cantidad.ToString();
+                //donacionHistoria.MiDonacion = donacionInsumo.Cantidad.ToString();
 
-                listaHistorial.Add(donacionHistoria);
+                //listaHistorial.Add(donacionHistoria);
             }
 
             return listaHistorial.OrderBy(h => h.Fecha).ToList();

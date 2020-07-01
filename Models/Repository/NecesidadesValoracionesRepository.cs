@@ -26,10 +26,5 @@ namespace Models.Repository
 
             return cantidadValoraciones;
         }
-
-        public override void Modificar(NecesidadesValoraciones entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

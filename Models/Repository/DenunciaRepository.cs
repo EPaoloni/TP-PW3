@@ -32,11 +32,6 @@ namespace Models.Repository
 
             context.SaveChanges();
         }
-
-        public override void Modificar(Denuncias entity)
-        {
-            throw new NotImplementedException();
-        }
      
         public void Desestimar(int idDenuncia, DenunciasEstado estado)
         {
