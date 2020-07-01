@@ -1,0 +1,29 @@
+﻿@using Models.ORM
+@model Denuncias
+
+<div class="col s12 m6 l6">
+    <div class="card horizontal light-blue darken-3 white-text">
+        <div class="card-image col s12 m3 l3">
+            <img src="~/@Model.Necesidades.Foto" />
+        </div>
+        <div class="card-content col s12 m9 l9">
+            <h6>@Model.Necesidades.Nombre</h6>
+            <div class="col s12 m8 l8">
+                <p>@Model.MotivoDenuncia.Descripcion</p>
+                <p>@Model.FechaCreacion.ToString("d")</p>
+            </div>
+            <div class="col s12 m4 l4">
+                <a id="btnComentarios" class="btn blue waves-effect waves-light white-text modal-trigger"
+                   onclick='VerComentarios("/Denuncia/VerComentarios/@Model.IdDenuncia")'
+                   href="#modalComentarios">COMENTARIO</a>
+            </div>
+            <div class="col s12 m12 l12 btn-action">
+                <a class="btn grey waves-effect waves-light white-text modal-trigger" 
+                onclick='VerDetalle("/Denuncia/VerDetalle/@Model.IdDenuncia")'
+                href="#modalDetalle">DETALLE</a>
+                <a class="btn red waves-effect waves-light white-text" href="/Denuncia/Desestimar/@Model.IdDenuncia">DESESTIMAR</a>
+                <a class="btn teal waves-effect waves-light white-text" href="/Denuncia/Aceptar/@Model.IdDenuncia">ACEPTAR</a>
+            </div>
+        </div>
+    </div>
+</div>

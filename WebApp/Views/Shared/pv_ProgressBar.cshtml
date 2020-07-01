@@ -1,3 +1,5 @@
-﻿<div class="progress blue lighten-4" id="progressbar-background">
-    <div class="determinate blue" id="progressbar-inner">50%</div>
+﻿@model decimal
+
+<div class="progress blue lighten-4" id="progressbar-background" >
+    <div class="determinate blue" id="progressbar-inner" style="width: @Model.ToString("###")%">@Model%</div>
 </div>

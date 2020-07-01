@@ -1,0 +1,33 @@
+﻿@using Models.ORM
+
+@model List<Denuncias>
+
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
+}
+
+<div class="col s12 m12 l12">
+    <div class="row titulo-usuario">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>DENUNCIAS</h5>
+        </div>
+        <hr />
+    </div>
+    <div class="row contenedor-denuncia">
+
+        @foreach (Denuncias item in Model)
+        {            
+            @Html.Partial("pv_CardDenuncias", item)
+        }
+
+        <div id="modalDetalle" class="modal modal-fixed-footer"></div>
+        <div id="modalComentarios" class="modal modal-fixed-footer"></div>
+
+        @if(Model.Count() == 0)
+        {
+            <div class="msg z-depth-1 center-align msg-alert light-blue grey">No hay denuncias</div>
+        }
+    </div>
+</div>
+
