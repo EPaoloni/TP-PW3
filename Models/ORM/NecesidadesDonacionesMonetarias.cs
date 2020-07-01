@@ -14,12 +14,19 @@ namespace Models.ORM
     
     public partial class NecesidadesDonacionesMonetarias
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NecesidadesDonacionesMonetarias()
+        {
+            this.DonacionesMonetarias = new HashSet<DonacionesMonetarias>();
+        }
+    
         public int IdNecesidadDonacionMonetaria { get; set; }
         public int IdNecesidad { get; set; }
         public decimal Dinero { get; set; }
         public string CBU { get; set; }
     
-        public virtual DonacionesMonetarias DonacionesMonetarias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DonacionesMonetarias> DonacionesMonetarias { get; set; }
         public virtual Necesidades Necesidades { get; set; }
     }
 }

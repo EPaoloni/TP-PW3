@@ -45,7 +45,7 @@ namespace Services.Usuario
                 donacionHistoria.Tipo = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.DonacionesTipo.Descripcion;
                 donacionHistoria.Estado = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.NecesidadesEstado.Descripcion;
                 donacionHistoria.TotalRecaudado = donacionMonetaria.NecesidadesDonacionesMonetarias.Dinero.ToString();
-                donacionHistoria.MiDonacion = donacionMonetaria.Dinero.ToString();
+                donacionHistoria.MiDonacion = donacionMonetaria.Dinero.ToString();                
 
                 listaHistorial.Add(donacionHistoria);
             }
