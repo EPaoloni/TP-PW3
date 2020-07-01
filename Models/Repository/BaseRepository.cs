@@ -44,28 +44,13 @@ namespace Models
             return dbSet.ToList();
         }
 
-        protected void SaveChanges(PandemiaEntities ctx)
+        public void SaveChanges(PandemiaEntities context)
         {
             try
             {
-                ctx.SaveChanges();
-            }
-            catch (DbEntityValidationException e)
+                context.SaveChanges();
+            } catch
             {
-                System.Diagnostics.Debug.WriteLine("");
-                System.Diagnostics.Debug.WriteLine("");
-                System.Diagnostics.Debug.WriteLine("**** ENTITY FRAMEWORK DETALLE DE EXCEPCION****");
-
-                foreach (var eve in e.EntityValidationErrors)
-                {
-                    System.Diagnostics.Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        System.Diagnostics.Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                            ve.PropertyName, ve.ErrorMessage);
-                    }
-                }
                 throw;
             }
         }

@@ -111,6 +111,16 @@ namespace Services.Home
 
         }
 
+        public void RealizarDonacionMonetaria(DonacionesMonetarias donacionesMonetarias)
+        {
+            int idNecesidad = donacionesMonetarias.NecesidadesDonacionesMonetarias.IdNecesidad;
+            NecesidadesDonacionesMonetarias necesidadDonacionMonetaria = necesidadRepository.BuscarNecesidadDonacionMonetariaPorIdNecesidad(idNecesidad);
+
+            donacionesMonetarias.IdNecesidadDonacionMonetaria = necesidadDonacionMonetaria.IdNecesidadDonacionMonetaria;
+
+            necesidadRepository.AltaDonacionMonetaria(donacionesMonetarias);
+        }
+
         /// <summary>
         /// Devuelve las necesidades que contengan el nombre introducido, si no hay ninguna devuelve null.
         /// </summary>

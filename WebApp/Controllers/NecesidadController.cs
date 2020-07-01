@@ -127,5 +127,22 @@ namespace WebApp.Controllers
 
             return RedirectToAction("DetalleNecesidad", idNecesidad);
         }
+
+        public ActionResult RealizarDonacionMonetaria(int idNecesidad, decimal monto, string comprobante)
+        {
+            DonacionesMonetarias donacionesMonetarias = new DonacionesMonetarias();
+            donacionesMonetarias.ArchivoTransferencia = comprobante;
+            donacionesMonetarias.Dinero = monto;
+            donacionesMonetarias.FechaCreacion = DateTime.Now;
+            //donacionesMonetarias.IdUsuario = Session["idUsuario"];
+            donacionesMonetarias.IdUsuario = 3;
+
+            donacionesMonetarias.NecesidadesDonacionesMonetarias = new NecesidadesDonacionesMonetarias() { IdNecesidad = idNecesidad };
+
+
+            necesidadService.RealizarDonacionMonetaria(donacionesMonetarias);
+
+            return RedirectToAction("DetalleNecesidad", idNecesidad);
+        }
     }
 }

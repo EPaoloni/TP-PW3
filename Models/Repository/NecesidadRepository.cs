@@ -159,6 +159,12 @@ namespace Models.Repository
             }
         }
 
+        public void AltaDonacionMonetaria(DonacionesMonetarias donacionMonetaria)
+        {
+            context.DonacionesMonetarias.Add(donacionMonetaria);
+            SaveChanges(context);
+        }
+
         public NecesidadesDonacionesMonetarias BuscarNecesidadDonacionMonetariaPorIdNecesidad(int idNecesidad)
         {
             NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias = context.NecesidadesDonacionesMonetarias.First(o => o.IdNecesidad == idNecesidad);
