@@ -14,8 +14,6 @@ namespace Models.Repository
 {
     public class NecesidadRepository : BaseRepository<ORM.Necesidades>
     {
-        private static readonly int ID_NECESIDADMONETARIA = 1;
-        private static readonly int ID_NECESIDADINSUMO = 2;
         private static readonly int ESTADOACTIVA = 1;
         private static readonly int ESTADOINACTIVA = 2;
 

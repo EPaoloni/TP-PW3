@@ -177,6 +177,7 @@
     <Content Include="Views\Necesidad\_pvCamposModificacion.cshtml" />
     <Content Include="Views\Necesidad\View.cshtml" />
     <Content Include="Views\Necesidad\_pvCamposCreacion.cshtml" />
+    <Content Include="Views\Necesidad\_pvCamposDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

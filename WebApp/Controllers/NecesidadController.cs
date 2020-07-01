@@ -36,7 +36,7 @@ namespace WebApp.Controllers
             }
 
             //TODO: Hay que guardar el username en sesion al loguearse y despues de agregar los datos necesarios
-            //if(Session["username"] == null)
+            //if (Session["username"] == null)
             //{
             //    ViewBag.miPerfilError = "Debe completar sus datos en Mi Perfil para poder crear una necesidad";
             //}
@@ -63,8 +63,18 @@ namespace WebApp.Controllers
         public ActionResult DetalleNecesidad(int idNecesidad)
         {
             Necesidades necesidad = necesidadService.GetNecesidadPorId(idNecesidad);
-            ViewBag.necesidad = necesidad;
-            return View();
+
+
+            if (necesidad == null)
+            {
+                ViewBag.errorMessage = "Ocurrió un error al consultar la necesidad";
+                return View();
+            }
+            else
+            {
+                return View(necesidad);
+            }
+
         }
 
         public ActionResult ModificarNecesidad(int idNecesidad)
@@ -88,7 +98,7 @@ namespace WebApp.Controllers
         {
             necesidadService.ModificarNecesidad(necesidadModificacion);
 
-            return View("DetalleNecesidad", necesidadModificacion.IdNecesidad);
+            return RedirectToAction("DetalleNecesidad", necesidadModificacion.IdNecesidad);
         }
 
         public ActionResult BajaNecesidad(int idNecesidad)
@@ -96,6 +106,26 @@ namespace WebApp.Controllers
             necesidadService.BajaNecesidad(idNecesidad);
 
             return RedirectToAction("Inicio");
+        }
+
+        public ActionResult VotarNecesidad(NecesidadesValoraciones necesidadesValoraciones)
+        {
+            necesidadService.AgregarValoracionNecesidad(necesidadesValoraciones, context);
+
+            return RedirectToAction("DetalleNecesidad", necesidadesValoraciones.IdNecesidad);
+        }
+
+        public ActionResult AgregarDenuncia(int idNecesidad, int motivoDenuncia, string comentario)
+        {
+            DenunciaService denunciaService = new DenunciaService(context);
+
+            //int idUsuario = (int) Session["idUsuario"];
+            //TODO: sacar el hardcode cuando se corrija
+            int idUsuario = 3;
+
+            denunciaService.Crear(idNecesidad, motivoDenuncia, comentario, idUsuario);
+
+            return RedirectToAction("DetalleNecesidad", idNecesidad);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Models.ORM.Necesidades
+@{
     ViewBag.Title = "DetalleNecesidad";
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
@@ -10,25 +11,13 @@
     <div class="row" id="crear-necesidad-container">
         <div class="col s12 l8 push-l2">
 
-            <h2>@ViewBag.necesidad.Nombre</h2>
-
-            <p>@ViewBag.necesidad.Descripcion</p>
-
-
-            @{
-                if (Session["idUsuario"] != null && ViewBag.necesidad.IdUsuarioCreador == (int) Session["idUsuario"])
+            @{ 
+                if (ViewBag.errorMessage != null)
                 {
-                    <div class="input-field col s12">
-                        <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@ViewBag.necesidad.IdNecesidad">Modificar</a>
-                        <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@ViewBag.necesidad.IdNecesidad">Dar de baja</a>
-                    </div>
-                }
-                else if(ViewBag.necesidad.Estado == 1)
+                <h3 class="msg-error">@ViewBag.errorMessage</h3>
+                } else
                 {
-                    <div class="input-field col s12">
-                        <a class="btn btn-primary col s3 push-s8 push-l8">Donar</a>
-                        <a class="btn btn-danger col s3">Denunciar</a>
-                    </div>
+                @Html.Partial("_pvCamposDetalle", Model);
                 }
             }
         </div>

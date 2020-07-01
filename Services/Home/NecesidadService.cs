@@ -82,6 +82,35 @@ namespace Services.Home
             }
         }
 
+        public void AgregarValoracionNecesidad(NecesidadesValoraciones necesidadesValoraciones, PandemiaEntities context)
+        {
+            NecesidadesValoracionesRepository necesidadesValoracionesRepository = new NecesidadesValoracionesRepository(context);
+
+            int cantidadValoraciones = necesidadesValoracionesRepository.ContarValoracionesNecesidad(necesidadesValoraciones.IdNecesidad);
+
+            Necesidades necesidad = necesidadRepository.BuscarPorId(necesidadesValoraciones.IdNecesidad);
+
+            necesidadesValoracionesRepository.Crear(necesidadesValoraciones);
+
+            bool votoPositivo = necesidadesValoraciones.Valoracion;
+
+            decimal? nuevoPromedio = 0;
+            cantidadValoraciones++;
+            
+            if (votoPositivo)
+            {
+                nuevoPromedio = necesidad.Valoracion + (1 - necesidad.Valoracion / cantidadValoraciones);
+            } else
+            {
+                nuevoPromedio = necesidad.Valoracion + (0 - necesidad.Valoracion / cantidadValoraciones);
+            }
+
+            necesidad.Valoracion = nuevoPromedio;
+
+            necesidadRepository.Modificar(necesidad);
+
+        }
+
         /// <summary>
         /// Devuelve las necesidades que contengan el nombre introducido, si no hay ninguna devuelve null.
         /// </summary>

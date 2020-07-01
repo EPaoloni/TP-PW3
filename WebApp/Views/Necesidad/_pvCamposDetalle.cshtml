@@ -1,0 +1,44 @@
+﻿@model Models.ORM.Necesidades
+
+<h2>@Html.DisplayFor(model => model.Nombre)</h2>
+
+<p>@Html.DisplayFor(model => model.Descripcion)</p>
+
+
+@{
+    if (Session["idUsuario"] != null)
+    {
+        if (Model.IdUsuarioCreador == (int)Session["idUsuario"])
+        {
+            <div class="input-field col s12">
+                <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@ViewBag.necesidad.IdNecesidad">Modificar</a>
+                @if (Model.Estado == 1)
+                {
+                    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@ViewBag.necesidad.IdNecesidad">Dar de baja</a>
+                }
+            </div>
+        }
+        else if (Model.Estado == 1)
+        {
+            <div class="input-field col s12">
+                <a class="btn btn-success col s3">Me gusta</a>
+                <a class="btn btn-danger col s3 push-s1">No me gusta</a>
+                <a class="btn btn-primary col s3 push-s1">Donar</a>
+                <a class="btn btn-danger col s3 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
+            </div>
+        }
+    }
+
+    <div id="form-denuncia-container" class="hiddendiv">
+        <form action="./AgregarDenuncia">
+            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+            <!--Ponerle los motivos de denuncia-->
+            <select>
+                <option>Motivo de denuncia</option>
+            </select>
+            <label for="comentario">Comentario</label>
+            <input name="comentario" id="comentario" />
+            <button class="btn btn-primary">Confirmar</button>
+        </form>
+    </div>
+}
