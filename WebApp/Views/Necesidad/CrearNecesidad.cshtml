@@ -15,124 +15,19 @@
 
                 <h2>Crear Necesidad</h2>
                 @{
-                    if (ViewBag.errorMessage != null)
+                    if (ViewBag.miPerfilError != null)
                     {
-                        <h3 class="msg-error">@ViewBag.errorMessage</h3>
+                        <h3 class="msg-error">@ViewBag.miPerfilError</h3>
+                        <div class="input-field col s12">
+                            <button class="btn btn-primary col s3" href="/Home/MiPerfil">Ir a Mi Perfil</button>
+                        </div>
+                    }
+                    else
+                    {
+                        @Html.Partial("_pvCamposCreacion", Model);
                     }
                 }
 
-                <div class="input-field col s5">
-                    @Html.LabelFor(o => o.Nombre)
-                    @Html.EditorFor(o => o.Nombre)
-                    @Html.ValidationMessageFor(o => o.Nombre)
-                </div>
-
-                <div class="input-field push-s1 col s5">
-                    @Html.LabelFor(o => o.TelefonoContacto)
-                    @Html.EditorFor(o => o.TelefonoContacto)
-                    @Html.ValidationMessageFor(o => o.TelefonoContacto)
-                </div>
-
-                <div class="input-field col s12">
-                    @Html.LabelFor(o => o.Descripcion)
-                    @Html.EditorFor(o => o.Descripcion)
-                    @Html.ValidationMessageFor(o => o.Descripcion)
-                </div>
-
-                <div class="input-field col s12">
-                    @Html.EditorFor(o => o.FechaFin)
-                    @Html.ValidationMessageFor(o => o.FechaFin)
-                </div>
-
-                <div class="input-field col s5">
-                    <select id="select-tipo-donacion" name="TipoDonacion" class="browser-default">
-                        <option disabled selected>Tipo de donacion</option>
-                        <option value="@ViewBag.DonacionMonetariaCod">Monetaria</option>
-                        <option value="@ViewBag.DonacionInsumosCod">Insumos</option>
-                    </select>
-                    @Html.ValidationMessageFor(o => o.TipoDonacion)
-                </div>
-
-                <div id="campos-monetaria-container" style="display:none;">
-                    <div class="input-field col s12">
-                        @Html.Label("Monto")
-                        @Html.EditorFor(o => o.NecesidadDonacionMonetaria.Dinero)
-                        @Html.ValidationMessageFor(o => o.NecesidadDonacionMonetaria.Dinero)
-                    </div>
-                    <div class="input-field col s12">
-                        @Html.LabelFor(o => o.NecesidadDonacionMonetaria.CBU)
-                        @Html.EditorFor(o => o.NecesidadDonacionMonetaria.CBU)
-                        @Html.ValidationMessageFor(o => o.NecesidadDonacionMonetaria.CBU)
-                    </div>
-                </div>
-
-                <div id="campos-insumos-container" style="display:none;" class="col s12">
-
-                    <div class="input-field col s12" id="insumos-cargados-container">
-                        <div class="insumo-container-template" style="display:block;">
-                            <div class="nombre-insumo-cargado input-field col s5">
-                                @Html.EditorFor(o => o.NecesidadesDonacionesInsumos[0].Nombre)
-                            </div>
-                            <div class="cantidad-insumo-cargado input-field col s5">
-                                @Html.EditorFor(o => o.NecesidadesDonacionesInsumos[0].Cantidad)
-                            </div>
-                            <div class="input-field col s1">
-                                <img class="button-delete-insumo" src="~/Images/Necesidad/Basura.png" alt="Borrar Necesidad" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="input-field col s12">
-                        <input type="text" class="nombre-insumo-agregar form-control col s5" placeholder="Nombre Insumo" />
-                        <input type="number" class="cantidad-insumo-agregar form-control col s5 push-s1" placeholder="Cantidad" />
-                    </div>
-
-                    <div class="input-field col s6 push-s6">
-                        <button type="button" id="button-agregar-insumo" class="btn btn-primary col s7 l5 push-s3 push-l5">Agregar Insumo</button>
-                    </div>
-
-                </div>
-
-                <!-- Wrapper -->
-                <div class="col s12"></div>
-                <!-- Wrapper -->
-
-                <div id="datos-referencias-container">
-                    @{
-                        for (int i = 0; i < 2; i++)
-                        {
-                            <div class="input-field col s12 m6">
-                                @Html.LabelFor(o => o.Referencia[i].Nombre)
-                                @Html.EditorFor(o => o.Referencia[i].Nombre)
-                                @Html.ValidationMessageFor(o => o.Referencia[i].Nombre)
-                            </div>
-                            <div class="input-field col s12 m6">
-                                @Html.LabelFor(o => o.Referencia[i].Telefono)
-                                @Html.EditorFor(o => o.Referencia[i].Telefono)
-                                @Html.ValidationMessageFor(o => o.Referencia[i].Telefono)
-                            </div>
-                        }
-                    }
-                </div>
-
-                <div class="input-field col s6 l4">
-                    <label>Asdasda</label>
-                    <div class="file-field input-field">
-                        <div class="btn btn-primary">
-                            <span>Buscar</span>
-                            <input id="Foto" name="Foto" accept="image/*" type="file" required />
-                        </div>
-
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
-                            @Html.ValidationMessageFor(o => o.Foto)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-field col s12">
-                    <button class="btn btn-primary col s3 push-s8 push-l8">Agregar Necesidad</button>
-                </div>
             </div>
         </form>
     </div>

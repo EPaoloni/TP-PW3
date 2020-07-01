@@ -35,6 +35,12 @@ namespace WebApp.Controllers
                 ViewBag.errorMessage = TempData["errorMessage"];
             }
 
+            //TODO: Hay que guardar el username en sesion al loguearse y despues de agregar los datos necesarios
+            //if(Session["username"] == null)
+            //{
+            //    ViewBag.miPerfilError = "Debe completar sus datos en Mi Perfil para poder crear una necesidad";
+            //}
+
             return View();
         }
 
