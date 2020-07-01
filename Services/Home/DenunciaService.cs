@@ -18,9 +18,10 @@ namespace Services.Home
 
         public void Crear(int idNecesidad, int motivoDenuncia, string descripcion, int idUsuario)
         {
-            List<Comentarios> comentarios = new List<Comentarios>();
-            Comentarios comentario = new Comentarios() { Descripcion = descripcion };
-            comentarios.Add(comentario);
+            //TODO: Ver como manejar esto de los comentarios
+            //List<Comentarios> comentarios = new List<Comentarios>();
+            //Comentarios comentario = new Comentarios() { Descripcion = descripcion };
+            //comentarios.Add(comentario);
 
             //Habria que cambiar esto en la DB y hacer que IdDenuncia sea identity
             int idUltimaDenuncia = denunciaRepository.GetIdUltimaDenuncia();
@@ -29,7 +30,6 @@ namespace Services.Home
             denuncia.IdDenuncia = idUltimaDenuncia + 1;
             denuncia.IdNecesidad = idNecesidad;
             denuncia.IdMotivo = motivoDenuncia;
-            //TODO: Agregar esto cuando cambie el model de EF
             //denuncia.Comentarios = comentarios;
             denuncia.IdUsuario = idUsuario;
             denuncia.FechaCreacion = DateTime.Now;

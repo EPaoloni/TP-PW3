@@ -13,19 +13,19 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        // PandemiaEntities context;
-        // NecesidadService necesidadService;
+        PandemiaEntities context;
+        NecesidadService necesidadService;
 
-        // public HomeController()
-        // {
-        //     context = new PandemiaEntities();
-        //     necesidadService = new NecesidadService(context);
-        // }
+        public HomeController()
+        {
+            context = new PandemiaEntities();
+            necesidadService = new NecesidadService(context);
+        }
         [HttpGet]
         public ActionResult Inicio()
-        { 
-            // List<Necesidades> topNecesidades = necesidadService.GetTopNecesidades();
-            // ViewBag.Necesidades = topNecesidades;
+        {
+            List<Necesidades> topNecesidades = necesidadService.GetTopNecesidades();
+            ViewBag.Necesidades = topNecesidades;
 
             return View("PublicacionMasValorada");
         }
@@ -105,8 +105,6 @@ namespace WebApp.Controllers
         }
         public ActionResult BuscarPorNombre(string nombre)
         {
-            PandemiaEntities context = new PandemiaEntities();
-            NecesidadService necesidadService = new NecesidadService(context);
             List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
 
             ViewBag.Necesidades = necesidades;
