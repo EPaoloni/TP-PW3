@@ -30,7 +30,7 @@ namespace WebApp.Controllers
             {
                 perfil.NombreUsuario = perfilSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
                 //perfil.Email = SesionHelper.Email;
-                perfil.Email = "test@ayudando.com.ar";
+                perfil.Email = "Maria.Perez.2@outlook.com";
                 //usuarioSrv.Guardar(perfil);
                 perfilSrv.Guardar(perfil);
             }

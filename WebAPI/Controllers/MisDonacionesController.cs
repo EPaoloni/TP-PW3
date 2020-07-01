@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
         DonacionService donacionSrv = new DonacionService();
         public List<DonacionHistorialMetaData> Get()
         {
-            return donacionSrv.ObtenerHistorial();
+            return donacionSrv.ObtenerHistorial(10);
         }
     }
 }
