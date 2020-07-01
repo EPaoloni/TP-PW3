@@ -14,24 +14,17 @@ namespace Models.ORM
     
     public partial class Denuncias
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Denuncias()
-        {
-            this.Comentarios = new HashSet<Comentarios>();
-        }
-    
         public int IdDenuncia { get; set; }
         public int IdNecesidad { get; set; }
         public int IdMotivo { get; set; }
         public int IdUsuario { get; set; }
+        public string Cometario { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public int Estado { get; set; }
     
+        public virtual MotivoDenuncia MotivoDenuncia { get; set; }
         public virtual Usuarios Usuarios { get; set; }
         public virtual DenunciasEstado DenunciasEstado { get; set; }
-        public virtual MotivoDenuncia MotivoDenuncia { get; set; }
         public virtual Necesidades Necesidades { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comentarios> Comentarios { get; set; }
     }
 }

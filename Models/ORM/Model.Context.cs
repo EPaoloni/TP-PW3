@@ -25,20 +25,19 @@ namespace Models.ORM
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DonacionesInsumos> DonacionesInsumos { get; set; }
-        public virtual DbSet<DonacionesMonetarias> DonacionesMonetarias { get; set; }
-        public virtual DbSet<NecesidadesDonacionesInsumos> NecesidadesDonacionesInsumos { get; set; }
-        public virtual DbSet<NecesidadesDonacionesMonetarias> NecesidadesDonacionesMonetarias { get; set; }
-        public virtual DbSet<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
         public virtual DbSet<DonacionesTipo> DonacionesTipo { get; set; }
         public virtual DbSet<NecesidadesEstado> NecesidadesEstado { get; set; }
         public virtual DbSet<NecesidadesReferencias> NecesidadesReferencias { get; set; }
         public virtual DbSet<UsuariosTipo> UsuariosTipo { get; set; }
         public virtual DbSet<DenunciasEstado> DenunciasEstado { get; set; }
-        public virtual DbSet<Necesidades> Necesidades { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
-        public virtual DbSet<Comentarios> Comentarios { get; set; }
-        public virtual DbSet<Denuncias> Denuncias { get; set; }
         public virtual DbSet<MotivoDenuncia> MotivoDenuncia { get; set; }
+        public virtual DbSet<Necesidades> Necesidades { get; set; }
+        public virtual DbSet<Denuncias> Denuncias { get; set; }
+        public virtual DbSet<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
+        public virtual DbSet<DonacionesInsumos> DonacionesInsumos { get; set; }
+        public virtual DbSet<DonacionesMonetarias> DonacionesMonetarias { get; set; }
+        public virtual DbSet<NecesidadesDonacionesInsumos> NecesidadesDonacionesInsumos { get; set; }
+        public virtual DbSet<NecesidadesDonacionesMonetarias> NecesidadesDonacionesMonetarias { get; set; }
     }
 }
