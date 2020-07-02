@@ -71,6 +71,7 @@
     <Compile Include="Usuario\ArchivoService.cs" />
     <Compile Include="Usuario\DenunciaService.cs" />
     <Compile Include="Usuario\DonacionService.cs" />
+    <Compile Include="Usuario\NecesidadService.cs" />
     <Compile Include="Usuario\PerfilService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -40,7 +40,7 @@ namespace Models.Repository
             }
         }
 
-        public int BuscarTipoUsuario(string descripcion)
+        public int BuscarTipoUsuario(string descripcion)    
         {
             int idTipoUsuario = (from t in context.UsuariosTipo
                                  where t.Descripcion == descripcion

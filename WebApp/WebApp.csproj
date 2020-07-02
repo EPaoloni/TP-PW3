@@ -133,6 +133,7 @@
     <Content Include="Scripts\lib\toast\toast.js" />
     <Content Include="Scripts\src\CrearNecesidad.js" />
     <Content Include="Scripts\src\datepicker.js" />
+    <Content Include="Scripts\src\mis_donaciones.js" />
     <Content Include="Scripts\src\denuncia.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -182,6 +183,7 @@
     <Content Include="Views\Denuncia\pv_DenunciaComentarios.cshtml" />
     <Content Include="Views\Denuncia\pv_DenunciaDetalle.cshtml" />
     <Content Include="Views\MisDonaciones\Inicio.cshtml" />
+    <Content Include="Views\MisDonaciones\pv_DonacionDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
