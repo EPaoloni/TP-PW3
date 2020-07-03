@@ -10,7 +10,15 @@
                 <p>Nombre de usuario</p>
                 <p>@necesidad.FechaCreacion</p>
                 <p>
-                    @Html.Partial("pv_ProgressBar")
+                    @{
+                        if (Model.Valoracion == null)
+                        {
+                            Html.Partial("pv_ProgressBar", 0M);
+                        } else
+                        {
+                            Html.Partial("pv_ProgressBar", (decimal) Model.Valoracion);
+                        }
+                    }
                 </p>
             </div>
             <div class="card-action right-align">
