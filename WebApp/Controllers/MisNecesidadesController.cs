@@ -21,5 +21,14 @@ namespace WebApp.Controllers
 
             return View(necesidad);  
         }
+
+        [HttpGet]
+        // Recibe id necesidad
+        public ActionResult VerDetalle(int id)
+        {
+            Necesidades necesidad = necesidadSrv.ObtenerPorId(id);
+
+            return PartialView("pv_NecesidadDetalle", necesidad);
+        }
     }
 }

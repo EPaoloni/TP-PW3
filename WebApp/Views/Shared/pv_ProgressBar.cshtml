@@ -1,5 +1,6 @@
-﻿@model decimal
+﻿@using Models.ORM
+@model Necesidades
 
 <div class="progress blue lighten-4" id="progressbar-background" >
-    <div class="determinate blue" id="progressbar-inner" style="width: @Model.ToString("###")%">@Model%</div>
+    <div class="determinate blue" id="progressbar-inner" style="width: @Model.Valoracion)%">@Model.Valoracion%</div>
 </div>
