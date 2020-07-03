@@ -1,8 +1,52 @@
 ﻿@model Models.ORM.Necesidades
 
+
+
 <h2>@Html.DisplayFor(model => model.Nombre)</h2>
 
-<p>@Html.DisplayFor(model => model.Descripcion)</p>
+<div>
+    @Html.DisplayName("Creador")
+    @Html.DisplayFor(model => model.Usuarios.UserName)
+</div>
+
+<div>
+    @Html.DisplayNameFor(model => model.Descripcion)
+    @Html.DisplayFor(model => model.Descripcion)
+</div>
+
+<div>
+    @Html.DisplayName("Fecha De Creación")
+    @Html.DisplayFor(model => model.FechaCreacion)
+</div>
+
+<div>
+    @Html.DisplayName("Fecha de finalización")
+    @Html.DisplayFor(model => model.FechaFin)
+</div>
+
+<div>
+    @Html.DisplayName("Teléfono de contacto")
+    @Html.DisplayFor(model => model.TelefonoContacto)
+</div>
+
+<div>
+    @Html.DisplayName("Estado")
+    @Html.DisplayFor(model => model.Estado)
+</div>
+
+<div>
+    @Html.DisplayName("Referencias")
+    @{
+        for(int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
+        {
+        <div>
+            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
+            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
+        </div>
+        }
+    }
+</div>
+
 
 
 @{
@@ -11,10 +55,10 @@
         if (Model.IdUsuarioCreador == (int)Session["idUsuario"])
         {
             <div class="input-field col s12">
-                <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@ViewBag.necesidad.IdNecesidad">Modificar</a>
+                <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@Model.IdNecesidad">Modificar</a>
                 @if (Model.Estado == 1)
                 {
-                    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@ViewBag.necesidad.IdNecesidad">Dar de baja</a>
+                    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@Model.IdNecesidad">Dar de baja</a>
                 }
             </div>
         }
@@ -33,11 +77,14 @@
         <form action="./AgregarDenuncia">
             <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
             <!--Ponerle los motivos de denuncia-->
-            <select>
-                <option>Motivo de denuncia</option>
+            <select id="motivoDenuncia" name="motivoDenuncia" required>
+                <option value="1">Fraude</option>
+                <option value="2">Indebida</option>
+                <option value="3">Violación de derechos</option>
+                <option value="4">Contiene información política</option>
             </select>
             <label for="comentario">Comentario</label>
-            <input name="comentario" id="comentario" />
+            <input name="comentario" id="comentario" required />
             <button class="btn btn-primary">Confirmar</button>
         </form>
     </div>
