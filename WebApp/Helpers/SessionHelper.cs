@@ -9,24 +9,14 @@ namespace WebApp.Helpers
     public class SesionHelper
     {
 
-        public static string UsuarioId
-        {
-            get
-            {
-                return (string) HttpContext.Current.Session["UsuarioId"];
-            }
-            set
-            {
-                HttpContext.Current.Session["UsuarioId"] = value;
-            }
-        }
+        public static int IdUsuario { get; set; }
 
-        public static string GenerarID()
-        {
-            SessionIDManager manager = new SessionIDManager();
-            string newSessionId = manager.CreateSessionID(HttpContext.Current);
+        public static string  email { get; set; }
 
-            return newSessionId;
+        static SesionHelper()
+        {
+            IdUsuario = 12;
+            email = "Javier.Garcia@hotmail.com";
         }
     }
 }

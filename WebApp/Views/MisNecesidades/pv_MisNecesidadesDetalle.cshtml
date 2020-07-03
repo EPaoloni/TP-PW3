@@ -1,0 +1,36 @@
+﻿@using Models.ORM
+@model Denuncias
+
+<!--<div id="modalNecesidad" class="modal">-->
+    <div class="modal-content">
+        <div class="col m12 l12">
+            <h3>DETALLE</h3>
+            <h4>@Model.Necesidades.Nombre</h4>
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Tipo de donacion: </span>@Model.Necesidades.DonacionesTipo.Descripcion
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Estado: </span>@Model.Necesidades.NecesidadesEstado.Descripcion
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Fecha de creacion: </span>@Model.Necesidades.FechaCreacion.ToString("d")
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Fecha de fin: </span>@Model.Necesidades.FechaFin.ToString("d")
+        </div>
+        <div class="col m12 l12">
+            <p class="bold">Descripcion:</p>
+            <p>@Model.Necesidades.Descripcion</p>
+        </div>
+        <div class="col m12 l12">
+            @Html.Partial("pv_ProgressBar", @Model.Necesidades.Valoracion)
+        </div>        
+    </div>
+    <div class="modal-footer">
+        <div class="col m12 l12">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+        </div>
+    </div>
+
+<!--</div>-->

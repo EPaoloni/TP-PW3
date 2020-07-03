@@ -1,9 +1,11 @@
-﻿using Services.Usuario;
+﻿using Models.ORM;
+using Services.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
@@ -13,9 +15,11 @@ namespace WebApp.Controllers
         NecesidadService necesidadSrv = new NecesidadService();
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Inicio()
         {
-            return View();
+            List<Necesidades> necesidad = necesidadSrv.ObtenerPorUsuario(SesionHelper.IdUsuario);
+
+            return View(necesidad);  
         }
     }
 }

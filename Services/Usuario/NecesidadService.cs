@@ -24,5 +24,13 @@ namespace Services.Usuario
 
             return necesidad;
         }
+
+        public List<Necesidades> ObtenerPorUsuario(int idUsuario)
+        {
+            List<Necesidades> necesidad = necesidadRepo.GetAll()
+                                          .Where(n => n.IdUsuarioCreador == idUsuario).ToList();
+
+            return necesidad;
+        }
     }
 }

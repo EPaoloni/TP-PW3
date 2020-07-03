@@ -135,6 +135,7 @@
     <Content Include="Scripts\src\datepicker.js" />
     <Content Include="Scripts\src\mis_donaciones.js" />
     <Content Include="Scripts\src\denuncia.js" />
+    <Content Include="Scripts\src\mis_necesidades.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +186,9 @@
     <Content Include="Views\Denuncia\pv_DenunciaDetalle.cshtml" />
     <Content Include="Views\MisDonaciones\Inicio.cshtml" />
     <Content Include="Views\MisDonaciones\pv_DonacionDetalle.cshtml" />
+    <Content Include="Views\MisNecesidades\Inicio.cshtml" />
+    <Content Include="Views\MisNecesidades\pv_CardMisNecesidades.cshtml" />
+    <Content Include="Views\MisNecesidades\pv_MisNecesidadesDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +199,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
-    <Folder Include="Views\MisNecesidades\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
