@@ -3,7 +3,6 @@
     $('.datepicker').datepicker();
 
     $('#select-tipo-donacion').on('change', function () {
-        debugger;
         switch ($(this).val()) {
             case "1":
                 enableFieldsMonetaria();
@@ -81,8 +80,8 @@ function addInsumo() {
         let idNewInsumo = $(insumosList[i]).prop('id');
         let nameNewInsumo = $(insumosList[i]).prop('name');
 
-        let newId = idNewInsumo.replace('0', (cantInsumos - 1).toString());
-        let newName = nameNewInsumo.replace('0', (cantInsumos - 1).toString());
+        let newId = idNewInsumo.replace('X', (cantInsumos - 1).toString());
+        let newName = nameNewInsumo.replace('X', (cantInsumos - 1).toString());
 
         $(insumosList[i]).prop('id', newId);
         $(insumosList[i]).prop('name', newName);

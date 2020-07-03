@@ -53,17 +53,16 @@
 </div>
 
 <div id="campos-insumos-container" style="display:none;" class="col s12">
-
     <div class="input-field col s12" id="insumos-cargados-container">
-        <div class="insumo-container-template" style="display:block;">
+        <div class="insumo-container-template" style="display:none;">
             <div class="nombre-insumo-cargado input-field col s5">
-                @Html.EditorFor(o => o.NecesidadesDonacionesInsumos[0].Nombre)
+                <input class="text-box single-line form-control col s11" id="NecesidadesDonacionesInsumos_X__Nombre" name="NecesidadesDonacionesInsumos[X].Nombre" type="text" value="" disabled="disabled">
             </div>
             <div class="cantidad-insumo-cargado input-field col s5">
-                @Html.EditorFor(o => o.NecesidadesDonacionesInsumos[0].Cantidad)
+                <input class="text-box single-line form-control col s11" data-val="true" data-val-number="The field Cantidad must be a number." data-val-required="The Cantidad field is required." id="NecesidadesDonacionesInsumos_X__Cantidad" name="NecesidadesDonacionesInsumos[X].Cantidad" type="number" value="" disabled="disabled">
             </div>
             <div class="input-field col s1">
-                <img class="button-delete-insumo" src="~/Images/Necesidad/Basura.png" alt="Borrar Necesidad" />
+                <img class="button-delete-insumo" src="/Images/Necesidad/Basura.png" alt="Borrar Necesidad">
             </div>
         </div>
     </div>

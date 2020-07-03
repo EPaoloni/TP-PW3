@@ -28,10 +28,14 @@ namespace Models.Repository
             {
                 NecesidadesDonacionesInsumos necesidadDonacionAGuardar = new NecesidadesDonacionesInsumos();
                 necesidadDonacionAGuardar.IdNecesidad = idNecesidad;
+                necesidadDonacionAGuardar.Nombre = necesidadDonacionInsumo.Nombre;
+                necesidadDonacionAGuardar.Cantidad = necesidadDonacionInsumo.Cantidad;
+                necesidadDonacionAGuardar.FechaCreacion = DateTime.Now;
+
                 this.context.NecesidadesDonacionesInsumos.Add(necesidadDonacionAGuardar);
             }
 
-            context.SaveChanges();
+            SaveChanges(context);
         }
 
         public void CrearNecesidadesDonacionesMonetarias(NecesidadDonacionMonetaria necesidadesDonacionesMonetarias, int idNecesidad)
@@ -42,7 +46,7 @@ namespace Models.Repository
             necesidadDonacionAGuardar.CBU = necesidadesDonacionesMonetarias.CBU;
             this.context.NecesidadesDonacionesMonetarias.Add(necesidadDonacionAGuardar);
 
-            context.SaveChanges();
+            SaveChanges(context);
         }
 
         public List<ORM.Necesidades> ObtenerTopNecesidades()
@@ -72,7 +76,7 @@ namespace Models.Repository
 
             necesidad.Estado = ESTADOINACTIVA;
 
-            context.SaveChanges();
+            SaveChanges(context);
         }
 
         /// <summary>
