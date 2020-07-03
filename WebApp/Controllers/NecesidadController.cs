@@ -13,11 +13,13 @@ namespace WebApp.Controllers
     {
         PandemiaEntities context;
         NecesidadService necesidadService;
+        DonacionService donacionService;
 
         public NecesidadController()
         {
             context = new PandemiaEntities();
             necesidadService = new NecesidadService(context);
+            donacionService = new DonacionService(context);
         }
 
         // GET: Perfil
@@ -48,7 +50,7 @@ namespace WebApp.Controllers
         {
             //necesidad.IdUsuarioCreador = int.Parse(Session["UsuarioId"].ToString());
             //Por el momento hardcodear el id de un usuario
-            necesidad.IdUsuarioCreador = 3;
+            necesidad.IdUsuarioCreador = 1;
             string mensajeError = necesidadService.CrearNecesidad(necesidad);
 
             if(mensajeError != "")
@@ -135,12 +137,12 @@ namespace WebApp.Controllers
             donacionesMonetarias.Dinero = monto;
             donacionesMonetarias.FechaCreacion = DateTime.Now;
             //donacionesMonetarias.IdUsuario = Session["idUsuario"];
-            donacionesMonetarias.IdUsuario = 3;
+            donacionesMonetarias.IdUsuario = 1;
 
-            donacionesMonetarias.NecesidadesDonacionesMonetarias = new NecesidadesDonacionesMonetarias() { IdNecesidad = idNecesidad };
+            donacionesMonetarias.NecesidadesDonacionesMonetarias = necesidadService.GetNecesidadesDonacionesMonetarias(idNecesidad);
 
 
-            necesidadService.RealizarDonacionMonetaria(donacionesMonetarias);
+            donacionService.CrearDonacionMonetaria(donacionesMonetarias);
 
             return RedirectToAction("DetalleNecesidad", idNecesidad);
         }
