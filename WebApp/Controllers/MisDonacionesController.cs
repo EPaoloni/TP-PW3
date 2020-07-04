@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
@@ -16,9 +17,8 @@ namespace WebApp.Controllers
 
         [HttpGet]
         public ActionResult Inicio()
-        {
-            int idUsuario = 10;
-            List<DonacionHistorialMetaData> lista = donacionSrv.GetMisDonaciones(idUsuario);
+        {           
+            List<DonacionHistorialMetaData> lista = donacionSrv.GetMisDonaciones(SesionHelper.IdUsuario);
 
             return View(lista);
         }
