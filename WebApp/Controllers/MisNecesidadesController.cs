@@ -1,4 +1,5 @@
 ﻿using Models.ORM;
+using Services.Home;
 using Services.Usuario;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace WebApp.Controllers
     public class MisNecesidadesController : Controller
     {
 
-        NecesidadService necesidadSrv = new NecesidadService();
+        NecesidadService necesidadSrv = new NecesidadService(new PandemiaEntities());
 
         [HttpGet]
         public ActionResult Inicio()

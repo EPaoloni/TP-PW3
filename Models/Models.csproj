@@ -58,9 +58,6 @@
     <Compile Include="ORM\DenunciasEstado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\DenunciasEstado.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="ORM\DonacionesInsumos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -100,9 +97,6 @@
     <Compile Include="ORM\NecesidadesEstado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ORM\NecesidadesEstado.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="ORM\NecesidadesReferencias.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -128,11 +122,9 @@
     <Compile Include="Repository\DonacionMonetariaRepository.cs" />
     <Compile Include="Repository\DonacionInsumoRepository.cs" />
     <Compile Include="Repository\IGenericoRepository.cs" />
-    <Compile Include="Repository\IngresarRepository.cs" />
     <Compile Include="Repository\NecesidadesValoracionesRepository.cs" />
     <Compile Include="Repository\NecesidadRepository.cs" />
     <Compile Include="Repository\PerfilRepository.cs" />
-    <Compile Include="Repository\RegistrarseRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
     <Compile Include="ViewModels\NecesidadCreacion.cs" />
     <Compile Include="ViewModels\NecesidadDonacionInsumo.cs" />

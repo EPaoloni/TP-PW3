@@ -26,7 +26,8 @@ namespace Models.ORM
         public int Cantidad { get; set; }
         public System.DateTime FechaCreacion { get; set; }
     
-        public virtual DonacionesInsumos DonacionesInsumos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DonacionesInsumos> DonacionesInsumos { get; set; }
         public virtual Necesidades Necesidades { get; set; }
     }
 }

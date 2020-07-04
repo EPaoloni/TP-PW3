@@ -25,7 +25,8 @@ namespace Models.ORM
         public decimal Dinero { get; set; }
         public string CBU { get; set; }
     
-        public virtual DonacionesMonetarias DonacionesMonetarias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DonacionesMonetarias> DonacionesMonetarias { get; set; }
         public virtual Necesidades Necesidades { get; set; }
     }
 }

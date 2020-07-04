@@ -1,5 +1,6 @@
 ﻿using Models.ORM;
 using Models.Repository;
+using Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,14 @@ namespace Services.Home
 {
     public class NecesidadService
     {
+        NecesidadRepository necesidadRepository;
+
+        public NecesidadService(PandemiaEntities context)
+        {
+            necesidadRepository = new NecesidadRepository(context);
+        }
         public List<Necesidades> GetNecesidades(PandemiaEntities context)
         {
-            NecesidadRepository necesidadRepository = new NecesidadRepository(context);
-
             return necesidadRepository.GetAll();
         }
 

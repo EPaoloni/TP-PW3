@@ -19,10 +19,9 @@ namespace Models.ORM
         {
             this.Denuncias = new HashSet<Denuncias>();
             this.NecesidadesDonacionesInsumos = new HashSet<NecesidadesDonacionesInsumos>();
+            this.NecesidadesDonacionesMonetarias = new HashSet<NecesidadesDonacionesMonetarias>();
             this.NecesidadesReferencias = new HashSet<NecesidadesReferencias>();
-            this.Denuncias = new HashSet<Denuncias>();
             this.NecesidadesValoraciones = new HashSet<NecesidadesValoraciones>();
-            this.NecesidadesDonacionesInsumos = new HashSet<NecesidadesDonacionesInsumos>();
         }
     
         public int IdNecesidad { get; set; }
@@ -42,13 +41,11 @@ namespace Models.ORM
         public virtual DonacionesTipo DonacionesTipo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesDonacionesInsumos> NecesidadesDonacionesInsumos { get; set; }
-        public virtual NecesidadesDonacionesMonetarias NecesidadesDonacionesMonetarias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NecesidadesDonacionesMonetarias> NecesidadesDonacionesMonetarias { get; set; }
         public virtual NecesidadesEstado NecesidadesEstado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesReferencias> NecesidadesReferencias { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Denuncias> Denuncias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NecesidadesValoraciones> NecesidadesValoraciones { get; set; }
         public virtual Usuarios Usuarios { get; set; }

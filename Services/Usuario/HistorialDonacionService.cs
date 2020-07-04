@@ -12,12 +12,12 @@ using Newtonsoft.Json;
 
 namespace Services.Usuario
 {
-    public class DonacionService
+    public class HistorialDonacionService
     {
         //DonacionesTipo donacionTipoRepo;
         DonacionInsumoRepository donacionInsumoRepo;
         DonacionMonetariaRepository donacionMonetariaRepo;
-        public DonacionService()
+        public HistorialDonacionService()
         {
             PandemiaEntities context = new PandemiaEntities();
             //donacionTipoRepo = new DenunciaTipoRepository(context);

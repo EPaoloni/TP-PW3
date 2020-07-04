@@ -11,7 +11,7 @@ namespace WebApp.Controllers
 {
     public class DonacionApiController : ApiController
     {
-        DonacionService donacionSrv = new DonacionService();
+        HistorialDonacionService donacionSrv = new HistorialDonacionService();
 
         // Recibe id usuario
         public List<DonacionHistorialMetaData> Get(int id)

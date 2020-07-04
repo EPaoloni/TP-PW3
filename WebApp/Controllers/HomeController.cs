@@ -85,7 +85,7 @@ namespace WebApp.Controllers
         public string GetAllNecesidades()
         {
             PandemiaEntities context = new PandemiaEntities();
-            NecesidadService necesidadService = new NecesidadService();
+            NecesidadService necesidadService = new NecesidadService(context);
 
             List<Necesidades> necesidades = necesidadService.GetNecesidades(context);
 
