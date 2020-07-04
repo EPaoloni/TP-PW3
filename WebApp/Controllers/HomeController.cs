@@ -13,20 +13,9 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        PandemiaEntities context;
-        NecesidadService necesidadService;
-
-        public HomeController()
-        {
-            context = new PandemiaEntities();
-            necesidadService = new NecesidadService(context);
-        }
         [HttpGet]
         public ActionResult Inicio()
-        {
-            List<Necesidades> topNecesidades = necesidadService.GetTopNecesidades();
-            ViewBag.Necesidades = topNecesidades;
-
+        {            
             return View("PublicacionMasValorada");
         }
 
@@ -47,8 +36,8 @@ namespace WebApp.Controllers
             {
                 if (usuario.RespuestaLogin == true)
                 {
-                    SesionHelper.UsuarioId = SesionHelper.GenerarID();
-                    UsuarioLogeadoHelper.Email = "test@ayudando.com.ar";
+                    //SesionHelper.UsuarioId = SesionHelper.GenerarID();
+                    UsuarioLogeadoHelper.Email = SesionHelper.email;
                     UsuarioLogeadoHelper.NombreUsuario = "Nombre.Apellido";
                     return RedirectToAction("Inicio","Perfil");                  
                 }
@@ -96,20 +85,38 @@ namespace WebApp.Controllers
         public string GetAllNecesidades()
         {
             PandemiaEntities context = new PandemiaEntities();
-            NecesidadService necesidadService = new NecesidadService(context);
+            NecesidadService necesidadService = new NecesidadService();
 
-            List<Necesidades> necesidades = necesidadService.GetNecesidades();
+            List<Necesidades> necesidades = necesidadService.GetNecesidades(context);
 
             return necesidades[0].Nombre;
 
         }
-        public ActionResult BuscarPorNombre(string nombre)
+
+        [HttpGet]
+        public ActionResult Error(int error = 0)
         {
-            List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
+            MensajeError mensajeError = new MensajeError();
 
-            ViewBag.Necesidades = necesidades;
+            switch (error)
+            {
+                case 505:
+                    mensajeError.Codigo = "505";
+                    mensajeError.Titulo = "Ocurrio un error inesperado";                    
+                    break;
 
-            return View("PublicacionMasValorada");
+                case 404:
+                    mensajeError.Codigo = "404";
+                    mensajeError.Titulo = "Página no encontrada";                    
+                    break;
+
+                default:
+                    mensajeError.Codigo = "Error al mostrar la pagina web";
+                    mensajeError.Titulo = "Error inesperado";                    
+                    break;
+            }
+
+            return View("~/Views/Shared/_ErrorPage.cshtml", mensajeError);
         }
     }
 }

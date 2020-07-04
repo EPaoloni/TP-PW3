@@ -1,0 +1,41 @@
+﻿@using Models.ORM
+@model Necesidades
+
+<div class="col s12 m6 l6">
+    <div class="card horizontal light-blue darken-3 white-text">
+        <div class="card-image col s12 m3 l3">
+            <img src="https://placehold.it/190x223" />
+        </div>
+        <div class="card-content col s12 m9 l9">
+            <h6>@Model.Nombre</h6>
+            <div class="col s12 m10 l10">
+                <p><span class="bold">Usuario: </span>@Model.Usuarios.UserName</p>
+                <p><span class="bold">Fecha de creacion: </span>@Model.FechaCreacion.ToString("d")</p>
+            </div>
+            <div class="col s12 m12 l12">
+                <p><span class="bold">Tipo: </span>@Model.DonacionesTipo.Descripcion</p>
+                <p><span class="bold">Total donado: </span> $5000 de $10000</p>
+            </div>
+            <div class="col s12 m12 l12">
+                @{
+                    if (Model.Valoracion == null)
+                    {
+                        Html.Partial("pv_ProgressBar", 0M);
+                    }
+                    else
+                    {
+                        Html.Partial("pv_ProgressBar", (decimal)Model.Valoracion);
+                    }
+                }
+            </div>
+            <div class="card-action col s12 m12 l12">
+                <a class="white-text modal-trigger"
+                   onclick='Editar("/MisNecesidades/Modificar/@Model.IdNecesidad")'
+                   href="#modalEditar">Editar</a>
+                <a class="white-text modal-trigger"
+                   onclick='VerDetalle("/MisNecesidades/VerDetalle/@Model.IdNecesidad")'
+                   href="#modalDetalle">Detalle</a>
+            </div>
+        </div>      
+    </div>
+</div>

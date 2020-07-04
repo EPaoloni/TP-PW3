@@ -1,0 +1,45 @@
+﻿@using Models.ORM
+@model Necesidades
+
+<!--<div id="modalNecesidad" class="modal">-->
+    <div class="modal-content">
+        <div class="col m12 l12">
+            <h3>DETALLE</h3>
+            <h4>@Model.Nombre</h4>
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Tipo de donacion: </span>@Model.DonacionesTipo.Descripcion
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Estado: </span>@Model.NecesidadesEstado.Descripcion
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Fecha de creacion: </span>@Model.FechaCreacion.ToString("d")
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Fecha de fin: </span>@Model.FechaFin.ToString("d")
+        </div>
+        <div class="col m12 l12">
+            <p class="bold">Descripcion:</p>
+            <p>@Model.Descripcion</p>
+        </div>
+        <div class="col m12 l12">
+            @{
+                if (Model.Valoracion == null)
+                {
+                    Html.Partial("pv_ProgressBar", 0M);
+                }
+                else
+                {
+                    Html.Partial("pv_ProgressBar", (decimal)Model.Valoracion);
+                }
+            }
+        </div>        
+    </div>
+    <div class="modal-footer">
+        <div class="col m12 l12">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+        </div>
+    </div>
+
+<!--</div>-->

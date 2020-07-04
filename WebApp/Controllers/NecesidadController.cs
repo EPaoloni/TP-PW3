@@ -172,5 +172,10 @@ namespace WebApp.Controllers
 
             return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }
+        [HttpGet]
+        public ActionResult MisNecesidades()
+        {
+            return View();
+        }
     }
 }

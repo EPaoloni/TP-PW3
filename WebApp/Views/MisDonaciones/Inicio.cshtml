@@ -6,40 +6,45 @@
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-<div class="col s12 m12 l12">
-    <div class="row titulo-usuario">
-        <div class="titulo-inicio blue-text accent-3 center">
-            <h5>MIS DONACIONES</h5>
+    <div class="col s12 m12 l12">
+        <div class="row titulo-usuario">
+            <div class="titulo-inicio blue-text accent-3 center">
+                <h5>MIS DONACIONES</h5>
+            </div>
+            <hr />
         </div>
-        <hr />
-    </div>
-    <div class="row contenedor-mis_donaciones">
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th>FECHA</th>
-                    <th>NOMBRE</th>
-                    <th>TIPO</th>
-                    <th>ESTADO</th>
-                    <th>RECAUDACION</th>
-                    <th>MI DONACION</th>
-                </tr>
-            </thead>
-            <tbody>                
-                @foreach (var donacion in Model)
-                {
+        <div class="row contenedor-mis_donaciones">
+            <table class="highlight">
+                <thead>
                     <tr>
-                        <td>@donacion.Fecha</td>
-                        <td>@donacion.Nombre</td>
-                        <td>@donacion.Tipo</td>
-                        <td>@donacion.Estado</td>
-                        <td>@donacion.TotalRecaudado</td>
-                        <td>@donacion.MiDonacion</td>
-                        <td><a href="#">Detalle</a></td>
+                        <th>FECHA</th>
+                        <th>NOMBRE</th>
+                        <th>TIPO</th>
+                        <th>ESTADO</th>
+                        <th>RECAUDACION</th>
+                        <th>MI DONACION</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var donacion in Model)
+                    {
+                        <tr>
+                            <td>@donacion.Fecha</td>
+                            <td>@donacion.Nombre</td>
+                            <td>@donacion.Tipo</td>
+                            <td>@donacion.Estado</td>
+                            <td>@donacion.TotalRecaudado</td>
+                            <td>@donacion.MiDonacion</td>
+                            <td>
+                                <a class="btn grey waves-effect waves-light white-text modal-trigger"
+                                   onclick='VerDetalle("/MisDonaciones/VerDetalle/@donacion.IdNecesidad")'
+                                   href="#modalDetalle">Detalle</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div id="modalDetalle" class="modal modal-fixed-footer"></div>
     </div>
-</div>
 

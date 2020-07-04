@@ -31,3 +31,19 @@ footer {
 .bold {
     font-weight: 700;
 }
+
+.ocultar{
+    display: none;
+}
+
+.mostrar{
+    display: block;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+.content-error {
+    margin-top: 10%;
+}
