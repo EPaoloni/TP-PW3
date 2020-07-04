@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace WebApp.Controllers
 {
-    public class RestController : ApiController
+    public class DonacionApiController : ApiController
     {
         DonacionService donacionSrv = new DonacionService();
 

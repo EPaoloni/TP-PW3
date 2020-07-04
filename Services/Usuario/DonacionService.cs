@@ -76,7 +76,7 @@ namespace Services.Usuario
 
         public List<DonacionHistorialMetaData> GetMisDonaciones(int id)
         {
-            var url = $"http://localhost:53008/Api/Rest/"+id;
+            var url = $"http://localhost:53008/Api/DonacionApi/"+id;
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             request.ContentType = "application/json";

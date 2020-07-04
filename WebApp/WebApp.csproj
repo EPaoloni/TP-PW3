@@ -163,7 +163,7 @@
     <Compile Include="Controllers\MisDonacionesController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\NecesidadController.cs" />
-    <Compile Include="Controllers\RestController.cs" />
+    <Compile Include="Controllers\DonacionApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
