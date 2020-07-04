@@ -13,11 +13,12 @@
             <hr />
         </div>
         <div class="row">
-            @*@Html.Partial("pv_CardMasValorada",70.0M)
-            @Html.Partial("pv_CardMasValorada",45.5M)
-            @Html.Partial("pv_CardMasValorada",37.3M)
-            @Html.Partial("pv_CardMasValorada",26.8M)
-            @Html.Partial("pv_CardMasValorada",12.0M)*@
+            @{
+                foreach (Models.ORM.Necesidades necesidad in ViewBag.necesidades)
+                {
+                    @Html.Partial("pv_CardMasValorada", necesidad)
+                }
+            }
         </div>
     </div>
 </div>

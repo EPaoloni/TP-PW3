@@ -13,9 +13,22 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        PandemiaEntities context;
+        NecesidadService necesidadService;
+
+        public HomeController()
+        {
+            context = new PandemiaEntities();
+            necesidadService = new NecesidadService(context);
+        }
+
         [HttpGet]
         public ActionResult Inicio()
-        {            
+        {
+            List<Necesidades> necesidades = necesidadService.GetTopNecesidades();
+
+            ViewBag.necesidades = necesidades;
+
             return View("PublicacionMasValorada");
         }
 
