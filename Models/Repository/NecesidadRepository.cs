@@ -20,5 +20,17 @@ namespace Models.Repository
         {
             return context.Necesidades.ToList();
         }
+
+        public void Actualizar(Necesidades necesidad)
+        {
+            Necesidades necesidadAux = ObtenerPorId(necesidad.IdNecesidad);
+
+            necesidadAux.Nombre = necesidad.Nombre;
+            necesidadAux.TelefonoContacto = necesidad.TelefonoContacto;
+            necesidadAux.FechaFin = necesidad.FechaFin;
+            necesidadAux.Descripcion = necesidad.Descripcion;
+
+            SaveChanges(context);
+        }
     }
 }

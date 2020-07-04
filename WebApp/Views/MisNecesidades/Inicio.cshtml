@@ -5,34 +5,34 @@
     Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
 }
 
-    <div class="col s12 m12 l12">
-        <div class="row titulo-usuario">
-            <div class="titulo-inicio blue-text accent-3 center">
-                <h5>MIS NECESIDADES</h5>
-            </div>
-            <hr />
+<div class="col s12 m12 l12">
+    <div class="row titulo-usuario">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>MIS NECESIDADES</h5>
         </div>
-        <p class="s12 m12 l12">
-            <label>
-                <input id="cbActivas" type="checkbox" class="filled-in" value="visualizar-activos" checked="checked" onclick="CambiarActivas()" />
-                <span>Solo visualizar activas</span>
-            </label>
-        </p>
-        <div class="row">
-            <div id="visualizarActivos" class="mostrar">
-                @foreach (Necesidades necesidad in Model.Where(a => a.FechaFin >= DateTime.Now))
-                {
-                    @Html.Partial("pv_CardMisNecesidades", necesidad)
-                }
-            </div>
-            <div id="visualizarTodos" class="ocultar">
-                @foreach (Necesidades necesidad in Model)
-                {
-                    @Html.Partial("pv_CardMisNecesidades", necesidad)
-                }
-            </div>
-        </div>
-
-        <div id="modalDetalle" class="modal modal-fixed-footer"></div>
-        <div id="modalEditar" class="modal modal-fixed-footer"></div>
+        <hr />
     </div>
+    <p class="s12 m12 l12">
+        <label>
+            <input id="cbActivas" type="checkbox" class="filled-in" value="visualizar-activos" checked="checked" onclick="CambiarActivas()" />
+            <span>Solo visualizar activas</span>
+        </label>
+    </p>
+    <div class="row">
+        <div id="visualizarActivos" class="mostrar">
+            @foreach (Necesidades necesidad in Model.Where(a => a.FechaFin >= DateTime.Now))
+            {
+                @Html.Partial("pv_CardMisNecesidades", necesidad)
+            }
+        </div>
+        <div id="visualizarTodos" class="ocultar">
+            @foreach (Necesidades necesidad in Model)
+            {
+                @Html.Partial("pv_CardMisNecesidades", necesidad)
+            }
+        </div>
+    </div>
+
+    <div id="modalDetalle" class="modal modal-fixed-footer"></div>
+    <div id="modalEditar" class="modal modal-fixed-footer"></div>
+</div>

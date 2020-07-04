@@ -9,12 +9,12 @@
         <div class="card-content col s12 m9 l9">
             <h6>@Model.Nombre</h6>
             <div class="col s12 m10 l10">
-                <p>@Model.Usuarios.UserName</p>
-                <p>@Model.FechaCreacion</p>
+                <p><span class="bold">Usuario: </span>@Model.Usuarios.UserName</p>
+                <p><span class="bold">Fecha de creacion: </span>@Model.FechaCreacion.ToString("d")</p>
             </div>
             <div class="col s12 m12 l12">
-                <p>@Model.DonacionesTipo.Descripcion</p>
-                <p>Total donado: $5000 de $10000</p>
+                <p><span class="bold">Tipo: </span>@Model.DonacionesTipo.Descripcion</p>
+                <p><span class="bold">Total donado: </span> $5000 de $10000</p>
             </div>
             <div class="col s12 m12 l12">
                 @{

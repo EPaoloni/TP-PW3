@@ -42,9 +42,9 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Modificar(Necesidades necesidad)
         {
-           
+            necesidadSrv.Modificar(necesidad);
 
-            return View();
+            return RedirectToAction("Inicio");
         }
     }
 }

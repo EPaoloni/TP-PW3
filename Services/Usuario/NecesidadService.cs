@@ -32,5 +32,10 @@ namespace Services.Usuario
 
             return necesidad;
         }
+
+        public void Modificar(Necesidades necesidad)
+        {
+            necesidadRepo.Actualizar(necesidad);
+        }
     }
 }
