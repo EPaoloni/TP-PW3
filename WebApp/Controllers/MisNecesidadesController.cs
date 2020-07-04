@@ -18,7 +18,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {
-            List<Necesidades> necesidad = necesidadSrv.ObtenerPorUsuario(SesionHelper.IdUsuario);
+            List<Necesidades> necesidad = necesidadSrv.ObtenerPorUsuario(Int32.Parse(SesionHelper.IdUsuario));
 
             return View(necesidad);  
         }

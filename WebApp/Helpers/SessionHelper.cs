@@ -51,7 +51,7 @@ namespace WebApp.Helpers
 
         public static void EliminarSesion()
         {           
-            HttpContext.Current.Session.Contents.RemoveAll();
+            HttpContext.Current.Session.Contents.Abandon();
         }
     }
 }
