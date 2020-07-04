@@ -92,5 +92,31 @@ namespace WebApp.Controllers
             return necesidades[0].Nombre;
 
         }
+
+        [HttpGet]
+        public ActionResult Error(int error = 0)
+        {
+            MensajeError mensajeError = new MensajeError();
+
+            switch (error)
+            {
+                case 505:
+                    mensajeError.Codigo = "505";
+                    mensajeError.Titulo = "Ocurrio un error inesperado";                    
+                    break;
+
+                case 404:
+                    mensajeError.Codigo = "404";
+                    mensajeError.Titulo = "Página no encontrada";                    
+                    break;
+
+                default:
+                    mensajeError.Codigo = "Error al mostrar la pagina web";
+                    mensajeError.Titulo = "Error inesperado";                    
+                    break;
+            }
+
+            return View("~/Views/Shared/_ErrorPage.cshtml", mensajeError);
+        }
     }
 }

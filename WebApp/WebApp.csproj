@@ -208,6 +208,7 @@
     <Content Include="Views\MisNecesidades\pv_CardMisNecesidades.cshtml" />
     <Content Include="Views\MisNecesidades\pv_NecesidadDetalle.cshtml" />
     <Content Include="Views\MisNecesidades\pv_NecesidadModificar.cshtml" />
+    <Content Include="Views\Shared\_ErrorPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
