@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Models.Partial;
 using Models.ORM;
+using Models.ViewModels;
 
 namespace Models.Repository
 {
@@ -48,7 +49,7 @@ namespace Models.Repository
 
         public List<ORM.Necesidades> ObtenerTopNecesidades()
         {
-            Necesidades necesidadAux = ObtenerPorId(necesidad.IdNecesidad);
+            var TopNecesidades = context.Necesidades.OrderByDescending(necesidad => necesidad.Valoracion).Take(5);
 
             List<ORM.Necesidades> necesidades = new List<ORM.Necesidades>(TopNecesidades);
 
@@ -113,6 +114,14 @@ namespace Models.Repository
         {
             // Valido que la necesidad tenga el mismo IdUsuarioCreador y este activa
             var cantidadDePublicacionesActivasDelUsuario = dbSet.Where((necesidad) => (necesidad.IdUsuarioCreador.Equals(idUsuarioCreador) && necesidad.Estado.Equals(ESTADOACTIVA))).Count();
+
+            if (cantidadDePublicacionesActivasDelUsuario >= 3)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
 
             SaveChanges(context);
         }
