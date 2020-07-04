@@ -13,8 +13,7 @@ namespace Models.Partial
         [EmailAddress(ErrorMessage = "Formato de email incorrecto")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Campo requerido")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Required(ErrorMessage = "Campo requerido")]        
         [MayorEdad(ErrorMessage = "Debe ser mayor de 18 años")]
         public DateTime FechaNacimiento { get; set; }
 
