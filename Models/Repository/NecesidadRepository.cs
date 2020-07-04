@@ -191,5 +191,9 @@ namespace Models.Repository
 
             return necesidadesDonacionesInsumos;
         }
+        public List<Necesidades> GetAll()
+        {
+            return context.Necesidades.ToList();
+        }
     }
 }
