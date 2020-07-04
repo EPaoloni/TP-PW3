@@ -100,7 +100,7 @@ namespace WebApp.Controllers
         {
             necesidadService.ModificarNecesidad(necesidadModificacion);
 
-            return RedirectToAction("DetalleNecesidad", necesidadModificacion.IdNecesidad);
+            return RedirectToAction("DetalleNecesidad", new { idNecesidad = necesidadModificacion.IdNecesidad });
         }
 
         public ActionResult BajaNecesidad(int idNecesidad)
@@ -114,7 +114,7 @@ namespace WebApp.Controllers
         {
             necesidadService.AgregarValoracionNecesidad(necesidadesValoraciones, context);
 
-            return RedirectToAction("DetalleNecesidad", necesidadesValoraciones.IdNecesidad);
+            return RedirectToAction("DetalleNecesidad", new { idNecesidad = necesidadesValoraciones.IdNecesidad });
         }
 
         public ActionResult AgregarDenuncia(int idNecesidad, int motivoDenuncia, string comentario)
@@ -127,7 +127,7 @@ namespace WebApp.Controllers
 
             denunciaService.Crear(idNecesidad, motivoDenuncia, comentario, idUsuario);
 
-            return RedirectToAction("DetalleNecesidad", idNecesidad);
+            return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }
 
         public ActionResult RealizarDonacionMonetaria(int idNecesidad, decimal monto, string comprobante)
@@ -144,7 +144,7 @@ namespace WebApp.Controllers
 
             donacionService.CrearDonacionMonetaria(donacionesMonetarias);
 
-            return RedirectToAction("DetalleNecesidad", idNecesidad);
+            return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }
     }
 }
