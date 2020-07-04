@@ -30,5 +30,21 @@ namespace WebApp.Controllers
 
             return PartialView("pv_NecesidadDetalle", necesidad);
         }
+
+        [HttpGet]
+        public ActionResult Modificar(int id)
+        {
+            Necesidades necesidad = necesidadSrv.ObtenerPorId(id);
+
+            return PartialView("pv_NecesidadModificar", necesidad);
+        }
+
+        [HttpPost]
+        public ActionResult Modificar(Necesidades necesidad)
+        {
+           
+
+            return View();
+        }
     }
 }

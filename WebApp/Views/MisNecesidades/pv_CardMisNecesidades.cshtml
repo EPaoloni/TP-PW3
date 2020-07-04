@@ -17,10 +17,21 @@
                 <p>Total donado: $5000 de $10000</p>
             </div>
             <div class="col s12 m12 l12">
-                @Html.Partial("pv_ProgressBar", Model)
+                @{
+                    if (Model.Valoracion == null)
+                    {
+                        Html.Partial("pv_ProgressBar", 0M);
+                    }
+                    else
+                    {
+                        Html.Partial("pv_ProgressBar", (decimal)Model.Valoracion);
+                    }
+                }
             </div>
             <div class="card-action col s12 m12 l12">
-                <a class="white-text" href="#">EDITAR</a>
+                <a class="white-text modal-trigger"
+                   onclick='Editar("/MisNecesidades/Modificar/@Model.IdNecesidad")'
+                   href="#modalEditar">Editar</a>
                 <a class="white-text modal-trigger"
                    onclick='VerDetalle("/MisNecesidades/VerDetalle/@Model.IdNecesidad")'
                    href="#modalDetalle">Detalle</a>

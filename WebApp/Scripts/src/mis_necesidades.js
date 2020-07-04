@@ -24,3 +24,13 @@ function VerDetalle(url) {
     });
 
 }
+
+function Editar(url) {
+
+    $.get(url, function (data) {
+        $("#modalEditar").html(data);
+        $("#modalEditar").css('height', '100%');
+        $("#modalEditar").show();
+    });
+
+}

@@ -24,7 +24,16 @@
             <p>@Model.Descripcion</p>
         </div>
         <div class="col m12 l12">
-            @Html.Partial("pv_ProgressBar", Model)
+            @{
+                if (Model.Valoracion == null)
+                {
+                    Html.Partial("pv_ProgressBar", 0M);
+                }
+                else
+                {
+                    Html.Partial("pv_ProgressBar", (decimal)Model.Valoracion);
+                }
+            }
         </div>        
     </div>
     <div class="modal-footer">

@@ -1,0 +1,41 @@
+﻿@using Models.ORM
+@model Necesidades
+
+<!--<div id="modalNecesidad" class="modal">-->
+<form action="/MisNecesidades/Modificar" method="post">
+    <div class="modal-content">
+        <div class="col m12 l12">
+            <h3>EDITAR</h3>
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Nombre: </span>
+            <h4>@Html.TextBoxFor(m => m.Nombre, "", new { @class = "helper-text" })</h4>
+        </div>
+        <div class="col m6 l6">
+            <span class="bold">Tipo de donacion: </span>
+            @Html.TextBoxFor(m => m.DonacionesTipo.Descripcion, "", new { @class = "helper-text", disabled = "true" })
+        </div>
+        <div class="col m12 l12">
+            <span class="bold">Fecha de creacion: </span>
+            @Html.TextBoxFor(m => m.FechaCreacion.Date, "{0:dd/MM/yyyy}", new { @class = "helper-text", name = "fechacreacion", id = "icon_date_range" })
+        </div>
+        <div class="col m12 l12">
+            <span class="bold">Fecha de fin: </span>
+            @Html.TextBoxFor(m => m.FechaFin, "{0:dd/MM/yyyy}", new { @class = "helper-text", name = "fechafin", id = "icon_date_range" })
+        </div>
+        <div class="col m12 l12">
+            <p class="bold">Telefono:</p>
+            <p>@Html.TextBoxFor(m => m.TelefonoContacto, "", new { @class = "helper-text" })</p>
+        </div>
+        <div class="col m12 l12">
+            <p class="bold">Descripcion:</p>
+            <p>@Html.TextArea("Descripcion", null, new { @class = "materialize-textarea" })</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col m12 l12">
+            <button href="#!" class="modal-close waves-effect waves-green btn-flat" type="submit">Aplicar</button>
+        </div>
+    </div>
+</form>
+<!--</div>-->
