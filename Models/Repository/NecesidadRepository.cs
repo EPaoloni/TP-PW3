@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -156,6 +156,18 @@ namespace Models.Repository
             {
                 return false;
             }
+        }
+
+        public void Actualizar(Necesidades necesidad)
+        {
+            Necesidades necesidadAux = ObtenerPorId(necesidad.IdNecesidad);
+
+            necesidadAux.Nombre = necesidad.Nombre;
+            necesidadAux.TelefonoContacto = necesidad.TelefonoContacto;
+            necesidadAux.FechaFin = necesidad.FechaFin;
+            necesidadAux.Descripcion = necesidad.Descripcion;
+
+            SaveChanges(context);
         }
 
         public void AltaDonacionMonetaria(DonacionesMonetarias donacionMonetaria)
