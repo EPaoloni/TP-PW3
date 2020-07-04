@@ -39,7 +39,7 @@ namespace Services.Usuario
             foreach (DonacionesMonetarias donacionMonetaria in queryMonetaria)
             {
                 DonacionHistorialMetaData donacionHistoria = new DonacionHistorialMetaData();
-                donacionHistoria.IdNecesidad = donacionMonetaria.IdNecesidadDonacionMonetaria;
+                donacionHistoria.IdNecesidad = donacionMonetaria.NecesidadesDonacionesMonetarias.IdNecesidad;
                 donacionHistoria.Nombre = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.Nombre;
                 donacionHistoria.Fecha = donacionMonetaria.FechaCreacion;
                 donacionHistoria.Tipo = donacionMonetaria.NecesidadesDonacionesMonetarias.Necesidades.DonacionesTipo.Descripcion;
@@ -60,7 +60,7 @@ namespace Services.Usuario
             foreach (DonacionesInsumos donacionInsumo in queryInsumo)
             {
                 DonacionHistorialMetaData donacionHistoria = new DonacionHistorialMetaData();
-                donacionHistoria.IdNecesidad = donacionInsumo.IdNecesidadDonacionInsumo;
+                donacionHistoria.IdNecesidad = donacionInsumo.NecesidadesDonacionesInsumos.IdNecesidad;
                 donacionHistoria.Nombre = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.Nombre;
                 donacionHistoria.Fecha = donacionInsumo.FechaCreacion;
                 donacionHistoria.Tipo = donacionInsumo.NecesidadesDonacionesInsumos.Necesidades.DonacionesTipo.Descripcion;
