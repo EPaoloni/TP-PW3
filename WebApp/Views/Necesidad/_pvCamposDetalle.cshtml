@@ -73,10 +73,10 @@
 @{
     if (Model.TipoDonacion == 1)
     {
-    <div>
-        @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU
-        @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero
-    </div>
+        <div>
+            @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU
+            @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero
+        </div>
     }
     else
     {
@@ -108,15 +108,17 @@
         else if (Model.Estado == 1)
         {
             <div class="input-field col s12">
-                <a class="btn btn-success col s3">Me gusta</a>
-                <a class="btn btn-danger col s3 push-s1">No me gusta</a>
+                <a class="btn btn-success col s3" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
+                <a class="btn btn-danger col s3 push-s1" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
                 <a id="donar-button" class="btn btn-primary col s3 push-s1">Donar</a>
                 <a class="btn btn-danger col s3 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
             </div>
         }
     }
+    <a class="btn btn-success col s3" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
+    <a class="btn btn-danger col s3 push-s1" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
 
-    <div id="form-denuncia-container" class="">
+    <div id="form-denuncia-container" class="hiddendiv">
         <form action="./AgregarDenuncia">
             <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
             <!--Ponerle los motivos de denuncia-->

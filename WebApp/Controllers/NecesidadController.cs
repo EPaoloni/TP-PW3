@@ -110,11 +110,19 @@ namespace WebApp.Controllers
             return RedirectToAction("Inicio");
         }
 
-        public ActionResult VotarNecesidad(NecesidadesValoraciones necesidadesValoraciones)
+        public ActionResult VotarNecesidad(int valoracion, int idNecesidad)
         {
-            necesidadService.AgregarValoracionNecesidad(necesidadesValoraciones, context);
+            NecesidadesValoraciones necesidadValoracion = new NecesidadesValoraciones()
+            {
+                //TODO: Sacar este hardcode
+                IdUsuario = 1,
+                Valoracion = (valoracion == 1) ? true : false,
+                IdNecesidad = idNecesidad
+            };
 
-            return RedirectToAction("DetalleNecesidad", new { idNecesidad = necesidadesValoraciones.IdNecesidad });
+            necesidadService.AgregarValoracionNecesidad(necesidadValoracion, context);
+
+            return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }
 
         public ActionResult AgregarDenuncia(int idNecesidad, int motivoDenuncia, string comentario)

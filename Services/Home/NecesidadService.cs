@@ -105,6 +105,8 @@ namespace Services.Home
                 nuevoPromedio = necesidad.Valoracion + (0 - necesidad.Valoracion / cantidadValoraciones);
             }
 
+            nuevoPromedio = Math.Round(nuevoPromedio.Value, 2);
+
             necesidad.Valoracion = nuevoPromedio;
 
             necesidadRepository.Modificar(necesidad);
