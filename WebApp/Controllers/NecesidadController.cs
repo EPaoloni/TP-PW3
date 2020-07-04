@@ -123,7 +123,7 @@ namespace WebApp.Controllers
 
             //int idUsuario = (int) Session["idUsuario"];
             //TODO: sacar el hardcode cuando se corrija
-            int idUsuario = 3;
+            int idUsuario = 1;
 
             denunciaService.Crear(idNecesidad, motivoDenuncia, comentario, idUsuario);
 

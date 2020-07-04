@@ -16,7 +16,7 @@ namespace Services.Home
             denunciaRepository = new DenunciaRepository(context);
         }
 
-        public void Crear(int idNecesidad, int motivoDenuncia, string descripcion, int idUsuario)
+        public void Crear(int idNecesidad, int motivoDenuncia, string comentario, int idUsuario)
         {
             //TODO: Ver como manejar esto de los comentarios
             //List<Comentarios> comentarios = new List<Comentarios>();
@@ -30,7 +30,7 @@ namespace Services.Home
             denuncia.IdDenuncia = idUltimaDenuncia + 1;
             denuncia.IdNecesidad = idNecesidad;
             denuncia.IdMotivo = motivoDenuncia;
-            //denuncia.Comentarios = comentarios;
+            denuncia.Cometario = comentario;
             denuncia.IdUsuario = idUsuario;
             denuncia.FechaCreacion = DateTime.Now;
             denuncia.Estado = 1;

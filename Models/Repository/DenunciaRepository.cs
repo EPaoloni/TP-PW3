@@ -15,7 +15,7 @@ namespace Models.Repository
         }
         public int GetIdUltimaDenuncia()
         {
-            return context.Denuncias.Max(o => o.IdDenuncia);
+            return context.Denuncias.Select(o => o.IdDenuncia).DefaultIfEmpty(0).Max();
         }
 
         public int GetCantidadDenunciasMismaNecesidad(int idNecesidad)
