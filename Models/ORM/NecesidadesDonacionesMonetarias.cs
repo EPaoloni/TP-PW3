@@ -14,6 +14,12 @@ namespace Models.ORM
     
     public partial class NecesidadesDonacionesMonetarias
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NecesidadesDonacionesMonetarias()
+        {
+            this.DonacionesMonetarias = new HashSet<DonacionesMonetarias>();
+        }
+    
         public int IdNecesidadDonacionMonetaria { get; set; }
         public int IdNecesidad { get; set; }
         public decimal Dinero { get; set; }

@@ -58,6 +58,9 @@
     <Compile Include="ORM\DenunciasEstado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ORM\DenunciasEstado.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ORM\DonacionesInsumos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     </Compile>
     <Compile Include="ORM\NecesidadesEstado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\NecesidadesEstado.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ORM\NecesidadesReferencias.cs">
       <DependentUpon>Model1.tt</DependentUpon>

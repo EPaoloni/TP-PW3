@@ -1,6 +1,5 @@
-using Models.ORM;
+ï»¿using Models.ORM;
 using Models.Repository;
-using Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +10,13 @@ namespace Services.Home
 {
     public class NecesidadService
     {
-        NecesidadRepository necesidadRepository;
-        public NecesidadService(PandemiaEntities context)
+        public List<Necesidades> GetNecesidades(PandemiaEntities context)
         {
-            necesidadRepository = new NecesidadRepository(context);
+            NecesidadRepository necesidadRepository = new NecesidadRepository(context);
+
+            return necesidadRepository.GetAll();
         }
+
         public List<Necesidades> GetNecesidades()
         {
             return necesidadRepository.ObtenerTodos();
@@ -48,7 +49,7 @@ namespace Services.Home
                 }
             } else
             {
-                return "El usuario llegó al límite de necesidades";
+                return "El usuario llegï¿½ al lï¿½mite de necesidades";
             }
         }
 
