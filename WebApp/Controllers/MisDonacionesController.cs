@@ -19,11 +19,11 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {           
-            List<DonacionHistorialMetaData> lista = donacionSrv.GetMisDonaciones(SesionHelper.IdUsuario);
+            List<DonacionHistorialMetaData> lista = donacionSrv.GetMisDonaciones(Int32.Parse(SesionHelper.IdUsuario));
 
             return View(lista);
         }
-
+            
         [HttpGet]
         // Recibe id necesidad
         public ActionResult VerDetalle(int id)

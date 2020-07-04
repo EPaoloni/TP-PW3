@@ -2,21 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.SessionState;
 
 namespace WebApp.Helpers
 {
     public class SesionHelper
     {
+        public static string IdUsuario
+        {
+            get
+            {
+                return HttpContext.Current.Session["IdUsuario"] as string;
+            }
+            set
+            {
+                HttpContext.Current.Session["IdUsuario"] = value;
+            }
+        }
 
-        public static int IdUsuario { get; set; }
+        public static string UserName
+        {
+            get
+            {
+                return HttpContext.Current.Session["UserName"] as string;
+            }
+            set
+            {
+                HttpContext.Current.Session["UserName"] = value;
+            }
+        }
 
-        public static string  email { get; set; }
+        public static string Email
+        {
+            get
+            {
+                return HttpContext.Current.Session["Email"] as string;
+            }
+            set
+            {
+                HttpContext.Current.Session["Email"] = value;
+            }
+        }
 
         static SesionHelper()
         {
-            IdUsuario = 12;
-            email = "Javier.Garcia@hotmail.com";
+            IdUsuario = "12";
+            Email = "Javier.Garcia@hotmail.com";
+        }
+
+        public static void EliminarSesion()
+        {           
+            HttpContext.Current.Session.Contents.RemoveAll();
         }
     }
 }

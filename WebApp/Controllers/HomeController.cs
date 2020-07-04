@@ -118,5 +118,13 @@ namespace WebApp.Controllers
 
             return View("~/Views/Shared/_ErrorPage.cshtml", mensajeError);
         }
+
+        [HttpGet]
+        public ActionResult Salir()
+        {
+            SesionHelper.EliminarSesion();
+
+            return RedirectToAction("Inicio");
+        }
     }
 }
