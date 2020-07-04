@@ -10,6 +10,8 @@ namespace Models.Partial
 
     public class IngresarMetaData
     {
+        public int IdUsuario { get; set; }
+        public string UserName { get; set; }
         [Required(ErrorMessage = "Campo requerido")]
         [EmailAddress(ErrorMessage = "Formato de email incorrecto")]
         public string Email { get; set; }

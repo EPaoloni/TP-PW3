@@ -36,9 +36,10 @@ namespace WebApp.Controllers
             {
                 if (usuario.RespuestaLogin == true)
                 {
-                    //SesionHelper.UsuarioId = SesionHelper.GenerarID();
-                    UsuarioLogeadoHelper.Email = SesionHelper.email;
-                    UsuarioLogeadoHelper.NombreUsuario = "Nombre.Apellido";
+                    SesionHelper.Email = usuario.Email;
+                    SesionHelper.UserName = usuario.UserName;
+                    SesionHelper.IdUsuario = usuario.IdUsuario.ToString();
+
                     return RedirectToAction("Inicio","Perfil");                  
                 }
    
