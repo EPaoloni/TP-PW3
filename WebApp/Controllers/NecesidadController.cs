@@ -154,5 +154,23 @@ namespace WebApp.Controllers
 
             return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }
+
+        public ActionResult RealizarDonacionInsumo(int idNecesidad, int insumo, int cantidad)
+        {
+            DonacionesInsumos donacionesInsumos = new DonacionesInsumos()
+            {
+                IdNecesidadDonacionInsumo = insumo,
+                Cantidad = cantidad,
+                FechaCreacion = DateTime.Now,
+                //donacionesMonetarias.IdUsuario = Session["idUsuario"],
+                IdUsuario = 1,
+            };
+
+            donacionesInsumos.NecesidadesDonacionesInsumos = necesidadService.GetNecesidadesDonacionesInsumos(idNecesidad, insumo);
+
+            donacionService.CrearDonacionInsumo(donacionesInsumos);
+
+            return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
+        }
     }
 }

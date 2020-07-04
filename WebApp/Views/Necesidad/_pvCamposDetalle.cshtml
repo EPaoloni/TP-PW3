@@ -18,7 +18,7 @@
         }
         else
         {
-            <span>@(Model.Valoracion*100)%</span>
+            <span>@(Model.Valoracion * 100)%</span>
         }
     }
 </div>
@@ -110,12 +110,12 @@
             <div class="input-field col s12">
                 <a class="btn btn-success col s3" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
                 <a class="btn btn-danger col s3 push-s1" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
-                <a id="donar-button" class="btn btn-primary col s3 push-s1">Donar</a>
+                <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s3 push-s1">Donar</a>
                 <a class="btn btn-danger col s3 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
             </div>
         }
     }
-
+}
     <div id="form-denuncia-container" class="hiddendiv">
         <form action="./AgregarDenuncia">
             <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
@@ -131,4 +131,60 @@
             <button class="btn btn-primary">Confirmar</button>
         </form>
     </div>
-}
+
+    <div id="form-donacion-monetaria-container" style="display:none;">
+        <form action="./RealizarDonacionMonetaria">
+            decimal monto, string comprobante
+            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+
+            <div class="input-field">
+                <label for="monto">Monto</label>
+                <input name="monto" id="monto" required />
+            </div>
+
+            <div class="input-field col s6 l4">
+                <label>Comprobante</label>
+                <div class="file-field input-field">
+                    <div class="btn btn-primary">
+                        <span>Buscar</span>
+                        <input id="comprobante" name="comprobante" accept="image/*" type="file" required />
+                    </div>
+
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
+                        @Html.ValidationMessageFor(o => o.Foto)
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                <button class="btn btn-primary">Confirmar</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="form-donacion-insumo-container" style="display:none;">
+        <form action="./RealizarDonacionInsumo">
+            decimal monto, string comprobante
+            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+
+            <div class="input-field">
+                <select name="insumo" id="insumo">
+                @{
+                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+                    {
+                        <option value="@insumo.IdNecesidadDonacionInsumo">@insumo.Nombre</option>
+                    }
+                }
+                </select>
+            </div>
+            <div class="input-field">
+                <label for="cantidad">Cantidad</label>
+                <input name="cantidad" id="cantidad" required />
+            </div>
+
+            <div class="col s12">
+                <button class="btn btn-primary">Confirmar</button>
+            </div>
+        </form>
+    </div>

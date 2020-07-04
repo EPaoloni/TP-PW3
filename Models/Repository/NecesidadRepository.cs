@@ -171,9 +171,9 @@ namespace Models.Repository
             return necesidadesDonacionesMonetarias;
         }
 
-        public List<NecesidadesDonacionesInsumos> BuscarNecesidadesDonacionesInsumosPorIdNecesidad(int idNecesidad)
+        public List<NecesidadesDonacionesInsumos> BuscarNecesidadDonacionInsumosPorIdNecesidad(int idNecesidad, int insumo)
         {
-            var resultado = context.NecesidadesDonacionesInsumos.Where(o => o.IdNecesidad == idNecesidad);
+            var resultado = context.NecesidadesDonacionesInsumos.Where(o => o.IdNecesidad == idNecesidad && o.IdNecesidadDonacionInsumo == insumo );
 
             List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos = new List<NecesidadesDonacionesInsumos>(resultado);
 

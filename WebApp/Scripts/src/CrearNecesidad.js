@@ -22,6 +22,14 @@
     $('#button-agregar-insumo').on('click', function () {
         addInsumo();
     });
+
+    $('#donacion-button-1').on('click', function () {
+        $('#form-donacion-monetaria-container').show();
+    });
+
+    $('#donacion-button-1').on('click', function () {
+        $('#form-donacion-insumo-container').show();
+    });
 });
 
 function enableFieldsInsumos() {

@@ -143,6 +143,11 @@ namespace Services.Home
             return necesidadRepository.BuscarNecesidadDonacionMonetariaPorIdNecesidad(idNecesidad);
         }
 
+        public NecesidadesDonacionesInsumos GetNecesidadesDonacionesInsumos(int idNecesidad, int insumo)
+        {
+            return necesidadRepository.BuscarNecesidadDonacionInsumosPorIdNecesidad(idNecesidad, insumo)[0];
+        }
+
         public void CrearNecesidadesDonacion(NecesidadCreacion necesidadCreacion, int idNecesidad)
         {
             int tipoDonacion = necesidadCreacion.TipoDonacion;
