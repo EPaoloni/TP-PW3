@@ -31,3 +31,11 @@ footer {
 .bold {
     font-weight: 700;
 }
+
+.ocultar{
+    display: none;
+}
+
+.mostrar{
+    display: block;
+}

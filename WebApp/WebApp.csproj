@@ -151,6 +151,7 @@
     <Content Include="Scripts\src\datepicker.js" />
     <Content Include="Scripts\src\mis_donaciones.js" />
     <Content Include="Scripts\src\denuncia.js" />
+    <Content Include="Scripts\src\mis_necesidades.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
     <Compile Include="Controllers\DenunciaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MisDonacionesController.cs" />
+    <Compile Include="Controllers\MisNecesidadesController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\NecesidadController.cs" />
     <Compile Include="Controllers\DonacionApiController.cs" />
@@ -195,7 +197,6 @@
     <Content Include="Views\Home\_InicioLayout.cshtml" />
     <Content Include="Views\Shared\pv_SideNavUsuario.cshtml" />
     <Content Include="Views\Perfil\Inicio.cshtml" />
-    <Content Include="Views\Necesidad\MisNecesidades.cshtml" />
     <Content Include="Views\Necesidad\pv_CardMisNecesidades.cshtml" />
     <Content Include="Views\Denuncia\Inicio.cshtml" />
     <Content Include="Views\Denuncia\pv_CardDenuncias.cshtml" />
@@ -203,6 +204,10 @@
     <Content Include="Views\Denuncia\pv_DenunciaDetalle.cshtml" />
     <Content Include="Views\MisDonaciones\Inicio.cshtml" />
     <Content Include="Views\MisDonaciones\pv_DonacionDetalle.cshtml" />
+    <Content Include="Views\MisNecesidades\Inicio.cshtml" />
+    <Content Include="Views\MisNecesidades\pv_CardMisNecesidades.cshtml" />
+    <Content Include="Views\MisNecesidades\pv_NecesidadDetalle.cshtml" />
+    <Content Include="Views\MisNecesidades\pv_NecesidadModificar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
