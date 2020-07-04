@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Partial\DonacionHistorialMetaData.cs" />
     <Compile Include="Partial\IngresarMetaData.cs" />
+    <Compile Include="Partial\MensajeError.cs" />
     <Compile Include="Partial\NecesidadesMetaData.cs" />
     <Compile Include="Partial\PerfilMetaData.cs" />
     <Compile Include="Partial\RegistrarseMetaData.cs" />
