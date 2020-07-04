@@ -49,7 +49,7 @@ namespace Services.Usuario
 
         public PerfilMetaData ObtenerPerfil()
         {
-            Usuarios usuario = usuarioRepo.ObtenerPorEmail("Maria.Perez.2@outlook.com");
+            Usuarios usuario = usuarioRepo.ObtenerPorEmail("Maria.Perez@yahoo.com");
 
             PerfilMetaData perfil = new PerfilMetaData();
             perfil.Nombre = usuario.Nombre != null ? usuario.Nombre : "";

@@ -234,5 +234,25 @@ namespace Services.Home
 
             return necesidad;
         }
+
+        public Necesidades ObtenerPorId(int id)
+        {
+            Necesidades necesidad = necesidadRepository.ObtenerPorId(id);
+
+            return necesidad;
+        }
+
+        public List<Necesidades> ObtenerPorUsuario(int idUsuario)
+        {
+            List<Necesidades> necesidad = necesidadRepository.GetAll()
+                                          .Where(n => n.IdUsuarioCreador == idUsuario).ToList();
+
+            return necesidad;
+        }
+
+        public void Modificar(Necesidades necesidad)
+        {
+            necesidadRepository.Actualizar(necesidad);
+        }
     }
 }
