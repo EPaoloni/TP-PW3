@@ -26,8 +26,10 @@ namespace Services.Home
             if (usuario != null)
             {
                 usuarioMetaData.RespuestaLogin = true;
+                usuarioMetaData.IdUsuario = usuario.IdUsuario;
+                usuarioMetaData.UserName = usuario.UserName;
             }
-            
         }
+
     }
 }
