@@ -4,92 +4,102 @@
 
 <h2>@Html.DisplayFor(model => model.Nombre)</h2>
 
-<div>
-    @Html.DisplayName("Creador: ")
-    @Html.DisplayFor(model => model.Usuarios.UserName)
+<div class="col s6">
+    <h5>Creador: @Html.DisplayFor(model => model.Usuarios.UserName)</h5>
 </div>
 
-<div>
-    @Html.DisplayName("Valoracion: ")
-    @{
+<div class="col s6">
+    <h5>
+        @Html.DisplayName("Valoracion: ")
+        @{
         if (Model.Valoracion == 0)
         {
-            <span>No hay valoraciones</span>
+        <span>No hay valoraciones</span>
         }
         else
         {
-            <span>@(Model.Valoracion * 100)%</span>
+        <span>@(Model.Valoracion * 100)%</span>
         }
-    }
-</div>
-
-<div>
-    @Html.DisplayNameFor(model => model.Descripcion)
-    @Html.DisplayFor(model => model.Descripcion)
-</div>
-
-<div>
-    @Html.DisplayName("Fecha De Creación")
-    @Html.DisplayFor(model => model.FechaCreacion)
-</div>
-
-<div>
-    @Html.DisplayName("Fecha de finalización")
-    @Html.DisplayFor(model => model.FechaFin)
-</div>
-
-<div>
-    @Html.DisplayName("Teléfono de contacto")
-    @Html.DisplayFor(model => model.TelefonoContacto)
-</div>
-
-<div>
-    @Html.DisplayName("Estado")
-    @{
-        if (Model.Estado == 1)
-        {
-            <span>Activa</span>
         }
-        else
-        {
-            <span>Inactiva</span>
-        }
-    }
+    </h5>
 </div>
 
-<div>
-    @Html.DisplayName("Referencias")
-    @{
-        for (int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
-        {
-            <div>
-                @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
-                @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
-            </div>
-        }
-    }
+<div class="col s6">
+    <h5>
+        @Html.DisplayName("Teléfono de contacto")
+        @Html.DisplayFor(model => model.TelefonoContacto)
+    </h5>
 </div>
 
+<div class="col s12">
+    <p>@Html.DisplayFor(model => model.Descripcion)</p>
+</div>
+
+<h4>Donaciones:</h4>
 @{
     if (Model.TipoDonacion == 1)
     {
-        <div>
-            @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU
-            @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero
-        </div>
+<div class="col s12">
+    <div class="col s6">
+        <h5>Cantidad: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero</h5>
+    </div>
+    <div class="col s6">
+        <h5>CBU: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU</h5>
+    </div>
+</div>
     }
     else
     {
-        foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
-        {
-            <div>
-                @insumo.Nombre
-                @insumo.Cantidad
-            </div>
-        }
+<div class="col s12">
+    @foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+    {
+    <div class="col s6">
+        <h5>Insumo: @insumo.Nombre</h5>
+        <h5>Cantidad: @insumo.Cantidad</h5>
+    </div>
+    }
+</div>
     }
 }
 
+<div id="div-referencias" class="col s12">
+    <h5>Referencias:</h5>
+    @{
+    for (int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
+    {
+    <div class="col s6">
+        <h6>
+            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
+            Tel.:
+            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
+        </h6>
+    </div>
+    }
+    }
+</div>
+
+<div class="col s6">
+    <h6>
+        @Html.DisplayName("Fecha de finalización")
+        @Html.DisplayFor(model => model.FechaFin)
+    </h6>
+</div>
+
+<div class="col s12">
+    @Html.DisplayName("Estado: ")
+    @{
+    if (Model.Estado == 1)
+    {
+    <span>Activa</span>
+    }
+    else
+    {
+    <span>Inactiva</span>
+    }
+    }
+</div>
+
+<div class="col s12"></div>
 
 
 @{
@@ -97,94 +107,100 @@
     {
         if (Model.IdUsuarioCreador == (int)Session["idUsuario"])
         {
-            <div class="input-field col s12">
-                <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@Model.IdNecesidad">Modificar</a>
-                @if (Model.Estado == 1)
-                {
-                    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@Model.IdNecesidad">Dar de baja</a>
-                }
-            </div>
+<div class="input-field col s12">
+    <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@Model.IdNecesidad">Modificar</a>
+    @if (Model.Estado == 1)
+    {
+    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@Model.IdNecesidad">Dar de baja</a>
+    }
+</div>
         }
         else if (Model.Estado == 1)
         {
-            <div class="input-field col s12">
-                <a class="btn btn-success col s3" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
-                <a class="btn btn-danger col s3 push-s1" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
-                <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s3 push-s1">Donar</a>
-                <a class="btn btn-danger col s3 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
-            </div>
+<div class="input-field col s12">
+    <a class="btn btn-success col s2" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
+    <a class="btn btn-danger col s2" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
+    <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
+    <a class="btn btn-danger col s2 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
+</div>
         }
     }
 }
-    <div id="form-denuncia-container" class="hiddendiv">
-        <form action="./AgregarDenuncia">
-            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
-            <!--Ponerle los motivos de denuncia-->
-            <select id="motivoDenuncia" name="motivoDenuncia" required>
-                <option value="1">Fraude</option>
-                <option value="2">Indebida</option>
-                <option value="3">Violación de derechos</option>
-                <option value="4">Contiene información política</option>
-            </select>
-            <label for="comentario">Comentario</label>
-            <input name="comentario" id="comentario" required />
-            <button class="btn btn-primary">Confirmar</button>
-        </form>
-    </div>
+<div class="input-field col s12">
+    <a class="btn btn-success col s2" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
+    <a class="btn btn-danger col s2" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
+    <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
+    <a class="btn btn-danger col s2 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
+</div>
+<div id="form-denuncia-container" class="hiddendiv">
+    <form action="./AgregarDenuncia">
+        <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+        <!--Ponerle los motivos de denuncia-->
+        <select id="motivoDenuncia" name="motivoDenuncia" required>
+            <option value="1">Fraude</option>
+            <option value="2">Indebida</option>
+            <option value="3">Violación de derechos</option>
+            <option value="4">Contiene información política</option>
+        </select>
+        <label for="comentario">Comentario</label>
+        <input name="comentario" id="comentario" required />
+        <button class="btn btn-primary">Confirmar</button>
+    </form>
+</div>
 
-    <div id="form-donacion-monetaria-container" style="display:none;">
-        <form action="./RealizarDonacionMonetaria">
-            decimal monto, string comprobante
-            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+<div id="form-donacion-monetaria-container" style="display:none;">
+    <form action="./RealizarDonacionMonetaria">
+        decimal monto, string comprobante
+        <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
 
-            <div class="input-field">
-                <label for="monto">Monto</label>
-                <input name="monto" id="monto" required />
-            </div>
+        <div class="input-field">
+            <label for="monto">Monto</label>
+            <input name="monto" id="monto" required />
+        </div>
 
-            <div class="input-field col s6 l4">
-                <label>Comprobante</label>
-                <div class="file-field input-field">
-                    <div class="btn btn-primary">
-                        <span>Buscar</span>
-                        <input id="comprobante" name="comprobante" accept="image/*" type="file" required />
-                    </div>
+        <div class="input-field col s6 l4">
+            <label>Comprobante</label>
+            <div class="file-field input-field">
+                <div class="btn btn-primary">
+                    <span>Buscar</span>
+                    <input id="comprobante" name="comprobante" accept="image/*" type="file" required />
+                </div>
 
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
-                        @Html.ValidationMessageFor(o => o.Foto)
-                    </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
+                    @Html.ValidationMessageFor(o => o.Foto)
                 </div>
             </div>
-            <div class="col s12">
-                <button class="btn btn-primary">Confirmar</button>
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="col s12">
+            <button class="btn btn-primary">Confirmar</button>
+        </div>
+    </form>
+</div>
 
 
-    <div id="form-donacion-insumo-container" style="display:none;">
-        <form action="./RealizarDonacionInsumo">
-            decimal monto, string comprobante
-            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+<div id="form-donacion-insumo-container" style="display:none;">
+    <form action="./RealizarDonacionInsumo">
+        decimal monto, string comprobante
+        <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
 
-            <div class="input-field">
-                <select name="insumo" id="insumo">
+        <div class="input-field">
+            <select name="insumo" id="insumo">
                 @{
-                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
-                    {
-                        <option value="@insumo.IdNecesidadDonacionInsumo">@insumo.Nombre</option>
-                    }
+                foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+                {
+                <option value="@insumo.IdNecesidadDonacionInsumo">@insumo.Nombre</option>
                 }
-                </select>
-            </div>
-            <div class="input-field">
-                <label for="cantidad">Cantidad</label>
-                <input name="cantidad" id="cantidad" required />
-            </div>
+                }
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="cantidad">Cantidad</label>
+            <input name="cantidad" id="cantidad" required />
+        </div>
 
-            <div class="col s12">
-                <button class="btn btn-primary">Confirmar</button>
-            </div>
-        </form>
-    </div>
+        <div class="col s12">
+            <button class="btn btn-primary">Confirmar</button>
+        </div>
+    </form>
+</div>
