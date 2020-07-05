@@ -140,5 +140,11 @@ namespace WebApp.Controllers
 
             return RedirectToAction("Inicio");
         }
+
+        [HttpGet]
+        public ActionResult AcercaDe()
+        {
+            return View();
+        }
     }
 }
