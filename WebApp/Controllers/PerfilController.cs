@@ -18,7 +18,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {
-            PerfilMetaData perfil = perfilSrv.ObtenerPerfil();
+            PerfilMetaData perfil = perfilSrv.ObtenerPerfil(SesionHelper.Email);
             return View(perfil);
 
         }

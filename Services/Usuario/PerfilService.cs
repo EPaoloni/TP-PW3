@@ -7,6 +7,7 @@ using Models.ORM;
 using Models.Partial;
 using Models.Repository;
 
+
 namespace Services.Usuario
 {
     public class PerfilService
@@ -47,9 +48,9 @@ namespace Services.Usuario
             return "d1s24d5674e6";
         }
 
-        public PerfilMetaData ObtenerPerfil()
+        public PerfilMetaData ObtenerPerfil(string email)
         {
-            Usuarios usuario = usuarioRepo.ObtenerPorEmail("Maria.Perez@yahoo.com");
+            Usuarios usuario = usuarioRepo.ObtenerPorEmail(email);
 
             PerfilMetaData perfil = new PerfilMetaData();
             perfil.Nombre = usuario.Nombre != null ? usuario.Nombre : "";
