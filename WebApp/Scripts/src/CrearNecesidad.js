@@ -23,11 +23,11 @@
         addInsumo();
     });
 
-    $('#donacion-button-1').on('click', function () {
+    $('#donar-button-1').on('click', function () {
         $('#form-donacion-monetaria-container').show();
     });
 
-    $('#donacion-button-1').on('click', function () {
+    $('#donar-button-2').on('click', function () {
         $('#form-donacion-insumo-container').show();
     });
 });
