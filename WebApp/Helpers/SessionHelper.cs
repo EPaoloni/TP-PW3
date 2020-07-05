@@ -43,12 +43,6 @@ namespace WebApp.Helpers
             }
         }
 
-        static SesionHelper()
-        {
-            IdUsuario = "12";
-            Email = "Javier.Garcia@hotmail.com";
-        }
-
         public static void EliminarSesion()
         {           
             HttpContext.Current.Session.Contents.Abandon();
