@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Models.ORM;
 using Models.ViewModels;
 using Services.Home;
+using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
@@ -74,6 +75,10 @@ namespace WebApp.Controllers
             }
             else
             {
+                if(SesionHelper.IdUsuario != null)
+                {
+                    ViewBag.idUsuario = int.Parse(SesionHelper.IdUsuario);
+                }
                 return View(necesidad);
             }
 

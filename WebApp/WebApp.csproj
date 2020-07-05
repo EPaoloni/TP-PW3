@@ -209,6 +209,12 @@
     <Content Include="Views\MisNecesidades\pv_NecesidadDetalle.cshtml" />
     <Content Include="Views\MisNecesidades\pv_NecesidadModificar.cshtml" />
     <Content Include="Views\Shared\_ErrorPage.cshtml" />
+    <Content Include="Views\Necesidad\_pvCamposCreacion.cshtml" />
+    <Content Include="Views\Necesidad\_pvCamposDetalle.cshtml" />
+    <Content Include="Views\Necesidad\_pvCamposModificacion.cshtml" />
+    <Content Include="Views\Necesidad\DetalleNecesidad.cshtml" />
+    <Content Include="Views\Necesidad\MisNecesidades.cshtml" />
+    <Content Include="Views\Necesidad\ModificarNecesidad.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

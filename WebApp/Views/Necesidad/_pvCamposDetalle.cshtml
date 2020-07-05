@@ -35,47 +35,49 @@
     <p>@Html.DisplayFor(model => model.Descripcion)</p>
 </div>
 
-<h4>Donaciones:</h4>
-@{
-    if (Model.TipoDonacion == 1)
-    {
 <div class="col s12">
-    <div class="col s6">
-        <h5>Cantidad: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero</h5>
-    </div>
-    <div class="col s6">
-        <h5>CBU: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU</h5>
-    </div>
-</div>
-    }
-    else
-    {
-<div class="col s12">
-    @foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
-    {
-    <div class="col s6">
-        <h5>Insumo: @insumo.Nombre</h5>
-        <h5>Cantidad: @insumo.Cantidad</h5>
-    </div>
-    }
-</div>
-    }
-}
-
-<div id="div-referencias" class="col s12">
-    <h5>Referencias:</h5>
+    <h4>Donaciones:</h4>
     @{
-    for (int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
-    {
-    <div class="col s6">
-        <h6>
-            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
-            Tel.:
-            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
-        </h6>
+        if (Model.TipoDonacion == 1)
+        {
+            <div class="col s12">
+                <div class="col s6">
+                    <h5>Cantidad: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero</h5>
+                </div>
+                <div class="col s6">
+                    <h5>CBU: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU</h5>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col s12">
+                @foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+                {
+                    <div class="col s6">
+                        <h5>Insumo: @insumo.Nombre</h5>
+                        <h5>Cantidad: @insumo.Cantidad</h5>
+                    </div>
+                }
+            </div>
+        }
+    }
+
+    <div id="div-referencias" class="col s12">
+        <h5>Referencias:</h5>
+        @{
+            for (int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
+            {
+                <div class="col s6">
+                    <h6>
+                        @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
+                        Tel.:
+                        @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
+                    </h6>
+                </div>
+            }
+        }
     </div>
-    }
-    }
 </div>
 
 <div class="col s6">
@@ -103,9 +105,9 @@
 
 
 @{
-    if (Session["idUsuario"] != null)
+    if (ViewBag.idUsuario != null)
     {
-        if (Model.IdUsuarioCreador == (int)Session["idUsuario"])
+        if (Model.IdUsuarioCreador == ViewBag.idUsuario)
         {
 <div class="input-field col s12">
     <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@Model.IdNecesidad">Modificar</a>
@@ -114,24 +116,18 @@
     <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@Model.IdNecesidad">Dar de baja</a>
     }
 </div>
-        }
-        else if (Model.Estado == 1)
-        {
+            }
+            else if (Model.Estado == 1)
+            {
 <div class="input-field col s12">
     <a class="btn btn-success col s2" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
     <a class="btn btn-danger col s2" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
-    <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
+    <a id = "donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
     <a class="btn btn-danger col s2 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
 </div>
         }
     }
 }
-<div class="input-field col s12">
-    <a class="btn btn-success col s2" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
-    <a class="btn btn-danger col s2" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
-    <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
-    <a class="btn btn-danger col s2 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
-</div>
 <div id="form-denuncia-container" class="hiddendiv">
     <form action="./AgregarDenuncia">
         <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
