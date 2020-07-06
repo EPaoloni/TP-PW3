@@ -10,6 +10,7 @@ using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class NecesidadController : Controller
     {
         PandemiaEntities context;
