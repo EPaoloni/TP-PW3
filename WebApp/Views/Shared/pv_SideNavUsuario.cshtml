@@ -56,12 +56,15 @@
                         <a href="/Necesidad/CrearNecesidad" class="btn blue accent-3 white-text" id="boton">CREAR</a>
                     </div>
                 </div>
-                <div class="col m12 l12">
-                    <p class="white-text offset-m1 offset-l1">GESTION</p>
-                    <hr />
-                    <br />
-                    <a href="/Denuncia/Inicio" class="btn blue accent-3" id="boton">DENUNCIAS</a>
-                </div>
+                @if (SesionHelper.TipoUsuario == "Admin")
+                {
+                    <div class="col m12 l12">
+                        <p class="white-text offset-m1 offset-l1">GESTION</p>
+                        <hr />
+                        <br />
+                        <a href="/Denuncia/Inicio" class="btn blue accent-3" id="boton">DENUNCIAS</a>
+                    </div>
+                }
             </div>
        </div>
     </div>

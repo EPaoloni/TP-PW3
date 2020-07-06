@@ -53,6 +53,7 @@ namespace WebApp.Controllers
                     SesionHelper.Email = usuario.Email;
                     SesionHelper.UserName = usuario.UserName;
                     SesionHelper.IdUsuario = usuario.IdUsuario.ToString();
+                    SesionHelper.TipoUsuario = usuario.TipoUsuario;
                     FormsAuthentication.SetAuthCookie(SesionHelper.IdUsuario, false);
 
                     if (usuario.Activo == true)

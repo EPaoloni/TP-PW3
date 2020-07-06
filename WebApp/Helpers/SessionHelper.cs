@@ -43,6 +43,18 @@ namespace WebApp.Helpers
             }
         }
 
+        public static string TipoUsuario
+        {
+            get
+            {
+                return HttpContext.Current.Session["TipoUsuario"] as string;
+            }
+            set
+            {
+                HttpContext.Current.Session["TipoUsuario"] = value;
+            }
+        }
+
         public static void EliminarSesion()
         {           
             HttpContext.Current.Session.Contents.Abandon();

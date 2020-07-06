@@ -29,6 +29,7 @@ namespace Services.Home
                 usuarioMetaData.IdUsuario = usuario.IdUsuario;
                 usuarioMetaData.UserName = usuario.UserName;
                 usuarioMetaData.Activo = usuario.Activo;
+                usuarioMetaData.TipoUsuario = usuario.UsuariosTipo.Descripcion;
             }
         }
 

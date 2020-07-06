@@ -21,5 +21,6 @@ namespace Models.Partial
         public string Password { get; set; }
         public bool RespuestaLogin { get; set; } = false;
         public bool Activo { get; set; }
+        public String TipoUsuario { get; set; }
     }
 }
