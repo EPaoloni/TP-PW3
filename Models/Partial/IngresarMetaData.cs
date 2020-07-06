@@ -20,5 +20,6 @@ namespace Models.Partial
         [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Formato de password incorrecto")]
         public string Password { get; set; }
         public bool RespuestaLogin { get; set; } = false;
+        public bool Activo { get; set; }
     }
 }

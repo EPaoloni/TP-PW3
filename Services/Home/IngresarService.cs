@@ -28,6 +28,7 @@ namespace Services.Home
                 usuarioMetaData.RespuestaLogin = true;
                 usuarioMetaData.IdUsuario = usuario.IdUsuario;
                 usuarioMetaData.UserName = usuario.UserName;
+                usuarioMetaData.Activo = usuario.Activo;
             }
         }
 
