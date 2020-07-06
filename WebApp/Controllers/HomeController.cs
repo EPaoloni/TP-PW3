@@ -142,6 +142,7 @@ namespace WebApp.Controllers
             return View("~/Views/Shared/_ErrorPage.cshtml", mensajeError);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Salir()
         {
@@ -151,6 +152,7 @@ namespace WebApp.Controllers
             return RedirectToAction("Inicio");
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult AcercaDe()
         {
