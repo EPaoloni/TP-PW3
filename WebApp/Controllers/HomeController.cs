@@ -55,7 +55,16 @@ namespace WebApp.Controllers
                     SesionHelper.IdUsuario = usuario.IdUsuario.ToString();
                     FormsAuthentication.SetAuthCookie(SesionHelper.IdUsuario, false);
 
-                    return RedirectToAction("Inicio","Perfil");                  
+                    if (usuario.Activo == true)
+                    {
+                        return RedirectToAction("Inicio", "Perfil");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Ingresar", "Home");
+                    }
+
+                                    
                 }
    
             }
