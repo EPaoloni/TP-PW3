@@ -11,6 +11,7 @@ using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class MisDonacionesController : Controller
     {
         HistorialDonacionService donacionSrv = new HistorialDonacionService();

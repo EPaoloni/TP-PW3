@@ -8,6 +8,7 @@ using WebApp.Helpers;
 using Models.Partial;
 using Models.ORM;
 using WebApp.ViewModels;
+using System.Web.Security;
 
 namespace WebApp.Controllers
 {
@@ -52,6 +53,7 @@ namespace WebApp.Controllers
                     SesionHelper.Email = usuario.Email;
                     SesionHelper.UserName = usuario.UserName;
                     SesionHelper.IdUsuario = usuario.IdUsuario.ToString();
+                    FormsAuthentication.SetAuthCookie(SesionHelper.IdUsuario, false);
 
                     return RedirectToAction("Inicio","Perfil");                  
                 }
