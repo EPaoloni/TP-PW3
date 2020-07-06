@@ -61,12 +61,9 @@ namespace WebApp.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Ingresar", "Home");
-                    }
-
-                                    
+                        return RedirectToAction("Ingresar", "Home", usuario);
+                    }                 
                 }
-   
             }
 
             return View(usuario);
@@ -148,6 +145,7 @@ namespace WebApp.Controllers
         public ActionResult Salir()
         {
             SesionHelper.EliminarSesion();
+            FormsAuthentication.SignOut();
 
             return RedirectToAction("Inicio");
         }
