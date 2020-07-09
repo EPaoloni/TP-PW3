@@ -31,9 +31,11 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
                 perfil.NombreUsuario = perfilSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
-                perfil.Email = SesionHelper.Email;                
-                
+                perfil.Email = SesionHelper.Email;      
+                                
                 perfilSrv.Guardar(perfil);
+                SesionHelper.UserName = perfil.NombreUsuario;
+
             }
             
             return View(perfil);
