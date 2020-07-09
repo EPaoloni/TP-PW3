@@ -166,11 +166,11 @@
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\NecesidadController.cs" />
     <Compile Include="Controllers\DonacionApiController.cs" />
+    <Compile Include="Filters\PerfilAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SessionHelper.cs" />
-    <Compile Include="Helpers\UsuarioLogeadoHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Necesidad.cs" />
   </ItemGroup>
@@ -215,6 +215,7 @@
     <Content Include="Views\Necesidad\DetalleNecesidad.cshtml" />
     <Content Include="Views\Necesidad\MisNecesidades.cshtml" />
     <Content Include="Views\Necesidad\ModificarNecesidad.cshtml" />
+    <Content Include="Views\Home\AcercaDe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

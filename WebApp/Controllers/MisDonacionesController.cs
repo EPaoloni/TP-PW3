@@ -11,6 +11,7 @@ using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class MisDonacionesController : Controller
     {
         HistorialDonacionService donacionSrv = new HistorialDonacionService();
@@ -18,7 +19,8 @@ namespace WebApp.Controllers
 
         [HttpGet]
         public ActionResult Inicio()
-        {           
+        {
+
             List<DonacionHistorialMetaData> lista = donacionSrv.GetMisDonaciones(Int32.Parse(SesionHelper.IdUsuario));
 
             return View(lista);

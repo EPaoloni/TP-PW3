@@ -17,10 +17,7 @@ namespace WebApp
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -35,5 +32,6 @@ namespace WebApp
             Server.ClearError();
             Response.Redirect(String.Format("~/Home/Error/?error={0}", error, exception.Message));
         }
+
     }
 }

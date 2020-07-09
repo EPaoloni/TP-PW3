@@ -43,10 +43,16 @@ namespace WebApp.Helpers
             }
         }
 
-        static SesionHelper()
+        public static string TipoUsuario
         {
-            IdUsuario = "12";
-            Email = "Javier.Garcia@hotmail.com";
+            get
+            {
+                return HttpContext.Current.Session["TipoUsuario"] as string;
+            }
+            set
+            {
+                HttpContext.Current.Session["TipoUsuario"] = value;
+            }
         }
 
         public static void EliminarSesion()

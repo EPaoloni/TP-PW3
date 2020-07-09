@@ -1,25 +1,24 @@
 ﻿@using WebApp.Helpers
 <div class="side-nav">
     <div class="row center-align blue lighten-5" id="sideNavSuperior">
-        <div class="col"></div>
-        <div class="col s10">
+        <div class="col s10 m12 l12">
             <br />
             <div class="row center-align">
                 <img src="~/Images/Perfil/user-icon.png" width="30%" />
             </div>
             <ul>
-                @if (UsuarioLogeadoHelper.NombreUsuario != null)
+                @if (SesionHelper.UserName != null)
                 {
-                    <li class="center-align"><p class="blue-text">@UsuarioLogeadoHelper.NombreUsuario</p></li>
+                    <li class="center-align"><p class="blue-text">@SesionHelper.UserName</p></li>
                 }
                 else
                 {
                     <li class="center-align"><p class="blue-text">NOMBRE_USUARIO</p></li>
                 }
 
-                @if (UsuarioLogeadoHelper.Email != null)
+                @if (SesionHelper.Email != null)
                 {
-                    <li class="center-align"> <p class="blue-text">@UsuarioLogeadoHelper.Email</p></li>
+                    <li class="center-align"> <p class="blue-text">@SesionHelper.Email</p></li>
                 }
                 else
                 {
@@ -27,26 +26,46 @@
                 }
             </ul>
         </div>
-        <div class="col"></div>
     </div>
     <div class="row center-align light-blue darken-3" id="sideNavInferior">
-        <div class="col"></div>
-        <div class="col s10">
+        <div class="col s10 m12 l12">
             <div class="row center-align">
-                <p class="white-text">USUARIO</p>
-                <hr />
-                <br />
-                <a href="/Perfil/Inicio" class="btn blue accent-3" id="boton">PERFIL</a>
+                <div class="col m12 l12">
+                    <p class="white-text">USUARIO</p>
+                    <hr />
+                    <br />
+                    <a href="/Perfil/Inicio" class="btn blue accent-3 offset-m1 offset-l1" id="boton">PERFIL</a>
+                </div>
             </div>
             <div class="row center-align">
-                <p class="white-text">NECESIDADES</p>
-                <hr />
-                <br />
-                <a href="/MisNecesidades/Inicio" class="btn blue accent-3" id="boton">PROPIAS</a>
+                <div class="col m12 l12">
+                    <p class="white-text offset-m1 offset-l1">NECESIDADES</p>
+                    <hr />
+                    <br />
+                    <a href="/MisNecesidades/Inicio" class="btn blue accent-3" id="boton">PROPIAS</a>
+                </div>
+                <div class="center-align">
+                    <div class="col m12 l12">
+                        <br />
+                        <a href="#" class="btn blue accent-3 white-text" id="boton">OTROS USUARIOS</a>
+                    </div>
+                </div>
+                <div class="center-align">
+                    <div class="col m12 l12">
+                        <br />                        
+                        <a href="/Necesidad/CrearNecesidad" class="btn blue accent-3 white-text" id="boton">CREAR</a>
+                    </div>
+                </div>
+                @if (SesionHelper.TipoUsuario == "Admin")
+                {
+                    <div class="col m12 l12">
+                        <p class="white-text offset-m1 offset-l1">GESTION</p>
+                        <hr />
+                        <br />
+                        <a href="/Denuncia/Inicio" class="btn blue accent-3" id="boton">DENUNCIAS</a>
+                    </div>
+                }
             </div>
-            <div class="row center-align"><a href="#" class="btn blue accent-3 white-text" id="boton">OTROS USUARIOS</a></div>
-            <div class="row center-align"><a href="#" class="btn blue accent-3 white-text" id="boton">CREAR</a></div>
-        </div>
-        <div class="col"></div>
+       </div>
     </div>
 </div>

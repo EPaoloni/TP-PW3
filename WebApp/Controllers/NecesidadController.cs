@@ -10,6 +10,7 @@ using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class NecesidadController : Controller
     {
         PandemiaEntities context;
@@ -38,20 +39,17 @@ namespace WebApp.Controllers
                 ViewBag.errorMessage = TempData["errorMessage"];
             }
 
-            //TODO: Hay que guardar el username en sesion al loguearse y despues de agregar los datos necesarios
-            //if (Session["username"] == null)
-            //{
-            //    ViewBag.miPerfilError = "Debe completar sus datos en Mi Perfil para poder crear una necesidad";
-            //}
+            if (SesionHelper.IdUsuario == null)
+            {
+                ViewBag.miPerfilError = "Debe completar sus datos en Mi Perfil para poder crear una necesidad";
+            }
 
             return View();
         }
 
         public ActionResult AltaNecesidad(NecesidadCreacion necesidad)
         {
-            //necesidad.IdUsuarioCreador = int.Parse(Session["UsuarioId"].ToString());
-            //Por el momento hardcodear el id de un usuario
-            necesidad.IdUsuarioCreador = 1;
+            necesidad.IdUsuarioCreador = int.Parse(SesionHelper.IdUsuario);
             string mensajeError = necesidadService.CrearNecesidad(necesidad);
 
             if(mensajeError != "")
@@ -134,9 +132,7 @@ namespace WebApp.Controllers
         {
             DenunciaService denunciaService = new DenunciaService(context);
 
-            //int idUsuario = (int) Session["idUsuario"];
-            //TODO: sacar el hardcode cuando se corrija
-            int idUsuario = 1;
+            int idUsuario = int.Parse(SesionHelper.IdUsuario);
 
             denunciaService.Crear(idNecesidad, motivoDenuncia, comentario, idUsuario);
 
@@ -149,8 +145,7 @@ namespace WebApp.Controllers
             donacionesMonetarias.ArchivoTransferencia = comprobante;
             donacionesMonetarias.Dinero = monto;
             donacionesMonetarias.FechaCreacion = DateTime.Now;
-            //donacionesMonetarias.IdUsuario = Session["idUsuario"];
-            donacionesMonetarias.IdUsuario = 1;
+            donacionesMonetarias.IdUsuario = int.Parse(SesionHelper.IdUsuario);
 
             donacionesMonetarias.NecesidadesDonacionesMonetarias = necesidadService.GetNecesidadesDonacionesMonetarias(idNecesidad);
 
@@ -167,8 +162,7 @@ namespace WebApp.Controllers
                 IdNecesidadDonacionInsumo = insumo,
                 Cantidad = cantidad,
                 FechaCreacion = DateTime.Now,
-                //donacionesMonetarias.IdUsuario = Session["idUsuario"],
-                IdUsuario = 1,
+                IdUsuario = int.Parse(SesionHelper.IdUsuario),
             };
 
             donacionesInsumos.NecesidadesDonacionesInsumos = necesidadService.GetNecesidadesDonacionesInsumos(idNecesidad, insumo);

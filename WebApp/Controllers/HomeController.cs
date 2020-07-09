@@ -8,6 +8,7 @@ using WebApp.Helpers;
 using Models.Partial;
 using Models.ORM;
 using WebApp.ViewModels;
+using System.Web.Security;
 
 namespace WebApp.Controllers
 {
@@ -52,10 +53,18 @@ namespace WebApp.Controllers
                     SesionHelper.Email = usuario.Email;
                     SesionHelper.UserName = usuario.UserName;
                     SesionHelper.IdUsuario = usuario.IdUsuario.ToString();
+                    SesionHelper.TipoUsuario = usuario.TipoUsuario;
+                    FormsAuthentication.SetAuthCookie(SesionHelper.IdUsuario, false);
 
-                    return RedirectToAction("Inicio","Perfil");                  
+                    if (usuario.Activo == true)
+                    {
+                        return RedirectToAction("Inicio", "Perfil");
+                    }
+                    else
+                    {
+                        return View(usuario);
+                    }                 
                 }
-   
             }
 
             return View(usuario);
@@ -133,12 +142,21 @@ namespace WebApp.Controllers
             return View("~/Views/Shared/_ErrorPage.cshtml", mensajeError);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Salir()
         {
             SesionHelper.EliminarSesion();
+            FormsAuthentication.SignOut();
 
             return RedirectToAction("Inicio");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult AcercaDe()
+        {
+            return View();
         }
     }
 }

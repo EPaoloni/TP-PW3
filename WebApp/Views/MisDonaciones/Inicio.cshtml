@@ -29,7 +29,7 @@
                     @foreach (var donacion in Model)
                     {
                         <tr>
-                            <td>@donacion.Fecha</td>
+                            <td>@donacion.Fecha.ToString("d")</td>
                             <td>@donacion.Nombre</td>
                             <td>@donacion.Tipo</td>
                             <td>@donacion.Estado</td>

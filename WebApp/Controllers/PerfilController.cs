@@ -7,20 +7,22 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Filters;
 using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class PerfilController : Controller
     {
         PerfilService perfilSrv = new PerfilService();
-
+        
         [HttpGet]
         public ActionResult Inicio()
         {
-            PerfilMetaData perfil = perfilSrv.ObtenerPerfil();
-            return View(perfil);
+            PerfilMetaData perfil = perfilSrv.ObtenerPerfil(SesionHelper.Email);
 
+            return View(perfil);
         }
 
         [HttpPost]
@@ -29,20 +31,17 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
                 perfil.NombreUsuario = perfilSrv.GenerarNombreUsuario(perfil.Nombre, perfil.Apellido);
-                //perfil.Email = SesionHelper.Email;
-                perfil.Email = "Maria.Perez.2@outlook.com";
-                //usuarioSrv.Guardar(perfil);
+                perfil.Email = SesionHelper.Email;      
+                                
                 perfilSrv.Guardar(perfil);
+                SesionHelper.UserName = perfil.NombreUsuario;
+
             }
             
             return View(perfil);
         }
         
-        public ActionResult Datos()
-        {
-            return View();
-        }
-
+        [HttpGet]
         public ActionResult MisDonaciones()
         {
             return View();
