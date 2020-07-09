@@ -62,7 +62,7 @@ namespace WebApp.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Ingresar", "Home", usuario);
+                        return View(usuario);
                     }                 
                 }
             }

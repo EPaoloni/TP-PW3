@@ -13,14 +13,11 @@ namespace WebApp.Filters
 {
     public class PerfilAttribute : ActionFilterAttribute
     {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-
-            var ruta = filterContext;
-
-            if(SesionHelper.UserName == null)
+            if(SesionHelper.UserName == null && SesionHelper.IdUsuario != null)
             {
-                filterContext.Result = new RedirectResult("/Perfil/Inicio");
+                //filterContext.Result = new RedirectResult("/Perfil/Inicio");
             }
         }
     }

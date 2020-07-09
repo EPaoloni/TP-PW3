@@ -33,12 +33,10 @@
                     <div id="ErrorLogin" class="msg z-depth-3 center-align msg-alert">
                         Email y/o Contraseña inválidos
                     </div>
-                }
-
-                @if (Model != null && Model.Activo == false)
+                }else if (Model != null && Model.Activo == false)
                 {
                     <div id="ErrorLogin" class="msg z-depth-3 center-align msg-alert">
-                        su usuario está inactivo. Actívelo desde el email recibido
+                        Su usuario está inactivo. Actívelo desde el email recibido
                     </div>
                 }
                 <button class="btn waves-effect waves-light col s12 blue darken-3 btn-action" id="btnIngresar">

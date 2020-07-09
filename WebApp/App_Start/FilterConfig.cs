@@ -9,7 +9,7 @@ namespace WebApp
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new PerfilAttribute);
+            filters.Add(new PerfilAttribute());
         }
     }
 }
