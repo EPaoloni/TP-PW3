@@ -12,16 +12,24 @@
     <h5>
         @Html.DisplayName("Valoracion: ")
         @{
-        if (Model.Valoracion == 0)
-        {
-        <span>No hay valoraciones</span>
-        }
-        else
-        {
-        <span>@(Model.Valoracion * 100)%</span>
-        }
+            if (Model.Valoracion == 0)
+            {
+                <span>No hay valoraciones</span>
+            }
+            else
+            {
+                <span>@(Model.Valoracion * 100)%</span>
+            }
         }
     </h5>
+</div>
+
+
+
+<div class="col s3">
+    <div class="necesidad-img">
+        <img src="~/@Model.Foto" />
+    </div>
 </div>
 
 <div class="col s6">
@@ -90,14 +98,14 @@
 <div class="col s12">
     @Html.DisplayName("Estado: ")
     @{
-    if (Model.Estado == 1)
-    {
-    <span>Activa</span>
-    }
-    else
-    {
-    <span>Inactiva</span>
-    }
+        if (Model.Estado == 1)
+        {
+            <span>Activa</span>
+        }
+        else
+        {
+            <span>Inactiva</span>
+        }
     }
 </div>
 
@@ -109,22 +117,22 @@
     {
         if (Model.IdUsuarioCreador == ViewBag.idUsuario)
         {
-<div class="input-field col s12">
-    <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@Model.IdNecesidad">Modificar</a>
-    @if (Model.Estado == 1)
-    {
-    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@Model.IdNecesidad">Dar de baja</a>
-    }
-</div>
-            }
-            else if (Model.Estado == 1)
-            {
-<div class="input-field col s12">
-    <a class="btn btn-success col s2" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
-    <a class="btn btn-danger col s2" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
-    <a id = "donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
-    <a class="btn btn-danger col s2 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
-</div>
+            <div class="input-field col s12">
+                <a class="btn btn-primary col s3 push-s8 push-l8" href="./ModificarNecesidad?idNecesidad=@Model.IdNecesidad">Modificar</a>
+                @if (Model.Estado == 1)
+                {
+                    <a class="btn btn-danger col s3" href="./BajaNecesidad?idNecesidad=@Model.IdNecesidad">Dar de baja</a>
+                }
+            </div>
+        }
+        else if (Model.Estado == 1)
+        {
+            <div class="input-field col s12">
+                <a class="btn btn-success col s2" href="./VotarNecesidad?valoracion=1&idNecesidad=@Model.IdNecesidad">Me gusta</a>
+                <a class="btn btn-danger col s2" href="./VotarNecesidad?valoracion=0&idNecesidad=@Model.IdNecesidad">No me gusta</a>
+                <a id="donar-button-@Model.TipoDonacion" class="btn btn-primary col s2 push-s1">Donar</a>
+                <a class="btn btn-danger col s2 push-s1" onclick="document.getElementById('form-denuncia-container').classList.remove('hiddendiv')">Denunciar</a>
+            </div>
         }
     }
 }
@@ -183,10 +191,10 @@
         <div class="input-field">
             <select name="insumo" id="insumo">
                 @{
-                foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
-                {
-                <option value="@insumo.IdNecesidadDonacionInsumo">@insumo.Nombre</option>
-                }
+                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+                    {
+                        <option value="@insumo.IdNecesidadDonacionInsumo">@insumo.Nombre</option>
+                    }
                 }
             </select>
         </div>
