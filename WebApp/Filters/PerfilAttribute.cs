@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Http.Controllers;
@@ -17,7 +18,16 @@ namespace WebApp.Filters
         {
             if(SesionHelper.UserName == null && SesionHelper.IdUsuario != null)
             {
-                //filterContext.Result = new RedirectResult("/Perfil/Inicio");
+                string controllerName = (string)filterContext.RouteData.Values["controller"];
+
+                if (controllerName != "Perfil")
+                {
+                    filterContext.Result = new RedirectToRouteResult(
+                        new RouteValueDictionary {
+                            {"Controller", "Perfil" },
+                            {"Action", "Inicio" }
+                        });
+                }
             }
         }
     }

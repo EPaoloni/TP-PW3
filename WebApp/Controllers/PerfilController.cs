@@ -12,11 +12,11 @@ using WebApp.Helpers;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class PerfilController : Controller
     {
         PerfilService perfilSrv = new PerfilService();
-
-        [Perfil]
+        
         [HttpGet]
         public ActionResult Inicio()
         {
@@ -39,6 +39,7 @@ namespace WebApp.Controllers
             return View(perfil);
         }
         
+        [HttpGet]
         public ActionResult MisDonaciones()
         {
             return View();
