@@ -216,6 +216,7 @@
     <Content Include="Views\Necesidad\MisNecesidades.cshtml" />
     <Content Include="Views\Necesidad\ModificarNecesidad.cshtml" />
     <Content Include="Views\Home\AcercaDe.cshtml" />
+    <Content Include="Views\Home\pv_Buscador.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
