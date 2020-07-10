@@ -9,6 +9,7 @@ using Models.ORM;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class DenunciaController : Controller
     {
         DenunciaService denunciaSrv = new DenunciaService();
