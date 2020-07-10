@@ -13,5 +13,10 @@ namespace Models.Repository
         {
 
         }
+
+        public decimal GetTotalRecaudadoMonetaria(int IdNecesidadDonacionMonetaria)
+        {
+            return context.DonacionesMonetarias.Where(donacion => donacion.IdNecesidadDonacionMonetaria == IdNecesidadDonacionMonetaria).Select(o => o.Dinero).DefaultIfEmpty(0M).Sum();
+        }
     }
 }

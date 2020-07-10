@@ -28,5 +28,37 @@ namespace Services.Home
         {
             donacionInsumoRepository.Crear(donacionesInsumos);
         }
+
+        public decimal GetTotalRecaudadoMonetaria(int IdNecesidadDonacionMonetaria)
+        {
+            return donacionMonetariaRepository.GetTotalRecaudadoMonetaria(IdNecesidadDonacionMonetaria);
+        }
+
+        public List<DonacionesInsumos> GetTotalRecaudadoInsumos(List<int> idNecesidadesDonacionesABuscar)
+        {
+            List<DonacionesInsumos> donaciones = donacionInsumoRepository.GetDonacionesInsumos(idNecesidadesDonacionesABuscar);
+
+            if (donaciones == null)
+            {
+                return null;
+            }
+
+            List<DonacionesInsumos> totalPorInsumo = new List<DonacionesInsumos>();
+
+            foreach(DonacionesInsumos donacion in donaciones)
+            {
+                if(totalPorInsumo.Any(item => item.IdNecesidadDonacionInsumo == donacion.IdNecesidadDonacionInsumo))
+                {
+                    DonacionesInsumos contadorInsumo = totalPorInsumo.First(item => item.IdNecesidadDonacionInsumo == donacion.IdNecesidadDonacionInsumo);
+                    contadorInsumo.Cantidad += donacion.Cantidad;
+                } else
+                {
+                    totalPorInsumo.Add(donacion);
+                }
+            }
+
+            return totalPorInsumo;
+
+        }
     }
 }

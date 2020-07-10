@@ -5,6 +5,12 @@
 <h2>@Html.DisplayFor(model => model.Nombre)</h2>
 
 <div class="col s6">
+    <div class="necesidad-img-detalle">
+        <img src="~/@Model.Foto" />
+    </div>
+</div>
+
+<div class="col s6">
     <h5>Creador: @Html.DisplayFor(model => model.Usuarios.UserName)</h5>
 </div>
 
@@ -26,20 +32,16 @@
 
 
 
-<div class="col s3">
-    <div class="necesidad-img">
-        <img src="~/@Model.Foto" />
-    </div>
-</div>
 
 <div class="col s6">
     <h5>
-        @Html.DisplayName("Teléfono de contacto")
+        @Html.DisplayName("Teléfono de contacto: ")
         @Html.DisplayFor(model => model.TelefonoContacto)
     </h5>
 </div>
 
 <div class="col s12">
+    <h5>Descripción: </h5>
     <p>@Html.DisplayFor(model => model.Descripcion)</p>
 </div>
 
@@ -50,42 +52,67 @@
         {
             <div class="col s12">
                 <div class="col s6">
-                    <h5>Cantidad: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero</h5>
+                    <h5>Total pedido: $@(Model.NecesidadesDonacionesMonetarias.ElementAt(0).Dinero)</h5>
                 </div>
                 <div class="col s6">
                     <h5>CBU: @Model.NecesidadesDonacionesMonetarias.ElementAt(0).CBU</h5>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="col s6">
+                    <h5>Total recaudado: $@(ViewBag.totalRecaudadoMonetaria)</h5>
                 </div>
             </div>
         }
         else
         {
             <div class="col s12">
-                @foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
-                {
+
+                @{
+                    List<Models.ORM.DonacionesInsumos> totalRecaudadoPorItem = (List<Models.ORM.DonacionesInsumos>)ViewBag.itemsRecaudadosInsumos;
+                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+                    {
                     <div class="col s6">
                         <h5>Insumo: @insumo.Nombre</h5>
                         <h5>Cantidad: @insumo.Cantidad</h5>
+                        @{
+                            Models.ORM.DonacionesInsumos totalItem = totalRecaudadoPorItem.First(item => item.IdNecesidadDonacionInsumo == insumo.IdNecesidadDonacionInsumo);
+                            }
+                        <h5>Recaudado: @totalItem.Cantidad</h5>
                     </div>
+                    }
                 }
             </div>
+
         }
     }
+</div>
 
-    <div id="div-referencias" class="col s12">
-        <h5>Referencias:</h5>
-        @{
-            for (int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
-            {
-                <div class="col s6">
-                    <h6>
-                        @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
-                        Tel.:
-                        @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
-                    </h6>
-                </div>
+<div id="div-referencias" class="col s12">
+    <h5>Referencias:</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                for (int i = 0; i < Model.NecesidadesReferencias.Count(); i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.NecesidadesReferencias.ElementAt(i).Telefono)
+                        </td>
+                    </tr>
+                }
             }
-        }
-    </div>
+        </tbody>
+    </table>
 </div>
 
 <div class="col s6">
@@ -96,15 +123,10 @@
 </div>
 
 <div class="col s12">
-    @Html.DisplayName("Estado: ")
     @{
-        if (Model.Estado == 1)
+        if (Model.Estado != 1)
         {
-            <span>Activa</span>
-        }
-        else
-        {
-            <span>Inactiva</span>
+            <span class="red-text">La necesidad no se encuentra activa</span>
         }
     }
 </div>

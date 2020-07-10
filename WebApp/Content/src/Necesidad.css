@@ -8,3 +8,11 @@
 .necesidad-img img{
     width: 180px;
 }
+
+.necesidad-img-detalle img{
+    max-width: 100%;
+}
+
+#div-referencias{
+    margin-top: 20px;
+}

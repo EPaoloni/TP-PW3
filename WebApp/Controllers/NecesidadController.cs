@@ -73,6 +73,23 @@ namespace WebApp.Controllers
             }
             else
             {
+                if(necesidad.TipoDonacion == 1)
+                {
+                    int idNecesidadesDonacionesMonetarias = necesidad.NecesidadesDonacionesMonetarias.First().IdNecesidadDonacionMonetaria;
+
+                    decimal totalRecaudado = donacionService.GetTotalRecaudadoMonetaria(idNecesidadesDonacionesMonetarias);
+
+                    ViewBag.totalRecaudadoMonetaria = totalRecaudado;
+                } else
+                {
+                    var idNecesidadesDonacionesInsumos = necesidad.NecesidadesDonacionesInsumos.Select(o => o.IdNecesidadDonacionInsumo);
+
+                    List<int> idABuscar = new List<int>(idNecesidadesDonacionesInsumos);
+
+                    List<DonacionesInsumos> itemsRecaudados = donacionService.GetTotalRecaudadoInsumos(idABuscar);
+
+                    ViewBag.itemsRecaudadosInsumos = itemsRecaudados;
+                }
                 if(SesionHelper.IdUsuario != null)
                 {
                     ViewBag.idUsuario = int.Parse(SesionHelper.IdUsuario);

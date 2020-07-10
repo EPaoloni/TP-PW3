@@ -13,5 +13,20 @@ namespace Models.Repository
         {
 
         }
+
+        public List<DonacionesInsumos> GetDonacionesInsumos(List<int> IdNecesidadDonacionInsumos)
+        {
+            var donacionesInsumosRealizadas = context.DonacionesInsumos.Where(donacion => IdNecesidadDonacionInsumos.Contains(donacion.IdNecesidadDonacionInsumo));
+
+            if (donacionesInsumosRealizadas != null)
+            {
+                List<DonacionesInsumos> donacionesInsumos = new List<DonacionesInsumos>(donacionesInsumosRealizadas);
+
+                return donacionesInsumos;
+            } else
+            {
+                return null;
+            }
+        }
     }
 }
