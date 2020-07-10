@@ -43,6 +43,17 @@ namespace Services.Home
 
                 if( !existeMismoNombre)
                 {
+                    if(necesidadCreacion.TipoDonacion == 1)
+                    {
+                        if(necesidadCreacion.NecesidadDonacionMonetaria == null)
+                        {
+                            return "Falta introducir los datos para las donaciones";
+                        }
+                    } else if(necesidadCreacion.NecesidadesDonacionesInsumos == null)
+                    {
+                        return "Falta introducir los datos para las donaciones";
+                    }
+
                     string pathArchivo = GuardarArchivo(necesidadCreacion);
 
                     necesidadCreacion.Path = pathArchivo;
