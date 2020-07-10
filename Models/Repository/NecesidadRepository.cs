@@ -49,7 +49,9 @@ namespace Models.Repository
 
         public List<ORM.Necesidades> ObtenerTopNecesidades()
         {
-            var TopNecesidades = context.Necesidades.OrderByDescending(necesidad => necesidad.Valoracion).Take(5);
+            var TopNecesidades = context.Necesidades.Where(necesidad => necesidad.Estado == 1 && necesidad.FechaFin >= DateTime.Now)
+                                                    .OrderByDescending(necesidad => necesidad.Valoracion)
+                                                    .Take(5);
 
             List<ORM.Necesidades> necesidades = new List<ORM.Necesidades>(TopNecesidades);
 
@@ -84,7 +86,7 @@ namespace Models.Repository
         /// <returns></returns>
         public List<ORM.Necesidades> BuscarPorNombre(string nombreABuscar)
         {
-            var necesidadesObtenidas = dbSet.Where(necesidad => necesidad.Nombre.Contains(nombreABuscar));
+            var necesidadesObtenidas = dbSet.Where(necesidad => necesidad.Nombre.Contains(nombreABuscar) && necesidad.FechaFin >= DateTime.Now && necesidad.Estado == 1);
 
             if(necesidadesObtenidas != null)
             {
