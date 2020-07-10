@@ -10,6 +10,12 @@ using System.Threading.Tasks;
 
 namespace Services.Home
 {
+    enum EstadoNecesidad
+    {
+        Activo = 1,
+        Bloqueado = 2
+    }
+
     public class NecesidadService
     {
         NecesidadRepository necesidadRepository;
@@ -256,7 +262,7 @@ namespace Services.Home
         public List<Necesidades> ObtenerPorUsuario(int idUsuario)
         {
             List<Necesidades> necesidad = necesidadRepository.GetAll()
-                                          .Where(n => n.IdUsuarioCreador == idUsuario && n.NecesidadesEstado.Descripcion == "Bloqueado")                                          
+                                          .Where(n => n.IdUsuarioCreador == idUsuario && n.Estado != (int)EstadoNecesidad.Bloqueado)                                          
                                           .ToList();
 
             return necesidad;
@@ -280,7 +286,7 @@ namespace Services.Home
         public List<Necesidades> OtrasNecesidades(int idUsuario)
         {
             List<Necesidades> lista = necesidadRepository.GetAll()
-                                                .Where(n => n.IdUsuarioCreador != idUsuario && n.NecesidadesEstado.Descripcion != "Bloqueado")
+                                                .Where(n => n.IdUsuarioCreador != idUsuario && n.Estado != (int)EstadoNecesidad.Bloqueado)
                                                 .ToList();
 
             return lista;
