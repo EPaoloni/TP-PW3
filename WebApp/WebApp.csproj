@@ -163,6 +163,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MisDonacionesController.cs" />
     <Compile Include="Controllers\MisNecesidadesController.cs" />
+    <Compile Include="Controllers\OtrasNecesidadesController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\NecesidadController.cs" />
     <Compile Include="Controllers\DonacionApiController.cs" />
@@ -217,6 +218,8 @@
     <Content Include="Views\Necesidad\ModificarNecesidad.cshtml" />
     <Content Include="Views\Home\AcercaDe.cshtml" />
     <Content Include="Views\Home\pv_Buscador.cshtml" />
+    <Content Include="Views\OtrasNecesidades\Inicio.cshtml" />
+    <Content Include="Views\OtrasNecesidades\pv_CardOtrasNecesidades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

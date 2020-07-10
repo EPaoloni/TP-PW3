@@ -275,5 +275,14 @@ namespace Services.Home
 
             return rutaAux;
         }
+
+        public List<Necesidades> OtrasNecesidades(int idUsuario)
+        {
+            List<Necesidades> lista = necesidadRepository.GetAll()
+                                                .Where(n => n.IdUsuarioCreador != idUsuario && n.NecesidadesEstado.Descripcion != "Bloqueado")
+                                                .ToList();
+
+            return lista;
+        }
     }
 }
