@@ -33,6 +33,15 @@ namespace WebApp.Controllers
             return View("PublicacionMasValorada");
         }
 
+        public ActionResult BuscarPorNombre(string nombre)
+        {
+            List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
+
+            ViewBag.necesidades = necesidades;
+
+            return View("PublicacionMasValorada");
+        }
+
         [HttpGet]
         public ActionResult Ingresar()
         {
