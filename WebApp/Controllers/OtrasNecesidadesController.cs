@@ -22,7 +22,6 @@ namespace WebApp.Controllers
             necesidadService = new NecesidadService(context);
         }
 
-
         [HttpGet]
         public ActionResult Inicio()
         {
