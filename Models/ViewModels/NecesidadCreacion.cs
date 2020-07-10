@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Models.ViewModels
 {
@@ -23,7 +24,9 @@ namespace Models.ViewModels
         [Required]
         public int TipoDonacion { get; set; }
         [Required]
-        public string Foto { get; set; }
+        public string Path { get; set; }
+        [Required]
+        public HttpPostedFileBase Foto { get; set; }
         [Required]
         public List<Referencia> Referencia { get; set; }
         public List<NecesidadDonacionInsumo> NecesidadesDonacionesInsumos { get; set; }

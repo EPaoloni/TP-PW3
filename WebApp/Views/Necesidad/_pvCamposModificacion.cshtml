@@ -1,24 +1,24 @@
 ﻿@model Models.ViewModels.NecesidadModificacion
 
 <div class="input-field col s5 hiddendiv">
-    @Html.EditorFor(o => o.IdNecesidad, new { htmlAttributes = new { @readonly = "true", @type = "hidden"} })
+    @Html.EditorFor(o => o.IdNecesidad, new { htmlAttributes = new { @readonly = "true", @type = "hidden" } })
 </div>
 
 
 <div class="input-field col s5">
     @Html.LabelFor(o => o.Nombre)
-    @Html.EditorFor(o => o.Nombre, new { htmlAttributes = new { @readonly = "true", @class = "lalala"} })
+    @Html.EditorFor(o => o.Nombre, new { htmlAttributes = new { @readonly = "true", @class = "lalala" } })
     @Html.ValidationMessageFor(o => o.Nombre)
 </div>
 
 
 @*<div class="form-group">
-    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @readonly = "true", @value = ViewBag.necesidad.Nombre, @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-    </div>
-</div>*@
+        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @readonly = "true", @value = ViewBag.necesidad.Nombre, @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
 
 <div class="input-field push-s1 col s5">
     @Html.LabelFor(o => o.TelefonoContacto)
@@ -53,7 +53,7 @@
             </div>
         </div>
     }
-    else if (Model.NecesidadesDonacionesInsumos != null) 
+    else if (Model.NecesidadesDonacionesInsumos != null)
     {
         <div id="campos-insumos-container" class="col s12">
 
@@ -124,16 +124,15 @@
     }
 </div>
 
-<div class="input-field col s6 l4">
-    <label>Asdasda</label>
+<div class="col s3">
+    <div class="necesidad-img">
+        <img src="~/@Model.Path" />
+    </div>
     <div class="file-field input-field">
-        <div class="btn btn-primary">
-            <span>Buscar</span>
-            <input id="Foto" name="Foto" accept="image/*" type="file" required />
-        </div>
-
-        <div class="file-path-wrapper">
-            <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
+        <div class="btn waves-effect waves-light col s12 m12 l12 blue darken-3">
+            <span>CAMBIAR FOTO</span>
+            <input type="file">
+            @Html.TextBoxFor(o => o.Foto, new { type = "file", name = "archivo" })
             @Html.ValidationMessageFor(o => o.Foto)
         </div>
     </div>

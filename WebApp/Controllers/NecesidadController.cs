@@ -73,6 +73,10 @@ namespace WebApp.Controllers
             }
             else
             {
+                if(SesionHelper.IdUsuario != null)
+                {
+                    ViewBag.idUsuario = int.Parse(SesionHelper.IdUsuario);
+                }
                 return View(necesidad);
             }
 

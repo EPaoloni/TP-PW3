@@ -6,27 +6,38 @@
     <div class="card horizontal light-blue darken-3 white-text">
         <div class="card-stacked">
             <div class="card-content">
-                <h6>@necesidad.Nombre</h6>
-                <p>@necesidad.Usuarios.UserName</p>
-                <p>@necesidad.FechaCreacion</p>
-                <p>
+                <h5 class="col s12">@necesidad.Nombre</h5>
+                <p class="col s12">@necesidad.Usuarios.UserName asd</p>
+                <p class="col s12">Valoración: @(necesidad.Valoracion*100)%</p>
+                <p class="col s12">Creada: @necesidad.FechaCreacion</p>
+                @* Saco el progressbar porque el tp no lo pide *@
+                @*<p>
                     @{
-                        if (Model.Valoracion == null)
+                        if (necesidad.Valoracion == null)
                         {
-                            Html.Partial("pv_ProgressBar", 0M);
+                            @Html.Partial("pv_ProgressBar", 0M);
                         } else
                         {
-                            Html.Partial("pv_ProgressBar", (decimal) Model.Valoracion);
+                            @Html.Partial("pv_ProgressBar", (decimal) /* Recaudado */);
                         }
                     }
-                </p>
+                </p>*@
             </div>
             <div class="card-action right-align">
                 <a class="white-text" href="/necesidad/detalleNecesidad?idNecesidad=@necesidad.IdNecesidad">Detalle</a>
             </div>
         </div>
         <div class="card-image">
-            <img src="https://placehold.it/100x164" />
+            <div class="card-image">
+                @if (necesidad.Foto != "" || necesidad.Foto != null)
+                {
+                    <img src="~/@necesidad.Foto" class="img-card-necesidad" />
+                }
+                else
+                {
+                    <img src="~/Images/Perfil/user-icon.png" />
+                }
+            </div>
         </div>
     </div>
 </div>

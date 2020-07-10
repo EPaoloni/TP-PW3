@@ -1,6 +1,7 @@
 ﻿using Models.ORM;
 using Models.Repository;
 using Models.ViewModels;
+using Services.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,10 @@ namespace Services.Home
 
                 if( !existeMismoNombre)
                 {
+                    string pathArchivo = GuardarArchivo(necesidadCreacion);
+
+                    necesidadCreacion.Path = pathArchivo;
+
                     necesidadRepository.Crear(GenerarNecesidades(necesidadCreacion));
 
                     Necesidades necesidad = necesidadRepository.BuscarPorNombreExacto(necesidadCreacion.Nombre);
@@ -202,7 +207,7 @@ namespace Services.Home
                 necesidadModificacion.Referencia.Add(referencia);
             }
 
-            necesidadModificacion.Foto = necesidad.Foto;
+            necesidadModificacion.Path = necesidad.Foto;
 
             return necesidadModificacion;
         }
@@ -220,7 +225,7 @@ namespace Services.Home
             necesidad.FechaFin = necesidadCreacion.FechaFin;
             necesidad.TelefonoContacto = necesidadCreacion.TelefonoContacto;
             necesidad.TipoDonacion = necesidadCreacion.TipoDonacion;
-            necesidad.Foto = necesidadCreacion.Foto;
+            necesidad.Foto = necesidadCreacion.Path;
             necesidad.IdUsuarioCreador = necesidadCreacion.IdUsuarioCreador;
             necesidad.Estado = 1;
             necesidad.Valoracion = 0;
@@ -259,6 +264,16 @@ namespace Services.Home
         public void Modificar(Necesidades necesidad)
         {
             necesidadRepository.Actualizar(necesidad);
+        }
+
+
+        public string GuardarArchivo(NecesidadCreacion necesidadCreacion)
+        {
+            ArchivoService archivoService = new ArchivoService();
+
+            string rutaAux = archivoService.Guardar(necesidadCreacion.Foto, necesidadCreacion.Nombre, "necesidad");
+
+            return rutaAux;
         }
     }
 }
