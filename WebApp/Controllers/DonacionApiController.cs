@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class DonacionApiController : ApiController
     {
         HistorialDonacionService donacionSrv = new HistorialDonacionService();

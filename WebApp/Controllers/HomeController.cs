@@ -82,12 +82,6 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult Bienvenido()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public ActionResult Activar(string token)
         {
             RegistrarseService usuarioSrv = new RegistrarseService();
