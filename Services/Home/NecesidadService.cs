@@ -256,7 +256,8 @@ namespace Services.Home
         public List<Necesidades> ObtenerPorUsuario(int idUsuario)
         {
             List<Necesidades> necesidad = necesidadRepository.GetAll()
-                                          .Where(n => n.IdUsuarioCreador == idUsuario).ToList();
+                                          .Where(n => n.IdUsuarioCreador == idUsuario && n.NecesidadesEstado.Descripcion == "Bloqueado")                                          
+                                          .ToList();
 
             return necesidad;
         }
