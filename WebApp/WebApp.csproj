@@ -220,6 +220,7 @@
     <Content Include="Views\Home\pv_Buscador.cshtml" />
     <Content Include="Views\OtrasNecesidades\Inicio.cshtml" />
     <Content Include="Views\OtrasNecesidades\pv_CardOtrasNecesidades.cshtml" />
+    <Content Include="Views\Shared\pv_Paginacion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

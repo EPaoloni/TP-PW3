@@ -113,6 +113,7 @@
     <Compile Include="Partial\IngresarMetaData.cs" />
     <Compile Include="Partial\MensajeError.cs" />
     <Compile Include="Partial\NecesidadesMetaData.cs" />
+    <Compile Include="Partial\PaginadorModel.cs" />
     <Compile Include="Partial\PerfilMetaData.cs" />
     <Compile Include="Partial\RegistrarseMetaData.cs" />
     <Compile Include="Partial\UsuariosPartial.cs" />

@@ -1,5 +1,5 @@
-﻿@using Models.ORM
-@model List<Necesidades>
+﻿@using Models.Partial
+@model PaginadorModel
 
 @{
     ViewBag.Title = "Inicio";
@@ -14,15 +14,16 @@
         <hr />
     </div>
     <div class="row">
-        <div id="visualizarActivos" class="mostrar">
-            @foreach (Necesidades necesidad in Model.Where(a => a.FechaFin >= DateTime.Now))
+        <div id="otras-necesidades" class="mostrar">
+            @foreach (Models.ORM.Necesidades necesidad in Model.Lista)
             {
                 @Html.Partial("pv_CardOtrasNecesidades", necesidad)
             }
         </div>
+        @{Html.RenderPartial("pv_Paginacion", Model);}
     </div>
 
     <div id="modalDetalle" class="modal modal-fixed-footer"></div>
-    <div id="modalEditar" class="modal modal-fixed-footer"></div>
+    <div id="modalDonar" class="modal modal-fixed-footer"></div>
 </div>
 
