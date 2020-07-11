@@ -28,6 +28,11 @@ namespace WebApp.Controllers
         {
             List<Necesidades> necesidades = necesidadService.GetTopNecesidades();
 
+            if (SesionHelper.IdUsuario != null)
+            {
+                necesidades.RemoveAll(o => o.IdUsuarioCreador == int.Parse(SesionHelper.IdUsuario));
+            }
+
             ViewBag.necesidades = necesidades;
 
             return View("PublicacionMasValorada");
@@ -36,6 +41,11 @@ namespace WebApp.Controllers
         public ActionResult BuscarPorNombre(string nombre)
         {
             List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
+
+            if(SesionHelper.IdUsuario != null)
+            {
+                necesidades.RemoveAll(o => o.IdUsuarioCreador == int.Parse(SesionHelper.IdUsuario));
+            }
 
             ViewBag.necesidades = necesidades;
 
