@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.Partial
 {
-    public class NecesidadesMetaData
+    public class NecesidadesMetaData : PaginadorModel
     {
         public int IdNecesidad { get; set; }
         public string Nombre { get; set; }

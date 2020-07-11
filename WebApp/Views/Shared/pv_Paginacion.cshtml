@@ -1,0 +1,37 @@
+﻿@using Models.Partial
+@model PaginadorModel
+
+@{
+    var cantidadPaginas = (int)Math.Ceiling((double)Model.TotalDeRegistros / Model.RegistrosPorPagina);
+}
+
+<!-- Funcionalidad: Anterior y Siguiente -->
+<div class="col offset-m5 m3 offset-l5 l3">
+    <ul class="pagination">
+        @if (Model.PaginaActual == 1)
+        {
+            <li>
+                @Html.ActionLink("Anterior", null, new { pagina = 1 }, new { @class = "btn blue accent-3 white-text disabled" })
+            </li>
+        }
+        else
+        {
+            <li>
+                @Html.ActionLink("Anterior", null, new { pagina = Model.PaginaActual - 1 }, new {@class = "btn blue accent-3 white-text waves-effect" })
+            </li>
+        }
+
+        @if (Model.PaginaActual == cantidadPaginas)
+        {
+            <li>
+                @Html.ActionLink("Siguiente", null, new { pagina = cantidadPaginas }, new { @class = "btn blue accent-3 white-text waves-effect disabled" })
+            </li>
+    }
+        else
+        {
+            <li>
+                @Html.ActionLink("Siguiente", null, new { pagina = Model.PaginaActual + 1 }, new{ @class = "btn blue accent-3 white-text waves-effect" })
+            </li>
+        }
+    </ul>
+</div>
