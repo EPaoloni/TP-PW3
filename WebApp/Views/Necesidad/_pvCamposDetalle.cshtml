@@ -66,23 +66,29 @@
         }
         else
         {
-            <div class="col s12">
-
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Insumo</th>
+                        <th>Solicitado</th>
+                        <th>Recaudado</th>
+                    </tr>
+                </thead>
+                <tbody>
                 @{
                     List<Models.ORM.DonacionesInsumos> totalRecaudadoPorItem = (List<Models.ORM.DonacionesInsumos>)ViewBag.itemsRecaudadosInsumos;
                     foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
                     {
-                    <div class="col s6">
-                        <h5>Insumo: @insumo.Nombre</h5>
-                        <h5>Cantidad: @insumo.Cantidad</h5>
-                        @{
-                            Models.ORM.DonacionesInsumos totalItem = totalRecaudadoPorItem.First(item => item.IdNecesidadDonacionInsumo == insumo.IdNecesidadDonacionInsumo);
-                            }
-                        <h5>Recaudado: @totalItem.Cantidad</h5>
-                    </div>
+                        Models.ORM.DonacionesInsumos totalItem = totalRecaudadoPorItem.First(item => item.IdNecesidadDonacionInsumo == insumo.IdNecesidadDonacionInsumo);
+                        <tr>
+                            <td>@insumo.Nombre</td>
+                            <td>@insumo.Cantidad</td>
+                            <td>@totalItem.Cantidad</td>
+                        </tr>
                     }
                 }
-            </div>
+                </tbody>
+            </table>
 
         }
     }

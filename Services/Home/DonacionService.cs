@@ -45,15 +45,22 @@ namespace Services.Home
 
             List<DonacionesInsumos> totalPorInsumo = new List<DonacionesInsumos>();
 
+            foreach(int idNecesidadDonacion in idNecesidadesDonacionesABuscar)
+            {
+                DonacionesInsumos item = new DonacionesInsumos()
+                {
+                    IdNecesidadDonacionInsumo = idNecesidadDonacion,
+                    Cantidad = 0,
+                };
+                totalPorInsumo.Add(item);
+            }
+
             foreach(DonacionesInsumos donacion in donaciones)
             {
                 if(totalPorInsumo.Any(item => item.IdNecesidadDonacionInsumo == donacion.IdNecesidadDonacionInsumo))
                 {
                     DonacionesInsumos contadorInsumo = totalPorInsumo.First(item => item.IdNecesidadDonacionInsumo == donacion.IdNecesidadDonacionInsumo);
                     contadorInsumo.Cantidad += donacion.Cantidad;
-                } else
-                {
-                    totalPorInsumo.Add(donacion);
                 }
             }
 
