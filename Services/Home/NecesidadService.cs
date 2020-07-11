@@ -158,7 +158,11 @@ namespace Services.Home
         /// <returns></returns>
         public List<Necesidades> GetNecesidadesPorNombre(string nombre)
         {
-            return necesidadRepository.BuscarPorNombre(nombre);
+            List<Necesidades> necesidades = necesidadRepository.BuscarPorNombre(nombre);
+
+            necesidades.Sort(new OrdenFechaFinValoracion());
+
+            return necesidades;
         }
 
         public Necesidades GetNecesidadPorId(int idNecesidad)
@@ -301,6 +305,20 @@ namespace Services.Home
                                                 .ToList();
 
             return lista;
+        }
+    }
+
+    public class OrdenFechaFinValoracion : IComparer<Necesidades>
+    {
+        public int Compare(Necesidades x, Necesidades y)
+        {
+            if(x.FechaFin == y.FechaFin)
+            {
+                return x.Valoracion.Value.CompareTo(y.Valoracion.Value);
+            } else
+            {
+                return x.FechaFin.CompareTo(y.FechaFin);
+            }
         }
     }
 }
