@@ -1,0 +1,28 @@
+﻿@using Models.ORM
+@model List<Necesidades>
+
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_UsuarioLayout.cshtml";
+}
+
+<div class="col s12 m12 l12">
+    <div class="row titulo-usuario">
+        <div class="titulo-inicio blue-text accent-3 center">
+            <h5>NECESIDADES DE OTROS USUARIOS</h5>
+        </div>
+        <hr />
+    </div>
+    <div class="row">
+        <div id="visualizarActivos" class="mostrar">
+            @foreach (Necesidades necesidad in Model.Where(a => a.FechaFin >= DateTime.Now))
+            {
+                @Html.Partial("pv_CardOtrasNecesidades", necesidad)
+            }
+        </div>
+    </div>
+
+    <div id="modalDetalle" class="modal modal-fixed-footer"></div>
+    <div id="modalEditar" class="modal modal-fixed-footer"></div>
+</div>
+

@@ -57,22 +57,23 @@ namespace WebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                if (usuario.RespuestaLogin == true)
-                {
+                if (usuario.RespuestaLogin == true && usuario.Activo == true)
+                {                    
                     SesionHelper.Email = usuario.Email;
                     SesionHelper.UserName = usuario.UserName;
                     SesionHelper.IdUsuario = usuario.IdUsuario.ToString();
                     SesionHelper.TipoUsuario = usuario.TipoUsuario;
                     FormsAuthentication.SetAuthCookie(SesionHelper.IdUsuario, false);
 
-                    if (usuario.Activo == true)
+                    if (SesionHelper.UserName == null)
                     {
                         return RedirectToAction("Inicio", "Perfil");
                     }
                     else
                     {
-                        return View(usuario);
-                    }                 
+                        return RedirectToAction("Inicio", "MisNecesidades");
+                    }
+                                                
                 }
             }
 
@@ -96,12 +97,6 @@ namespace WebApp.Controllers
             }
 
             return View(usuario);
-        }
-
-        [HttpGet]
-        public ActionResult Bienvenido()
-        {
-            return View();
         }
 
         [HttpGet]

@@ -1,0 +1,28 @@
+﻿@using Models.ORM
+@model Necesidades
+
+<div class="col s12 m6 l6">
+    <div class="card horizontal light-blue darken-3 white-text">
+        <div class="card-image col s12 m3 l3">
+            <img src="~/Images/Necesidad/img.png" />
+        </div>
+        <div class="card-content col s12 m9 l9">
+            <h6>@Model.Nombre</h6>
+            <div class="col s12 m8 l8">
+                <p>@Model.Descripcion</p>
+                <p>@Model.FechaCreacion.ToString("d")</p>
+            </div>
+            <div class="col offset-m1 offset-l1 m3 l3">
+                <a class="btn grey waves-effect waves-light white-text modal-trigger "
+                   onclick='VerDetalle("/OtrasNecesidades/VerDetalle/@Model.IdNecesidad")'
+                   href="#modalDetalle">Detalle</a>
+            </div>
+            <div class="col s12 m12 l12 btn-action">               
+                <a class="btn yellow darken-1 waves-effect waves-light white-text btn-small" href="/OtrasNecesidades/Denunciar/@Model.IdNecesidad">Denunciar</a>
+                <a class="btn indigo waves-effect waves-light white-text btn-small" href="/OtrasNecesidades/NoMeGusta/@Model.IdNecesidad">No me gusta</a>
+                <a class="btn red lighten-1 waves-effect waves-light white-text btn-small" href="/OtrasNecesidades/MeGusta/@Model.IdNecesidad">No gusta</a>
+                <a class="btn teal waves-effect waves-light white-text btn-small" href="/OtrasNecesidades/Donar/@Model.IdNecesidad">Donar</a>
+            </div>
+        </div>
+    </div>
+</div>

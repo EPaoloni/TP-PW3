@@ -8,8 +8,6 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using WebApp.Helpers;
 
-
-
 namespace WebApp.Filters
 {
     public class PerfilAttribute : ActionFilterAttribute
