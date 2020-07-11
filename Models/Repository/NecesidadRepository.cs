@@ -65,7 +65,24 @@ namespace Models.Repository
 
             if(necesidadOriginal != null)
             {
-                necesidadOriginal = necesidad;
+                necesidadOriginal.Descripcion = necesidad.Descripcion;
+                necesidadOriginal.Estado = necesidad.Estado;
+                necesidadOriginal.FechaFin = necesidad.FechaFin;
+                if(necesidad.Foto != null)
+                {
+                    necesidadOriginal.Foto = necesidad.Foto;
+                }
+                necesidadOriginal.TelefonoContacto = necesidad.TelefonoContacto;
+                necesidadOriginal.Valoracion = necesidad.Valoracion;
+
+                if(necesidad.TipoDonacion == 1)
+                {
+                    necesidadOriginal.NecesidadesDonacionesMonetarias = necesidad.NecesidadesDonacionesMonetarias;
+                } else
+                {
+                    necesidadOriginal.NecesidadesDonacionesInsumos = necesidad.NecesidadesDonacionesInsumos;
+                }
+
                 SaveChanges(context);
             }
         }
@@ -188,6 +205,15 @@ namespace Models.Repository
         public List<NecesidadesDonacionesInsumos> BuscarNecesidadDonacionInsumosPorIdNecesidad(int idNecesidad, int insumo)
         {
             var resultado = context.NecesidadesDonacionesInsumos.Where(o => o.IdNecesidad == idNecesidad && o.IdNecesidadDonacionInsumo == insumo );
+
+            List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos = new List<NecesidadesDonacionesInsumos>(resultado);
+
+            return necesidadesDonacionesInsumos;
+        }
+
+        public List<NecesidadesDonacionesInsumos> BuscarTodasLasNecesidadDonacionInsumosPorIdNecesidad(int idNecesidad)
+        {
+            var resultado = context.NecesidadesDonacionesInsumos.Where(o => o.IdNecesidad == idNecesidad);
 
             List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos = new List<NecesidadesDonacionesInsumos>(resultado);
 

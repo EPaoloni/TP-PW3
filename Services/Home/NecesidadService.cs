@@ -94,6 +94,31 @@ namespace Services.Home
         {
             Necesidades necesidad = GenerarNecesidades(necesidadModificacion);
 
+            necesidad.IdNecesidad = necesidadModificacion.IdNecesidad;
+
+            //if (necesidadModificacion.TipoDonacion == 1)
+            //{
+            //    NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias = necesidadRepository.BuscarNecesidadDonacionMonetariaPorIdNecesidad(necesidadModificacion.IdNecesidad);
+            //    necesidadesDonacionesMonetarias.CBU = necesidadModificacion.NecesidadDonacionMonetaria.CBU;
+            //    necesidadesDonacionesMonetarias.Dinero = necesidadModificacion.NecesidadDonacionMonetaria.Dinero;
+            //}
+            //else
+            //{
+            //    List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos = necesidadRepository.BuscarTodasLasNecesidadDonacionInsumosPorIdNecesidad(necesidadModificacion.IdNecesidad);
+            //    foreach (NecesidadesDonacionesInsumos necesidadDonacion in necesidadesDonacionesInsumos)
+            //    {
+            //        NecesidadDonacionInsumo item = necesidadModificacion.NecesidadesDonacionesInsumos.SingleOrDefault(o => o.Nombre == necesidadDonacion.Nombre);
+            //        if (item != null)
+            //        {
+            //            necesidadDonacion.Cantidad = item.Cantidad;
+            //        }
+            //        else
+            //        {
+            //            necesidadesDonacionesInsumos.Remove(necesidadDonacion);
+            //        }
+            //    }
+            //}
+
             necesidadRepository.Modificar(necesidad);
         }
 
