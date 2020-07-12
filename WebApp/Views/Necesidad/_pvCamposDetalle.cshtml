@@ -1,4 +1,4 @@
-﻿@model Models.ORM.Necesidades
+@model Models.ORM.Necesidades
 
 
 
@@ -80,7 +80,8 @@
                     foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
                     {
                         Models.ORM.DonacionesInsumos totalItem = totalRecaudadoPorItem.First(item => item.IdNecesidadDonacionInsumo == insumo.IdNecesidadDonacionInsumo);
-                        <tr>
+                        var classNames = (insumo.Cantidad <= totalItem.Cantidad) ? "red" : "";
+                        <tr class="@classNames ">
                             <td>@insumo.Nombre</td>
                             <td>@insumo.Cantidad</td>
                             <td>@totalItem.Cantidad</td>
