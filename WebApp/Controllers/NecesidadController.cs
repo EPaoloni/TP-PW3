@@ -134,8 +134,7 @@ namespace WebApp.Controllers
         {
             NecesidadesValoraciones necesidadValoracion = new NecesidadesValoraciones()
             {
-                //TODO: Sacar este hardcode
-                IdUsuario = 1,
+                IdUsuario = int.Parse(SesionHelper.IdUsuario),
                 Valoracion = (valoracion == 1) ? true : false,
                 IdNecesidad = idNecesidad
             };
