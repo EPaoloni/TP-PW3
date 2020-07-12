@@ -223,9 +223,14 @@
         <div class="input-field">
             <select name="insumo" id="insumo">
                 @{
-                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumo in Model.NecesidadesDonacionesInsumos)
+                    List<Models.ORM.DonacionesInsumos> totalRecaudadoItem = (List<Models.ORM.DonacionesInsumos>)ViewBag.itemsRecaudadosInsumos;
+                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumoDonacion in Model.NecesidadesDonacionesInsumos)
                     {
-                        <option value="@insumo.IdNecesidadDonacionInsumo">@insumo.Nombre</option>
+                        Models.ORM.DonacionesInsumos totalItem = totalRecaudadoItem.First(item => item.IdNecesidadDonacionInsumo == insumoDonacion.IdNecesidadDonacionInsumo);
+                        if (insumoDonacion.Cantidad > totalItem.Cantidad)
+                    {
+                            <option value="@insumoDonacion.IdNecesidadDonacionInsumo">@insumoDonacion.Nombre</option>
+                        }
                     }
                 }
             </select>
