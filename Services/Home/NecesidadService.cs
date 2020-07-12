@@ -152,10 +152,10 @@ namespace Services.Home
             
             if (votoPositivo)
             {
-                nuevoPromedio = necesidad.Valoracion + (1 - necesidad.Valoracion / cantidadValoraciones);
+                nuevoPromedio = necesidad.Valoracion + ((1 - necesidad.Valoracion) / cantidadValoraciones);
             } else
             {
-                nuevoPromedio = necesidad.Valoracion + (0 - necesidad.Valoracion / cantidadValoraciones);
+                nuevoPromedio = necesidad.Valoracion + ((0 - necesidad.Valoracion) / cantidadValoraciones);
             }
 
             nuevoPromedio = Math.Round(nuevoPromedio.Value, 2);
