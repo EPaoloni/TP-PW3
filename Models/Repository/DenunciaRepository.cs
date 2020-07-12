@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +28,7 @@ namespace Models.Repository
             Necesidades necesidad = context.Necesidades.SingleOrDefault(o => o.IdNecesidad == idNecesidad);
 
             //TODO: Verificar que el estado de revision sea 3
-            necesidad.Estado = 3;
+            necesidad.Estado = 2;
 
             context.SaveChanges();
         }
