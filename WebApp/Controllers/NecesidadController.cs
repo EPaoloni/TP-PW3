@@ -125,7 +125,7 @@ namespace WebApp.Controllers
 
         public ActionResult BajaNecesidad(int idNecesidad)
         {
-            necesidadService.BajaNecesidad(idNecesidad);
+            necesidadService.BajaNecesidad(idNecesidad, int.Parse(SesionHelper.IdUsuario));
 
             return RedirectToAction("Inicio");
         }
@@ -156,18 +156,17 @@ namespace WebApp.Controllers
             return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }
 
-        public ActionResult RealizarDonacionMonetaria(int idNecesidad, decimal monto, string comprobante)
+        public ActionResult RealizarDonacionMonetaria(int idNecesidad, decimal monto, HttpPostedFileBase comprobante)
         {
-            DonacionesMonetarias donacionesMonetarias = new DonacionesMonetarias();
-            donacionesMonetarias.ArchivoTransferencia = comprobante;
-            donacionesMonetarias.Dinero = monto;
-            donacionesMonetarias.FechaCreacion = DateTime.Now;
-            donacionesMonetarias.IdUsuario = int.Parse(SesionHelper.IdUsuario);
+            DonacionMonetaria donacionMonetaria = new DonacionMonetaria();
+            donacionMonetaria.ArchivoTransferencia = comprobante;
+            donacionMonetaria.Monto = monto;
+            donacionMonetaria.IdUsuario = int.Parse(SesionHelper.IdUsuario);
 
-            donacionesMonetarias.NecesidadesDonacionesMonetarias = necesidadService.GetNecesidadesDonacionesMonetarias(idNecesidad);
+            donacionMonetaria.IdNecesidad = idNecesidad;
 
-
-            donacionService.CrearDonacionMonetaria(donacionesMonetarias);
+            
+            donacionService.CrearDonacionMonetaria(donacionMonetaria);
 
             return RedirectToAction("DetalleNecesidad", new { idNecesidad = idNecesidad });
         }

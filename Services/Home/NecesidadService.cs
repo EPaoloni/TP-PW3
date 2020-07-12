@@ -122,12 +122,11 @@ namespace Services.Home
             necesidadRepository.Modificar(necesidad);
         }
 
-        public void BajaNecesidad(int idNecesidad)
+        public void BajaNecesidad(int idNecesidad, int usuarioSession)
         {
             Necesidades necesidad = GetNecesidadPorId(idNecesidad);
 
-            //TODO: Cambiar por el id guardado en Session["idUsuario"]
-            int idUsuarioLogueado = 3;
+            int idUsuarioLogueado = usuarioSession;
 
             if (necesidad.IdUsuarioCreador == idUsuarioLogueado)
             {

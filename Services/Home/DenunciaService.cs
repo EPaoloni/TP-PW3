@@ -18,11 +18,6 @@ namespace Services.Home
 
         public void Crear(int idNecesidad, int motivoDenuncia, string comentario, int idUsuario)
         {
-            //TODO: Ver como manejar esto de los comentarios
-            //List<Comentarios> comentarios = new List<Comentarios>();
-            //Comentarios comentario = new Comentarios() { Descripcion = descripcion };
-            //comentarios.Add(comentario);
-
             //Habria que cambiar esto en la DB y hacer que IdDenuncia sea identity
             int idUltimaDenuncia = denunciaRepository.GetIdUltimaDenuncia();
 
