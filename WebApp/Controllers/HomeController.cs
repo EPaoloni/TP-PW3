@@ -40,7 +40,7 @@ namespace WebApp.Controllers
 
         public ActionResult BuscarPorNombre(string nombre)
         {
-            List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombre(nombre);
+            List<Necesidades> necesidades = necesidadService.GetNecesidadesPorNombreYUsuario(nombre);
 
             if(SesionHelper.IdUsuario != null)
             {

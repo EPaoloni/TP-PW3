@@ -114,6 +114,20 @@ namespace Models.Repository
                 return null;
             }
         }
+        public List<ORM.Necesidades> BuscarPorNombreUsuario(List<int> listaIdUsuarios)
+        {
+            var necesidadesObtenidas = dbSet.Where(necesidad => listaIdUsuarios.Contains(necesidad.IdUsuarioCreador) && necesidad.FechaFin >= DateTime.Now && necesidad.Estado == 1);
+
+            if (necesidadesObtenidas != null)
+            {
+                List<ORM.Necesidades> necesidades = new List<ORM.Necesidades>(necesidadesObtenidas);
+                return necesidades;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public List<ORM.Necesidades> BuscarPorCreador(int idUsuarioCreador)
         {

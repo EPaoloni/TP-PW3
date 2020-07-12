@@ -19,10 +19,12 @@ namespace Services.Home
     public class NecesidadService
     {
         NecesidadRepository necesidadRepository;
+        UsuarioRepository usuarioRepository;
 
         public NecesidadService(PandemiaEntities context)
         {
             necesidadRepository = new NecesidadRepository(context);
+            usuarioRepository = new UsuarioRepository(context);
         }
         public List<Necesidades> GetNecesidades(PandemiaEntities context)
         {
@@ -187,6 +189,35 @@ namespace Services.Home
             necesidades.Sort(new OrdenFechaFinValoracion());
 
             return necesidades;
+        }
+
+        public List<Necesidades> GetNecesidadesPorNombreUsuario(string nombre)
+        {
+            List<int> listaIdUsuarios = usuarioRepository.BuscarIdUsuariosPorNombre(nombre);
+
+            List<Necesidades> necesidades = necesidadRepository.BuscarPorNombreUsuario(listaIdUsuarios);
+            return necesidades;
+        }
+
+        public List<Necesidades> GetNecesidadesPorNombreYUsuario(string nombre)
+        {
+            List<Necesidades> necesidadesPorNombre = GetNecesidadesPorNombre(nombre);
+            List<Necesidades> necesidadesPorUsuario = GetNecesidadesPorNombreUsuario(nombre);
+
+            // Armo una lista nueva con las necesidades por nombre, y luego veo si estan las de usuario y las agrego
+            List<Necesidades> necesidadesARetornar = new List<Necesidades>(necesidadesPorNombre);
+
+            foreach(Necesidades necesidad in necesidadesPorUsuario)
+            {
+                if (!necesidadesARetornar.Contains(necesidad))
+                {
+                    necesidadesARetornar.Add(necesidad);
+                }
+            }
+
+            necesidadesARetornar.Sort(new OrdenFechaFinValoracion());
+
+            return necesidadesARetornar;
         }
 
         public Necesidades GetNecesidadPorId(int idNecesidad)

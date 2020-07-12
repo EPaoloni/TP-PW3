@@ -89,6 +89,21 @@ namespace Models.Repository
 
             context.SaveChanges();
         }
+        
+        public List<int> BuscarIdUsuariosPorNombre(string nombre)
+        {
+            var idUsuarios = dbSet.Where(o => o.UserName.Contains(nombre)).Select(o => o.IdUsuario);
+
+            if(idUsuarios != null)
+            {
+                List<int> listaUsuarios = new List<int>(idUsuarios);
+                return listaUsuarios;
+            } else
+            {
+                return null;
+            }
+
+        }
 
     }
 }
