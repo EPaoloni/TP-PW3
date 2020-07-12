@@ -1,4 +1,4 @@
-@model Models.ORM.Necesidades
+﻿@model Models.ORM.Necesidades
 
 
 
@@ -185,8 +185,7 @@
 </div>
 
 <div id="form-donacion-monetaria-container" style="display:none;">
-    <form action="./RealizarDonacionMonetaria">
-        decimal monto, string comprobante
+    <form action="./RealizarDonacionMonetaria" enctype="multipart/form-data" method="post">
         <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
 
         <div class="input-field">
@@ -194,17 +193,12 @@
             <input name="monto" id="monto" required />
         </div>
 
-        <div class="input-field col s6 l4">
+        <div class="input-field">
             <label>Comprobante</label>
             <div class="file-field input-field">
-                <div class="btn btn-primary">
-                    <span>Buscar</span>
-                    <input id="comprobante" name="comprobante" accept="image/*" type="file" required />
-                </div>
-
-                <div class="file-path-wrapper">
-                    <input class="file-path validate col s12" type="text" placeholder="Seleccione un archivo" />
-                    @Html.ValidationMessageFor(o => o.Foto)
+                <div class="btn waves-effect waves-light col s3 blue darken-3">
+                    <span>CARGAR COMPROBANTE</span>
+                    <input id="comprobante" name="comprobante" type="file" value="">
                 </div>
             </div>
         </div>
@@ -218,31 +212,31 @@
 <div id="form-donacion-insumo-container" style="display:none;">
     <form action="./RealizarDonacionInsumo">
         <div>
-        <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
+            <input name="idNecesidad" id="idNecesidad" type="hidden" value="@Model.IdNecesidad" readonly />
 
-        <div class="input-field">
-            <select name="insumo" id="insumo">
-                @{
-                    List<Models.ORM.DonacionesInsumos> totalRecaudadoItem = (List<Models.ORM.DonacionesInsumos>)ViewBag.itemsRecaudadosInsumos;
-                    foreach (Models.ORM.NecesidadesDonacionesInsumos insumoDonacion in Model.NecesidadesDonacionesInsumos)
-                    {
-                        Models.ORM.DonacionesInsumos totalItem = totalRecaudadoItem.First(item => item.IdNecesidadDonacionInsumo == insumoDonacion.IdNecesidadDonacionInsumo);
-                        if (insumoDonacion.Cantidad > totalItem.Cantidad)
-                    {
-                            <option value="@insumoDonacion.IdNecesidadDonacionInsumo">@insumoDonacion.Nombre</option>
+            <div class="input-field">
+                <select name="insumo" id="insumo">
+                    @{
+                        List<Models.ORM.DonacionesInsumos> totalRecaudadoItem = (List<Models.ORM.DonacionesInsumos>)ViewBag.itemsRecaudadosInsumos;
+                        foreach (Models.ORM.NecesidadesDonacionesInsumos insumoDonacion in Model.NecesidadesDonacionesInsumos)
+                        {
+                            Models.ORM.DonacionesInsumos totalItem = totalRecaudadoItem.First(item => item.IdNecesidadDonacionInsumo == insumoDonacion.IdNecesidadDonacionInsumo);
+                            if (insumoDonacion.Cantidad > totalItem.Cantidad)
+                            {
+                                <option value="@insumoDonacion.IdNecesidadDonacionInsumo">@insumoDonacion.Nombre</option>
+                            }
                         }
                     }
-                }
-            </select>
-        </div>
-        <div class="input-field">
-            <label for="cantidad">Cantidad</label>
-            <input name="cantidad" id="cantidad" required />
-        </div>
+                </select>
+            </div>
+            <div class="input-field">
+                <label for="cantidad">Cantidad</label>
+                <input name="cantidad" id="cantidad" required />
+            </div>
 
-        <div class="col s12">
-            <button class="btn btn-primary">Confirmar</button>
-        </div>
+            <div class="col s12">
+                <button class="btn btn-primary">Confirmar</button>
+            </div>
         </div>
     </form>
 </div>

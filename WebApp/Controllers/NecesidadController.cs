@@ -161,7 +161,6 @@ namespace WebApp.Controllers
             donacionMonetaria.ArchivoTransferencia = comprobante;
             donacionMonetaria.Monto = monto;
             donacionMonetaria.IdUsuario = int.Parse(SesionHelper.IdUsuario);
-
             donacionMonetaria.IdNecesidad = idNecesidad;
 
             

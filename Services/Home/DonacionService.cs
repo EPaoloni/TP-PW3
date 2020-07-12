@@ -1,6 +1,7 @@
 using Models.ORM;
 using Models.Repository;
 using Models.ViewModels;
+using Services.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,27 @@ namespace Services.Home
     {
         DonacionMonetariaRepository donacionMonetariaRepository;
         DonacionInsumoRepository donacionInsumoRepository;
+        NecesidadService necesidadService;
         public DonacionService(PandemiaEntities context)
         {
             donacionMonetariaRepository = new DonacionMonetariaRepository(context);
             donacionInsumoRepository = new DonacionInsumoRepository(context);
+            necesidadService = new NecesidadService(context);
         }
 
-        public void CrearDonacionMonetaria(DonacionesMonetarias donacionesMonetarias)
+        public void CrearDonacionMonetaria(DonacionMonetaria donacion)
         {
+            string path = GuardarArchivo(donacion);
+
+            DonacionesMonetarias donacionesMonetarias = new DonacionesMonetarias()
+            {
+                ArchivoTransferencia = path,
+                Dinero = donacion.Monto,
+                IdUsuario = donacion.IdUsuario,
+                FechaCreacion = DateTime.Now,
+                NecesidadesDonacionesMonetarias = necesidadService.GetNecesidadesDonacionesMonetarias(donacion.IdNecesidad)
+            };
+
             donacionMonetariaRepository.Crear(donacionesMonetarias);
         }
 
@@ -66,6 +80,14 @@ namespace Services.Home
 
             return totalPorInsumo;
 
+        }
+        public string GuardarArchivo(DonacionMonetaria donacion)
+        {
+            ArchivoService archivoService = new ArchivoService();
+
+            string rutaAux = archivoService.Guardar(donacion.ArchivoTransferencia, donacion.IdUsuario.ToString(), "donacion");
+
+            return rutaAux;
         }
     }
 }
