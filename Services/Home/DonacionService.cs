@@ -85,7 +85,7 @@ namespace Services.Home
         {
             ArchivoService archivoService = new ArchivoService();
 
-            string rutaAux = archivoService.Guardar(donacion.ArchivoTransferencia, donacion.IdUsuario.ToString(), "donacion");
+            string rutaAux = archivoService.Guardar(donacion.ArchivoTransferencia, "comprobantes-necesidad-" + donacion.IdNecesidad.ToString(), "donacion-usuario-" + donacion.IdUsuario.ToString());
 
             return rutaAux;
         }
