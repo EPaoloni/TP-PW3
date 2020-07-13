@@ -1,5 +1,8 @@
-Trabajo Práctico “Ayudando en la pandemia”
+# Trabajo Práctico - Programacion Web 3
 
+Aplicación en .net Framework basada en C#, con asp.net y Entity Framework, con base de datos en SQL Server
+
+Requerimientos:
 Desarrollar una aplicación web para las necesidades sociales generadas por la pandemia del
 COVID-19. Personas registradas en la aplicación web podrán publicar sus necesidades
 solicitando ayuda o donaciones. Las donaciones podrán ser monetarias o de bienes para ayudar
