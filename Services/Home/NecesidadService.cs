@@ -98,12 +98,13 @@ namespace Services.Home
 
             necesidad.IdNecesidad = necesidadModificacion.IdNecesidad;
 
-            //if (necesidadModificacion.TipoDonacion == 1)
-            //{
-            //    NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias = necesidadRepository.BuscarNecesidadDonacionMonetariaPorIdNecesidad(necesidadModificacion.IdNecesidad);
-            //    necesidadesDonacionesMonetarias.CBU = necesidadModificacion.NecesidadDonacionMonetaria.CBU;
-            //    necesidadesDonacionesMonetarias.Dinero = necesidadModificacion.NecesidadDonacionMonetaria.Dinero;
-            //}
+            if (necesidadModificacion.NecesidadDonacionMonetaria != null)
+            {
+                NecesidadesDonacionesMonetarias necesidadesDonacionesMonetarias = necesidadRepository.BuscarNecesidadDonacionMonetariaPorIdNecesidad(necesidadModificacion.IdNecesidad);
+                necesidadesDonacionesMonetarias.CBU = necesidadModificacion.NecesidadDonacionMonetaria.CBU;
+                necesidadesDonacionesMonetarias.Dinero = necesidadModificacion.NecesidadDonacionMonetaria.Dinero;
+                necesidad.NecesidadesDonacionesMonetarias.Add(necesidadesDonacionesMonetarias);
+            }
             //else
             //{
             //    List<NecesidadesDonacionesInsumos> necesidadesDonacionesInsumos = necesidadRepository.BuscarTodasLasNecesidadDonacionInsumosPorIdNecesidad(necesidadModificacion.IdNecesidad);
